@@ -30,6 +30,10 @@ const t = useTranslations(lang);
     rel="stylesheet"
     />
   </head>
+  <script is:inline>
+    const saved = localStorage.getItem("theme");
+    if (saved) document.documentElement.setAttribute("data-theme", saved);
+  </script>
   <body
   class="valley-bg text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen relative"
   >
@@ -66,6 +70,64 @@ const t = useTranslations(lang);
       </nav>
     </header>
     <slot />
+
+    <!-- Theme Switcher -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2" id="theme-switcher">
+      <div id="theme-panel" class="hidden flex-col gap-2 mb-1">
+        <button data-theme-value="" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-full text-sm font-label shadow-lg backdrop-blur-md border border-white/20 bg-[#fbf9f4]/90 text-[#36557b] hover:scale-105 transition-transform">
+          <span class="w-4 h-4 rounded-full border border-black/10 flex-shrink-0" style="background: linear-gradient(135deg, #36557b, #7b581e);"></span>
+          Fjord
+        </button>
+        <button data-theme-value="natt" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-full text-sm font-label shadow-lg backdrop-blur-md border border-white/10 bg-[#1e2c3d]/90 text-[#8bbef7] hover:scale-105 transition-transform">
+          <span class="w-4 h-4 rounded-full border border-white/10 flex-shrink-0" style="background: linear-gradient(135deg, #1e2c3d, #8bbef7);"></span>
+          Natt
+        </button>
+        <button data-theme-value="is" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-full text-sm font-label shadow-lg backdrop-blur-md border border-blue-100 bg-[#f0f8ff]/90 text-[#1a4f8c] hover:scale-105 transition-transform">
+          <span class="w-4 h-4 rounded-full border border-black/10 flex-shrink-0" style="background: linear-gradient(135deg, #1a4f8c, #3d80b0);"></span>
+          Is
+        </button>
+        <button data-theme-value="kobber" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-full text-sm font-label shadow-lg backdrop-blur-md border border-orange-100 bg-[#fdf8f3]/90 text-[#1e4fa8] hover:scale-105 transition-transform">
+          <span class="w-4 h-4 rounded-full border border-black/10 flex-shrink-0" style="background: linear-gradient(135deg, #1e4fa8, #b8521a);"></span>
+          Kobber
+        </button>
+      </div>
+      <button id="theme-toggle" class="w-11 h-11 rounded-full shadow-xl flex items-center justify-center backdrop-blur-md border border-white/20 bg-surface-bright/80 text-primary hover:scale-110 transition-transform" aria-label="Change theme">
+        <span class="material-symbols-outlined text-xl">palette</span>
+      </button>
+    </div>
+
+    <script>
+      const toggle = document.getElementById("theme-toggle");
+      const panel = document.getElementById("theme-panel");
+      const buttons = document.querySelectorAll(".theme-btn");
+
+      toggle?.addEventListener("click", () => {
+        panel?.classList.toggle("hidden");
+        panel?.classList.toggle("flex");
+      });
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const value = (btn as HTMLElement).dataset.themeValue ?? "";
+          if (value) {
+            document.documentElement.setAttribute("data-theme", value);
+            localStorage.setItem("theme", value);
+          } else {
+            document.documentElement.removeAttribute("data-theme");
+            localStorage.removeItem("theme");
+          }
+          panel?.classList.add("hidden");
+          panel?.classList.remove("flex");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!document.getElementById("theme-switcher")?.contains(e.target as Node)) {
+          panel?.classList.add("hidden");
+          panel?.classList.remove("flex");
+        }
+      });
+    </script>
   </body>
 
   <footer

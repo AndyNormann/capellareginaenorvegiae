@@ -57,3 +57,76 @@
   --radius-xl: 0.5rem;
   --radius-2xl: 0.75rem;
 }
+
+/* ─── Theme: Natt (Night) ─────────────────────────────────── */
+[data-theme="natt"] {
+  --color-primary: #8bbef7;
+  --color-on-primary: #00305e;
+  --color-primary-container: #1a4a80;
+  --color-secondary: #e8c07a;
+  --color-on-secondary: #3f2800;
+  --color-secondary-container: #3d2c00;
+  --color-on-secondary-container: #ffd996;
+  --color-tertiary: #b8a898;
+  --color-on-tertiary: #2a1e10;
+  --color-surface-bright: #1e2c3d;
+  --color-surface: #111820;
+  --color-background: #111820;
+  --color-surface-container-lowest: #192433;
+  --color-surface-container: #1e2c3d;
+  --color-on-surface: #d4e3f5;
+  --color-on-surface-variant: #90a8c0;
+  --color-outline: #4a6070;
+}
+
+/* ─── Theme: Is (Ice) ─────────────────────────────────────── */
+[data-theme="is"] {
+  --color-primary: #1a4f8c;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #2e6ab8;
+  --color-secondary: #3d80b0;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #c8e4f8;
+  --color-on-secondary-container: #0d3d5e;
+  --color-tertiary: #1c6091;
+  --color-on-tertiary: #ffffff;
+  --color-surface-bright: #f0f8ff;
+  --color-surface: #e6f3fc;
+  --color-background: #e6f3fc;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container: #d8eef9;
+  --color-on-surface: #0d1f2d;
+  --color-on-surface-variant: #2a4a62;
+  --color-outline: #5b8aaa;
+}
+
+/* ─── Theme: Kobber (Copper) ──────────────────────────────── */
+[data-theme="kobber"] {
+  --color-primary: #1e4fa8;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #2e65cc;
+  --color-secondary: #b8521a;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fce0d0;
+  --color-on-secondary-container: #7a2e08;
+  --color-tertiary: #7a4020;
+  --color-on-tertiary: #ffffff;
+  --color-surface-bright: #fdf8f3;
+  --color-surface: #fdf8f3;
+  --color-background: #fdf8f3;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container: #f4ede4;
+  --color-on-surface: #1c1208;
+  --color-on-surface-variant: #52341e;
+  --color-outline: #9e6a44;
+}
+
+/* ─── Night theme: darken the valley background ───────────── */
+[data-theme="natt"] .valley-bg::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 10, 18, 0.72);
+  pointer-events: none;
+  z-index: 0;
+}
