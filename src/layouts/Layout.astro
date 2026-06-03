@@ -38,7 +38,7 @@ const t = useTranslations(lang);
   class="valley-bg text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen relative"
   >
     <header
-    class="bg-[#fbf9f4]/85 backdrop-blur-md sticky top-0 z-40 border-b border-stone-200/40"
+    class="bg-surface-bright/85 backdrop-blur-md sticky top-0 z-40 border-b border-on-surface/10"
     >
       <nav
       class="flex justify-between items-center w-full pl-2 pr-6 py-3 max-w-6xl mx-auto"
@@ -54,11 +54,11 @@ const t = useTranslations(lang);
         </a>
         <div class="flex gap-6 items-center">
           <a
-          class="text-stone-700 hover:text-primary transition-colors font-['Newsreader'] italic text-base tracking-tight"
+          class="text-on-surface/80 hover:text-primary transition-colors font-['Newsreader'] italic text-base tracking-tight"
           href="story">{t("nav.story")}</a
           >
           <a
-          class="text-stone-700 hover:text-primary transition-colors font-['Newsreader'] italic text-base tracking-tight"
+          class="text-on-surface/80 hover:text-primary transition-colors font-['Newsreader'] italic text-base tracking-tight"
           href="/capellareginaenorvegiae">{t("nav.chapel")}</a
           >
           <a
@@ -131,13 +131,13 @@ const t = useTranslations(lang);
   </body>
 
   <footer
-  class="bg-[#fbf9f4]/90 backdrop-blur-sm w-full mt-20 pb-12 border-t border-stone-300/30 pt-8"
+  class="bg-surface-bright/90 backdrop-blur-sm w-full mt-20 pb-12 border-t border-on-surface/10 pt-8"
   >
     <div
     class="flex flex-col items-center gap-4 w-full px-4 max-w-4xl mx-auto text-center"
     >
       <div
-      class="text-lg font-medium text-stone-900 font-['Newsreader'] italic"
+      class="text-lg font-medium text-on-surface font-['Newsreader'] italic"
       >
         Capella Reginae Norvegiae
       </div>
@@ -145,10 +145,10 @@ const t = useTranslations(lang);
         Built with love in Gudbrandsdalen.
       </p>
       <p>
-        <a class="text-sm pr-4 hover:underline" href="/capellareginaenorvegiae/no">Norsk</a>
-        <a class="text-sm hover:underline" href="/capellareginaenorvegiae/en">English</a>
+        <a class="text-sm pr-4 text-on-surface/70 hover:text-primary hover:underline transition-colors" href="/capellareginaenorvegiae/no">Norsk</a>
+        <a class="text-sm text-on-surface/70 hover:text-primary hover:underline transition-colors" href="/capellareginaenorvegiae/en">English</a>
       </p>
-      <div class="mt-4 text-xs font-label text-stone-500">
+      <div class="mt-4 text-xs font-label text-on-surface/50">
         © 2026 Mathias and his companions.
       </div>
     </div>

@@ -14,7 +14,7 @@ import dalen from "@assets/dalen_sundown.jpg";
     <!-- Hero Section -->
     <section class="min-h-[88vh] grid grid-cols-1 md:grid-cols-12 gap-8 items-center py-16 md:py-24">
       <div class="md:col-span-7 order-2 md:order-1 relative z-10">
-        <div class="bg-[#fbf9f4]/85 backdrop-blur-md rounded-2xl p-8 md:p-10 shadow-lg border border-white/40">
+        <div class="bg-surface-bright/85 backdrop-blur-md rounded-2xl p-8 md:p-10 shadow-lg border border-on-surface/10">
           <div
             class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 bg-secondary-container text-on-secondary-container rounded-full font-label text-xs uppercase tracking-[0.2em] shadow-sm"
           >
@@ -54,7 +54,7 @@ import dalen from "@assets/dalen_sundown.jpg";
       <div class="md:col-span-5 order-1 md:order-2 relative flex justify-center md:justify-end">
         <div class="relative">
           <div
-            class="relative bg-white p-3 pb-14 shadow-2xl rotate-2 w-72 md:w-80"
+            class="relative bg-surface-container-lowest p-3 pb-14 shadow-2xl rotate-2 w-72 md:w-80"
             style="box-shadow: 4px 6px 32px rgba(0,0,0,0.25), 0 1px 3px rgba(0,0,0,0.12);"
           >
             <Image
@@ -79,7 +79,7 @@ import dalen from "@assets/dalen_sundown.jpg";
 
     <!-- Before/After slider -->
     <section class="mb-32">
-      <div class="bg-white p-3 shadow-xl" style="box-shadow: 3px 5px 24px rgba(0,0,0,0.18);">
+      <div class="bg-surface-container-lowest p-3 shadow-xl" style="box-shadow: 3px 5px 24px rgba(0,0,0,0.18);">
         <BeforeAfterSlider
           before={before}
           after={after}
@@ -94,8 +94,7 @@ import dalen from "@assets/dalen_sundown.jpg";
     <!-- Fundraiser Section -->
     <section class="mb-24 relative overflow-hidden">
       <div
-        class="rounded-sm p-8 md:p-16 relative"
-        style="background: linear-gradient(135deg, #fdf6e3 0%, #fef3cd 50%, #fdf0c2 100%); border: 1px solid rgba(123, 88, 30, 0.15); box-shadow: 0 20px 60px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9);"
+        class="fundraiser-panel"
       >
         <!-- Top rule -->
         <div class="flex items-center gap-4 mb-10">

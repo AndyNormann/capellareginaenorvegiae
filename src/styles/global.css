@@ -121,6 +121,37 @@
   --color-outline: #9e6a44;
 }
 
+/* ─── Fundraiser panel ────────────────────────────────────── */
+.fundraiser-panel {
+  background: linear-gradient(135deg, #fdf6e3 0%, #fef3cd 50%, #fdf0c2 100%);
+  border: 1px solid rgba(123, 88, 30, 0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9);
+  border-radius: 2px;
+  padding: 2rem;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .fundraiser-panel { padding: 4rem; }
+}
+
+[data-theme="natt"] .fundraiser-panel {
+  background: linear-gradient(135deg, #1a2535 0%, #1e2c3d 50%, #223045 100%);
+  border-color: rgba(139, 190, 247, 0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+[data-theme="is"] .fundraiser-panel {
+  background: linear-gradient(135deg, #dceeff 0%, #e8f4ff 50%, #d4eaff 100%);
+  border-color: rgba(26, 79, 140, 0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+[data-theme="kobber"] .fundraiser-panel {
+  background: linear-gradient(135deg, #fdf0e6 0%, #fce8d8 50%, #fbe0cc 100%);
+  border-color: rgba(184, 82, 26, 0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
 /* ─── Night theme: darken the valley background ───────────── */
 [data-theme="natt"] .valley-bg::after {
   content: "";
