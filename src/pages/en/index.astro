@@ -7,161 +7,206 @@ import after from "@assets/after.webp";
 ---
 
 <Layout>
-  <main class="max-w-6xl mx-auto px-4 sm:px-8 py-12 md:py-24">
+  <main class="max-w-6xl mx-auto px-4 sm:px-8">
+
     <!-- Hero Section -->
-    <section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-32">
-      <div
-        class="md:col-span-7 order-2 md:order-1 relative z-10 bg-surface-bright/80 backdrop-blur-sm p-8 rounded-2xl shadow-sm"
-      >
+    <section class="min-h-[88vh] grid grid-cols-1 md:grid-cols-12 gap-8 items-center py-16 md:py-24">
+      <div class="md:col-span-7 order-2 md:order-1 relative z-10">
         <div
-          class="inline-block px-4 py-1 mb-6 bg-secondary-container text-on-secondary-container rounded-2xl font-label text-xs uppercase tracking-widest shadow-sm"
+          class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 bg-secondary-container/90 text-on-secondary-container rounded-full font-label text-xs uppercase tracking-[0.2em] shadow-sm backdrop-blur-sm"
         >
+          <span class="w-1.5 h-1.5 rounded-full bg-secondary inline-block"></span>
           Gudbrandsdalen Valley
         </div>
         <h1
-          class="font-sketch text-5xl md:text-7xl text-primary mb-8 leading-tight"
+          class="font-sketch text-6xl md:text-8xl text-primary mb-6 leading-[1.05]"
         >
-          Where our hands meet the mountain stone.
+          Where our hands<br/>meet the<br/>mountain stone.
         </h1>
-        <p class="font-headline italic text-2xl text-tertiary mb-10 max-w-lg">
+        <div class="w-20 h-px bg-secondary/40 mb-8"></div>
+        <p class="font-headline italic text-xl md:text-2xl text-tertiary mb-12 max-w-md leading-relaxed">
           We're four friends with a dream to build a sanctuary for our
           community.
         </p>
-        <div class="flex flex-wrap gap-8 items-center">
+        <div class="flex flex-wrap gap-6 items-center">
           <a
-            class="font-headline italic text-xl text-primary border-b border-primary/30 pb-1 hover:border-primary transition-all"
-            href="#"
+            class="flex items-center gap-2 px-8 py-3.5 bg-primary text-on-primary rounded-sm font-label text-sm hover:bg-primary/90 transition-colors shadow-lg tracking-wide"
+            href="story"
           >
             Our Story
+            <span class="material-symbols-outlined text-base">arrow_forward</span>
           </a>
           <a
-            class="flex items-center gap-2 px-8 py-3 bg-primary text-on-primary rounded-md font-label text-sm hover:opacity-90 transition-opacity shadow-lg"
-            href="#"
+            class="font-headline italic text-lg text-primary/80 hover:text-primary border-b border-primary/20 pb-0.5 hover:border-primary/60 transition-all"
+            href="https://www.spleis.no/project/485151?s=c"
+            target="_blank"
           >
-            Visit Us
-            <span class="material-symbols-outlined text-sm">north_east</span>
+            Support us
           </a>
         </div>
       </div>
-      <div class="md:col-span-5 order-1 md:order-2 relative">
-        <div
-          class="relative w-full aspect-4/5 bg-surface-bright/80 rounded-xl overflow-hidden rotate-2 shadow-xl border-10 border-surface-container-lowest"
-        >
-          <Image
-            alt="Four friends standing in a misty Norwegian valley"
-            class="w-full h-full object-cover grayscale-20 sepia-10 mix-blend-multiply opacity-90"
-            data-alt="Four friends standing in a misty Norwegian valley"
-            src={klem}
-          />
+
+      <!-- Polaroid photo -->
+      <div class="md:col-span-5 order-1 md:order-2 relative flex justify-center md:justify-end">
+        <div class="relative">
           <div
-            class="absolute bottom-4 right-4 font-sketch text-tertiary text-lg"
+            class="relative bg-white p-3 pb-14 shadow-2xl rotate-2 w-72 md:w-80"
+            style="box-shadow: 4px 6px 32px rgba(0,0,0,0.25), 0 1px 3px rgba(0,0,0,0.12);"
           >
-            August, 2023
+            <Image
+              alt="Four friends standing in a misty Norwegian valley"
+              class="w-full aspect-square object-cover"
+              src={klem}
+            />
+            <div class="absolute bottom-3 left-0 right-0 text-center font-sketch text-tertiary text-xl">
+              August, 2023
+            </div>
           </div>
-        </div>
-        <!-- Marginalia Note -->
-        <div
-          class="absolute -bottom-8 -left-8 md:-left-16 bg-secondary-container text-on-secondary-container p-6 rounded-lg -rotate-3 shadow-lg max-w-50 z-20"
-        >
-          <p class="font-sketch text-lg leading-snug">
-            The valley smells of pine and fresh rain today.
-          </p>
+          <!-- Sticky note -->
+          <div
+            class="absolute -bottom-6 -left-10 bg-secondary-container/95 text-on-secondary-container px-5 py-4 -rotate-4 shadow-lg max-w-44 backdrop-blur-sm"
+            style="clip-path: polygon(0 0, 100% 0, 100% 92%, 94% 100%, 0 100%);"
+          >
+            <p class="font-sketch text-base leading-snug">
+              The valley smells of pine and fresh rain.
+            </p>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- Thin ornamental divider -->
+    <div class="flex items-center gap-6 mb-24 opacity-40">
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent to-secondary/50"></div>
+      <span class="material-symbols-outlined text-secondary text-xl">spa</span>
+      <div class="flex-1 h-px bg-gradient-to-l from-transparent to-secondary/50"></div>
+    </div>
+
     <!-- Scrapbook Grid Section -->
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 mb-32">
-      <!-- Asymmetric Card 1 -->
-      <div class="md:pt-12">
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-20 md:gap-6 mb-32">
+      <!-- Card 1 -->
+      <div class="md:pt-8 flex flex-col items-center md:items-start">
         <div
-          class="bg-surface-container-lowest p-6 rounded-md shadow-lg mb-6 -rotate-1"
+          class="bg-white p-3 pb-16 shadow-xl -rotate-2 w-full max-w-xs relative"
+          style="box-shadow: 3px 5px 24px rgba(0,0,0,0.18);"
         >
           <Image
             alt="A simple wooden chapel frame in the mountains"
-            class="w-full aspect-square object-cover mb-4 rounded-sm"
-            data-alt="A simple wooden chapel frame in the mountains"
+            class="w-full aspect-square object-cover"
             src={before}
           />
-          <h3 class="font-headline italic text-xl text-tertiary">The Vision</h3>
-          <p class="font-body text-sm text-on-surface-variant mt-2">
-            A place of quiet, crafted from the very trees that surround us. No
-            pretense, just peace.
-          </p>
-        </div>
-      </div>
-      <!-- Central Large Element -->
-      <div class="md:col-span-1 relative">
-        <div
-          class="p-8 text-center bg-surface-bright/80 backdrop-blur-lg rounded-2xl aspect-square flex flex-col justify-center items-center shadow-inner border border-white/20"
-        >
-          <span
-            class="material-symbols-outlined text-4xl text-secondary mb-6"
-            data-weight="fill">temple_buddhist</span
-          >
-          <h2 class="font-headline text-3xl italic text-primary mb-6">
-            Built by Hand
-          </h2>
-          <p class="font-body text-tertiary leading-relaxed mb-8 text-sm">
-            Every stone in the foundation was carried by one of us. Every beam
-            was measured with a shared laugh. We aren't contractors; we are
-            neighbors weaving ourselves into the land.
-          </p>
-          <div class="w-16 h-px bg-secondary/30 mx-auto mb-8"></div>
-          <div class="font-sketch text-2xl text-secondary">
-            Mathias, Marie, Ayla og Andreas
+          <div class="absolute bottom-4 left-3 right-3">
+            <h3 class="font-sketch text-xl text-tertiary">The Vision</h3>
+            <p class="font-body text-xs text-on-surface-variant mt-1 leading-snug">
+              A place of quiet, crafted from the very trees that surround us. No pretense, just peace.
+            </p>
           </div>
         </div>
       </div>
-      <!-- Asymmetric Card 2 -->
-      <div class="md:pt-24">
+
+      <!-- Central card — manuscript style -->
+      <div class="flex items-start justify-center">
         <div
-          class="bg-surface-container-lowest p-6 rounded-xl shadow-lg rotate-2"
+          class="p-8 text-center bg-surface-bright/90 backdrop-blur-lg rounded-sm flex flex-col justify-center items-center border border-secondary/20 relative w-full"
+          style="box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 8px 32px rgba(0,0,0,0.08);"
+        >
+          <!-- Corner ornaments -->
+          <span class="absolute top-3 left-3 font-sketch text-secondary/30 text-2xl leading-none">✦</span>
+          <span class="absolute top-3 right-3 font-sketch text-secondary/30 text-2xl leading-none">✦</span>
+          <span class="absolute bottom-3 left-3 font-sketch text-secondary/30 text-2xl leading-none">✦</span>
+          <span class="absolute bottom-3 right-3 font-sketch text-secondary/30 text-2xl leading-none">✦</span>
+
+          <div class="w-10 h-px bg-secondary/30 mb-6"></div>
+          <h2 class="font-headline text-3xl italic text-primary mb-5 leading-tight">
+            Built<br/>by Hand
+          </h2>
+          <p class="font-body text-tertiary leading-relaxed mb-6 text-sm max-w-52">
+            Every stone in the foundation was carried by one of us. Every beam was measured with a
+            shared laugh. We aren't contractors — we are neighbors weaving ourselves into the land.
+          </p>
+          <div class="w-10 h-px bg-secondary/30 mb-6"></div>
+          <div class="font-sketch text-xl text-secondary leading-relaxed">
+            Mathias, Marie,<br/>Ayla & Andreas
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="md:pt-20 flex flex-col items-center md:items-end">
+        <div
+          class="bg-white p-3 pb-16 shadow-xl rotate-1.5 w-full max-w-xs relative"
+          style="box-shadow: 3px 5px 24px rgba(0,0,0,0.18);"
         >
           <Image
             alt="Hand-painted architectural sketch of a small chapel"
-            class="w-full aspect-3/4 object-cover mb-4 rounded-sm"
-            data-alt="Hand-painted architectural sketch of a small chapel"
+            class="w-full aspect-3/4 object-cover"
             src={after}
           />
-          <h3 class="font-headline italic text-xl text-tertiary">
-            The Progress
-          </h3>
-          <p class="font-body text-sm text-on-surface-variant mt-2">
-            Currently working on the roof shingles. Cedar scent fills the entire
-            meadow.
-          </p>
+          <div class="absolute bottom-4 left-3 right-3">
+            <h3 class="font-sketch text-xl text-tertiary">The Progress</h3>
+            <p class="font-body text-xs text-on-surface-variant mt-1 leading-snug">
+              Currently working on the roof shingles. Cedar scent fills the entire meadow.
+            </p>
+          </div>
         </div>
       </div>
     </section>
-    <!-- Intimate Community Section -->
-    <section
-      class="bg-surface-container-lowest/80 backdrop-blur-md rounded-3xl p-8 md:p-16 mb-20 relative overflow-hidden shadow-2xl border border-white/30"
-    >
-      <div class="max-w-2xl mx-auto relative z-10 text-center">
-        <h2 class="font-headline text-4xl italic text-primary mb-6">
-          Join our fundraiser
-        </h2>
-        <p class="font-body text-lg text-tertiary mb-10 leading-relaxed">
-          We are gathering funds to build out the chapel, we would love your
-          support!
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-6">
+
+    <!-- Fundraiser Section -->
+    <section class="mb-24 relative overflow-hidden">
+      <div
+        class="rounded-sm p-8 md:p-16 relative"
+        style="background: linear-gradient(135deg, #fdf6e3 0%, #fef3cd 50%, #fdf0c2 100%); border: 1px solid rgba(123, 88, 30, 0.15); box-shadow: 0 20px 60px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9);"
+      >
+        <!-- Top rule -->
+        <div class="flex items-center gap-4 mb-10">
+          <div class="flex-1 h-px bg-secondary/20"></div>
+          <span class="font-sketch text-secondary/60 text-sm tracking-widest uppercase">Support the project</span>
+          <div class="flex-1 h-px bg-secondary/20"></div>
+        </div>
+
+        <div class="max-w-xl mx-auto text-center">
+          <h2 class="font-headline text-4xl md:text-5xl italic text-primary mb-4 leading-tight">
+            Become part<br/>of the story
+          </h2>
+          <p class="font-body text-base text-tertiary mb-8 leading-relaxed">
+            We are gathering funds to complete the chapel. Every contribution goes directly
+            to materials and work. Help us make this dream real.
+          </p>
+
+          <!-- Progress bar -->
+          <div class="mb-8">
+            <div class="flex justify-between font-sketch text-sm text-secondary mb-2">
+              <span>Raised so far</span>
+              <span>Goal: 150,000 kr</span>
+            </div>
+            <div class="h-3 bg-secondary/10 rounded-full overflow-hidden border border-secondary/10">
+              <div
+                class="h-full bg-gradient-to-r from-secondary to-primary rounded-full transition-all"
+                style="width: 62%;"
+              ></div>
+            </div>
+            <div class="text-right font-sketch text-secondary text-sm mt-1.5">62%</div>
+          </div>
+
           <a
             target="_blank"
             href="https://www.spleis.no/project/485151?s=c"
-            class="bg-primary text-on-primary px-10 py-4 rounded-md font-label text-sm hover:bg-primary/90 shadow-md transition-colors flex items-center justify-center gap-2"
+            class="inline-flex items-center gap-3 bg-primary text-on-primary px-10 py-4 rounded-sm font-label text-sm hover:bg-primary/90 shadow-lg transition-colors tracking-wide"
           >
             Donate here
-            <span class="material-symbols-outlined text-sm">groups</span>
+            <span class="material-symbols-outlined text-base">favorite</span>
           </a>
         </div>
-      </div>
-      <!-- Decorative Sketch -->
-      <div class="absolute -right-12 -bottom-12 opacity-5 pointer-events-none">
-        <span class="material-symbols-outlined text-[240px]" data-weight="fill"
-          >nature_people</span
-        >
+
+        <!-- Bottom rule -->
+        <div class="flex items-center gap-4 mt-10">
+          <div class="flex-1 h-px bg-secondary/20"></div>
+          <span class="font-sketch text-secondary/40 text-xl">✦</span>
+          <div class="flex-1 h-px bg-secondary/20"></div>
+        </div>
       </div>
     </section>
+
   </main>
 </Layout>
