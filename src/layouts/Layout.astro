@@ -73,22 +73,26 @@ const t = useTranslations(lang);
 
     <!-- Theme Switcher -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2" id="theme-switcher">
-      <div id="theme-panel" class="hidden flex-col gap-2 mb-1">
-        <button data-theme-value="" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-full text-sm font-label shadow-lg backdrop-blur-md border border-white/20 bg-[#fbf9f4]/90 text-[#36557b] hover:scale-105 transition-transform">
-          <span class="w-4 h-4 rounded-full border border-black/10 flex-shrink-0" style="background: linear-gradient(135deg, #36557b, #7b581e);"></span>
-          Fjord
+      <div id="theme-panel" class="hidden flex-col gap-1.5 mb-1 bg-black/30 backdrop-blur-xl rounded-2xl p-2 shadow-2xl border border-white/10">
+        <button data-theme-value="" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#fbf9f4; color:#36557b;">
+          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#36557b,#7b581e);"></span>
+          <span class="flex-1 text-left">Fjord</span>
+          <span class="check-icon opacity-0 text-base leading-none">✓</span>
         </button>
-        <button data-theme-value="natt" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-full text-sm font-label shadow-lg backdrop-blur-md border border-white/10 bg-[#1e2c3d]/90 text-[#8bbef7] hover:scale-105 transition-transform">
-          <span class="w-4 h-4 rounded-full border border-white/10 flex-shrink-0" style="background: linear-gradient(135deg, #1e2c3d, #8bbef7);"></span>
-          Natt
+        <button data-theme-value="natt" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#1a2330; color:#5aabff;">
+          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#0d1318,#5aabff);"></span>
+          <span class="flex-1 text-left">Natt</span>
+          <span class="check-icon opacity-0 text-base leading-none">✓</span>
         </button>
-        <button data-theme-value="is" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-full text-sm font-label shadow-lg backdrop-blur-md border border-blue-100 bg-[#f0f8ff]/90 text-[#1a4f8c] hover:scale-105 transition-transform">
-          <span class="w-4 h-4 rounded-full border border-black/10 flex-shrink-0" style="background: linear-gradient(135deg, #1a4f8c, #3d80b0);"></span>
-          Is
+        <button data-theme-value="jord" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#f7f0e6; color:#1c4fa0;">
+          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#1c4fa0,#a84520);"></span>
+          <span class="flex-1 text-left">Jord</span>
+          <span class="check-icon opacity-0 text-base leading-none">✓</span>
         </button>
-        <button data-theme-value="kobber" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-full text-sm font-label shadow-lg backdrop-blur-md border border-orange-100 bg-[#fdf8f3]/90 text-[#1e4fa8] hover:scale-105 transition-transform">
-          <span class="w-4 h-4 rounded-full border border-black/10 flex-shrink-0" style="background: linear-gradient(135deg, #1e4fa8, #b8521a);"></span>
-          Kobber
+        <button data-theme-value="is" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#f5faff; color:#0a2d78;">
+          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#0a2d78,#1464a0);"></span>
+          <span class="flex-1 text-left">Is</span>
+          <span class="check-icon opacity-0 text-base leading-none">✓</span>
         </button>
       </div>
       <button id="theme-toggle" class="w-11 h-11 rounded-full shadow-xl flex items-center justify-center backdrop-blur-md border border-white/20 bg-surface-bright/80 text-primary hover:scale-110 transition-transform" aria-label="Change theme">
@@ -99,16 +103,27 @@ const t = useTranslations(lang);
     <script>
       const toggle = document.getElementById("theme-toggle");
       const panel = document.getElementById("theme-panel");
-      const buttons = document.querySelectorAll(".theme-btn");
+      const buttons = document.querySelectorAll<HTMLElement>(".theme-btn");
 
-      toggle?.addEventListener("click", () => {
+      function updateActive() {
+        const current = document.documentElement.getAttribute("data-theme") ?? "";
+        buttons.forEach((btn) => {
+          const isActive = btn.dataset.themeValue === current;
+          btn.querySelector(".check-icon")?.classList.toggle("opacity-0", !isActive);
+          btn.style.outline = isActive ? "2px solid currentColor" : "none";
+          btn.style.outlineOffset = "1px";
+        });
+      }
+
+      toggle?.addEventListener("click", (e) => {
+        e.stopPropagation();
         panel?.classList.toggle("hidden");
         panel?.classList.toggle("flex");
       });
 
       buttons.forEach((btn) => {
         btn.addEventListener("click", () => {
-          const value = (btn as HTMLElement).dataset.themeValue ?? "";
+          const value = btn.dataset.themeValue ?? "";
           if (value) {
             document.documentElement.setAttribute("data-theme", value);
             localStorage.setItem("theme", value);
@@ -116,6 +131,7 @@ const t = useTranslations(lang);
             document.documentElement.removeAttribute("data-theme");
             localStorage.removeItem("theme");
           }
+          updateActive();
           panel?.classList.add("hidden");
           panel?.classList.remove("flex");
         });
@@ -127,6 +143,8 @@ const t = useTranslations(lang);
           panel?.classList.remove("flex");
         }
       });
+
+      updateActive();
     </script>
   </body>
 
