@@ -59,95 +59,99 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Theme: Natt — high-contrast dark, electric blue + warm gold
+   Natt — midnight navy, electric blue, amber gold
+   Cards and surfaces are deep dark blue
    ───────────────────────────────────────────────────────────── */
 [data-theme="natt"] {
-  --color-primary: #5aabff;
-  --color-on-primary: #00284f;
-  --color-primary-container: #00407a;
-  --color-secondary: #f0c96a;
-  --color-on-secondary: #3a2600;
-  --color-secondary-container: #2e1f00;
-  --color-on-secondary-container: #ffe089;
-  --color-tertiary: #adb8c6;
-  --color-on-tertiary: #0d1a24;
-  --color-surface-bright: #1a2330;
-  --color-surface: #0d1318;
-  --color-background: #0d1318;
-  --color-surface-container-lowest: #111b26;
-  --color-surface-container: #1a2330;
-  --color-on-surface: #e2ecf8;
-  --color-on-surface-variant: #8faabf;
-  --color-outline: #3a5068;
+  --color-primary: #60b8ff;
+  --color-on-primary: #002848;
+  --color-primary-container: #004880;
+  --color-secondary: #ffd060;
+  --color-on-secondary: #352000;
+  --color-secondary-container: #2c1a00;
+  --color-on-secondary-container: #ffe090;
+  --color-tertiary: #90b8d0;
+  --color-on-tertiary: #001828;
+  --color-surface-bright: #0e1c2e;
+  --color-surface: #080f18;
+  --color-background: #080f18;
+  --color-surface-container-lowest: #0a1520;
+  --color-surface-container: #0e1c2e;
+  --color-on-surface: #c8e0f8;
+  --color-on-surface-variant: #6890b0;
+  --color-outline: #284860;
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Theme: Jord — warm earth tones, terracotta + cobalt blue
+   Jord — warm terracotta clay surfaces, cobalt blue, burnt sienna
+   Cards are warm sandy clay, very earthy
    ───────────────────────────────────────────────────────────── */
 [data-theme="jord"] {
-  --color-primary: #1c4fa0;
+  --color-primary: #1848a0;
   --color-on-primary: #ffffff;
-  --color-primary-container: #2e68cc;
-  --color-secondary: #a84520;
+  --color-primary-container: #2860cc;
+  --color-secondary: #b03818;
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #f8d8cc;
-  --color-on-secondary-container: #6b2210;
-  --color-tertiary: #7a5c3a;
+  --color-secondary-container: #f0c8b8;
+  --color-on-secondary-container: #601808;
+  --color-tertiary: #806040;
   --color-on-tertiary: #ffffff;
-  --color-surface-bright: #f7f0e6;
-  --color-surface: #f7f0e6;
-  --color-background: #f7f0e6;
-  --color-surface-container-lowest: #fff8f0;
-  --color-surface-container: #ede3d4;
-  --color-on-surface: #1e140a;
-  --color-on-surface-variant: #5a3e25;
-  --color-outline: #a07850;
+  --color-surface-bright: #eeddc8;
+  --color-surface: #e8d0b8;
+  --color-background: #e8d0b8;
+  --color-surface-container-lowest: #f8ece0;
+  --color-surface-container: #e0c8a8;
+  --color-on-surface: #200e04;
+  --color-on-surface-variant: #583020;
+  --color-outline: #9868488;
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Theme: Is — crisp arctic, near-white + deep navy, high contrast
+   Is — ice-blue tinted surfaces, ultra-deep navy, crisp
+   Cards have a clear blue tint, unmistakably icy
    ───────────────────────────────────────────────────────────── */
 [data-theme="is"] {
-  --color-primary: #0a2d78;
+  --color-primary: #001870;
   --color-on-primary: #ffffff;
-  --color-primary-container: #1a4db8;
-  --color-secondary: #1464a0;
+  --color-primary-container: #1038b0;
+  --color-secondary: #0858a8;
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #cce4f8;
-  --color-on-secondary-container: #062d50;
-  --color-tertiary: #2258a8;
+  --color-secondary-container: #b0d0f0;
+  --color-on-secondary-container: #002848;
+  --color-tertiary: #1870c0;
   --color-on-tertiary: #ffffff;
-  --color-surface-bright: #f5faff;
-  --color-surface: #eaf4ff;
-  --color-background: #eaf4ff;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container: #d8ecfa;
-  --color-on-surface: #060e18;
-  --color-on-surface-variant: #18365a;
-  --color-outline: #4080b8;
+  --color-surface-bright: #d8ecff;
+  --color-surface: #c0dcf8;
+  --color-background: #c0dcf8;
+  --color-surface-container-lowest: #eef6ff;
+  --color-surface-container: #b0d0f0;
+  --color-on-surface: #000818;
+  --color-on-surface-variant: #083060;
+  --color-outline: #3070b8;
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Theme: Pastell — soft pastel, periwinkle blue + rose + mint
+   Pastell — lavender-tinted surfaces, periwinkle, rose, mint
+   Cards are soft lilac, clearly pastel
    ───────────────────────────────────────────────────────────── */
 [data-theme="pastell"] {
-  --color-primary: #6880c8;
+  --color-primary: #4858c0;
   --color-on-primary: #ffffff;
-  --color-primary-container: #c8d4f8;
-  --color-secondary: #c87890;
+  --color-primary-container: #b8c0f0;
+  --color-secondary: #c04888;
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #f8d4de;
-  --color-on-secondary-container: #7a3048;
-  --color-tertiary: #70a898;
+  --color-secondary-container: #f8c0d8;
+  --color-on-secondary-container: #680038;
+  --color-tertiary: #409890;
   --color-on-tertiary: #ffffff;
-  --color-surface-bright: #fdf8ff;
-  --color-surface: #f8f2ff;
-  --color-background: #f8f2ff;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container: #ede8f8;
-  --color-on-surface: #1e1a2e;
-  --color-on-surface-variant: #4a4468;
-  --color-outline: #9890c0;
+  --color-surface-bright: #ede8ff;
+  --color-surface: #e4dcff;
+  --color-background: #e4dcff;
+  --color-surface-container-lowest: #f8f4ff;
+  --color-surface-container: #d8d0f8;
+  --color-on-surface: #100c28;
+  --color-on-surface-variant: #403868;
+  --color-outline: #8878c0;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -166,27 +170,27 @@
 }
 
 [data-theme="natt"] .fundraiser-panel {
-  background: linear-gradient(135deg, #111b26 0%, #1a2330 50%, #1e2a3c 100%);
-  border-color: rgba(90, 171, 255, 0.12);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+  background: linear-gradient(135deg, #080f18 0%, #0e1c2e 50%, #122038 100%);
+  border-color: rgba(96, 184, 255, 0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
 [data-theme="jord"] .fundraiser-panel {
-  background: linear-gradient(135deg, #f5e8d4 0%, #f0dfc4 50%, #ebd4b4 100%);
-  border-color: rgba(168, 69, 32, 0.15);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.07), inset 0 1px 0 rgba(255,255,255,0.8);
+  background: linear-gradient(135deg, #e8c8a0 0%, #dfc090 50%, #d8b880 100%);
+  border-color: rgba(176, 56, 24, 0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.5);
 }
 
 [data-theme="is"] .fundraiser-panel {
-  background: linear-gradient(135deg, #e0f0ff 0%, #d4ebff 50%, #c8e4ff 100%);
-  border-color: rgba(10, 45, 120, 0.12);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9);
+  background: linear-gradient(135deg, #b8d8f8 0%, #a8cef0 50%, #98c4e8 100%);
+  border-color: rgba(0, 24, 112, 0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6);
 }
 
 [data-theme="pastell"] .fundraiser-panel {
-  background: linear-gradient(135deg, #f0ecff 0%, #fce8f0 50%, #e8f8f4 100%);
-  border-color: rgba(104, 128, 200, 0.2);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.9);
+  background: linear-gradient(135deg, #e0d8ff 0%, #f0d8f0 50%, #d8f0e8 100%);
+  border-color: rgba(72, 88, 192, 0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -196,7 +200,7 @@
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(3, 7, 14, 0.78);
+  background: rgba(2, 5, 12, 0.82);
   pointer-events: none;
   z-index: 0;
 }
