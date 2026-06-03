@@ -77,11 +77,9 @@ import dalen from "@assets/dalen_sundown.jpg";
       <div class="flex-1 h-px bg-gradient-to-l from-transparent to-white/60"></div>
     </div>
 
-    <!-- Before/After + manuscript card -->
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32 items-start">
-
-      <!-- Slider -->
-      <div class="bg-white p-3 shadow-xl -rotate-1" style="box-shadow: 3px 5px 24px rgba(0,0,0,0.18);">
+    <!-- Before/After slider -->
+    <section class="mb-32">
+      <div class="bg-white p-3 shadow-xl" style="box-shadow: 3px 5px 24px rgba(0,0,0,0.18);">
         <BeforeAfterSlider
           before={before}
           after={after}
@@ -90,32 +88,6 @@ import dalen from "@assets/dalen_sundown.jpg";
           alt="Kapellet"
         />
         <p class="font-sketch text-base text-tertiary mt-3 px-1">Dra for å se fremgangen</p>
-      </div>
-
-      <!-- Manuscript card -->
-      <div class="md:pt-8">
-        <div
-          class="p-8 text-center bg-surface-bright/90 backdrop-blur-lg rounded-sm flex flex-col justify-center items-center border border-secondary/20 relative h-full"
-          style="box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 8px 32px rgba(0,0,0,0.08);"
-        >
-          <span class="absolute top-3 left-3 font-sketch text-secondary/30 text-2xl leading-none">✦</span>
-          <span class="absolute top-3 right-3 font-sketch text-secondary/30 text-2xl leading-none">✦</span>
-          <span class="absolute bottom-3 left-3 font-sketch text-secondary/30 text-2xl leading-none">✦</span>
-          <span class="absolute bottom-3 right-3 font-sketch text-secondary/30 text-2xl leading-none">✦</span>
-
-          <div class="w-10 h-px bg-secondary/30 mb-6"></div>
-          <h2 class="font-headline text-3xl italic text-primary mb-5 leading-tight">
-            Bygget<br/>med egne hender
-          </h2>
-          <p class="font-body text-tertiary leading-relaxed mb-6 text-sm max-w-64">
-            Hver stein i grunnmuren ble båret av en av oss. Hver bjelke ble målt med et felles
-            latter. Vi er ikke håndverkere — vi er naboer som vever oss inn i landet.
-          </p>
-          <div class="w-10 h-px bg-secondary/30 mb-6"></div>
-          <div class="font-sketch text-xl text-secondary leading-relaxed">
-            Mathias, Marie,<br/>Ayla & Andreas
-          </div>
-        </div>
       </div>
     </section>
 
