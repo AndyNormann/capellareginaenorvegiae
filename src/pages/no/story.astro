@@ -1,8 +1,163 @@
 ---
-import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import before from '@assets/before.jpeg';
+import after from '@assets/after.jpeg';
 ---
 
 <Layout>
-	<div class="w-full h-full"></div>
+  <main class="max-w-3xl mx-auto px-4 sm:px-8 pb-24">
+
+    <!-- Page header -->
+    <section class="pt-16 pb-12 md:pt-24 md:pb-16 reveal">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 bg-black/30 backdrop-blur-sm text-white/80 rounded-full font-label text-xs uppercase tracking-[0.2em]">
+        <span class="w-1.5 h-1.5 rounded-full bg-white/60 inline-block"></span>
+        Gudbrandsdalen, Norge
+      </div>
+      <h1 class="font-headline text-5xl md:text-7xl italic text-white leading-tight mb-6 [text-shadow:0_2px_8px_rgba(0,0,0,0.8),0_6px_32px_rgba(0,0,0,0.5)]">
+        Vår Historie
+      </h1>
+      <div class="w-16 h-px bg-white/40 mb-6"></div>
+      <p class="font-body text-lg text-white/85 leading-relaxed max-w-xl [text-shadow:0_1px_4px_rgba(0,0,0,0.8)]">
+        Hvordan en forlatt smie ble et stille bønnested — og hvorfor fire venner valgte å gi den nytt liv.
+      </p>
+    </section>
+
+    <!-- Story content card -->
+    <article class="bg-surface-bright/90 backdrop-blur-md rounded-2xl shadow-2xl border border-on-surface/8 overflow-hidden reveal reveal-delay-1">
+
+      <!-- The forge section -->
+      <div class="p-8 md:p-12 border-b border-on-surface/8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-secondary text-2xl">local_fire_department</span>
+          <h2 class="font-headline text-3xl italic text-primary leading-snug">Smia på Ledum Gård</h2>
+        </div>
+        <div class="space-y-4 text-on-surface-variant leading-relaxed">
+          <p>
+            Inneklemt i en fold av Gudbrandsdalen lå Ledum Gård, og der lå smia — en gang selve hjertet på gården. I generasjoner kom bønder fra dalen med brukket redskap og dro hjem med det hele igjen. Ilden sluknet aldri.
+          </p>
+          <p>
+            Så falmet det stille, slik mange håndverkstradisjoner gjør. Ett tiår brant ilden svakt. Det neste ble bjelgene satt til side. Da det nye tusenåret kom, sto steinveggene i den gamle smia tause — ikke forfalt, men tomme. Ventende.
+          </p>
+        </div>
+      </div>
+
+      <!-- The vision section -->
+      <div class="p-8 md:p-12 border-b border-on-surface/8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-secondary text-2xl">lightbulb</span>
+          <h2 class="font-headline text-3xl italic text-primary leading-snug">Et Syn i Ruinene</h2>
+        </div>
+        <!-- Pull quote -->
+        <blockquote class="border-l-2 border-secondary/40 pl-6 my-6 italic font-headline text-2xl text-primary/80 leading-snug">
+          "Jeg gikk inn og så ikke en ruin. Jeg så et rom som ennå ikke hadde funnet sin plass."
+          <footer class="mt-2 font-body not-italic text-sm text-on-surface-variant">— Mathias</footer>
+        </blockquote>
+        <div class="space-y-4 text-on-surface-variant leading-relaxed">
+          <p>
+            Det var Mathias som først gikk gjennom den gamle døren med andre øyne. Han hadde vokst opp med historier om smia, og da han endelig gikk inn som voksen — kald stein, støvete lys, jernets ånd i luften — kjente han noe han ikke klarte å slippe.
+          </p>
+          <p>
+            Ikke et restaureringsprosjekt. Ikke et museum. Et kapell. Et stille rom der dalens lange minne kunne legge seg til ro i bønn. Der alle som trengte et øyeblikks stillhet, kunne finne det.
+          </p>
+          <p>
+            Han ringte tre venner.
+          </p>
+        </div>
+      </div>
+
+      <!-- The four section -->
+      <div class="p-8 md:p-12 border-b border-on-surface/8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-secondary text-2xl">group</span>
+          <h2 class="font-headline text-3xl italic text-primary leading-snug">Fire Venner, Ett Kall</h2>
+        </div>
+        <div class="space-y-4 text-on-surface-variant leading-relaxed">
+          <p>
+            Fire mennesker som hadde vokst opp i eller rundt Gudbrandsdalen — som kjente hverandre fra skole, kirke og den særegne nærheten som lange daler ser ut til å skape — fant seg selv stående i den gamle smia en grå høstettermiddag, og lyttet til Mathias forklare det han så.
+          </p>
+          <p>
+            Ingen av dem var arkitekter. Ingen var profesjonelle håndverkere. Men alle fire forstod noe om utholdenhet: hva det vil si å ta vare på et sted, å sette hendene i arbeidet, å etterlate noe som ikke fantes før de kom.
+          </p>
+          <p>
+            De sa ja.
+          </p>
+        </div>
+      </div>
+
+      <!-- The work section -->
+      <div class="p-8 md:p-12 border-b border-on-surface/8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-secondary text-2xl">construction</span>
+          <h2 class="font-headline text-3xl italic text-primary leading-snug">Arbeidet</h2>
+        </div>
+        <div class="space-y-4 text-on-surface-variant leading-relaxed">
+          <p>
+            Arbeidet begynte med rusk og endte — så langt — med vegger, et utbedret tak, og den første fornemmelsen av hva rommet vil bli. Det er fortsatt mer å gjøre: vinduer skal ferdigstilles, gulv legges, detaljene som gjør et konstruksjonskoloss til et hellig rom.
+          </p>
+          <p>
+            Hvert eneste helgedag de kunne avse, hver feriemorgen, hver time stjålet fra hverdagslivet — alt gikk inn i steinen. De lærte underveis. Feil ble gjort og rettet. Dalens vær satte dem på prøve. Steinen satte dem på enda større prøve.
+          </p>
+          <p>
+            Men veggene holdt.
+          </p>
+        </div>
+
+        <!-- Before/after images -->
+        <div class="mt-8 grid grid-cols-2 gap-3">
+          <div class="overflow-hidden rounded-sm">
+            <Image src={before} alt="Smia før renovering" class="w-full h-40 md:h-56 object-cover" />
+            <p class="text-xs font-label text-on-surface-variant mt-1 uppercase tracking-wider">Før</p>
+          </div>
+          <div class="overflow-hidden rounded-sm">
+            <Image src={after} alt="Kapellet tar form" class="w-full h-40 md:h-56 object-cover" />
+            <p class="text-xs font-label text-on-surface-variant mt-1 uppercase tracking-wider">Etter</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- What it will become -->
+      <div class="p-8 md:p-12 border-b border-on-surface/8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-secondary text-2xl">church</span>
+          <h2 class="font-headline text-3xl italic text-primary leading-snug">Det det Skal Bli</h2>
+        </div>
+        <div class="space-y-4 text-on-surface-variant leading-relaxed">
+          <p>
+            Capella Reginae Norvegiae — Norgedronnningens Kapell — vil bli et lite, ikke-konfesjonelt bønne- og refleksjonssted, åpent for alle. Ingen inngangspenger. Inget medlemskap. Ingen agenda utover stillhet og velkomst.
+          </p>
+          <p>
+            Interiøret vil romme glassmaleri, enkel tresitteplass og lys — den typen lys som bare steinvegger og omhyggelige vinduer kan skape. Det vil ligge stille i dalen, slik smia en gang lå, slik alle viktige ting gjør.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="p-8 md:p-12 text-center">
+        <p class="font-headline italic text-2xl text-primary mb-2 leading-snug">Ilden er kald. Arbeidet er ikke ferdig.</p>
+        <p class="font-body text-sm text-on-surface-variant mb-6 leading-relaxed max-w-md mx-auto">
+          Hver krone går direkte inn i kapellet. Ingen administrasjon, ingen mellomledd — bare stein, glass og hendene til fire venner.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            target="_blank"
+            href="https://www.spleis.no/project/485151?s=c"
+            class="btn-pulse inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-3.5 rounded-sm font-label text-sm hover:bg-primary/90 shadow-lg transition-colors tracking-wide"
+          >
+            Støtt kapellet
+            <span class="material-symbols-outlined text-base">favorite</span>
+          </a>
+          <a
+            href="/capellareginaenorvegiae/no"
+            class="inline-flex items-center gap-2 px-8 py-3.5 border border-primary/30 text-primary rounded-sm font-label text-sm hover:bg-primary/5 transition-colors tracking-wide"
+          >
+            <span class="material-symbols-outlined text-base">arrow_back</span>
+            Tilbake til forsiden
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
 </Layout>
