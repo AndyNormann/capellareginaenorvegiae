@@ -1,8 +1,163 @@
 ---
-import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import before from '@assets/before.jpeg';
+import after from '@assets/after.jpeg';
 ---
 
 <Layout>
-	<div class="w-full h-full"></div>
+  <main class="max-w-3xl mx-auto px-4 sm:px-8 pb-24">
+
+    <!-- Page header -->
+    <section class="pt-16 pb-12 md:pt-24 md:pb-16 reveal">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 bg-black/30 backdrop-blur-sm text-white/80 rounded-full font-label text-xs uppercase tracking-[0.2em]">
+        <span class="w-1.5 h-1.5 rounded-full bg-white/60 inline-block"></span>
+        Gudbrandsdalen, Norway
+      </div>
+      <h1 class="font-headline text-5xl md:text-7xl italic text-white leading-tight mb-6 [text-shadow:0_2px_8px_rgba(0,0,0,0.8),0_6px_32px_rgba(0,0,0,0.5)]">
+        Our Story
+      </h1>
+      <div class="w-16 h-px bg-white/40 mb-6"></div>
+      <p class="font-body text-lg text-white/85 leading-relaxed max-w-xl [text-shadow:0_1px_4px_rgba(0,0,0,0.8)]">
+        How an abandoned forge became a quiet place of prayer — and why four friends chose to bring it back to life.
+      </p>
+    </section>
+
+    <!-- Story content card -->
+    <article class="bg-surface-bright/90 backdrop-blur-md rounded-2xl shadow-2xl border border-on-surface/8 overflow-hidden reveal reveal-delay-1">
+
+      <!-- The forge section -->
+      <div class="p-8 md:p-12 border-b border-on-surface/8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-secondary text-2xl">local_fire_department</span>
+          <h2 class="font-headline text-3xl italic text-primary leading-snug">The Forge at Ledum Farm</h2>
+        </div>
+        <div class="prose-custom space-y-4 text-on-surface-variant leading-relaxed">
+          <p>
+            Nestled in a fold of Gudbrandsdalen, Ledum Farm once rang with the sound of iron on iron. For generations, the forge — <em>smia</em> in Norwegian — was the beating heart of the farm. Farmers came from the valley with broken tools and left with mended ones. The fire never truly went out.
+          </p>
+          <p>
+            Then, like so many craft traditions, it quietly faded. One decade the fire burned low. The next, the bellows were set aside. By the time the twenty-first century arrived, the stone walls of the old forge stood in silence — not crumbling, but empty. Waiting.
+          </p>
+        </div>
+      </div>
+
+      <!-- The vision section -->
+      <div class="p-8 md:p-12 border-b border-on-surface/8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-secondary text-2xl">lightbulb</span>
+          <h2 class="font-headline text-3xl italic text-primary leading-snug">A Vision in the Ruins</h2>
+        </div>
+        <!-- Pull quote -->
+        <blockquote class="border-l-2 border-secondary/40 pl-6 my-6 italic font-headline text-2xl text-primary/80 leading-snug">
+          "I walked in and I didn't see a ruin. I saw a room that hadn't found its purpose yet."
+          <footer class="mt-2 font-body not-italic text-sm text-on-surface-variant">— Mathias</footer>
+        </blockquote>
+        <div class="space-y-4 text-on-surface-variant leading-relaxed">
+          <p>
+            It was Mathias who first walked through the old door with different eyes. He had grown up hearing stories about the forge, and when he finally stepped inside as an adult — cold stone, dusty light, the ghost of iron in the air — he felt something he couldn't shake.
+          </p>
+          <p>
+            Not a restoration project. Not a museum piece. A chapel. A quiet room where the valley's long memory could settle into prayer. Where anyone who needed a moment of stillness could find one.
+          </p>
+          <p>
+            He called three friends.
+          </p>
+        </div>
+      </div>
+
+      <!-- The four section -->
+      <div class="p-8 md:p-12 border-b border-on-surface/8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-secondary text-2xl">group</span>
+          <h2 class="font-headline text-3xl italic text-primary leading-snug">Four Friends, One Calling</h2>
+        </div>
+        <div class="space-y-4 text-on-surface-variant leading-relaxed">
+          <p>
+            Four people who grew up in or around Gudbrandsdalen — who knew each other through school, church, and the particular closeness that long valleys seem to foster — found themselves standing in the old forge on a grey autumn afternoon, listening to Mathias explain what he saw.
+          </p>
+          <p>
+            None of them were architects. None were professional builders. But all four understood something about endurance: what it means to care for a place, to put your hands in the work, to leave something behind that didn't exist before you.
+          </p>
+          <p>
+            They said yes.
+          </p>
+        </div>
+      </div>
+
+      <!-- The work section -->
+      <div class="p-8 md:p-12 border-b border-on-surface/8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-secondary text-2xl">construction</span>
+          <h2 class="font-headline text-3xl italic text-primary leading-snug">The Work</h2>
+        </div>
+        <div class="space-y-4 text-on-surface-variant leading-relaxed">
+          <p>
+            The work began with rubble and ended — so far — with walls, a repaired roof, and the first sense of what the room wants to become. There is still more to do: windows need to be finished, the floor laid, the details that turn a structural shell into a sanctuary.
+          </p>
+          <p>
+            Every weekend they could spare, every holiday morning, every hour stolen from regular life — it all went into the stone. They learned as they went. Mistakes were made and undone. The valley weather tested them. The stone tested them more.
+          </p>
+          <p>
+            But the walls held.
+          </p>
+        </div>
+
+        <!-- Before/after images -->
+        <div class="mt-8 grid grid-cols-2 gap-3">
+          <div class="overflow-hidden rounded-sm">
+            <Image src={before} alt="The forge before renovation" class="w-full h-40 md:h-56 object-cover" />
+            <p class="text-xs font-label text-on-surface-variant mt-1 uppercase tracking-wider">Before</p>
+          </div>
+          <div class="overflow-hidden rounded-sm">
+            <Image src={after} alt="The chapel taking shape" class="w-full h-40 md:h-56 object-cover" />
+            <p class="text-xs font-label text-on-surface-variant mt-1 uppercase tracking-wider">After</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- What it will become -->
+      <div class="p-8 md:p-12 border-b border-on-surface/8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-secondary text-2xl">church</span>
+          <h2 class="font-headline text-3xl italic text-primary leading-snug">What It Will Become</h2>
+        </div>
+        <div class="space-y-4 text-on-surface-variant leading-relaxed">
+          <p>
+            Capella Reginae Norvegiae — the Chapel of the Queen of Norway — will be a small, non-denominational place of prayer and reflection, open to everyone. No entry fee. No membership. No agenda beyond stillness and welcome.
+          </p>
+          <p>
+            The interior will hold stained glass, simple wooden seating, and light — the kind of light that only stone walls and careful windows can produce. It will sit quietly in the valley, as the forge once did, as all important things do.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="p-8 md:p-12 text-center">
+        <p class="font-headline italic text-2xl text-primary mb-2 leading-snug">The fire is cold. The work is not done.</p>
+        <p class="font-body text-sm text-on-surface-variant mb-6 leading-relaxed max-w-md mx-auto">
+          Every contribution goes directly into the chapel. No overhead, no middlemen — only stone, glass, and the hands of four friends.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            target="_blank"
+            href="https://www.spleis.no/project/485151?s=c"
+            class="btn-pulse inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-3.5 rounded-sm font-label text-sm hover:bg-primary/90 shadow-lg transition-colors tracking-wide"
+          >
+            Support the chapel
+            <span class="material-symbols-outlined text-base">favorite</span>
+          </a>
+          <a
+            href="/capellareginaenorvegiae/en"
+            class="inline-flex items-center gap-2 px-8 py-3.5 border border-primary/30 text-primary rounded-sm font-label text-sm hover:bg-primary/5 transition-colors tracking-wide"
+          >
+            <span class="material-symbols-outlined text-base">arrow_back</span>
+            Back to home
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
 </Layout>
