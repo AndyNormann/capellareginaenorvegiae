@@ -70,15 +70,15 @@
   --color-on-secondary: #2a1800;
   --color-secondary-container: #1e1000;
   --color-on-secondary-container: #ffd070;
-  --color-tertiary: #60d8b8;
+  --color-tertiary: #80e4c8;
   --color-on-tertiary: #002818;
   --color-surface-bright: #0d1520;
   --color-surface: #050a12;
   --color-background: #050a12;
   --color-surface-container-lowest: #0a1220;
   --color-surface-container: #0d1520;
-  --color-on-surface: #d0eeff;
-  --color-on-surface-variant: #5090b8;
+  --color-on-surface: #e8f4ff;
+  --color-on-surface-variant: #b8d8f0;
   --color-outline: #1a3850;
 }
 
@@ -94,15 +94,15 @@
   --color-on-secondary: #ffffff;
   --color-secondary-container: #1a2c3c;
   --color-on-secondary-container: #90c0e0;
-  --color-tertiary: #c09060;
+  --color-tertiary: #e8b888;
   --color-on-tertiary: #1c0800;
   --color-surface-bright: #201c18;
   --color-surface: #161210;
   --color-background: #161210;
   --color-surface-container-lowest: #201a16;
   --color-surface-container: #241e1a;
-  --color-on-surface: #e8d8c8;
-  --color-on-surface-variant: #a07858;
+  --color-on-surface: #f8ece0;
+  --color-on-surface-variant: #d0a880;
   --color-outline: #403028;
 }
 
@@ -142,15 +142,15 @@
   --color-on-secondary: #ffffff;
   --color-secondary-container: #3c1828;
   --color-on-secondary-container: #f0b0c8;
-  --color-tertiary: #d09050;
+  --color-tertiary: #f8c890;
   --color-on-tertiary: #200800;
   --color-surface-bright: #241028;
   --color-surface: #180a1e;
   --color-background: #180a1e;
   --color-surface-container-lowest: #281430;
   --color-surface-container: #2a1432;
-  --color-on-surface: #f4d8e8;
-  --color-on-surface-variant: #b07090;
+  --color-on-surface: #fef0f8;
+  --color-on-surface-variant: #e8b8d0;
   --color-outline: #603050;
 }
 
@@ -214,15 +214,15 @@
   --color-on-secondary: #ffffff;
   --color-secondary-container: #380038;
   --color-on-secondary-container: #f090f0;
-  --color-tertiary: #40b8f0;
+  --color-tertiary: #70d0f0;
   --color-on-tertiary: #001828;
   --color-surface-bright: #0c1820;
   --color-surface: #080f18;
   --color-background: #080f18;
   --color-surface-container-lowest: #101c28;
   --color-surface-container: #0e1a24;
-  --color-on-surface: #c0f8e8;
-  --color-on-surface-variant: #40a878;
+  --color-on-surface: #d8fff4;
+  --color-on-surface-variant: #90e0c0;
   --color-outline: #104830;
 }
 
