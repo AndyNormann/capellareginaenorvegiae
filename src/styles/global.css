@@ -59,99 +59,171 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Natt — midnight navy, electric blue, amber gold
-   Cards and surfaces are deep dark blue
+   Natt — electric midnight
+   Near-black surfaces · vivid cyan primary · hot amber secondary
    ───────────────────────────────────────────────────────────── */
 [data-theme="natt"] {
-  --color-primary: #60b8ff;
-  --color-on-primary: #002848;
-  --color-primary-container: #004880;
-  --color-secondary: #ffd060;
-  --color-on-secondary: #352000;
-  --color-secondary-container: #2c1a00;
-  --color-on-secondary-container: #ffe090;
-  --color-tertiary: #90b8d0;
-  --color-on-tertiary: #001828;
-  --color-surface-bright: #0e1c2e;
-  --color-surface: #080f18;
-  --color-background: #080f18;
-  --color-surface-container-lowest: #0a1520;
-  --color-surface-container: #0e1c2e;
-  --color-on-surface: #c8e0f8;
-  --color-on-surface-variant: #6890b0;
-  --color-outline: #284860;
+  --color-primary: #2ec8f0;
+  --color-on-primary: #001c28;
+  --color-primary-container: #014060;
+  --color-secondary: #ffb020;
+  --color-on-secondary: #2a1800;
+  --color-secondary-container: #1e1000;
+  --color-on-secondary-container: #ffd070;
+  --color-tertiary: #60d8b8;
+  --color-on-tertiary: #002818;
+  --color-surface-bright: #0d1520;
+  --color-surface: #050a12;
+  --color-background: #050a12;
+  --color-surface-container-lowest: #0a1220;
+  --color-surface-container: #0d1520;
+  --color-on-surface: #d0eeff;
+  --color-on-surface-variant: #5090b8;
+  --color-outline: #1a3850;
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Jord — warm terracotta clay surfaces, cobalt blue, burnt sienna
-   Cards are warm sandy clay, very earthy
+   Kull — forge & coal (NEW)
+   Dark charcoal surfaces · hot copper/ember primary · steel blue secondary
    ───────────────────────────────────────────────────────────── */
-[data-theme="jord"] {
-  --color-primary: #1848a0;
+[data-theme="kull"] {
+  --color-primary: #d45828;
   --color-on-primary: #ffffff;
-  --color-primary-container: #2860cc;
-  --color-secondary: #b03818;
+  --color-primary-container: #7a2c10;
+  --color-secondary: #4878a8;
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #f0c8b8;
-  --color-on-secondary-container: #601808;
-  --color-tertiary: #806040;
-  --color-on-tertiary: #ffffff;
-  --color-surface-bright: #eeddc8;
-  --color-surface: #e8d0b8;
-  --color-background: #e8d0b8;
-  --color-surface-container-lowest: #f8ece0;
-  --color-surface-container: #e0c8a8;
-  --color-on-surface: #200e04;
-  --color-on-surface-variant: #583020;
-  --color-outline: #9868488;
+  --color-secondary-container: #1a2c3c;
+  --color-on-secondary-container: #90c0e0;
+  --color-tertiary: #c09060;
+  --color-on-tertiary: #1c0800;
+  --color-surface-bright: #201c18;
+  --color-surface: #161210;
+  --color-background: #161210;
+  --color-surface-container-lowest: #201a16;
+  --color-surface-container: #241e1a;
+  --color-on-surface: #e8d8c8;
+  --color-on-surface-variant: #a07858;
+  --color-outline: #403028;
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Is — ice-blue tinted surfaces, ultra-deep navy, crisp
-   Cards have a clear blue tint, unmistakably icy
+   Skog — Norwegian forest (NEW)
+   Sage green surfaces · deep forest primary · warm amber secondary
+   ───────────────────────────────────────────────────────────── */
+[data-theme="skog"] {
+  --color-primary: #1e5018;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #2e7028;
+  --color-secondary: #8a6018;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #f0d898;
+  --color-on-secondary-container: #3c2800;
+  --color-tertiary: #4c7848;
+  --color-on-tertiary: #ffffff;
+  --color-surface-bright: #eff6e8;
+  --color-surface: #e4f0d8;
+  --color-background: #e4f0d8;
+  --color-surface-container-lowest: #f8fff0;
+  --color-surface-container: #d8e8c8;
+  --color-on-surface: #0c1c08;
+  --color-on-surface-variant: #344828;
+  --color-outline: #688048;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Solnedgang — Nordic dusk (NEW)
+   Deep plum-purple surfaces · burnt orange primary · dusty rose secondary
+   ───────────────────────────────────────────────────────────── */
+[data-theme="solnedgang"] {
+  --color-primary: #e05c28;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #7a2a08;
+  --color-secondary: #c07090;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #3c1828;
+  --color-on-secondary-container: #f0b0c8;
+  --color-tertiary: #d09050;
+  --color-on-tertiary: #200800;
+  --color-surface-bright: #241028;
+  --color-surface: #180a1e;
+  --color-background: #180a1e;
+  --color-surface-container-lowest: #281430;
+  --color-surface-container: #2a1432;
+  --color-on-surface: #f4d8e8;
+  --color-on-surface-variant: #b07090;
+  --color-outline: #603050;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Is — arctic white (reworked)
+   Pure white-blue surfaces · ultra-deep navy · electric ice blue
    ───────────────────────────────────────────────────────────── */
 [data-theme="is"] {
-  --color-primary: #001870;
+  --color-primary: #001040;
   --color-on-primary: #ffffff;
-  --color-primary-container: #1038b0;
-  --color-secondary: #0858a8;
+  --color-primary-container: #0c2880;
+  --color-secondary: #0848c8;
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #b0d0f0;
-  --color-on-secondary-container: #002848;
-  --color-tertiary: #1870c0;
+  --color-secondary-container: #c0d8ff;
+  --color-on-secondary-container: #001038;
+  --color-tertiary: #2870e0;
   --color-on-tertiary: #ffffff;
-  --color-surface-bright: #d8ecff;
-  --color-surface: #c0dcf8;
-  --color-background: #c0dcf8;
-  --color-surface-container-lowest: #eef6ff;
-  --color-surface-container: #b0d0f0;
+  --color-surface-bright: #f4f9ff;
+  --color-surface: #eaf4ff;
+  --color-background: #eaf4ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container: #d8ecff;
   --color-on-surface: #000818;
-  --color-on-surface-variant: #083060;
-  --color-outline: #3070b8;
+  --color-on-surface-variant: #103080;
+  --color-outline: #4870d0;
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Pastell — lavender-tinted surfaces, periwinkle, rose, mint
-   Cards are soft lilac, clearly pastel
+   Mose — moss & earth (replaces Jord)
+   Warm mushroom/taupe surfaces · olive green primary · terracotta secondary
    ───────────────────────────────────────────────────────────── */
-[data-theme="pastell"] {
-  --color-primary: #4858c0;
+[data-theme="mose"] {
+  --color-primary: #3a4e20;
   --color-on-primary: #ffffff;
-  --color-primary-container: #b8c0f0;
-  --color-secondary: #c04888;
+  --color-primary-container: #506830;
+  --color-secondary: #904020;
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #f8c0d8;
-  --color-on-secondary-container: #680038;
-  --color-tertiary: #409890;
+  --color-secondary-container: #f0c8a8;
+  --color-on-secondary-container: #3c1408;
+  --color-tertiary: #60582c;
   --color-on-tertiary: #ffffff;
-  --color-surface-bright: #ede8ff;
-  --color-surface: #e4dcff;
-  --color-background: #e4dcff;
-  --color-surface-container-lowest: #f8f4ff;
-  --color-surface-container: #d8d0f8;
-  --color-on-surface: #100c28;
-  --color-on-surface-variant: #403868;
-  --color-outline: #8878c0;
+  --color-surface-bright: #f0e8d8;
+  --color-surface: #e6dece;
+  --color-background: #e6dece;
+  --color-surface-container-lowest: #faf4e8;
+  --color-surface-container: #d8ceb8;
+  --color-on-surface: #140c04;
+  --color-on-surface-variant: #4c3820;
+  --color-outline: #806040;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Aurora — northern lights (replaces Pastell)
+   Very dark teal-black surfaces · vivid aurora green · electric magenta
+   ───────────────────────────────────────────────────────────── */
+[data-theme="aurora"] {
+  --color-primary: #18d898;
+  --color-on-primary: #001c10;
+  --color-primary-container: #006040;
+  --color-secondary: #c040c0;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #380038;
+  --color-on-secondary-container: #f090f0;
+  --color-tertiary: #40b8f0;
+  --color-on-tertiary: #001828;
+  --color-surface-bright: #0c1820;
+  --color-surface: #080f18;
+  --color-background: #080f18;
+  --color-surface-container-lowest: #101c28;
+  --color-surface-container: #0e1a24;
+  --color-on-surface: #c0f8e8;
+  --color-on-surface-variant: #40a878;
+  --color-outline: #104830;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -170,39 +242,71 @@
 }
 
 [data-theme="natt"] .fundraiser-panel {
-  background: linear-gradient(135deg, #080f18 0%, #0e1c2e 50%, #122038 100%);
-  border-color: rgba(96, 184, 255, 0.15);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
+  background: linear-gradient(135deg, #050a12 0%, #0d1520 50%, #101a28 100%);
+  border-color: rgba(46, 200, 240, 0.12);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(46,200,240,0.06);
 }
 
-[data-theme="jord"] .fundraiser-panel {
-  background: linear-gradient(135deg, #e8c8a0 0%, #dfc090 50%, #d8b880 100%);
-  border-color: rgba(176, 56, 24, 0.2);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.5);
+[data-theme="kull"] .fundraiser-panel {
+  background: linear-gradient(135deg, #201c18 0%, #2a2218 50%, #201c18 100%);
+  border-color: rgba(212, 88, 40, 0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,150,80,0.06);
+}
+
+[data-theme="skog"] .fundraiser-panel {
+  background: linear-gradient(135deg, #d8eec0 0%, #c8e4b0 50%, #d0e8b8 100%);
+  border-color: rgba(30, 80, 24, 0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.7);
+}
+
+[data-theme="solnedgang"] .fundraiser-panel {
+  background: linear-gradient(135deg, #241028 0%, #2c1430 50%, #201028 100%);
+  border-color: rgba(224, 92, 40, 0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(224,92,40,0.06);
 }
 
 [data-theme="is"] .fundraiser-panel {
-  background: linear-gradient(135deg, #b8d8f8 0%, #a8cef0 50%, #98c4e8 100%);
-  border-color: rgba(0, 24, 112, 0.15);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+  background: linear-gradient(135deg, #dcefff 0%, #cce4ff 50%, #d4e8ff 100%);
+  border-color: rgba(0, 16, 64, 0.12);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9);
 }
 
-[data-theme="pastell"] .fundraiser-panel {
-  background: linear-gradient(135deg, #e0d8ff 0%, #f0d8f0 50%, #d8f0e8 100%);
-  border-color: rgba(72, 88, 192, 0.15);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.8);
+[data-theme="mose"] .fundraiser-panel {
+  background: linear-gradient(135deg, #ddd4c0 0%, #d0c8b0 50%, #d8ceb8 100%);
+  border-color: rgba(58, 78, 32, 0.18);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+[data-theme="aurora"] .fundraiser-panel {
+  background: linear-gradient(135deg, #0c1820 0%, #0e1a24 50%, #0c1820 100%);
+  border-color: rgba(24, 216, 152, 0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(24,216,152,0.06);
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Night theme: dark overlay on valley background photo
+   Dark overlay on valley background photo — for all dark themes
    ───────────────────────────────────────────────────────────── */
-[data-theme="natt"] .valley-bg::after {
+[data-theme="natt"] .valley-bg::after,
+[data-theme="kull"] .valley-bg::after,
+[data-theme="solnedgang"] .valley-bg::after,
+[data-theme="aurora"] .valley-bg::after {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(2, 5, 12, 0.82);
   pointer-events: none;
   z-index: 0;
+}
+[data-theme="natt"] .valley-bg::after {
+  background: rgba(2, 5, 14, 0.84);
+}
+[data-theme="kull"] .valley-bg::after {
+  background: rgba(8, 4, 2, 0.86);
+}
+[data-theme="solnedgang"] .valley-bg::after {
+  background: rgba(18, 4, 22, 0.88);
+}
+[data-theme="aurora"] .valley-bg::after {
+  background: rgba(2, 6, 12, 0.86);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -240,21 +344,41 @@
    CTA pulse animation
    ───────────────────────────────────────────────────────────── */
 @keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 rgba(54, 85, 123, 0.4); }
-  70% { box-shadow: 0 0 0 12px rgba(54, 85, 123, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(54, 85, 123, 0); }
-}
-.btn-pulse {
-  animation: pulse-ring 2.5s ease-out infinite;
-}
-[data-theme="natt"] .btn-pulse {
-  animation-name: pulse-ring-natt;
+  0% { box-shadow: 0 0 0 0 rgba(42, 74, 110, 0.4); }
+  70% { box-shadow: 0 0 0 14px rgba(42, 74, 110, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(42, 74, 110, 0); }
 }
 @keyframes pulse-ring-natt {
-  0% { box-shadow: 0 0 0 0 rgba(96, 184, 255, 0.35); }
-  70% { box-shadow: 0 0 0 12px rgba(96, 184, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(96, 184, 255, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(46, 200, 240, 0.4); }
+  70% { box-shadow: 0 0 0 14px rgba(46, 200, 240, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(46, 200, 240, 0); }
 }
+@keyframes pulse-ring-kull {
+  0% { box-shadow: 0 0 0 0 rgba(212, 88, 40, 0.45); }
+  70% { box-shadow: 0 0 0 14px rgba(212, 88, 40, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 88, 40, 0); }
+}
+@keyframes pulse-ring-skog {
+  0% { box-shadow: 0 0 0 0 rgba(30, 80, 24, 0.4); }
+  70% { box-shadow: 0 0 0 14px rgba(30, 80, 24, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(30, 80, 24, 0); }
+}
+@keyframes pulse-ring-solnedgang {
+  0% { box-shadow: 0 0 0 0 rgba(224, 92, 40, 0.45); }
+  70% { box-shadow: 0 0 0 14px rgba(224, 92, 40, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(224, 92, 40, 0); }
+}
+@keyframes pulse-ring-aurora {
+  0% { box-shadow: 0 0 0 0 rgba(24, 216, 152, 0.4); }
+  70% { box-shadow: 0 0 0 14px rgba(24, 216, 152, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(24, 216, 152, 0); }
+}
+.btn-pulse { animation: pulse-ring 2.5s ease-out infinite; }
+[data-theme="natt"] .btn-pulse      { animation-name: pulse-ring-natt; }
+[data-theme="kull"] .btn-pulse      { animation-name: pulse-ring-kull; }
+[data-theme="skog"] .btn-pulse      { animation-name: pulse-ring-skog; }
+[data-theme="solnedgang"] .btn-pulse { animation-name: pulse-ring-solnedgang; }
+[data-theme="aurora"] .btn-pulse    { animation-name: pulse-ring-aurora; }
 
 /* ─────────────────────────────────────────────────────────────
    Story page timeline

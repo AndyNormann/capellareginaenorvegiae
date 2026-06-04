@@ -73,30 +73,53 @@ const t = useTranslations(lang);
 
     <!-- Theme Switcher -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2" id="theme-switcher">
-      <div id="theme-panel" class="hidden flex-col gap-1.5 mb-1 bg-black/30 backdrop-blur-xl rounded-2xl p-2 shadow-2xl border border-white/10">
-        <button data-theme-value="" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#fbf9f4; color:#36557b;">
-          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#36557b,#7b581e);"></span>
+      <div id="theme-panel" class="hidden flex-col gap-1 mb-1 bg-black/40 backdrop-blur-xl rounded-2xl p-2 shadow-2xl border border-white/10">
+        <!-- Fjord — parchment + slate blue + amber gold -->
+        <button data-theme-value="" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#faf7f0; color:#2a4a6e;">
+          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#2a4a6e,#8a6010);"></span>
           <span class="flex-1 text-left">Fjord</span>
           <span class="check-icon opacity-0 text-base leading-none">✓</span>
         </button>
-        <button data-theme-value="natt" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#0e1c2e; color:#60b8ff;">
-          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#080f18,#60b8ff);"></span>
+        <!-- Natt — electric midnight -->
+        <button data-theme-value="natt" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#0d1520; color:#2ec8f0;">
+          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#050a12,#2ec8f0);"></span>
           <span class="flex-1 text-left">Natt</span>
           <span class="check-icon opacity-0 text-base leading-none">✓</span>
         </button>
-        <button data-theme-value="jord" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#eeddc8; color:#1848a0;">
-          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#1848a0,#b03818);"></span>
-          <span class="flex-1 text-left">Jord</span>
+        <!-- Kull — forge coal -->
+        <button data-theme-value="kull" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#201c18; color:#d45828;">
+          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#161210,#d45828);"></span>
+          <span class="flex-1 text-left">Kull</span>
           <span class="check-icon opacity-0 text-base leading-none">✓</span>
         </button>
-        <button data-theme-value="is" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#d8ecff; color:#001870;">
-          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#001870,#0858a8);"></span>
+        <!-- Skog — forest -->
+        <button data-theme-value="skog" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#e4f0d8; color:#1e5018;">
+          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#1e5018,#8a6018);"></span>
+          <span class="flex-1 text-left">Skog</span>
+          <span class="check-icon opacity-0 text-base leading-none">✓</span>
+        </button>
+        <!-- Solnedgang — nordic dusk -->
+        <button data-theme-value="solnedgang" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#241028; color:#e05c28;">
+          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#180a1e,#e05c28);"></span>
+          <span class="flex-1 text-left">Solnedgang</span>
+          <span class="check-icon opacity-0 text-base leading-none">✓</span>
+        </button>
+        <!-- Is — arctic white -->
+        <button data-theme-value="is" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#eaf4ff; color:#001040;">
+          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#001040,#0848c8);"></span>
           <span class="flex-1 text-left">Is</span>
           <span class="check-icon opacity-0 text-base leading-none">✓</span>
         </button>
-        <button data-theme-value="pastell" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#ede8ff; color:#4858c0;">
-          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#4858c0,#c04888);"></span>
-          <span class="flex-1 text-left">Pastell</span>
+        <!-- Mose — moss & earth -->
+        <button data-theme-value="mose" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#e6dece; color:#3a4e20;">
+          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#3a4e20,#904020);"></span>
+          <span class="flex-1 text-left">Mose</span>
+          <span class="check-icon opacity-0 text-base leading-none">✓</span>
+        </button>
+        <!-- Aurora — northern lights -->
+        <button data-theme-value="aurora" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#0c1820; color:#18d898;">
+          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#080f18,#18d898);"></span>
+          <span class="flex-1 text-left">Aurora</span>
           <span class="check-icon opacity-0 text-base leading-none">✓</span>
         </button>
       </div>
