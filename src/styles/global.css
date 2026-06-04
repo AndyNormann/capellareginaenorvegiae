@@ -1,5 +1,32 @@
 @import "tailwindcss";
 
+@layer base {
+  :focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  :focus:not(:focus-visible) { outline: none; }
+
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: 9999;
+    padding: 12px 24px;
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    font-family: var(--font-label);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom-right-radius: 4px;
+  }
+  .skip-link:focus-visible { top: 0; outline: 3px solid var(--color-on-primary); outline-offset: -4px; }
+
+  .btn-touch { min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; }
+}
+
 @theme {
   --color-surface-dim: #dbdad5;
   --color-on-secondary-container: #78551b;
@@ -284,44 +311,19 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Dark overlay on valley background photo — for all dark themes
-   ───────────────────────────────────────────────────────────── */
-[data-theme="natt"] .valley-bg::after,
-[data-theme="kull"] .valley-bg::after,
-[data-theme="solnedgang"] .valley-bg::after,
-[data-theme="aurora"] .valley-bg::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-[data-theme="natt"] .valley-bg::after {
-  background: rgba(2, 5, 14, 0.75);
-}
-[data-theme="kull"] .valley-bg::after {
-  background: rgba(8, 4, 2, 0.78);
-}
-[data-theme="solnedgang"] .valley-bg::after {
-  background: rgba(16, 2, 20, 0.72);
-}
-[data-theme="aurora"] .valley-bg::after {
-  background: rgba(2, 6, 12, 0.76);
-}
-
-/* ─────────────────────────────────────────────────────────────
-   Nav scroll glass effect
+   Nav scroll effect — surface-based (no background photo)
    ───────────────────────────────────────────────────────────── */
 #site-header {
   transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  border-bottom: 1px solid transparent;
+  background: var(--color-surface-bright);
+  border-bottom: 1px solid var(--color-outline-variant);
 }
 #site-header.scrolled {
-  background: rgba(0, 0, 0, 0.35);
+  background: color-mix(in srgb, var(--color-surface-bright) 92%, transparent);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  border-bottom-color: var(--color-outline-variant);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -379,6 +381,16 @@
 [data-theme="skog"] .btn-pulse      { animation-name: pulse-ring-skog; }
 [data-theme="solnedgang"] .btn-pulse { animation-name: pulse-ring-solnedgang; }
 [data-theme="aurora"] .btn-pulse    { animation-name: pulse-ring-aurora; }
+
+/* ─────────────────────────────────────────────────────────────
+   Reduced-motion: disable all decorative animations
+   ───────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .btn-pulse { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .progress-bar-fill { transition: none; }
+  #site-header { transition: none; }
+}
 
 /* ─────────────────────────────────────────────────────────────
    Story page timeline

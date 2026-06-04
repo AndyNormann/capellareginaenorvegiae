@@ -75,14 +75,28 @@ const id = `slider-${Math.random().toString(36).slice(2, 8)}`;
   const handle = container.querySelector(".slider-handle");
 
   let dragging = false;
+  let currentPct = 0.5;
+
+  container.setAttribute("tabindex", "0");
+  container.setAttribute("role", "slider");
+  container.setAttribute("aria-valuemin", "0");
+  container.setAttribute("aria-valuemax", "100");
+  container.setAttribute("aria-valuenow", "50");
+  const sectionLabel = container.closest("[aria-label]")?.getAttribute("aria-label");
+  if (sectionLabel) container.setAttribute("aria-label", sectionLabel);
+
+  function setPositionPct(pct) {
+    currentPct = Math.min(Math.max(pct, 0), 1);
+    const right = (1 - currentPct) * 100;
+    afterImg.style.clipPath = `inset(0 ${right}% 0 0)`;
+    line.style.left = `${currentPct * 100}%`;
+    handle.style.left = `${currentPct * 100}%`;
+    container.setAttribute("aria-valuenow", Math.round(currentPct * 100).toString());
+  }
 
   function setPosition(x) {
     const rect = container.getBoundingClientRect();
-    const pct = Math.min(Math.max((x - rect.left) / rect.width, 0), 1);
-    const right = (1 - pct) * 100;
-    afterImg.style.clipPath = `inset(0 ${right}% 0 0)`;
-    line.style.left = `${pct * 100}%`;
-    handle.style.left = `${pct * 100}%`;
+    setPositionPct((x - rect.left) / rect.width);
   }
 
   container.addEventListener("mousedown", (e) => { e.preventDefault(); dragging = true; setPosition(e.clientX); });
@@ -92,4 +106,12 @@ const id = `slider-${Math.random().toString(36).slice(2, 8)}`;
   container.addEventListener("touchstart", (e) => { dragging = true; setPosition(e.touches[0].clientX); }, { passive: true });
   window.addEventListener("touchmove", (e) => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
   window.addEventListener("touchend", () => { dragging = false; });
+
+  container.addEventListener("keydown", (e) => {
+    const step = e.shiftKey ? 0.1 : 0.05;
+    if (e.key === "ArrowLeft")  { e.preventDefault(); setPositionPct(currentPct - step); }
+    if (e.key === "ArrowRight") { e.preventDefault(); setPositionPct(currentPct + step); }
+    if (e.key === "Home")       { e.preventDefault(); setPositionPct(0); }
+    if (e.key === "End")        { e.preventDefault(); setPositionPct(1); }
+  });
 </script>
