@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import before from '@assets/before.jpeg';
 import after from '@assets/after.jpeg';
+import alleFire from '@assets/alle_fire.jpg';
+import klem from '@assets/klem.jpg';
 ---
 
 <Layout>
@@ -74,6 +76,14 @@ import after from '@assets/after.jpeg';
           <p>
             Ingen av oss er arkitekter. Ingen av oss er profesjonelle håndverkere. Men vi visste hva vi gikk til — helger, ferier, mye læring underveis — og vi ville gjøre det likevel.
           </p>
+        </div>
+        <div class="mt-8 grid grid-cols-2 gap-3">
+          <div class="overflow-hidden rounded-sm">
+            <Image src={alleFire} alt="De fire som bygger kapellet" class="w-full h-48 md:h-64 object-cover" />
+          </div>
+          <div class="overflow-hidden rounded-sm">
+            <Image src={klem} alt="Et øyeblikk underveis" class="w-full h-48 md:h-64 object-cover" />
+          </div>
         </div>
       </div>
 

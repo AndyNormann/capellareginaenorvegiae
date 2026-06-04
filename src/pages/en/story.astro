@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import before from '@assets/before.jpeg';
 import after from '@assets/after.jpeg';
+import alleFire from '@assets/alle_fire.jpg';
+import klem from '@assets/klem.jpg';
 ---
 
 <Layout>
@@ -74,6 +76,14 @@ import after from '@assets/after.jpeg';
           <p>
             None of us are architects. None of us are professional builders. But we all knew what we were getting into — weekends, holidays, a lot of learning on the job — and we wanted to do it anyway.
           </p>
+        </div>
+        <div class="mt-8 grid grid-cols-2 gap-3">
+          <div class="overflow-hidden rounded-sm">
+            <Image src={alleFire} alt="The four friends building the chapel" class="w-full h-48 md:h-64 object-cover" />
+          </div>
+          <div class="overflow-hidden rounded-sm">
+            <Image src={klem} alt="A moment along the way" class="w-full h-48 md:h-64 object-cover" />
+          </div>
         </div>
       </div>
 
