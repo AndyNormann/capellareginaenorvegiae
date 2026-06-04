@@ -4,16 +4,15 @@ import Layout from "../../layouts/Layout.astro";
 import BeforeAfterSlider from "../../components/BeforeAfterSlider.astro";
 import before from "@assets/before.jpeg";
 import after from "@assets/after.jpeg";
-import dalen from "@assets/dalen_sundown.jpg";
 ---
 
 <Layout>
-  <main class="max-w-6xl mx-auto px-4 sm:px-8">
+  <main id="main-content" class="max-w-6xl mx-auto px-4 sm:px-8">
 
     <!-- Hero Section -->
     <section class="min-h-[88vh] flex items-center py-16 md:py-24">
       <div class="max-w-4xl w-full">
-        <div class="bg-surface-bright/85 backdrop-blur-md rounded-2xl p-8 md:p-10 shadow-lg border border-on-surface/10">
+        <div class="bg-surface-bright/85 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-lg border border-on-surface/10">
           <div
             class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 bg-secondary-container text-on-secondary-container rounded-full font-label text-xs uppercase tracking-[0.2em] shadow-sm"
           >
@@ -21,7 +20,7 @@ import dalen from "@assets/dalen_sundown.jpg";
             Gudbrandsdalen, Norge
           </div>
           <h1
-            class="font-sketch text-4xl md:text-6xl text-primary mb-6 leading-[1.05]"
+            class="font-sketch font-bold text-4xl md:text-6xl text-primary mb-6 leading-[1.05]"
           >
             Vi bygger om en gammel smie til kapell.
           </h1>
@@ -36,16 +35,17 @@ import dalen from "@assets/dalen_sundown.jpg";
           </p>
           <div class="flex flex-wrap gap-6 items-center">
             <a
-              class="flex items-center gap-2 px-8 py-3.5 bg-primary text-on-primary rounded-sm font-label text-sm hover:bg-primary/90 transition-colors shadow-lg tracking-wide"
+              class="inline-flex items-center gap-2 px-8 min-h-[44px] bg-primary text-on-primary rounded-sm font-label text-sm hover:bg-primary/90 transition-colors shadow-lg tracking-wide"
               href="story"
             >
               Vår Historie
-              <span class="material-symbols-outlined text-base">arrow_forward</span>
+              <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
             </a>
             <a
-              class="font-headline italic text-lg text-primary/80 hover:text-primary border-b border-primary/20 pb-0.5 hover:border-primary/60 transition-all"
+              class="font-headline italic text-lg text-primary/80 hover:text-primary border-b border-primary/20 pb-0.5 hover:border-primary/60 transition-all min-h-[44px] inline-flex items-center"
               href="https://www.spleis.no/project/485151?s=c"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Støtt oss
             </a>
@@ -54,34 +54,55 @@ import dalen from "@assets/dalen_sundown.jpg";
       </div>
     </section>
 
-    <!-- Background showcase -->
-    <section class="min-h-[40vh] flex items-center justify-end pr-4 md:pr-12">
+    <!-- At a glance — stat strip -->
+    <section aria-label="Prosjektoversikt" class="py-16 flex justify-center px-4">
+      <div class="bg-black/55 backdrop-blur-sm rounded-2xl border border-white/10">
+        <div class="flex flex-wrap divide-x divide-white/20">
+          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[120px]">
+            <span class="font-sketch text-4xl text-white font-bold leading-none">2022</span>
+            <span class="font-label text-xs uppercase tracking-widest text-white/85 mt-2">Prosjektstart</span>
+          </div>
+          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[120px]">
+            <span class="font-sketch text-4xl text-white font-bold leading-none">4</span>
+            <span class="font-label text-xs uppercase tracking-widest text-white/85 mt-2">Byggevenner</span>
+          </div>
+          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[120px]">
+            <span class="font-sketch text-4xl text-white font-bold leading-none">100%</span>
+            <span class="font-label text-xs uppercase tracking-widest text-white/85 mt-2">Innsamlet</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Thin ornamental divider -->
-    <div class="flex items-center gap-6 mb-24 opacity-60">
+    <div class="flex items-center gap-6 mb-24 opacity-60" aria-hidden="true">
       <div class="flex-1 h-px bg-gradient-to-r from-transparent to-white/60"></div>
-      <span class="material-symbols-outlined text-white/80 text-xl" style="text-shadow: 0 1px 4px rgba(0,0,0,0.4);">spa</span>
+      <span class="material-symbols-outlined text-white/80 text-xl drop-shadow">spa</span>
       <div class="flex-1 h-px bg-gradient-to-l from-transparent to-white/60"></div>
     </div>
 
     <!-- Story blurb -->
-    <section class="mb-16 max-w-2xl mx-auto text-center reveal">
-      <h2 class="font-headline text-4xl italic text-white mb-5 leading-tight [text-shadow:0_1px_4px_rgba(0,0,0,0.9),0_4px_16px_rgba(0,0,0,0.6)]">Slik begynte det.</h2>
-      <p class="font-body text-lg text-white/90 leading-relaxed [text-shadow:0_1px_3px_rgba(0,0,0,0.9),0_3px_12px_rgba(0,0,0,0.5)]">
-        Mathias vokste opp med historier om den gamle smia på Ledum Gård.
-        Da han gikk inn som voksen — kald stein, støvete lys, årtier med stillhet —
-        så han ikke en ruin. Han så et rom som ikke hadde funnet sin plass ennå.
-        Han ringte tre av oss. Vi sa ja.
-      </p>
-      <a href="story" class="inline-flex items-center gap-2 mt-6 font-label text-sm text-white/70 hover:text-white transition-colors uppercase tracking-widest">
-        Les hele historien
-        <span class="material-symbols-outlined text-base">arrow_forward</span>
-      </a>
+    <section class="mb-16 px-4 reveal" aria-labelledby="story-blurb-heading">
+      <div class="max-w-2xl mx-auto bg-surface-bright/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-on-surface/10 shadow-lg text-center">
+        <h2
+          id="story-blurb-heading"
+          class="font-headline text-4xl italic text-primary mb-5 leading-tight"
+        >Slik begynte det.</h2>
+        <p class="font-body text-base md:text-lg text-on-surface-variant leading-relaxed mb-8">
+          Mathias vokste opp med historier om den gamle smia på Ledum Gård.
+          Da han gikk inn som voksen — kald stein, støvete lys, årtier med stillhet —
+          så han ikke en ruin. Han så et rom som ikke hadde funnet sin plass ennå.
+          Han ringte tre av oss. Vi sa ja.
+        </p>
+        <a href="story" class="inline-flex items-center gap-2 min-h-[44px] px-6 font-label text-sm text-primary hover:text-primary/70 transition-colors uppercase tracking-widest">
+          Les hele historien
+          <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+        </a>
+      </div>
     </section>
 
     <!-- Before/After slider -->
-    <section class="mb-32 reveal">
+    <section class="mb-32 reveal" aria-label="Kapellet før og etter">
       <div class="bg-surface-container-lowest p-3 shadow-xl" style="box-shadow: 3px 5px 24px rgba(0,0,0,0.18);">
         <BeforeAfterSlider
           before={before}
@@ -90,7 +111,7 @@ import dalen from "@assets/dalen_sundown.jpg";
           afterLabel="Etter"
           alt="Kapellet"
         />
-        <p class="font-sketch text-base text-tertiary mt-3 px-1">Dra for å se fremgangen</p>
+        <p id="slider-hint" class="font-sketch text-base text-tertiary mt-3 px-1">Dra eller bruk piltaster for å se fremgangen</p>
       </div>
     </section>
 
@@ -133,18 +154,19 @@ import dalen from "@assets/dalen_sundown.jpg";
 
           <a
             target="_blank"
+            rel="noopener noreferrer"
             href="https://www.spleis.no/project/485151?s=c"
-            class="btn-pulse inline-flex items-center gap-3 bg-primary text-on-primary px-10 py-4 rounded-sm font-label text-sm hover:bg-primary/90 shadow-lg transition-colors tracking-wide"
+            class="btn-pulse btn-touch inline-flex items-center gap-3 bg-primary text-on-primary px-10 py-4 rounded-sm font-label text-sm hover:bg-primary/90 shadow-lg transition-colors tracking-wide"
           >
             Gi en gave
-            <span class="material-symbols-outlined text-base">favorite</span>
+            <span class="material-symbols-outlined text-base" aria-hidden="true">favorite</span>
           </a>
         </div>
 
         <!-- Bottom rule -->
         <div class="flex items-center gap-4 mt-10">
           <div class="flex-1 h-px bg-secondary/20"></div>
-          <span class="font-sketch text-secondary/40 text-xl">✦</span>
+          <span class="font-sketch text-secondary/40 text-xl" aria-hidden="true">✦</span>
           <div class="flex-1 h-px bg-secondary/20"></div>
         </div>
       </div>

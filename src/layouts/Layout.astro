@@ -10,7 +10,7 @@ const t = useTranslations(lang);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -37,6 +37,9 @@ const t = useTranslations(lang);
   <body
   class="valley-bg text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen relative"
   >
+    <a href="#main-content" class="skip-link">
+      {lang === 'no' ? 'Hopp til innhold' : 'Skip to content'}
+    </a>
     <header id="site-header" class="sticky top-0 z-40">
       <nav
       class="flex justify-between items-center w-full pl-2 pr-4 py-3 max-w-6xl mx-auto"
@@ -56,15 +59,22 @@ const t = useTranslations(lang);
           href="story">{t("nav.story")}</a
           >
           <!-- Language switcher -->
-          <div class="flex items-center gap-1 text-xs font-['Epilogue'] text-white/60">
-            <a href="/capellareginaenorvegiae/no" class="px-2 py-1 hover:text-white transition-colors" class:list={[lang === 'no' ? 'text-white' : '']}>NO</a>
-            <span class="opacity-30">|</span>
-            <a href="/capellareginaenorvegiae/en" class="px-2 py-1 hover:text-white transition-colors" class:list={[lang === 'en' ? 'text-white' : '']}>EN</a>
+          <div class="flex items-center gap-0 font-['Epilogue'] text-white/60" role="group" aria-label="Language">
+            <a href="/capellareginaenorvegiae/no"
+               class="min-h-[44px] min-w-[44px] flex items-center justify-center text-sm hover:text-white transition-colors"
+               class:list={[lang === 'no' ? 'text-white font-semibold' : '']}
+               aria-label="Norsk" lang="no">NO</a>
+            <span class="opacity-30 select-none" aria-hidden="true">|</span>
+            <a href="/capellareginaenorvegiae/en"
+               class="min-h-[44px] min-w-[44px] flex items-center justify-center text-sm hover:text-white transition-colors"
+               class:list={[lang === 'en' ? 'text-white font-semibold' : '']}
+               aria-label="English" lang="en">EN</a>
           </div>
           <a
-          class="px-3 md:px-4 py-1.5 border border-white/50 text-white hover:bg-white/20 rounded-sm transition-all font-['Newsreader'] italic text-sm [text-shadow:0_1px_4px_rgba(0,0,0,0.8)]"
+          class="min-h-[44px] px-4 md:px-5 flex items-center border border-white/50 text-white hover:bg-white/20 rounded-sm transition-all font-['Newsreader'] italic text-sm [text-shadow:0_1px_4px_rgba(0,0,0,0.8)]"
           href="https://www.spleis.no/project/485151?s=c"
-          target="_blank">{t("nav.contact")}</a
+          target="_blank"
+          rel="noopener noreferrer">{t("nav.contact")}</a
           >
         </div>
       </nav>
@@ -125,7 +135,7 @@ const t = useTranslations(lang);
           <span class="check-icon opacity-0 text-base leading-none">✓</span>
         </button>
       </div>
-      <button id="theme-toggle" class="w-11 h-11 rounded-full shadow-xl flex items-center justify-center backdrop-blur-md border border-white/20 bg-surface-bright/80 text-primary hover:scale-110 transition-transform" aria-label="Change theme">
+      <button id="theme-toggle" class="w-11 h-11 rounded-full shadow-xl flex items-center justify-center backdrop-blur-md border border-white/20 bg-surface-bright/80 text-primary hover:scale-110 transition-transform" aria-label="Change theme" aria-expanded="false" aria-controls="theme-panel">
         <span class="material-symbols-outlined text-xl">palette</span>
       </button>
     </div>
@@ -147,8 +157,9 @@ const t = useTranslations(lang);
 
       toggle?.addEventListener("click", (e) => {
         e.stopPropagation();
-        panel?.classList.toggle("hidden");
-        panel?.classList.toggle("flex");
+        const isOpen = panel?.classList.toggle("hidden") === false;
+        panel?.classList.toggle("flex", isOpen);
+        toggle?.setAttribute("aria-expanded", String(isOpen));
       });
 
       buttons.forEach((btn) => {
@@ -224,7 +235,6 @@ const t = useTranslations(lang);
         pbObserver.observe(progressBar);
       }
     </script>
-  </body>
 
   <footer class="w-full mt-20 pb-12 pt-12 relative z-10">
     <div class="max-w-4xl mx-auto px-4">
@@ -233,7 +243,7 @@ const t = useTranslations(lang);
         style="text-shadow: 0 1px 6px rgba(0,0,0,1), 0 3px 20px rgba(0,0,0,0.8);"
       >
         <!-- Ornamental divider -->
-        <div class="flex items-center gap-4 w-full max-w-xs opacity-50 mb-2">
+        <div class="flex items-center gap-4 w-full max-w-xs opacity-50 mb-2" aria-hidden="true">
           <div class="flex-1 h-px bg-white/60"></div>
           <span class="text-white/80 text-sm">✦</span>
           <div class="flex-1 h-px bg-white/60"></div>
@@ -247,9 +257,9 @@ const t = useTranslations(lang);
         </p>
 
         <div class="flex items-center gap-1 text-sm font-['Plus_Jakarta_Sans']">
-          <a class="px-3 py-1 text-white/80 hover:text-white transition-colors" href="/capellareginaenorvegiae/no">Norsk</a>
-          <span class="text-white/30">·</span>
-          <a class="px-3 py-1 text-white/80 hover:text-white transition-colors" href="/capellareginaenorvegiae/en">English</a>
+          <a class="min-h-[44px] px-4 inline-flex items-center text-white/80 hover:text-white transition-colors" href="/capellareginaenorvegiae/no">Norsk</a>
+          <span class="text-white/30" aria-hidden="true">·</span>
+          <a class="min-h-[44px] px-4 inline-flex items-center text-white/80 hover:text-white transition-colors" href="/capellareginaenorvegiae/en">English</a>
         </div>
 
         <div class="text-xs font-label text-white/50 mt-1">
@@ -258,6 +268,7 @@ const t = useTranslations(lang);
       </div>
     </div>
   </footer>
+  </body>
 </html>
 
 <style>
