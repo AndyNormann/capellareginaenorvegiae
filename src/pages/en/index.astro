@@ -4,38 +4,40 @@ import Layout from "../../layouts/Layout.astro";
 import BeforeAfterSlider from "../../components/BeforeAfterSlider.astro";
 import before from "@assets/before.jpeg";
 import after from "@assets/after.jpeg";
+import dalen from "@assets/dalen_sundown.jpg";
+import gudbrandsdalen from "@assets/gudbrandsdalen.jpg";
+import dalen2 from "@assets/dalen2.jpg";
+import favang from "@assets/fåvang.jpg";
 ---
 
 <Layout>
   <main id="main-content" class="max-w-6xl mx-auto px-4 sm:px-8">
 
-    <!-- Hero Section -->
-    <section class="min-h-[88vh] flex items-center py-16 md:py-24">
-      <div class="max-w-4xl w-full">
-        <div class="bg-surface-bright/85 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-lg border border-on-surface/10">
-          <div
-            class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 bg-secondary-container text-on-secondary-container rounded-full font-label text-xs uppercase tracking-[0.2em] shadow-sm"
-          >
+    <!-- Hero Section — two-column split -->
+    <section class="py-24 md:py-32">
+      <div class="grid md:grid-cols-[1fr_440px] lg:grid-cols-[1fr_520px] gap-12 md:gap-16 items-center">
+
+        <!-- Left: text content -->
+        <div>
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 bg-secondary-container text-on-secondary-container rounded-full font-label text-xs uppercase tracking-[0.2em]">
             <span class="w-1.5 h-1.5 rounded-full bg-secondary inline-block"></span>
             Gudbrandsdalen Valley
           </div>
-          <h1
-            class="font-sketch font-bold text-4xl md:text-6xl text-primary mb-6 leading-[1.05]"
-          >
+          <h1 class="font-sketch font-bold text-5xl md:text-6xl text-primary mb-6 leading-[1.05]">
             We're turning an old forge into a chapel.
           </h1>
-          <div class="w-20 h-px bg-secondary/40 mb-6"></div>
+          <div class="w-16 h-px bg-secondary/40 mb-6"></div>
           <p class="font-headline italic text-lg md:text-xl text-tertiary mb-4 leading-relaxed">
             Four friends, one abandoned building, and a lot of weekends.
           </p>
-          <p class="font-body text-sm md:text-base text-on-surface-variant mb-10 leading-relaxed">
+          <p class="font-body text-sm md:text-base text-on-surface-variant mb-10 leading-relaxed max-w-lg">
             There's an old forge on Ledum Farm in Gudbrandsdalen that's been sitting empty for decades.
             We think it should be a chapel — a quiet place anyone can walk into.
             So we're building it ourselves.
           </p>
-          <div class="flex flex-wrap gap-6 items-center">
+          <div class="flex flex-wrap gap-4 items-center">
             <a
-              class="inline-flex items-center gap-2 px-8 min-h-[44px] bg-primary text-on-primary rounded-sm font-label text-sm hover:bg-primary/90 transition-colors shadow-lg tracking-wide"
+              class="inline-flex items-center gap-2 px-8 min-h-[44px] bg-primary text-on-primary rounded-sm font-label text-sm hover:bg-primary/90 transition-colors shadow-md tracking-wide"
               href="story"
             >
               Our Story
@@ -51,39 +53,69 @@ import after from "@assets/after.jpeg";
             </a>
           </div>
         </div>
+
+        <!-- Right: hero image -->
+        <div class="relative">
+          <Image
+            src={dalen}
+            alt="Gudbrandsdalen valley at sunset"
+            class="w-full h-[320px] md:h-[480px] object-cover rounded-2xl shadow-xl"
+          />
+        </div>
       </div>
     </section>
 
-    <!-- At a glance — stat strip -->
-    <section aria-label="Project overview" class="py-16 flex justify-center px-4">
-      <div class="bg-black/55 backdrop-blur-sm rounded-2xl border border-white/10">
-        <div class="flex flex-wrap divide-x divide-white/20">
-          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[120px]">
-            <span class="font-sketch text-4xl text-white font-bold leading-none">2022</span>
-            <span class="font-label text-xs uppercase tracking-widest text-white/85 mt-2">Project start</span>
+    <!-- Stat strip -->
+    <section aria-label="Project overview" class="mb-24">
+      <div class="bg-surface-container rounded-2xl">
+        <div class="flex flex-wrap divide-x divide-outline-variant">
+          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[120px] flex-1">
+            <span class="font-sketch text-4xl text-primary font-bold leading-none">2022</span>
+            <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-2">Project start</span>
           </div>
-          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[120px]">
-            <span class="font-sketch text-4xl text-white font-bold leading-none">4</span>
-            <span class="font-label text-xs uppercase tracking-widest text-white/85 mt-2">Builders</span>
+          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[120px] flex-1">
+            <span class="font-sketch text-4xl text-primary font-bold leading-none">4</span>
+            <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-2">Builders</span>
           </div>
-          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[120px]">
-            <span class="font-sketch text-4xl text-white font-bold leading-none">100%</span>
-            <span class="font-label text-xs uppercase tracking-widest text-white/85 mt-2">Raised</span>
+          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[120px] flex-1">
+            <span class="font-sketch text-4xl text-primary font-bold leading-none">100%</span>
+            <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-2">Raised</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Thin ornamental divider -->
-    <div class="flex items-center gap-6 mb-24 opacity-60" aria-hidden="true">
-      <div class="flex-1 h-px bg-gradient-to-r from-transparent to-white/60"></div>
-      <span class="material-symbols-outlined text-white/80 text-xl drop-shadow">spa</span>
-      <div class="flex-1 h-px bg-gradient-to-l from-transparent to-white/60"></div>
+    <!-- Photo gallery -->
+    <section class="mb-24" aria-label="Gudbrandsdalen">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+        <Image
+          src={gudbrandsdalen}
+          alt="Gudbrandsdalen valley"
+          class="w-full h-48 md:h-64 object-cover rounded-xl"
+        />
+        <Image
+          src={dalen2}
+          alt="The valley"
+          class="w-full h-48 md:h-64 object-cover rounded-xl"
+        />
+        <Image
+          src={favang}
+          alt="Fåvang"
+          class="w-full h-48 md:h-64 object-cover rounded-xl col-span-2 md:col-span-1"
+        />
+      </div>
+    </section>
+
+    <!-- Ornamental divider -->
+    <div class="flex items-center gap-6 mb-16 opacity-40" aria-hidden="true">
+      <div class="flex-1 h-px bg-outline-variant"></div>
+      <span class="material-symbols-outlined text-secondary text-xl">spa</span>
+      <div class="flex-1 h-px bg-outline-variant"></div>
     </div>
 
     <!-- Story blurb -->
-    <section class="mb-16 px-4 reveal" aria-labelledby="story-blurb-heading">
-      <div class="max-w-2xl mx-auto bg-surface-bright/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-on-surface/10 shadow-lg text-center">
+    <section class="mb-16 reveal" aria-labelledby="story-blurb-heading">
+      <div class="max-w-2xl mx-auto bg-surface-container-low rounded-2xl p-8 md:p-12 border border-outline-variant text-center">
         <h2
           id="story-blurb-heading"
           class="font-headline text-4xl italic text-primary mb-5 leading-tight"
@@ -103,7 +135,7 @@ import after from "@assets/after.jpeg";
 
     <!-- Before/After slider -->
     <section class="mb-32 reveal" aria-label="The chapel before and after">
-      <div class="bg-surface-container-lowest p-3 shadow-xl" style="box-shadow: 3px 5px 24px rgba(0,0,0,0.18);">
+      <div class="bg-surface-container-lowest p-3 shadow-md rounded-sm">
         <BeforeAfterSlider
           before={before}
           after={after}
@@ -117,9 +149,7 @@ import after from "@assets/after.jpeg";
 
     <!-- Fundraiser Section -->
     <section class="mb-24 relative overflow-hidden reveal">
-      <div
-        class="fundraiser-panel"
-      >
+      <div class="fundraiser-panel">
         <!-- Top rule -->
         <div class="flex items-center gap-4 mb-10">
           <div class="flex-1 h-px bg-secondary/20"></div>

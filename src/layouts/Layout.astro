@@ -35,7 +35,7 @@ const t = useTranslations(lang);
     if (saved) document.documentElement.setAttribute("data-theme", saved);
   </script>
   <body
-  class="valley-bg text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen relative"
+  class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen"
   >
     <a href="#main-content" class="skip-link">
       {lang === 'no' ? 'Hopp til innhold' : 'Skip to content'}
@@ -45,33 +45,33 @@ const t = useTranslations(lang);
       class="flex justify-between items-center w-full pl-2 pr-4 py-3 max-w-6xl mx-auto"
       >
         <a class="flex items-center gap-3" href="/capellareginaenorvegiae">
-          <Image src={topIcon} alt="Glassmaling" class="w-11 h-11 md:w-14 md:h-14 drop-shadow-md" />
+          <Image src={topIcon} alt="Glassmaling" class="w-11 h-11 md:w-14 md:h-14" />
           <div class="leading-tight">
-            <div class="text-sm md:text-base font-semibold font-['Newsreader'] italic tracking-tight text-white [text-shadow:0_1px_4px_rgba(0,0,0,0.8),0_2px_12px_rgba(0,0,0,0.5)]">
+            <div class="text-sm md:text-base font-semibold font-['Newsreader'] italic tracking-tight text-on-surface">
               Capella Reginae Norvegiae
             </div>
-            <div class="text-xs font-['Plus_Jakarta_Sans'] tracking-wide text-white/70 [text-shadow:0_1px_4px_rgba(0,0,0,0.8)] hidden sm:block">Gudbrandsdalen</div>
+            <div class="text-xs font-['Plus_Jakarta_Sans'] tracking-wide text-on-surface-variant hidden sm:block">Gudbrandsdalen</div>
           </div>
         </a>
         <div class="flex gap-3 md:gap-6 items-center">
           <a
-          class="font-['Newsreader'] italic text-base tracking-tight text-white/90 hover:text-white transition-colors [text-shadow:0_1px_4px_rgba(0,0,0,0.8),0_2px_8px_rgba(0,0,0,0.5)] hidden sm:block"
+          class="font-['Newsreader'] italic text-base tracking-tight text-on-surface-variant hover:text-on-surface transition-colors hidden sm:block"
           href="story">{t("nav.story")}</a
           >
           <!-- Language switcher -->
-          <div class="flex items-center gap-0 font-['Epilogue'] text-white/60" role="group" aria-label="Language">
+          <div class="flex items-center gap-0 font-['Epilogue'] text-on-surface-variant" role="group" aria-label="Language">
             <a href="/capellareginaenorvegiae/no"
-               class="min-h-[44px] min-w-[44px] flex items-center justify-center text-sm hover:text-white transition-colors"
-               class:list={[lang === 'no' ? 'text-white font-semibold' : '']}
+               class="min-h-[44px] min-w-[44px] flex items-center justify-center text-sm hover:text-on-surface transition-colors"
+               class:list={[lang === 'no' ? 'text-on-surface font-semibold' : '']}
                aria-label="Norsk" lang="no">NO</a>
             <span class="opacity-30 select-none" aria-hidden="true">|</span>
             <a href="/capellareginaenorvegiae/en"
-               class="min-h-[44px] min-w-[44px] flex items-center justify-center text-sm hover:text-white transition-colors"
-               class:list={[lang === 'en' ? 'text-white font-semibold' : '']}
+               class="min-h-[44px] min-w-[44px] flex items-center justify-center text-sm hover:text-on-surface transition-colors"
+               class:list={[lang === 'en' ? 'text-on-surface font-semibold' : '']}
                aria-label="English" lang="en">EN</a>
           </div>
           <a
-          class="min-h-[44px] px-4 md:px-5 flex items-center border border-white/50 text-white hover:bg-white/20 rounded-sm transition-all font-['Newsreader'] italic text-sm [text-shadow:0_1px_4px_rgba(0,0,0,0.8)]"
+          class="min-h-[44px] px-4 md:px-5 flex items-center border border-outline text-on-surface hover:bg-surface-container rounded-sm transition-all font-['Newsreader'] italic text-sm"
           href="https://www.spleis.no/project/485151?s=c"
           target="_blank"
           rel="noopener noreferrer">{t("nav.contact")}</a
@@ -79,9 +79,7 @@ const t = useTranslations(lang);
         </div>
       </nav>
     </header>
-    <div class="relative z-10">
-      <slot />
-    </div>
+    <slot />
 
     <!-- Theme Switcher -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2" id="theme-switcher">
@@ -135,7 +133,7 @@ const t = useTranslations(lang);
           <span class="check-icon opacity-0 text-base leading-none">✓</span>
         </button>
       </div>
-      <button id="theme-toggle" class="w-11 h-11 rounded-full shadow-xl flex items-center justify-center backdrop-blur-md border border-white/20 bg-surface-bright/80 text-primary hover:scale-110 transition-transform" aria-label="Change theme" aria-expanded="false" aria-controls="theme-panel">
+      <button id="theme-toggle" class="w-11 h-11 rounded-full shadow-lg flex items-center justify-center border border-outline-variant bg-surface-bright text-primary hover:scale-110 transition-transform" aria-label="Change theme" aria-expanded="false" aria-controls="theme-panel">
         <span class="material-symbols-outlined text-xl">palette</span>
       </button>
     </div>
@@ -236,33 +234,30 @@ const t = useTranslations(lang);
       }
     </script>
 
-  <footer class="w-full mt-20 pb-12 pt-12 relative z-10">
+  <footer class="w-full mt-20 pb-12 pt-12 border-t border-outline-variant">
     <div class="max-w-4xl mx-auto px-4">
-      <div
-        class="flex flex-col items-center gap-5 text-center"
-        style="text-shadow: 0 1px 6px rgba(0,0,0,1), 0 3px 20px rgba(0,0,0,0.8);"
-      >
+      <div class="flex flex-col items-center gap-5 text-center">
         <!-- Ornamental divider -->
-        <div class="flex items-center gap-4 w-full max-w-xs opacity-50 mb-2" aria-hidden="true">
-          <div class="flex-1 h-px bg-white/60"></div>
-          <span class="text-white/80 text-sm">✦</span>
-          <div class="flex-1 h-px bg-white/60"></div>
+        <div class="flex items-center gap-4 w-full max-w-xs opacity-40 mb-2" aria-hidden="true">
+          <div class="flex-1 h-px bg-outline-variant"></div>
+          <span class="text-secondary text-sm">✦</span>
+          <div class="flex-1 h-px bg-outline-variant"></div>
         </div>
 
-        <div class="text-xl font-medium font-['Newsreader'] italic text-white">
+        <div class="text-xl font-medium font-['Newsreader'] italic text-on-surface">
           Capella Reginae Norvegiae
         </div>
-        <p class="font-['Newsreader'] text-sm italic text-white/80 max-w-xs">
+        <p class="font-['Newsreader'] text-sm italic text-on-surface-variant max-w-xs">
           Built with love in Gudbrandsdalen.
         </p>
 
         <div class="flex items-center gap-1 text-sm font-['Plus_Jakarta_Sans']">
-          <a class="min-h-[44px] px-4 inline-flex items-center text-white/80 hover:text-white transition-colors" href="/capellareginaenorvegiae/no">Norsk</a>
-          <span class="text-white/30" aria-hidden="true">·</span>
-          <a class="min-h-[44px] px-4 inline-flex items-center text-white/80 hover:text-white transition-colors" href="/capellareginaenorvegiae/en">English</a>
+          <a class="min-h-[44px] px-4 inline-flex items-center text-on-surface-variant hover:text-on-surface transition-colors" href="/capellareginaenorvegiae/no">Norsk</a>
+          <span class="text-on-surface-variant/30" aria-hidden="true">·</span>
+          <a class="min-h-[44px] px-4 inline-flex items-center text-on-surface-variant hover:text-on-surface transition-colors" href="/capellareginaenorvegiae/en">English</a>
         </div>
 
-        <div class="text-xs font-label text-white/50 mt-1">
+        <div class="text-xs font-label text-on-surface-variant/60 mt-1">
           © 2026 Mathias and his companions.
         </div>
       </div>
@@ -277,12 +272,5 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
-}
-
-.valley-bg {
-  background-image: url("@assets/dalen1.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
 }
 </style>
