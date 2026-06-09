@@ -10,39 +10,48 @@ import kapellInnsyn from "@assets/kapell_innsyn.jpeg";
 import gudbrandsdalen from "@assets/gudbrandsdalen.jpg";
 import dalen2 from "@assets/dalen2.jpg";
 import favang from "@assets/fåvang.jpg";
+import { content, defaultLang } from "../../i18n/content";
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: "en" } },
+    { params: { lang: "no" } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: string };
+const c = lang in content ? content[lang as keyof typeof content] : content[defaultLang];
+const idx = c.index;
 ---
 
 <Layout>
   <main id="main-content" class="max-w-6xl mx-auto px-4 sm:px-8">
 
-    <!-- Hero Section — two-column split -->
+    <!-- Hero Section -->
     <section class="py-24 md:py-32">
-      <div class="grid md:grid-cols-[1fr_480px] lg:grid-cols-[1fr_600px] gap-12 md:gap-16 items-center">
+      <div class="grid md:grid-cols-[1fr_minmax(400px,1fr)] lg:grid-cols-[1fr_500px] gap-8 md:gap-16 items-center">
 
         <!-- Left: text content -->
         <div>
           <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 bg-secondary-container text-on-secondary-container rounded-full font-label text-xs uppercase tracking-[0.2em]">
             <span class="w-1.5 h-1.5 rounded-full bg-secondary inline-block"></span>
-            Gudbrandsdalen Valley
+            {idx.hero.badge}
           </div>
           <h1 class="font-sketch font-bold text-5xl md:text-6xl text-primary mb-6 leading-[1.05]">
-            We're turning an old forge into a chapel.
+            {idx.hero.heading}
           </h1>
           <div class="w-16 h-px bg-secondary/40 mb-6"></div>
-          <p class="font-headline italic text-lg md:text-xl text-tertiary mb-4 leading-relaxed">
-            Four friends, one abandoned building, and a lot of weekends.
-          </p>
           <p class="font-body text-sm md:text-base text-on-surface-variant mb-10 leading-relaxed max-w-lg">
-            There's an old forge on Ledum Farm in Gudbrandsdalen that's been sitting empty for decades.
-            We think it should be a chapel — a quiet place anyone can walk into.
-            So we're building it ourselves.
+            {idx.hero.body[0]}<br/>
+            {idx.hero.body[1]}<br/>
+            {idx.hero.body[2]}
           </p>
           <div class="flex flex-wrap gap-4 items-center">
             <a
               class="inline-flex items-center gap-2 px-8 min-h-[44px] bg-primary text-on-primary rounded-sm font-label text-sm hover:bg-primary/90 transition-colors shadow-md tracking-wide"
-              href="/capellareginaenorvegiae/en/story"
+              href={`/capellareginaenorvegiae/${lang}/story`}
             >
-              Our Story
+              {idx.hero.ctaStory}
               <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
             </a>
             <a
@@ -51,7 +60,7 @@ import favang from "@assets/fåvang.jpg";
               target="_blank"
               rel="noopener noreferrer"
             >
-              Support us
+              {idx.hero.ctaSupport}
             </a>
           </div>
         </div>
@@ -60,7 +69,7 @@ import favang from "@assets/fåvang.jpg";
         <div class="relative">
           <Image
             src={dalen2}
-            alt="Gudbrandsdalen valley at sunset"
+            alt={idx.hero.imageAlt}
             class="w-full h-[400px] md:h-[600px] object-cover rounded-2xl shadow-xl"
           />
         </div>
@@ -68,20 +77,20 @@ import favang from "@assets/fåvang.jpg";
     </section>
 
     <!-- Stat strip -->
-    <section aria-label="Project overview" class="mb-24">
+    <section aria-label={idx.stats.start.label} class="mb-24">
       <div class="bg-surface-container rounded-2xl">
         <div class="flex flex-wrap divide-x divide-outline-variant">
-          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[120px] flex-1">
-            <span class="font-sketch text-4xl text-primary font-bold leading-none">2022</span>
-            <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-2">Project start</span>
+          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[140px] flex-1">
+            <span class="font-sketch text-4xl text-primary font-bold leading-none">{idx.stats.start.year}</span>
+            <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-2">{idx.stats.start.label}</span>
           </div>
-          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[120px] flex-1">
-            <span class="font-sketch text-4xl text-primary font-bold leading-none">4</span>
-            <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-2">Builders</span>
+          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[140px] flex-1">
+            <span class="font-sketch text-4xl text-primary font-bold leading-none">{idx.stats.builders.count}</span>
+            <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-2">{idx.stats.builders.label}</span>
           </div>
-          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[120px] flex-1">
-            <span class="font-sketch text-4xl text-primary font-bold leading-none">100%</span>
-            <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-2">Raised</span>
+          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[140px] flex-1">
+            <span class="font-sketch text-4xl text-primary font-bold leading-none">{idx.stats.raised.percent}</span>
+            <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-2">{idx.stats.raised.label}</span>
           </div>
         </div>
       </div>
@@ -89,63 +98,53 @@ import favang from "@assets/fåvang.jpg";
 
     <!-- Photo gallery -->
     <section class="mb-24" aria-label="Gudbrandsdalen">
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
         <Image
           src={kapellUte1}
-          alt="The chapel exterior"
+          alt={idx.gallery.img1.alt}
           class="w-full h-64 md:h-96 object-cover rounded-xl"
         />
         <Image
           src={kapellInnsyn}
-          alt="Inside the chapel"
+          alt={idx.gallery.img2.alt}
           class="w-full h-64 md:h-96 object-cover rounded-xl"
         />
         <Image
           src={kapellUte}
-          alt="The chapel outside"
+          alt={idx.gallery.img3.alt}
           class="w-full h-64 md:h-96 object-cover rounded-xl col-span-2 md:col-span-1"
         />
       </div>
     </section>
 
-    <!-- Ornamental divider -->
-    <div class="flex items-center gap-6 mb-16 opacity-40" aria-hidden="true">
-      <div class="flex-1 h-px bg-outline-variant"></div>
-      <span class="material-symbols-outlined text-secondary text-xl">spa</span>
-      <div class="flex-1 h-px bg-outline-variant"></div>
-    </div>
-
     <!-- Story blurb -->
-    <section class="mb-16 reveal" aria-labelledby="story-blurb-heading">
+    <section class="mb-24 reveal" aria-labelledby="story-blurb-heading">
       <div class="max-w-2xl mx-auto bg-surface-container-low rounded-2xl p-8 md:p-12 border border-outline-variant text-center">
         <h2
           id="story-blurb-heading"
           class="font-headline text-4xl italic text-primary mb-5 leading-tight"
-        >Here's how it started.</h2>
+        >{idx.storyBlurb.heading}</h2>
         <p class="font-body text-base md:text-lg text-on-surface-variant leading-relaxed mb-8">
-          Mathias grew up hearing stories about the old forge on Ledum Farm.
-          When he finally walked in as an adult — cold stone, no roof to speak of, decades of quiet —
-          he didn't see a ruin. He saw a room that hadn't found its purpose yet.
-          He called three of us. We said yes.
+          {idx.storyBlurb.body}
         </p>
-        <a href="/capellareginaenorvegiae/en/story" class="inline-flex items-center gap-2 min-h-[44px] px-6 font-label text-sm text-primary hover:text-primary/70 transition-colors uppercase tracking-widest">
-          Read the full story
+        <a href={`/capellareginaenorvegiae/${lang}/story`} class="inline-flex items-center gap-2 min-h-[44px] px-6 font-label text-sm text-primary hover:text-primary/70 transition-colors uppercase tracking-widest">
+          {idx.storyBlurb.readMore}
           <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
         </a>
       </div>
     </section>
 
     <!-- Before/After slider -->
-    <section class="mb-32 reveal" aria-label="The chapel before and after">
+    <section class="mb-32 reveal" aria-label={idx.slider.ariaLabel}>
       <div class="bg-surface-container-lowest p-3 shadow-md rounded-sm">
         <BeforeAfterSlider
           before={before}
           after={after}
-          beforeLabel="Before"
-          afterLabel="After"
-          alt="The chapel"
+          beforeLabel={idx.slider.beforeLabel}
+          afterLabel={idx.slider.afterLabel}
+          alt={idx.slider.alt}
         />
-        <p id="slider-hint" class="font-sketch text-base text-tertiary mt-3 px-1">Drag or use arrow keys to see the progress</p>
+        <p id="slider-hint" class="font-sketch text-base text-tertiary mt-3 px-1">{idx.slider.hint}</p>
       </div>
     </section>
 
@@ -155,28 +154,24 @@ import favang from "@assets/fåvang.jpg";
         <!-- Top rule -->
         <div class="flex items-center gap-4 mb-10">
           <div class="flex-1 h-px bg-secondary/20"></div>
-          <span class="font-sketch text-secondary/60 text-sm tracking-widest uppercase">Support the project</span>
+          <span class="font-sketch text-secondary/60 text-sm tracking-widest uppercase">{idx.fundraiser.label}</span>
           <div class="flex-1 h-px bg-secondary/20"></div>
         </div>
 
         <div class="max-w-xl mx-auto text-center">
-          <h2 class="font-headline text-4xl md:text-5xl italic text-primary mb-4 leading-tight">
-            We're raising 400,000 kr<br/>to finish the chapel.
-          </h2>
+          <h2 class="font-headline text-4xl md:text-5xl italic text-primary mb-4 leading-tight" set:html={idx.fundraiser.heading} />
           <p class="font-body text-base text-tertiary mb-8 leading-relaxed">
-            We need to finish the windows, lay the floor, and get the inside ready.
-            Every donation goes straight to the building — no overhead, no admin.
-            If you'd like to be part of this, we'd love to have you.
+            {idx.fundraiser.body}
           </p>
 
           <!-- Progress bar -->
           <div class="mb-8">
             <div class="text-center mb-4">
               <div class="font-sketch text-5xl md:text-6xl text-primary font-bold leading-none mb-1">400 000 kr</div>
-              <div class="font-label text-xs uppercase tracking-widest text-secondary/70">fundraising goal</div>
+              <div class="font-label text-xs uppercase tracking-widest text-secondary/70">{idx.fundraiser.goalLabel}</div>
             </div>
             <div class="flex justify-between font-sketch text-base text-secondary mb-2">
-              <span>Raised so far</span>
+              <span>{idx.fundraiser.raisedLabel}</span>
               <span>100%</span>
             </div>
             <div class="h-3 bg-secondary/10 rounded-full overflow-hidden border border-secondary/10">
@@ -190,7 +185,7 @@ import favang from "@assets/fåvang.jpg";
             href="https://www.spleis.no/project/485151?s=c"
             class="btn-pulse btn-touch inline-flex items-center gap-3 bg-primary text-on-primary px-10 py-4 rounded-sm font-label text-sm hover:bg-primary/90 shadow-lg transition-colors tracking-wide"
           >
-            Donate here
+            {idx.fundraiser.button}
             <span class="material-symbols-outlined text-base" aria-hidden="true">favorite</span>
           </a>
         </div>
