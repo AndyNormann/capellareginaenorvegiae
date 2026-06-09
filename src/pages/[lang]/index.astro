@@ -10,7 +10,9 @@ import kapellInnsyn from "@assets/kapell_innsyn.jpeg";
 import gudbrandsdalen from "@assets/gudbrandsdalen.jpg";
 import dalen2 from "@assets/dalen2.jpg";
 import favang from "@assets/fåvang.jpg";
+import vippsQr from "@assets/capella_vipps_qr.png";
 import { content, defaultLang } from "../../i18n/content";
+import { fetchDonationData, formatKr } from "../../lib/vipps";
 
 export function getStaticPaths() {
   return [
@@ -22,6 +24,8 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: string };
 const c = lang in content ? content[lang as keyof typeof content] : content[defaultLang];
 const idx = c.index;
+const donationData = await fetchDonationData();
+const totalRaised = formatKr(donationData.totalRaisedSats);
 ---
 
 <Layout>
@@ -56,9 +60,7 @@ const idx = c.index;
             </a>
             <a
               class="font-headline italic text-lg text-primary/80 hover:text-primary border-b border-primary/20 pb-0.5 hover:border-primary/60 transition-all min-h-[44px] inline-flex items-center"
-              href="https://www.spleis.no/project/485151?s=c"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#fundraiser"
             >
               {idx.hero.ctaSupport}
             </a>
@@ -149,7 +151,7 @@ const idx = c.index;
     </section>
 
     <!-- Fundraiser Section -->
-    <section class="mb-24 relative overflow-hidden reveal">
+    <section class="mb-24 relative overflow-hidden reveal" id="fundraiser">
       <div class="fundraiser-panel">
         <!-- Top rule -->
         <div class="flex items-center gap-4 mb-10">
@@ -159,35 +161,24 @@ const idx = c.index;
         </div>
 
         <div class="max-w-xl mx-auto text-center">
-          <h2 class="font-headline text-4xl md:text-5xl italic text-primary mb-4 leading-tight" set:html={idx.fundraiser.heading} />
+          <h2 class="font-headline text-4xl md:text-5xl italic text-primary mb-4 leading-tight">{idx.fundraiser.heading}</h2>
           <p class="font-body text-base text-tertiary mb-8 leading-relaxed">
             {idx.fundraiser.body}
           </p>
 
-          <!-- Progress bar -->
+          <!-- Raised amount -->
           <div class="mb-8">
             <div class="text-center mb-4">
-              <div class="font-sketch text-5xl md:text-6xl text-primary font-bold leading-none mb-1">400 000 kr</div>
-              <div class="font-label text-xs uppercase tracking-widest text-secondary/70">{idx.fundraiser.goalLabel}</div>
-            </div>
-            <div class="flex justify-between font-sketch text-base text-secondary mb-2">
-              <span>{idx.fundraiser.raisedLabel}</span>
-              <span>100%</span>
-            </div>
-            <div class="h-3 bg-secondary/10 rounded-full overflow-hidden border border-secondary/10">
-              <div class="progress-bar-fill h-full bg-gradient-to-r from-secondary to-primary rounded-full"></div>
+              <div class="font-sketch text-5xl md:text-6xl text-primary font-bold leading-none mb-1">{totalRaised}</div>
+              <div class="font-label text-xs uppercase tracking-widest text-secondary/70">{idx.fundraiser.raisedLabel}</div>
             </div>
           </div>
 
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.spleis.no/project/485151?s=c"
-            class="btn-pulse btn-touch inline-flex items-center gap-3 bg-primary text-on-primary px-10 py-4 rounded-sm font-label text-sm hover:bg-primary/90 shadow-lg transition-colors tracking-wide"
-          >
-            {idx.fundraiser.button}
-            <span class="material-symbols-outlined text-base" aria-hidden="true">favorite</span>
-          </a>
+          <!-- Vipps QR code -->
+          <div class="mt-8 flex flex-col items-center gap-3">
+            <span class="font-label text-xs uppercase tracking-widest text-secondary/70">{idx.fundraiser.vippsPrompt}</span>
+            <Image src={vippsQr} alt="Vipps QR code for donations" class="w-32 h-32 md:w-40 md:h-40" />
+          </div>
         </div>
 
         <!-- Bottom rule -->

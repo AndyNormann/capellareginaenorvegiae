@@ -22,11 +22,12 @@ export const content = {
       },
       fundraiser: {
         label: "Support us",
-        heading: "We're raising 400,000 kr<br/>to finish the chapel.",
-        body: "We need 400,000 kr to finish the windows, lay the floor, and get it ready. Every krone goes straight to the building. No admin, no overhead. Just four people and a stone room.",
+        heading: "Help us finish the chapel.",
+        body: "Every krone goes straight to the building. No admin, no overhead. Just four people and a stone room.",
         goalLabel: "fundraising goal",
         raisedLabel: "Raised so far",
         button: "Donate here",
+        vippsPrompt: "Scan to give via Vipps",
       },
       slider: {
         ariaLabel: "The chapel before and after",
@@ -102,9 +103,10 @@ export const content = {
       afterLabel: "After",
       cta: {
         heading: "We're not done yet — and we'd love to have you.",
-        body: "We're raising 400,000 kr to finish the chapel. Every contribution goes straight to the building — no overhead, no admin, just four people and a stone room.",
+        body: "Every contribution goes straight to the building — no overhead, no admin, just four people and a stone room.",
         button: "Support the chapel",
         backText: "Back to home",
+        vippsPrompt: "Or scan to give via Vipps",
       },
     },
   },
@@ -129,11 +131,12 @@ export const content = {
       },
       fundraiser: {
         label: "Støtt oss",
-        heading: "Vi samler inn 400 000 kr<br/>for å fullføre kapellet.",
-        body: "Vi trenger 400 000 kr for å ferdigstille vinduene, legge gulvet og gjøre det klart. Hver krone går rett til bygget. Ingen administrasjon, ingen mellomledd. Bare fire mennesker og et steinrom.",
+        heading: "Hjelp oss å fullføre kapellet.",
+        body: "Hver krone går rett til bygget. Ingen administrasjon, ingen mellomledd. Bare fire mennesker og et steinrom.",
         goalLabel: "innsamlet mål",
         raisedLabel: "Innsamlet så langt",
         button: "Gi en gave",
+        vippsPrompt: "Skann for å gi via Vipps",
       },
       slider: {
         ariaLabel: "Kapellet før og etter",
@@ -209,8 +212,9 @@ export const content = {
       afterLabel: "Etter",
       cta: {
         heading: "Vi er ikke ferdige ennå — og vi tar gjerne imot hjelp.",
-        body: "Vi samler inn 400 000 kr for å fullføre kapellet. Alle bidrag går rett til bygget — ingen administrasjon, ingen mellomledd, bare fire mennesker og et steinrom.",
+        body: "Alle bidrag går rett til bygget — ingen administrasjon, ingen mellomledd, bare fire mennesker og et steinrom.",
         button: "Støtt kapellet",
+        vippsPrompt: "Eller skann for å gi via Vipps",
         backText: "Tilbake til forsiden",
       },
     },
