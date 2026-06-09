@@ -124,7 +124,7 @@ export async function fetchDonationData(): Promise<DonationData> {
   // Load Spleis data
   const spleis = loadSpleisDonors();
   const spleisDonors: DonorEntry[] = spleis?.donors ?? [];
-  const baselineSats = spleis?.total ?? loadFallbackBaseline();
+  const baselineSats = loadFallbackBaseline();
 
   const clientId = process.env.VIPPS_CLIENT_ID;
   const clientSecret = process.env.VIPPS_CLIENT_SECRET;
