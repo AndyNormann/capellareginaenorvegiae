@@ -179,6 +179,52 @@ const totalRaised = formatKr(donationData.totalRaisedSats);
             <span class="font-label text-xs uppercase tracking-widest text-secondary/70">{idx.fundraiser.vippsPrompt}</span>
             <Image src={vippsQr} alt="Vipps QR code for donations" class="w-32 h-32 md:w-40 md:h-40" />
           </div>
+
+          {donationData.topDonors.length > 0 && (
+            <div class="mt-12 w-full grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+              <!-- Top donors -->
+              <div>
+                <h3 class="font-headline text-lg italic text-primary mb-3">{idx.fundraiser.topDonorsLabel}</h3>
+                <div class="space-y-1">
+                  {donationData.topDonors.slice(0, 10).map((donor) => (
+                    <div class="flex justify-between items-center py-1.5 border-b border-secondary/10">
+                      <div class="flex flex-col min-w-0">
+                        <span class="font-body text-xs text-on-surface truncate">
+                          {donor.source === 'vipps' ? idx.fundraiser.anonymousLabel : donor.name}
+                        </span>
+                        {donor.message && (
+                          <span class="font-body text-[10px] text-on-surface-variant italic truncate leading-tight">"{donor.message}"</span>
+                        )}
+                      </div>
+                      <span class="font-sketch text-sm text-primary font-bold whitespace-nowrap ml-3">{formatKr(donor.amountSats)}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Recent activity -->
+              {donationData.recentDonors.length > 0 && (
+                <div>
+                  <h3 class="font-headline text-lg italic text-primary mb-3">{idx.fundraiser.recentActivityLabel}</h3>
+                  <div class="space-y-1">
+                    {donationData.recentDonors.slice(0, 10).map((donor) => (
+                      <div class="flex justify-between items-center py-1.5 border-b border-secondary/10">
+                        <div class="flex flex-col min-w-0">
+                          <span class="font-body text-xs text-on-surface truncate">
+                            {donor.source === 'vipps' ? idx.fundraiser.anonymousLabel : donor.name}
+                          </span>
+                          {donor.message && (
+                            <span class="font-body text-[10px] text-on-surface-variant italic truncate leading-tight">"{donor.message}"</span>
+                          )}
+                        </div>
+                        <span class="font-sketch text-sm text-primary font-bold whitespace-nowrap ml-3">{formatKr(donor.amountSats)}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         <!-- Bottom rule -->

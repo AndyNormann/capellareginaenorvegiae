@@ -28,6 +28,9 @@ export const content = {
         raisedLabel: "Raised so far",
         button: "Donate here",
         vippsPrompt: "Scan to give via Vipps",
+        topDonorsLabel: "Top donations",
+        recentActivityLabel: "Recent activity",
+        anonymousLabel: "Anonymous",
       },
       slider: {
         ariaLabel: "The chapel before and after",
@@ -137,6 +140,9 @@ export const content = {
         raisedLabel: "Innsamlet så langt",
         button: "Gi en gave",
         vippsPrompt: "Skann for å gi via Vipps",
+        topDonorsLabel: "Største gaver",
+        recentActivityLabel: "Siste aktivitet",
+        anonymousLabel: "Anonym",
       },
       slider: {
         ariaLabel: "Kapellet før og etter",

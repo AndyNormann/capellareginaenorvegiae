@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Knut Maubach",
+    "message": "Jeg er så glad for at jeg kan støtte dette gode prosjektet",
+    "amountKr": 25000
+  },
+
+  { "name": "Familien Foss", "amountKr": 15000 },
+  {
+    "name": "P. Matthew",
+    "message": "Gloria in Excélsis Deo",
+    "amountKr": 10000
+  },
+  {
+    "name": "Vanchuha",
+    "message": "lykke til med denne prosjekt",
+    "amountKr": 10000
+  },
+  {
+    "name": "Dominic Nalpon",
+    "message": "Domina nostra Vallis Gudbrandi, ora pro nobis!",
+    "amountKr": 5400
+  },
+  {
+    "name": "Twin Nguyen",
+    "message": "Kjære alle, «Vår Frue av Gudbrandsdalen» blir en varig arv i Gudbrandsdalen. Gratulerer pater Mathias Ledum. La oss støtte dette hellige prosjektet. Twin Nguyen",
+    "amountKr": 5000
+  },
+  { "name": "Kim Caesar Bonite", "message": "❤️", "amountKr": 5000 },
+  {
+    "name": "Erik Nikolai",
+    "message": "Takk for innsatsen, veldig inspirerende! Gud velsigne prosjektet og alle som bidrar",
+    "amountKr": 5000
+  },
+  {
+    "name": "St.Sunniva og Seljamennene",
+    "message": "Måtte jo dytte deg over mållinjen når det var så lite igjen! Gud velsigne Gudbrandsdalen❤️",
+    "amountKr": 5000
+  },
+  {
+    "name": "Ivan Vu",
+    "message": "En gave fra styreleder i Norges Unge Katolikker. Jeg ser frem til å besøke kapellet!",
+    "amountKr": 5000
+  },
+  {
+    "name": "Thanh vu",
+    "message": "Gud velsigne deg pater Mathias Lykke til med prosjektet",
+    "amountKr": 5000
+  }
+]

@@ -2,14 +2,27 @@ import { readFileSync, existsSync } from "node:fs";
 import path from "node:path";
 
 const FALLBACK_PATH = path.resolve("src/data/donations.json");
+const SPLEIS_DONORS_PATH = path.resolve("src/data/spleis-donors.json");
+
+export interface DonorEntry {
+  name: string;
+  amountSats: number;
+  message?: string;
+  timestamp: string;
+  source: "spleis" | "vipps";
+}
 
 export interface DonationData {
   /** Total raised = Spleis baseline + Vipps payments */
   totalRaisedSats: number;
-  /** Historical amount from Spleis fundraiser (413,800 kr) */
+  /** Historical amount from Spleis fundraiser */
   baselineSats: number;
   /** Live amount from Vipps ePayment API */
   vippsSats: number;
+  /** Combined donor list sorted by amount descending (top) */
+  topDonors: DonorEntry[];
+  /** Combined donor list sorted by timestamp descending (recent) */
+  recentDonors: DonorEntry[];
   lastUpdated: string | null;
 }
 
@@ -23,18 +36,74 @@ export function formatKr(sats: number): string {
   return nok.toLocaleString("nb-NO") + " kr";
 }
 
-function loadFallback(): { baselineSats: number; lastUpdated: string | null } {
-  if (existsSync(FALLBACK_PATH)) {
-    try {
-      return JSON.parse(readFileSync(FALLBACK_PATH, "utf-8")) as {
-        baselineSats: number;
-        lastUpdated: string | null;
-      };
-    } catch {
-      // corrupt file — treat as empty
+function loadJson<T>(filePath: string): T | null {
+  try {
+    if (existsSync(filePath)) {
+      return JSON.parse(readFileSync(filePath, "utf-8")) as T;
     }
+  } catch {
+    // corrupt or missing — handled by caller
   }
-  return { baselineSats: 0, lastUpdated: null };
+  return null;
+}
+
+/**
+ * Spleis donor entries: { name, amountKr (whole NOK), message?, timestamp }
+ */
+interface SpleisDonorJson {
+  name: string;
+  amountKr: number;
+  message?: string;
+  /** ISO timestamp. Optional — entries without one sink to bottom of recent list. */
+  timestamp?: string;
+}
+
+function loadSpleisDonors() {
+  const raw = loadJson<SpleisDonorJson[]>(SPLEIS_DONORS_PATH);
+  if (!raw || raw.length === 0) return null;
+
+  const donors: DonorEntry[] = raw.map((d) => ({
+    name: d.name,
+    amountSats: d.amountKr * 100,
+    message: d.message,
+    timestamp: d.timestamp ?? "2000-01-01T00:00:00Z",
+    source: "spleis" as const,
+  }));
+
+  const total = donors.reduce((sum, d) => sum + d.amountSats, 0);
+  return { donors, total };
+}
+
+function loadFallbackBaseline(): number {
+  const data = loadJson<{ baselineSats: number }>(FALLBACK_PATH);
+  return data?.baselineSats ?? 0;
+}
+
+function buildDonationData(args: {
+  spleisDonors: DonorEntry[];
+  baselineSats: number;
+  vippsDonors: DonorEntry[];
+  vippsSats: number;
+  lastUpdated: string | null;
+}): DonationData {
+  const allDonors = [...args.spleisDonors, ...args.vippsDonors];
+
+  const topDonors = [...allDonors].sort(
+    (a, b) => b.amountSats - a.amountSats,
+  );
+
+  const recentDonors = [...args.vippsDonors].sort(
+    (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime(),
+  );
+
+  return {
+    totalRaisedSats: args.baselineSats + args.vippsSats,
+    baselineSats: args.baselineSats,
+    vippsSats: args.vippsSats,
+    topDonors,
+    recentDonors,
+    lastUpdated: args.lastUpdated,
+  };
 }
 
 /**
@@ -43,16 +112,19 @@ function loadFallback(): { baselineSats: number; lastUpdated: string | null } {
  * Credentials are read from environment variables (VIPPS_CLIENT_ID,
  * VIPPS_CLIENT_SECRET, VIPPS_SUBSCRIPTION_KEY, VIPPS_MSN).
  *
- * Always includes the Spleis historical baseline from
- * src/data/donations.json. When credentials are present and the API
- * succeeds, the Vipps payment total is added on top.
+ * Spleis historical donor data is loaded from src/data/spleis-donors.json.
+ * When Vipps credentials are present and the API succeeds, payment entries
+ * are added as anonymous donor records.
  *
  * Module-level cache prevents duplicate API calls during Astro build.
  */
 export async function fetchDonationData(): Promise<DonationData> {
   if (cached) return cached;
 
-  const fallback = loadFallback();
+  // Load Spleis data
+  const spleis = loadSpleisDonors();
+  const spleisDonors: DonorEntry[] = spleis?.donors ?? [];
+  const baselineSats = spleis?.total ?? loadFallbackBaseline();
 
   const clientId = process.env.VIPPS_CLIENT_ID;
   const clientSecret = process.env.VIPPS_CLIENT_SECRET;
@@ -61,14 +133,15 @@ export async function fetchDonationData(): Promise<DonationData> {
 
   if (!clientId || !clientSecret || !subscriptionKey || !msn) {
     console.warn(
-      "[vipps] Missing Vipps credentials. Using Spleis baseline only.",
+      "[vipps] Missing Vipps credentials. Using Spleis data only.",
     );
-    cached = {
-      totalRaisedSats: fallback.baselineSats,
-      baselineSats: fallback.baselineSats,
+    cached = buildDonationData({
+      spleisDonors,
+      baselineSats,
+      vippsDonors: [],
       vippsSats: 0,
-      lastUpdated: fallback.lastUpdated,
-    };
+      lastUpdated: null,
+    });
     return cached;
   }
 
@@ -89,7 +162,15 @@ export async function fetchDonationData(): Promise<DonationData> {
 
     const { access_token } = (await tokenRes.json()) as { access_token: string };
 
-    // 2. Fetch all payments (paginated) and sum captured amounts
+    // 2. Fetch all payments (paginated)
+    interface VippsPayment {
+      state: string;
+      amount?: { value: number };
+      aggregate?: { capturedAmount?: { value: number } };
+      created?: string;
+    }
+
+    const vippsDonors: DonorEntry[] = [];
     let vippsSats = 0;
     let url: string | null =
       "https://api.vipps.no/epayment/v1/payments?$top=100";
@@ -109,39 +190,44 @@ export async function fetchDonationData(): Promise<DonationData> {
       }
 
       const body = (await resp.json()) as {
-        data?: Array<{
-          state: string;
-          amount?: { value: number };
-          aggregate?: { capturedAmount?: { value: number } };
-        }>;
+        data?: VippsPayment[];
         paging?: { next?: string };
       };
 
       for (const p of body.data ?? []) {
         if (p.state === "CAPTURED") {
-          vippsSats +=
+          const amount =
             p.aggregate?.capturedAmount?.value ?? p.amount?.value ?? 0;
+          vippsSats += amount;
+          vippsDonors.push({
+            name: "Anonymous",
+            amountSats: amount,
+            timestamp: p.created ?? new Date().toISOString(),
+            source: "vipps",
+          });
         }
       }
 
       url = body.paging?.next ?? null;
     }
 
-    cached = {
-      totalRaisedSats: fallback.baselineSats + vippsSats,
-      baselineSats: fallback.baselineSats,
+    cached = buildDonationData({
+      spleisDonors,
+      baselineSats,
+      vippsDonors,
       vippsSats,
       lastUpdated: new Date().toISOString(),
-    };
+    });
     return cached;
   } catch (err) {
-    console.warn("[vipps] API error, using Spleis baseline only:", err);
-    cached = {
-      totalRaisedSats: fallback.baselineSats,
-      baselineSats: fallback.baselineSats,
+    console.warn("[vipps] API error, using Spleis data only:", err);
+    cached = buildDonationData({
+      spleisDonors,
+      baselineSats,
+      vippsDonors: [],
       vippsSats: 0,
-      lastUpdated: fallback.lastUpdated,
-    };
+      lastUpdated: null,
+    });
     return cached;
   }
 }
