@@ -5,7 +5,7 @@ export const content = {
     index: {
       hero: {
         badge: "Gudbrandsdalen Valley",
-        heading: "Welcome to our chapel.",
+        heading: "Welcome to Mariaslæen.",
         body: [
           "It's an old forge in Gudbrandsdalen.",
           "We're turning it into a quiet place anyone can walk into.",
@@ -117,7 +117,7 @@ export const content = {
     index: {
       hero: {
         badge: "Gudbrandsdalen, Norge",
-        heading: "Velkommen til kapellet.",
+        heading: "Velkommen til Mariaslæen.",
         body: [
           "Vi holder på å omgjøre en gammel smie.",
           "Til et kapell for alle pilgrimer, turgåere, og alle andre som trenger et stille sted å sitte.",
