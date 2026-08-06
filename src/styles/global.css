@@ -260,7 +260,7 @@
   background: linear-gradient(135deg, #fdf6e3 0%, #fef3cd 50%, #fdf0c2 100%);
   border: 1px solid rgba(123, 88, 30, 0.15);
   box-shadow: 0 20px 60px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9);
-  border-radius: 2px;
+  border-radius: 1rem;
   padding: 2rem;
   position: relative;
 }
@@ -341,6 +341,18 @@
 .reveal-delay-1 { transition-delay: 0.1s; }
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
+
+/* Opening-section drop cap on the story page */
+.prose-custom > p:first-of-type::first-letter {
+  font-family: var(--font-headline);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 3.2em;
+  line-height: 0.85;
+  float: left;
+  padding: 0.04em 0.14em 0 0;
+  color: var(--color-primary);
+}
 
 /* ─────────────────────────────────────────────────────────────
    CTA pulse animation

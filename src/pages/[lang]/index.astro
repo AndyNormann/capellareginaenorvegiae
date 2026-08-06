@@ -1,18 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
-import BeforeAfterSlider from "../../components/BeforeAfterSlider.astro";
-import before from "@assets/before.jpeg";
-import after from "@assets/after.jpeg";
-import kapellUte from "@assets/kapell_ute.jpeg";
-import kapellUte1 from "@assets/kapell_ute1.jpeg";
-import kapellInnsyn from "@assets/kapell_innsyn.jpeg";
-import gudbrandsdalen from "@assets/gudbrandsdalen.jpg";
-import dalen2 from "@assets/dalen2.jpg";
-import favang from "@assets/fåvang.jpg";
-import vippsQr from "@assets/capella_vipps_qr.png";
+import heroImg from "@assets/mainhero.jpg";
+import sidealterImg from "@assets/sidealter.jpg";
+import closeupImg from "@assets/closeupourlady.jpg";
+import chapelSideImg from "@assets/chapelside.jpg";
+import bottomImg from "@assets/bottompicture.jpg";
 import { content, defaultLang } from "../../i18n/content";
-import { fetchDonationData, formatKr } from "../../lib/vipps";
 
 export function getStaticPaths() {
   return [
@@ -24,210 +18,158 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: string };
 const c = lang in content ? content[lang as keyof typeof content] : content[defaultLang];
 const idx = c.index;
-const donationData = await fetchDonationData();
-const totalRaised = formatKr(donationData.totalRaisedSats);
+
+// Pinned Google Maps listing for Ledum farm
+const mapsUrl = "https://maps.app.goo.gl/g5WxkXWGwMw9pADD6";
+const instagramUrl = "https://www.instagram.com/capellareginaenorvegiae/";
+const basePath = "/capellareginaenorvegiae";
 ---
 
-<Layout>
-  <main id="main-content" class="max-w-6xl mx-auto px-4 sm:px-8">
+<Layout description={idx.metaDescription}>
+  <main id="main-content">
 
-    <!-- Hero Section -->
-    <section class="py-24 md:py-32">
-      <div class="grid md:grid-cols-[1fr_minmax(400px,1fr)] lg:grid-cols-[1fr_500px] gap-8 md:gap-16 items-center">
-
-        <!-- Left: text content -->
-        <div>
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 bg-secondary-container text-on-secondary-container rounded-full font-label text-xs uppercase tracking-[0.2em]">
-            <span class="w-1.5 h-1.5 rounded-full bg-secondary inline-block"></span>
-            {idx.hero.badge}
-          </div>
-          <h1 class="font-sketch font-bold text-5xl md:text-6xl text-primary mb-6 leading-[1.05]">
-            {idx.hero.heading}
-          </h1>
-          <div class="w-16 h-px bg-secondary/40 mb-6"></div>
-          <p class="font-body text-sm md:text-base text-on-surface-variant mb-10 leading-relaxed max-w-lg">
-            {idx.hero.body[0]}<br/>
-            {idx.hero.body[1]}<br/>
-            {idx.hero.body[2]}
-          </p>
-          <div class="flex flex-wrap gap-4 items-center">
-            <a
-              class="inline-flex items-center gap-2 px-8 min-h-[44px] bg-primary text-on-primary rounded-sm font-label text-sm hover:bg-primary/90 transition-colors shadow-md tracking-wide"
-              href={`/capellareginaenorvegiae/${lang}/story`}
-            >
-              {idx.hero.ctaStory}
-              <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
-            </a>
-            <a
-              class="font-headline italic text-lg text-primary/80 hover:text-primary border-b border-primary/20 pb-0.5 hover:border-primary/60 transition-all min-h-[44px] inline-flex items-center"
-              href="#fundraiser"
-            >
-              {idx.hero.ctaSupport}
-            </a>
-          </div>
+    <!-- Hero: the chapel in its best light, a simple welcome, the way there -->
+    <section class="relative min-h-[88vh] md:min-h-[92vh] flex items-end overflow-hidden" aria-label={idx.galleryLabel}>
+      <Image
+        src={heroImg}
+        alt={idx.heroAlt}
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/15" aria-hidden="true"></div>
+      <div class="relative w-full max-w-6xl mx-auto px-4 sm:px-8 pb-16 md:pb-24">
+        <h1 class="font-headline italic text-4xl sm:text-5xl md:text-6xl text-white leading-[1.05] mb-5 drop-shadow-lg max-w-3xl">
+          {idx.welcome}
+        </h1>
+        <p class="font-body text-base md:text-lg text-white/90 max-w-xl leading-relaxed mb-3 drop-shadow-md">
+          {idx.intro}
+        </p>
+        <p class="flex items-center gap-2 font-body text-sm md:text-base text-white/85 max-w-xl leading-relaxed mb-9 drop-shadow-md">
+          <span class="material-symbols-outlined text-base" aria-hidden="true">door_open</span>
+          {idx.alwaysOpen}
+        </p>
+        <div class="flex flex-wrap gap-4 items-center">
+          <a
+            href={mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 min-h-[44px] px-8 py-2.5 bg-white text-primary rounded-sm font-label text-sm hover:bg-white/90 transition-colors shadow-lg tracking-wide"
+          >
+            {idx.mapCta}
+            <span class="material-symbols-outlined text-base" aria-hidden="true">map</span>
+          </a>
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 min-h-[44px] px-4 font-headline italic text-lg text-white/90 hover:text-white border-b border-white/40 pb-0.5 hover:border-white/80 transition-all"
+          >
+            {idx.questions}
+          </a>
         </div>
+      </div>
+    </section>
 
-        <!-- Right: hero image -->
-        <div class="relative">
+    <!-- What it is: photos carry the argument -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-8 py-20 md:py-28">
+      <h2 class="font-headline italic text-3xl md:text-4xl text-primary text-center mb-12 leading-tight">
+        {idx.whatHeading}
+      </h2>
+      <div class="space-y-4 md:space-y-6">
+        <!-- The side altar -->
+        <Image
+          src={sidealterImg}
+          alt={idx.featureAlt}
+          class="w-full h-[44vh] md:h-[68vh] object-cover rounded-2xl shadow-xl"
+        />
+        <!-- Close-up of Our Lady, and the chapel from the side -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <Image
-            src={dalen2}
-            alt={idx.hero.imageAlt}
-            class="w-full h-[400px] md:h-[600px] object-cover rounded-2xl shadow-xl"
+            src={closeupImg}
+            alt={idx.img1Alt}
+            class="w-full aspect-[2/3] object-cover rounded-2xl shadow-xl"
+          />
+          <Image
+            src={chapelSideImg}
+            alt={idx.img2Alt}
+            class="w-full aspect-[2/3] object-cover rounded-2xl shadow-xl"
           />
         </div>
       </div>
-    </section>
-
-    <!-- Stat strip -->
-    <section aria-label={idx.stats.start.label} class="mb-24">
-      <div class="bg-surface-container rounded-2xl">
-        <div class="flex flex-wrap divide-x divide-outline-variant">
-          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[140px] flex-1">
-            <span class="font-sketch text-4xl text-primary font-bold leading-none">{idx.stats.start.year}</span>
-            <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-2">{idx.stats.start.label}</span>
-          </div>
-          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[140px] flex-1">
-            <span class="font-sketch text-4xl text-primary font-bold leading-none">{idx.stats.builders.count}</span>
-            <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-2">{idx.stats.builders.label}</span>
-          </div>
-          <div class="flex flex-col items-center px-8 py-6 text-center min-w-[140px] flex-1">
-            <span class="font-sketch text-4xl text-primary font-bold leading-none">{idx.stats.raised.percent}</span>
-            <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-2">{idx.stats.raised.label}</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Photo gallery -->
-    <section class="mb-24" aria-label="Gudbrandsdalen">
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-        <Image
-          src={kapellUte1}
-          alt={idx.gallery.img1.alt}
-          class="w-full h-64 md:h-96 object-cover rounded-xl"
-        />
-        <Image
-          src={kapellInnsyn}
-          alt={idx.gallery.img2.alt}
-          class="w-full h-64 md:h-96 object-cover rounded-xl"
-        />
-        <Image
-          src={kapellUte}
-          alt={idx.gallery.img3.alt}
-          class="w-full h-64 md:h-96 object-cover rounded-xl col-span-2 md:col-span-1"
-        />
-      </div>
-    </section>
-
-    <!-- Story blurb -->
-    <section class="mb-24 reveal" aria-labelledby="story-blurb-heading">
-      <div class="max-w-2xl mx-auto bg-surface-container-low rounded-2xl p-8 md:p-12 border border-outline-variant text-center">
-        <h2
-          id="story-blurb-heading"
-          class="font-headline text-4xl italic text-primary mb-5 leading-tight"
-        >{idx.storyBlurb.heading}</h2>
-        <p class="font-body text-base md:text-lg text-on-surface-variant leading-relaxed mb-8">
-          {idx.storyBlurb.body}
-        </p>
-        <a href={`/capellareginaenorvegiae/${lang}/story`} class="inline-flex items-center gap-2 min-h-[44px] px-6 font-label text-sm text-primary hover:text-primary/70 transition-colors uppercase tracking-widest">
-          {idx.storyBlurb.readMore}
+      <div class="text-center mt-10 flex flex-col sm:flex-row gap-4 sm:gap-10 items-center justify-center">
+        <a
+          href={`${basePath}/${lang}/story`}
+          class="inline-flex items-center gap-2 min-h-[44px] font-headline italic text-lg text-primary/80 hover:text-primary transition-colors"
+        >
+          {idx.storyLink}
           <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+        </a>
+        <a
+          href={`${basePath}/${lang}/ourlady`}
+          class="inline-flex items-center gap-2 min-h-[44px] font-headline italic text-lg text-primary/80 hover:text-primary transition-colors"
+        >
+          {idx.ourLadyLink}
+          <span class="material-symbols-outlined text-base" aria-hidden="true">church</span>
         </a>
       </div>
     </section>
 
-    <!-- Before/After slider -->
-    <section class="mb-32 reveal" aria-label={idx.slider.ariaLabel}>
-      <div class="bg-surface-container-lowest p-3 shadow-md rounded-sm">
-        <BeforeAfterSlider
-          before={before}
-          after={after}
-          beforeLabel={idx.slider.beforeLabel}
-          afterLabel={idx.slider.afterLabel}
-          alt={idx.slider.alt}
-        />
-        <p id="slider-hint" class="font-sketch text-base text-tertiary mt-3 px-1">{idx.slider.hint}</p>
+    <!-- How to get there -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-8 pb-24 md:pb-32">
+      <div class="bg-surface-container-low rounded-2xl border border-outline-variant p-8 md:p-14 text-center">
+        <h2 class="font-headline italic text-3xl md:text-4xl text-primary mb-4 leading-tight">
+          {idx.visitHeading}
+        </h2>
+        <p class="font-body text-base md:text-lg text-on-surface-variant leading-relaxed mb-8 max-w-lg mx-auto">
+          {idx.visitBody}
+        </p>
+        <a
+          href={mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 min-h-[44px] px-8 py-2.5 bg-primary text-on-primary rounded-sm font-label text-sm hover:bg-primary/90 transition-colors shadow-md tracking-wide"
+        >
+          <span class="material-symbols-outlined text-base" aria-hidden="true">map</span>
+          {idx.visitCta}
+        </a>
+        <div class="flex flex-col items-center gap-1 mt-9">
+          <p class="font-body text-sm text-on-surface-variant">{idx.alwaysOpen}</p>
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-body text-sm text-primary hover:text-primary/70 transition-colors min-h-[44px] inline-flex items-center"
+          >
+            {idx.questions}
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- Fundraiser Section -->
-    <section class="mb-24 relative overflow-hidden reveal" id="fundraiser">
-      <div class="fundraiser-panel">
-
-        <div class="max-w-xl mx-auto text-center">
-          <h2 class="font-headline text-4xl md:text-5xl italic text-primary mb-4 leading-tight">{idx.fundraiser.heading}</h2>
-          <p class="font-body text-base text-tertiary mb-8 leading-relaxed">
-            {idx.fundraiser.body}
-          </p>
-
-          <!-- Raised amount -->
-          <div class="mb-8">
-            <div class="text-center mb-4">
-              <div class="font-sketch text-5xl md:text-6xl text-primary font-bold leading-none mb-1">{totalRaised}</div>
-              <div class="font-label text-xs uppercase tracking-widest text-secondary/70">{idx.fundraiser.raisedLabel}</div>
-            </div>
-          </div>
-
-          <!-- Vipps QR code -->
-          <div class="mt-8 flex flex-col items-center gap-3">
-            <span class="font-label text-xs uppercase tracking-widest text-secondary/70">{idx.fundraiser.vippsPrompt}</span>
-            <Image src={vippsQr} alt="Vipps QR code for donations" class="w-32 h-32 md:w-40 md:h-40" />
-          </div>
-
-          {donationData.topDonors.length > 0 && (
-            <div class="mt-12 w-full grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-              <!-- Top donors -->
-              <div>
-                <h3 class="font-headline text-lg italic text-primary mb-3">{idx.fundraiser.topDonorsLabel}</h3>
-                <div class="space-y-1">
-                  {donationData.topDonors.slice(0, 10).map((donor) => (
-                    <div class="flex justify-between items-center py-1.5 border-b border-secondary/10">
-                      <div class="flex flex-col min-w-0">
-                        <span class="font-body text-xs text-on-surface truncate">
-                          {donor.source === 'vipps' ? idx.fundraiser.anonymousLabel : donor.name}
-                        </span>
-                        {donor.message && (
-                          <span class="font-body text-[10px] text-on-surface-variant italic truncate leading-tight">"{donor.message}"</span>
-                        )}
-                      </div>
-                      <span class="font-sketch text-sm text-primary font-bold whitespace-nowrap ml-3">{formatKr(donor.amountSats)}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <!-- Recent activity -->
-              {donationData.recentDonors.length > 0 && (
-                <div>
-                  <h3 class="font-headline text-lg italic text-primary mb-3">{idx.fundraiser.recentActivityLabel}</h3>
-                  <div class="space-y-1">
-                    {donationData.recentDonors.slice(0, 10).map((donor) => (
-                      <div class="flex justify-between items-center py-1.5 border-b border-secondary/10">
-                        <div class="flex flex-col min-w-0">
-                          <span class="font-body text-xs text-on-surface truncate">
-                            {donor.source === 'vipps' ? idx.fundraiser.anonymousLabel : donor.name}
-                          </span>
-                          {donor.message && (
-                            <span class="font-body text-[10px] text-on-surface-variant italic truncate leading-tight">"{donor.message}"</span>
-                          )}
-                        </div>
-                        <span class="font-sketch text-sm text-primary font-bold whitespace-nowrap ml-3">{formatKr(donor.amountSats)}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
-        <!-- Bottom rule -->
-        <div class="flex items-center gap-4 mt-10">
-          <div class="flex-1 h-px bg-secondary/20"></div>
-          <span class="font-sketch text-secondary/40 text-xl" aria-hidden="true">✦</span>
-          <div class="flex-1 h-px bg-secondary/20"></div>
-        </div>
+    <!-- Reel: video from the chapel -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-8 pb-20 md:pb-28">
+      <h2 class="font-headline italic text-3xl md:text-4xl text-primary text-center mb-10 md:mb-12 leading-tight">
+        {idx.reelHeading}
+      </h2>
+      <div class="max-w-3xl mx-auto">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/Xs8NanNIx8E"
+          title={idx.ytTitle}
+          class="w-full aspect-video rounded-2xl shadow-xl"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
       </div>
+    </section>
+
+    <!-- Bottom picture -->
+    <section aria-label={idx.bottomAlt}>
+      <Image
+        src={bottomImg}
+        alt={idx.bottomAlt}
+        class="w-full h-[60vh] md:h-[72vh] object-cover"
+      />
     </section>
 
   </main>

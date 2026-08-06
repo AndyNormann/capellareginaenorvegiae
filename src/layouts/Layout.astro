@@ -7,6 +7,14 @@ import favicon from "@assets/glassmaleri.png";
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const { description } = Astro.props as { description?: string };
+const defaultDescription =
+  lang === 'no'
+    ? "Mariaslæen – et lite kapell i en gammel smie på Ledum gård i Gudbrandsdalen. Alltid åpent."
+    : "Mariaslæen – a small chapel in an old forge at Ledum farm, Gudbrandsdalen, Norway. Always open.";
+const pageDescription = description ?? defaultDescription;
+const pathname = Astro.url.pathname.replace(/\/+$/, "");
+const isActive = (slug: string) => pathname.endsWith(`/${lang}/${slug}`);
 ---
 
 <!doctype html>
@@ -16,6 +24,7 @@ const t = useTranslations(lang);
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Capella Reginae Norvegiae</title>
+    <meta name="description" content={pageDescription} />
     <link rel="icon" href={favicon.src} type="image/x-icon" />
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -37,6 +46,14 @@ const t = useTranslations(lang);
   <body
   class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen"
   >
+    <!--
+      THESIS: The home page invites the visit — photographs of the chapel in its best light carry the argument, text recedes to a simple welcome, one what-is line, and a Google Maps path to the door; the category-default hero-metric and kicker scaffolds are refused.
+      OWN-WORLD: The incumbent Fjord system stays untouched — Material-style tokens, Newsreader display italic, Plus Jakarta body, Epilogue labels, Caveat sketches, the eight-theme switcher, rounded-2xl photo frames.
+      STORY: A visitor from Instagram, search, or Google Maps knows within one viewport what the chapel is, that it is always open, and how to get there; story and support recede to quiet links.
+      FIRST VIEWPORT: Full-bleed interior photograph in daylight; a simple welcome line, one what-is sentence, the primary action "How to get here" → Google Maps, and the always-open fact over the image.
+      FORM: The Open Door sequence, surface structure 7/7 from the concept seed 58d594d8; home/story/ourlady/support rebalance with finished-state imagery on home and construction imagery on story; ourlady is the chapel's dedication page.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
     <a href="#main-content" class="skip-link">
       {lang === 'no' ? 'Hopp til innhold' : 'Skip to content'}
     </a>
@@ -44,7 +61,7 @@ const t = useTranslations(lang);
       <nav
       class="flex justify-between items-center w-full pl-2 pr-4 py-3 max-w-6xl mx-auto"
       >
-        <a class="flex items-center gap-3" href="/capellareginaenorvegiae">
+        <a class="flex items-center gap-3" href="/capellareginaenorvegiae" aria-current={pathname.endsWith(`/${lang}`) ? "page" : undefined}>
           <Image src={topIcon} alt="Glassmaling" class="w-11 h-11 md:w-14 md:h-14" />
           <div class="leading-tight">
             <div class="text-sm md:text-base font-semibold font-['Newsreader'] italic tracking-tight text-on-surface">
@@ -55,8 +72,22 @@ const t = useTranslations(lang);
         </a>
         <div class="flex gap-3 md:gap-6 items-center">
           <a
-          class="font-['Newsreader'] italic text-base tracking-tight text-on-surface-variant hover:text-on-surface transition-colors hidden sm:block"
-          href={`/capellareginaenorvegiae/${lang}/story`}>{t("nav.story")}</a
+          href={`/capellareginaenorvegiae/${lang}/story`}
+          class:list={[
+            "font-['Newsreader'] italic text-base tracking-tight hover:text-on-surface transition-colors hidden sm:inline-flex items-center min-h-[44px] px-2",
+            isActive("story") ? "text-on-surface underline decoration-secondary decoration-2 underline-offset-4" : "text-on-surface-variant",
+          ]}
+          aria-current={isActive("story") ? "page" : undefined}
+          >{t("nav.story")}</a
+          >
+          <a
+          href={`/capellareginaenorvegiae/${lang}/ourlady`}
+          class:list={[
+            "font-['Newsreader'] italic text-base tracking-tight hover:text-on-surface transition-colors hidden sm:inline-flex items-center min-h-[44px] px-2",
+            isActive("ourlady") ? "text-on-surface underline decoration-secondary decoration-2 underline-offset-4" : "text-on-surface-variant",
+          ]}
+          aria-current={isActive("ourlady") ? "page" : undefined}
+          >{t("nav.ourlady")}</a
           >
           <!-- Language switcher -->
           <div class="flex items-center gap-0 font-['Epilogue'] text-on-surface-variant" role="group" aria-label="Language">
@@ -71,9 +102,13 @@ const t = useTranslations(lang);
                aria-label="English" lang="en">EN</a>
           </div>
           <a
-          class="min-h-[44px] px-4 md:px-5 flex items-center border border-outline text-on-surface hover:bg-surface-container rounded-sm transition-all font-['Newsreader'] italic text-sm"
-          href={`/capellareginaenorvegiae/${lang}#fundraiser`}
-          >{t("nav.contact")}</a>
+          href={`/capellareginaenorvegiae/${lang}/support`}
+          class:list={[
+            "min-h-[44px] px-4 md:px-5 flex items-center border border-outline rounded-sm transition-all font-['Newsreader'] italic text-sm",
+            isActive("support") ? "bg-surface-container text-on-surface font-semibold" : "text-on-surface hover:bg-surface-container",
+          ]}
+          aria-current={isActive("support") ? "page" : undefined}
+          >{t("nav.support")}</a>
         </div>
       </nav>
     </header>

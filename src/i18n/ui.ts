@@ -7,13 +7,13 @@ export const defaultLang = "no";
 
 export const ui = {
   en: {
-    "nav.story": "Our story",
-    "nav.chapel": "Chapel",
-    "nav.contact": "Contact us",
+    "nav.story": "Story",
+    "nav.ourlady": "Our Lady",
+    "nav.support": "Support us",
   },
   no: {
-    "nav.story": "Vår historie",
-    "nav.chapel": "Kapellet",
-    "nav.contact": "Kontakt oss",
+    "nav.story": "Historie",
+    "nav.ourlady": "Vår Frue",
+    "nav.support": "Støtt oss",
   },
 } as const;
