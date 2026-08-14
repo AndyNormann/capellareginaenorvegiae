@@ -377,6 +377,9 @@ export const content = {
           paragraphs: [
             "The chapel is open to all — pilgrims, on foot and by car, hikers, and anyone seeking a quiet place. No entrance fee, no membership: just send us a message that you would like to visit, and we will make sure it is opened.",
           ],
+          videoTitle: "Video of the chapel",
+          videoHeading: "Hymn",
+          videoIntro: "In honour of Our Lady of Gudbrandsdalen, a hymn was written, inspired by an old poem from the Middle Ages called Liljakvadet, set to a folk tune from Gudbrandsdalen. Listen to the hymn \"Heil deg, lilja\" here",
         },
       ],
       backText: "Back to home",
@@ -760,6 +763,9 @@ export const content = {
           paragraphs: [
             "Kapellet er åpent for alle — pilegrimer, både til fots og med bil, turgåere og alle som søker et stille sted. Ingen inngangspenger, intet medlemskap: bare send oss en melding at du vil på besøk, og vi skal sørge for at det åpnes.",
           ],
+          videoTitle: "Video av kapellet",
+          videoHeading: "Hymne",
+          videoIntro: "Til ære for Vår Frue av Gudbrandsdalen ble det skrevet en hymne, inspirert av et gammelt dikt fra middelalderen kalt Liljakvadet, satt til en folketone fra Gudbrandsdalen. Lytt til hymnen \"Heil deg, lilja\" her",
         },
       ],
       backText: "Tilbake til forsiden",
