@@ -35,55 +35,42 @@ export const content = {
       badge: "Gudbrandsdalen, Norway",
       heading: "From forge to chapel",
       intro:
-        "We are transforming an old forge on the pilgrim route in Gudbrandsdalen into a beautiful chapel. The inside is done and the chapel is already in use — now it will look like a chapel from the outside too.",
+        "An old forge at Ledum Farm, unused for decades, has been turned into a chapel dedicated to Our Lady of Gudbrandsdalen. This is the story of how it happened — and where it goes from here.",
       sections: [
         {
           icon: "local_fire_department",
           heading: "The building",
           body: [
-            "The forge at Ledum Farm has had its interior transformed, and the chapel is already in use. But from the outside it still looks just like a forge.",
-            "The next step is that it should look like a chapel from the outside too. The work has gone on in all kinds of weather, weekend by weekend, stone by stone.",
+            "What was once a humble forge, unused for decades, has now been turned into a chapel dedicated to Our Lady of Gudbrandsdalen.",
+            "The first step was to make the chapel accessible: felling the trees that had grown up around the forge and shut it in, clearing out and throwing away old scrap and unnecessary equipment, washing, and sweeping away dust and ash. The most important step of all was to turn the old hearth into an altar for the holy sacrifice of the Mass. Everything else could then fall into place, step by step.",
           ],
         },
         {
           icon: "lightbulb",
           heading: "The vision",
           body: [
-            "The chapel will take on an expression inspired by the many beautiful churches of Gudbrandsdalen: a church spire, a bell tower, dragestil, and an apse at the back.",
-            "The chapel is called Capella Reginae Norvegiae — Latin for 'the chapel of the Queen of Norway' — and it is dedicated to Our Lady of Gudbrandsdalen.",
+            "The next step is to make the forge look like a proper chapel. It will take on an expression inspired by the many beautiful churches of Gudbrandsdalen, with a church spire, a bell tower, dragestil, and an apse at the back.",
+            "As far as possible we will use local craftsmen and buy materials from local businesses, so that the chapel is anchored even more clearly in Gudbrandsdalen.",
+            "The chapel's support association — made up of p. Mathias Bruno Ledum, Andreas Normann Fladstad, Ayla Olava Heimly and Marie Johanne Klara Birgitta Sjøgreen Foss — wants to preserve and pass on local cultural heritage, be it religious traditions and customs, building technique, craftsmanship, music or art.",
+            "Many more have already given their time, effort, knowledge, tools and money, and there is room for more hands. Just join in!",
           ],
         },
         {
-          icon: "group",
-          heading: "Many hands",
+          icon: "badge",
+          heading: "The name",
           body: [
-            "We will use local craftsmen as far as possible, and buy materials from local businesses, so that the chapel is anchored even more clearly in Gudbrandsdalen.",
-            "The chapel's support association wants to preserve and pass on local cultural heritage — religious traditions and customs, building techniques, craft, music and art. Many have already given their time, skills, tools and money, and there is room for more hands.",
-          ],
-        },
-        {
-          icon: "construction",
-          heading: "What the money goes to",
-          body: [
-            "We are collecting money to build out the chapel: a new roof, an extended foundation, a new entrance, a bell tower and church spire, and an apse with room for a sacristy in the north end.",
-            "At the same time we are collecting money for the stained glass, the wood carving, and the rest of the religious decoration, inside and out.",
+            "The support association behind the chapel has been given the name Capella Reginae Norvegiae — Latin for «the chapel of the Queen of Norway» — and it has become the official name used in social media and the one that works best internationally. In everyday speech, however, we use the name Mariaslæen.",
+            "«Slæen» is the local way of saying slette (meadow), eng (field), slått (haymaking), etc., in the definite form, and is used as a name for various mountain pastures in Øyerfjellet, among them the Ledum family's own pasture «Ledumslæen», mentioned in Sigrid Undset's books «Den brennende busk» and «Lykkelige dager».",
           ],
         },
         {
           icon: "auto_stories",
           heading: "The background",
           body: [
-            "Inspired among others by Sigrid Undset, we want to show that the Catholic is not something foreign, unknown or un-Norwegian. Despite the Reformation, the Catholic faith has lived on in the Norwegian soul, in many districts, in the form of old customs.",
-            "Pilgrimages, the primstav, Draumkvedet and old hymns are part of a rich cultural heritage with clear Catholic roots. Father Olav Müller of Trondheim has said that the Catholic faith overwintered for at least 150 years after the Reformation.",
-            "We want to reintroduce something of what seemed to be lost with the Reformation, but which has lived on as embers in a hearth, and only needs a little breath to catch fire. And how fitting it is to do that in the form of a chapel in an old forge.",
-          ],
-        },
-        {
-          icon: "hiking",
-          heading: "For pilgrims",
-          body: [
-            "The chapel lies right by the pilgrim route. We hope to offer pilgrims a place that is always open, with fixed times for Mass and prayer through the summer, where pilgrims can come and go as they please.",
-            "We also hope to make room for basic facilities, and a place where pilgrims can catch their breath before they walk on.",
+            "The chapel is a kind of continuation of what our forebears in the faith have done here in Norway to blaze the trail for us Catholics who would come later. Inspired among others by Sigrid Undset, we want to show that the Catholic is not something foreign, unknown or un-Norwegian. Despite the Reformation, the Catholic faith has lived on in the Norwegian soul, in many districts, in the form of old customs, prayers and celebrations.",
+            "Pilgrimages, the primstav, Draumkvedet and old hymns are part of a rich cultural heritage with clear Catholic roots. Father Olav Müller of Trondheim has said that the Catholic faith overwintered in the farming culture for at least 150 years after the Reformation.",
+            "We want to reintroduce something of what seemed to be lost with the Reformation, but which has lived on as embers in a hearth, and only needs a little breath to catch fire. And how fitting it is to do that precisely in the form of a chapel in an old forge?",
+            "Mathea Baadstø, a woman from Tretten who converted to Catholicism in 1904, turned her living room into a chapel for celebrating the Catholic Mass, where Sigrid Undset — her godchild — also took part in Mass before she herself made her own provisional chapel in the fireplace room at Bjerkebæk. Now we see our own chapel as a kind of grandchild of their personal initiative to create a chapel in places that lay far from the nearest church, and we feel that the two of them are among our greatest supporters from the other side of eternity.",
           ],
         },
       ],
@@ -368,9 +355,9 @@ export const content = {
           ],
         },
         {
-          heading: "Visiting",
+          heading: "Always open",
           paragraphs: [
-            "Would you like to visit the chapel? Send us a message on Instagram, and we will be happy to welcome you in.",
+            "The chapel is open to all — pilgrims, on foot and by car, hikers, and anyone seeking a quiet place. No entrance fee, no membership: just send us a message that you would like to visit, and we will make sure it is opened.",
           ],
         },
       ],
@@ -412,55 +399,43 @@ export const content = {
       badge: "Gudbrandsdalen, Norge",
       heading: "Fra smie til kapell",
       intro:
-        "Vi transformerer ei gammel smie langs pilegrimsleden i Gudbrandsdalen til et vakkert kapell. Innsida er ferdig og kapellet er allerede i bruk — nå skal det også se ut som et kapell fra utsida.",
+        "Ei gammel smie på Ledum gård, ubrukt i flere tiår, har blitt gjort om til et kapell viet til Vår Frue av Gudbrandsdalen. Dette er historien om hvordan det skjedde — og hvor det bærer videre.",
       sections: [
         {
           icon: "local_fire_department",
           heading: "Bygget",
           body: [
-            "Smia på Ledum gård har fått sin innvendige transformasjon, og kapellet er allerede i bruk. Men fra utsida ser det fortsatt bare ut som ei smie.",
-            "Neste steg i prosjektet er at en også fra utsida skal se at dette er et kapell. Arbeidet har foregått i all slags vær, helg etter helg, stein for stein.",
+            "Det som før var ei ydmyk smie som ikke hadde blitt brukt på mange tiår, har nå blitt gjort om til et kapell viet til Vår Frue av Gudbrandsdalen.",
+            "Det første steget var å gjøre kapellet tilgjengelig ved å hogge ned trær som hadde vokst rundt og stengt smia inne, rydde ut og kaste gammelt skrot, unødvendig utstyr, vaske, koste bort støv og aske, etc.",
+            "Det viktigste steget i første omgang var å gjøre det gamle ildstedet til et alter for det hellige Messe-offeret. Deretter kunne alt det andre komme på plass etterhvert.",
           ],
         },
         {
           icon: "lightbulb",
           heading: "Visjonen",
           body: [
-            "Kapellet skal få et uttrykk inspirert av de mange vakre kirkene rundt omkring i Gudbrandsdalen, med kirkespir, klokketårn, dragestil og apsis på baksida.",
-            "Kapellet heter Capella Reginae Norvegiae, latin for «Norges dronnings kapell», og er viet til Vår Frue av Gudbrandsdalen.",
-          ],
-        },
-        {
-          icon: "group",
-          heading: "Mange hender",
-          body: [
+            "Nå er det neste steget å få smia til å se ut som et skikkelig kapell. Kapellet skal få et uttrykk inspirert av de mange vakre kirkene rundt omkring i Gudbrandsdalen, med kirkespir, klokketårn, dragestil og apsis på baksida.",
             "Vi vil i all hovedsak bruke lokale håndverkere og kjøpe materialer fra bedrifter lokalt, slik at kapellet forankres enda tydeligere i Gudbrandsdalen.",
-            "Kapellets støtteforening ønsker å ivareta og videreføre lokal kulturarv — det være seg religiøse tradisjoner og skikker, byggeteknikk, håndverk, musikk og kunst. Mange har allerede bidratt med tid, kunnskap, verktøy og penger, og det er plass til flere hender.",
+            "Kapellets støtteforening, som består av p. Mathias Bruno Ledum, Andreas Normann Fladstad, Ayla Olava Heimly og Marie Johanne Klara Birgitta Sjøgreen Foss, ønsker å ivareta og videreføre lokal kulturarv — det være seg religiøse tradisjoner og skikker, byggeteknikk, håndverk, musikk og kunst.",
+            "Mange flere har allerede bidratt med tid, innsats, kunnskap, verktøy og penger, og det er plass til flere hender. Bare bli med på dugnad!",
           ],
         },
         {
-          icon: "construction",
-          heading: "Hva midlene går til",
+          icon: "badge",
+          heading: "Navnet",
           body: [
-            "Vi samler inn penger til å bygge ut kapellet: skifte av tak, utvidelse av grunnmur, nytt inngangsparti, klokketårn og kirkespir, og en apsis med plass til sakristi i nordenden.",
-            "Samtidig samler vi inn penger til glassmaleri, treskjæringsarbeider og innkjøp av øvrig religiøs dekorasjon innvendig og utvendig.",
+            "Støtteforeninga som står bak kapellet har fått navnet Capella Reginae Norvegiae, latin for «Norges dronnings kapell», og det har blitt det offisielle navnet som brukes i sosiale medier og passer best internasjonalt. På folkemunne bruker vi derimot navnet Mariaslæen.",
+            "«Slæen» er lokal måte å si slette, eng, slått etc. i bestemt form og brukes som navn på ulike setre i Øyerfjellet, blant annet på familien Ledums egen seter «Ledumslæen», som er nevnt i Sigrid Undsets bøker «Den brennende busk» og «Lykkelige dager».",
           ],
         },
         {
           icon: "auto_stories",
           heading: "Bakgrunnen",
           body: [
-            "Inspirert av blant annet Sigrid Undset ønsker vi å bevise at det katolske ikke er noe fremmed, ukjent og unorsk. Til tross for reformasjonen har den katolske troa levd videre i den norske folkesjela, i mange bygder rundt omkring, i form av gamle skikker.",
-            "Pilegrimsvandringer, primstaven, Draumkvedet og gamle hymner er del av en rik kulturarv med tydelige katolske røtter. Pater Olav Müller fra Trondheim har sagt at den katolske tro overvintret i minst 150 år etter reformasjonens innføring.",
+            "Kapellet er en slags kontinuitet av det som våre forfedre i troen her til lands har gjort for å tråkke opp stien for oss katolikker som skulle komme senere. Inspirert av blant annet Sigrid Undset ønsker vi å bevise at det katolske ikke er noe fremmed, ukjent og unorsk. Til tross for reformasjonen har den katolske troa levd videre i den norske folkesjela, i mange bygder rundt omkring, i form av gamle skikker, bønner, feiringer, etc.",
+            "Pilegrimsvandringer, primstaven, Draumkvedet og gamle hymner er del av en rik kulturarv med tydelige katolske røtter. Pater Olav Müller fra Trondheim har sagt at den katolske tro overvintret i bondekulturen i minst 150 år etter reformasjonens innføring.",
             "Vi ønsker å gjenintrodusere noe av det som tilsynelatende gikk tapt med reformasjonen, men som har levd videre som glør i et ildsted, og som bare trenger å få blåst litt liv i seg. Hvor passende er det ikke å gjøre det nettopp i form av et kapell i ei gammel smie?",
-          ],
-        },
-        {
-          icon: "hiking",
-          heading: "For pilegrimer",
-          body: [
-            "Kapellet ligger rett ved pilegrimsleden. Vi håper å kunne tilby pilegrimer et sted som alltid er åpent, med faste tider for messe og bønn gjennom sommeren, der pilegrimer kan komme og gå som de vil.",
-            "Vi håper også å kunne tilrettelegge for sanitære behov, og et sted for pilegrimer å kunne ta seg en pust i bakken før de vandrer videre.",
+            "Mathea Baadstø, ei dame fra Tretten som konverterte til katolisismen i 1904, gjorde om stua si til et kapell for katolsk Messe-feiring, hvor også Sigrid Undset, hennes fadderbarn, deltok på Messe før ho sjøl lagde sitt eget provisoriske kapell i peisestua på Bjerkebæk. Nå ser vi på vårt eget kapell som et slags barnebarn av deres personlige initiativ til å lage et kapell på de stedene som var langt vekk fra nærmeste kirke, og vi føler at de begge to er noen av våre største støttespillere fra den andre siden av evigheten.",
           ],
         },
       ],
@@ -745,9 +720,9 @@ export const content = {
           ],
         },
         {
-          heading: "Besøk oss",
+          heading: "Alltid åpent",
           paragraphs: [
-            "Har du lyst til å besøke kapellet? Send oss en melding på Instagram, så tar vi godt imot deg.",
+            "Kapellet er åpent for alle — pilegrimer, både til fots og med bil, turgåere og alle som søker et stille sted. Ingen inngangspenger, intet medlemskap: bare send oss en melding at du vil på besøk, og vi skal sørge for at det åpnes.",
           ],
         },
       ],
