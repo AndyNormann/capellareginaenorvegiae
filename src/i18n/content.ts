@@ -76,6 +76,10 @@ export const content = {
       ],
       alleFireAlt: "Construction work at the chapel",
       klemAlt: "A moment along the way",
+      matheaAlt: "Mathea Baadstø",
+      matheaCaption: "Mass being celebrated in Mathea Baadstø's house, today a rest area in Tretten.",
+      sigridMesseAlt: "Mass celebrated at Sigrid Undset's house",
+      sigridMesseCaption: "Mass celebrated at Sigrid Undset's house.",
       beforeAlt: "The forge before renovation",
       afterAlt: "The chapel taking shape",
       beforeLabel: "Before",
@@ -139,7 +143,7 @@ export const content = {
           },
           {
             x: 50,
-            y: 46,
+            y: 38,
             label: "The Hearts",
             title: "The Hearts",
             body: "The Sacred Heart of Jesus and the Immaculate Heart of Mary, twined together.",
@@ -165,12 +169,19 @@ export const content = {
             title: "The Acanthus",
             body: "Acanthus leaves typical of the woodcarving style found in Gudbrandsdalen, especially in altarpieces and pulpits, but also other decoration.",
           },
+          {
+            x: 50,
+            y: 47,
+            label: "The Monogram",
+            title: "The Monogram",
+            body: "The Marian monogram with the letters A and M, standing for Ave Maria.",
+          },
         ],
       },
       clock: {
         alt: "The clock",
-        heading: "The clock",
-        paragraph: "",
+        heading: "The bell tower",
+        paragraph: "It is common on farms in Eastern Norway, and especially in Gudbrandsdalen, to have so-called \"meal bells\" (farm bells, storehouse bells) that were used to ring in meals when the workers were out in the fields. The bells were also used to ring on Christmas Eve, Easter Eve and Pentecost Eve, to \"ring in the feast\" — a possible remnant of an old tradition of beginning the celebration of the high feast already at first vespers the evening before. We have managed to find our own meal bell again, and look forward to being able to ring in, not only dugurd, non and other meals, but the Eucharistic meal in the celebration of the Holy Mass.",
       },
       blocks: [
         {
@@ -183,9 +194,13 @@ export const content = {
         },
         {
           icon: "architecture",
-          heading: "The architect",
+          heading: "Important supporters",
           paragraphs: [
-            "To make this happen, architect Twin Nguyen of Porsgrunn has been an invaluable help, working out solutions and drawing plans that give us an excellent starting point.",
+            [
+              "In addition to the many individual benefactors of the chapel, there is one support association that has stood by us since the very start, with advice, guidance, encouragement and financial support: ",
+              { text: "Route de l'Europe Chrétienne", href: "http://route-europe-chretienne.fr/" },
+              ". This association, led by Robert and Claudia Mestelan, focuses on re-evangelising Christian Europe through pilgrimage work. They do this by spreading information about pilgrim routes, organising pilgrim tours and, not least, restoring or building churches, chapels, crucifixes, icons and statues along the pilgrim ways. A chapel along the Gudbrandsdalsleden pilgrim route to Nidaros they see as a good contribution to their work!",
+            ],
           ],
         },
         {
@@ -204,18 +219,6 @@ export const content = {
             "Here is the apse at the north end of the building, with the stained glass window already being made by a local glassmaker in Lalm!",
           ],
           images: "apsis",
-        },
-        {
-          icon: "architecture",
-          heading: "The roof structure",
-          paragraphs: [
-            "Based on the pictures we sent him, the architect's assessment is that the building uses A-frame trusses that act both as a load-bearing system and as stabilisation for the side walls (likely around 3\"x6\"). His proposed solution is to:",
-          ],
-          list: [
-            "Remove the existing roof trusses in the area we will work on, to \"open up\" the space.",
-            "Insert two self-bearing trusses right under the bell tower (see the attached sketches).",
-            "Mount a continuous glulam beam (in the \"dragon\" direction) that gives four strong load-bearing anchors.",
-          ],
         },
         {
           icon: "straighten",
@@ -441,6 +444,10 @@ export const content = {
       ],
       alleFireAlt: "Byggearbeid på kapellet",
       klemAlt: "Et øyeblikk underveis",
+      matheaAlt: "Mathea Baadstø",
+      matheaCaption: "Messe feiret i Mathea Baadstøs hus, i dag et rasteområde på Tretten.",
+      sigridMesseAlt: "Messe feiret i Sigrid Undsets hus",
+      sigridMesseCaption: "Messe feiret i Sigrid Undsets hus.",
       beforeAlt: "Smia før renovering",
       afterAlt: "Kapellet tar form",
       beforeLabel: "Før",
@@ -504,7 +511,7 @@ export const content = {
           },
           {
             x: 50,
-            y: 46,
+            y: 38,
             label: "Hjertene",
             title: "Hjertene",
             body: "Jesu høghellige hjerte og Marias uplettede hjerte, tvinnet sammen.",
@@ -530,12 +537,19 @@ export const content = {
             title: "Akantus",
             body: "Akantusblader som er typiske for treskjæringsstilen som man finner i Gudbrandsdalen, spesielt i altertavler og prekestoler, men også annen dekor.",
           },
+          {
+            x: 50,
+            y: 47,
+            label: "Monogrammet",
+            title: "Monogrammet",
+            body: "Maria-monogrammet med bokstavene A og M som står for Ave Maria.",
+          },
         ],
       },
       clock: {
         alt: "Klokka",
-        heading: "Klokka",
-        paragraph: "",
+        heading: "Klokketårn",
+        paragraph: "Det er vanlig på gårder på Østlandet og spesielt i Gudbrandsdalen på ha såkalte matklokker, (gårdsklokker, stabburklokker) som ble brukt til å ringe inn til måltider da arbeiderne var ute på jordene. Klokkene ble også brukt til å ringe på juleaften, påskeaften og pinseaften, for å \"ringe høytiden inn\", en mulig rest av en gammel tradisjon å starte høytidsfeiringa allerede ved første vesper kvelden før. Vi har klart å finne igjen vår egen matklokke, og gleder oss til å kunne ringe inn, ikke bare til dugurd, non og andre måltider, men til det eukaristiske måltid i feiringa av den hellige Messe.",
       },
       blocks: [
         {
@@ -548,9 +562,13 @@ export const content = {
         },
         {
           icon: "architecture",
-          heading: "Arkitekten",
+          heading: "Viktige støttespillere",
           paragraphs: [
-            "For å få til dette har arkitekt Twin Nguyen fra Porsgrunn vært en uvurderlig stor hjelp og støtte med å pønske ut løsninger og lage tegninger som gir oss et særdeles godt utgangspunkt å starte fra!",
+            [
+              "I tillegg til mange individuelle velgjørere for kapellet er det én støtteforening som helt siden starten har støttet oss med både råd, veiledning, oppmuntring og økonomisk støtte: ",
+              { text: "Route de l'Europe Chrétienne", href: "http://route-europe-chretienne.fr/" },
+              ". Denne foreninga, ledet av Robert og Claudia Mestelan, fokuserer på å re-evangelisere det kristne Eruopa gjennom pilegrimsarbeid. Dette gjør de i form av å spre informasjon om pilegrimsleder, organisere pilegrimsturer og ikke minst, restaurere eller konstruere kirker, kapeller, krusifikser, ikoner, statuer langs med pilegrimsveier. Et kapell langs Gudbrandsdalsleden til Nidaros ser de på som et godt bidrag til deres arbeid!",
+            ],
           ],
         },
         {
@@ -569,18 +587,6 @@ export const content = {
             "Her er apsis på nordenden av bygget, med glassmaleriet som allerede er under produksjon av en lokal glassmaler i Lalm!",
           ],
           images: "apsis",
-        },
-        {
-          icon: "architecture",
-          heading: "Takkonstruksjonen",
-          paragraphs: [
-            "Etter arkitektens vurdering utifra bildene vi har sendt ham, virker det som man benytter A-takstoler som fungerer både som bæresystem og stabilisering av sidevegger (trolig dimensjon rundt 3\"x6\"). Hans forslag til en løsning er å:",
-          ],
-          list: [
-            "Fjerne eksisterende taksperrer i det området vi skal jobbe med for å «åpne» rommet.",
-            "Sette inn to selvbærende takstoler rett under klokketårnet (se vedlagte skisser).",
-            "Montere et gjennomgående limtre (i «drage»-retning) som gir fire sterke bæreankre.",
-          ],
         },
         {
           icon: "straighten",

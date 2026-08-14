@@ -85,8 +85,16 @@ const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
           </div>
 
           <div class="space-y-4 text-on-surface-variant leading-relaxed">
-            {block.paragraphs.map((para) => (
-              <p>{para}</p>
+            {block.paragraphs.map((para, pidx) => (
+              <p>
+                {Array.isArray(para)
+                  ? para.map((seg, sidx) =>
+                      typeof seg === "string"
+                        ? seg
+                        : <a key={sidx} href={seg.href} target="_blank" rel="noopener" class="text-primary underline underline-offset-2 hover:text-primary/80">{seg.text}</a>
+                    )
+                  : para}
+              </p>
             ))}
           </div>
 
@@ -146,7 +154,7 @@ const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
       </section>
 
       {/* Stained-glass section, right after the roof-structure block */}
-      {i === 4 && pl.glass && (
+      {i === 3 && pl.glass && (
         <section class="px-4 sm:px-8">
           <div class="max-w-3xl mx-auto mt-16">
             <div class="flex items-center gap-3 mb-6">
@@ -165,7 +173,7 @@ const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
       )}
 
       {/* Clock section, right after the stained-glass block */}
-      {i === 4 && pl.clock && (
+      {i === 3 && pl.clock && (
         <section class="px-4 sm:px-8">
           <div class="max-w-3xl mx-auto mt-16">
             <div class="flex items-center gap-3 mb-6">

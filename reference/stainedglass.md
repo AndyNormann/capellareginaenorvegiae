@@ -6,3 +6,4 @@ Tegnet først av Ayla Olava Heimly og deretter bearbeidet og laget av Sigrid Ble
 # Omgivelsene: Gudbrandsdalen med Lågen som renner gjennom
 # Blomster: Fra broderiene på Gudbrandsdal festdrakt (bunad)
 # Akantus: Akantusblader som er typiske for treskjæringsstilen som man finner i Gudbrandsdalen, spesielt i altertavler og prekestoler, men også annen dekor.
+# Monogram: Maria-monogrammet med bokstavene A og M som står for Ave Maria.
