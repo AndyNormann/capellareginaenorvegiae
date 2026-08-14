@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
+import HotspotImage from "../../components/HotspotImage.astro";
 import ourLadyImg from "@assets/closeupourlady.jpg";
 import varfrueImg from "@assets/varfrue.jpg";
 import { content, defaultLang } from "../../i18n/content";
@@ -32,35 +33,48 @@ const basePath = "/capellareginaenorvegiae";
       </p>
     </section>
 
-    <!-- The images, and a few words -->
+    <!-- The story, and the image -->
     <section class="max-w-5xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start mt-16">
-        <figure class="md:col-span-7">
-          <Image
-            src={varfrueImg}
-            alt={ol.mainImageAlt}
-            class="w-full aspect-[2/3] object-cover rounded-2xl shadow-xl"
-          />
-          <figcaption class="mt-3 font-body text-xs text-on-surface-variant italic text-center">
-            {ol.artistCredit}
-          </figcaption>
-        </figure>
-        <div class="md:col-span-5 md:mt-16">
-          <Image
-            src={ourLadyImg}
-            alt={ol.imageAlt}
-            class="w-full aspect-[2/3] object-cover rounded-2xl shadow-xl"
-          />
+      {ol.blocks.map((block, i) => (
+        <div class="mt-16">
+          {block.heading && (
+            <div class="flex items-center justify-center gap-3 mb-6">
+              <h2 class="font-headline text-3xl italic text-primary leading-snug text-center">
+                {block.heading}
+              </h2>
+            </div>
+          )}
+          <div class="max-w-2xl mx-auto space-y-4 text-on-surface-variant leading-relaxed text-center">
+            {block.paragraphs.map((para) => (
+              <p>{para}</p>
+            ))}
+          </div>
+
+          {/* Images sit between the first and second block */}
+          {i === 0 && (
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start mt-12">
+              <figure class="md:col-span-7">
+                <HotspotImage
+                  src={varfrueImg}
+                  alt={ol.mainImageAlt}
+                  class="rounded-2xl shadow-xl overflow-hidden"
+                  hotspots={ol.hotspots}
+                />
+                <figcaption class="mt-3 font-body text-xs text-on-surface-variant italic text-center">
+                  {ol.artistCredit}
+                </figcaption>
+              </figure>
+              <div class="md:col-span-5 md:mt-16">
+                <Image
+                  src={ourLadyImg}
+                  alt={ol.imageAlt}
+                  class="w-full aspect-[2/3] object-cover rounded-2xl shadow-xl"
+                />
+              </div>
+            </div>
+          )}
         </div>
-      </div>
-      <div class="max-w-xl mx-auto mt-16">
-        <p class="font-body text-lg text-on-surface-variant leading-relaxed mb-6">
-          {ol.body}
-        </p>
-        <p class="font-body text-base text-on-surface-variant leading-relaxed">
-          {ol.body2}
-        </p>
-      </div>
+      ))}
     </section>
 
     <div class="text-center mt-16">

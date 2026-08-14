@@ -427,3 +427,154 @@
 .progress-bar-fill.animated {
   width: 100%;
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Image hotspots (Our Lady detail tooltips)
+   ───────────────────────────────────────────────────────────── */
+.hotspot-image {
+  position: relative;
+  width: 100%;
+}
+
+.hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 5;
+}
+
+.hotspot-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1.5px solid rgba(123, 88, 30, 0.6);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Gentle expanding ring to hint at an interactive point */
+.hotspot-dot::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  animation: hotspot-pulse 3.4s ease-out infinite;
+}
+
+@keyframes hotspot-pulse {
+  0%   { transform: scale(0.85); opacity: 0.6; }
+  70%  { transform: scale(1.7); opacity: 0; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+.hotspot:hover .hotspot-dot,
+.hotspot:focus-visible .hotspot-dot,
+.hotspot[aria-expanded="true"] .hotspot-dot {
+  background: var(--color-secondary);
+  border-color: #fff;
+  transform: scale(1.5);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* Short label chip under/next to the dot */
+.hotspot-label {
+  position: absolute;
+  top: 100%;
+  margin-top: 6px;
+  white-space: nowrap;
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-on-surface);
+  background: rgba(251, 249, 244, 0.92);
+  border: 1px solid var(--color-secondary-container);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+/* Tooltip card */
+.hotspot-card {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 50%;
+  transform: translate(-50%, 8px) translateX(-50%);
+  width: max-content;
+  max-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  background: var(--color-on-surface);
+  color: var(--color-inverse-on-surface);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.hotspot-card strong {
+  font-family: var(--font-headline);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.hotspot-card em {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+/* Card arrow */
+.hotspot-card::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: var(--color-on-surface);
+}
+
+.hotspot:hover .hotspot-card,
+.hotspot:focus-visible .hotspot-card,
+.hotspot[aria-expanded="true"] .hotspot-card {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) translateX(-50%);
+}
+
+.hotspot:hover .hotspot-label,
+.hotspot:focus-visible .hotspot-label,
+.hotspot[aria-expanded="true"] .hotspot-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keep hotspot dots from overflowing the rounded image corners */
+.hotspot-image { border-radius: inherit; overflow: visible; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hotspot-dot::after { animation: none; }
+}

@@ -89,6 +89,15 @@ const isActive = (slug: string) => pathname.endsWith(`/${lang}/${slug}`);
           aria-current={isActive("ourlady") ? "page" : undefined}
           >{t("nav.ourlady")}</a
           >
+          <a
+          href={`/capellareginaenorvegiae/${lang}/plans`}
+          class:list={[
+            "font-['Newsreader'] italic text-base tracking-tight hover:text-on-surface transition-colors hidden sm:inline-flex items-center min-h-[44px] px-2",
+            isActive("plans") ? "text-on-surface underline decoration-secondary decoration-2 underline-offset-4" : "text-on-surface-variant",
+          ]}
+          aria-current={isActive("plans") ? "page" : undefined}
+          >{t("nav.plans")}</a
+          >
           <!-- Language switcher -->
           <div class="flex items-center gap-0 font-['Epilogue'] text-on-surface-variant" role="group" aria-label="Language">
             <a href="/capellareginaenorvegiae/no"

@@ -1,0 +1,226 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import work1 from "@assets/build/work1.png";
+import work2 from "@assets/build/work2.png";
+import apsis1 from "@assets/build/apsis1.png";
+import apsis2 from "@assets/build/apsis2.png";
+import scale1 from "@assets/build/scale1.png";
+import scale2 from "@assets/build/scale2.png";
+import scale3 from "@assets/build/scale3.png";
+import scale4 from "@assets/build/scale4.png";
+import scale5 from "@assets/build/scale5.png";
+import { content, defaultLang } from "../../i18n/content";
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: "en" } },
+    { params: { lang: "no" } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: string };
+const c = lang in content ? content[lang as keyof typeof content] : content[defaultLang];
+const pl = c.plans;
+const basePath = "/capellareginaenorvegiae";
+
+const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
+  work: [
+    { src: work1, alt: pl.imgAlts.work1 },
+    { src: work2, alt: pl.imgAlts.work2 },
+  ],
+  apsis: [
+    { src: apsis1, alt: pl.imgAlts.apsis1 },
+    { src: apsis2, alt: pl.imgAlts.apsis2 },
+  ],
+  scale: [
+    { src: scale1, alt: pl.imgAlts.scale1 },
+    { src: scale2, alt: pl.imgAlts.scale2 },
+    { src: scale3, alt: pl.imgAlts.scale3 },
+    { src: scale4, alt: pl.imgAlts.scale4 },
+    { src: scale5, alt: pl.imgAlts.scale5 },
+  ],
+};
+---
+
+<Layout description={pl.metaDescription}>
+  <main class="pb-24">
+
+    <!-- Header -->
+    <section class="pt-16 md:pt-24 px-4 sm:px-8 reveal">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="font-headline text-5xl md:text-7xl italic text-primary leading-tight mb-6">
+          {pl.heading}
+        </h1>
+        <div class="w-16 h-px bg-secondary/40 mb-6"></div>
+        <p class="font-body text-lg text-on-surface-variant leading-relaxed max-w-xl">
+          {pl.intro}
+        </p>
+      </div>
+    </section>
+
+    <!-- Body blocks -->
+    {pl.blocks.map((block) => (
+      <section class="px-4 sm:px-8">
+        <div class="max-w-3xl mx-auto mt-16">
+          <div class="flex items-center gap-3 mb-6">
+            {block.icon && (
+              <span class="material-symbols-outlined text-secondary text-2xl" aria-hidden="true">{block.icon}</span>
+            )}
+            <h2 class="font-headline text-3xl italic text-primary leading-snug">{block.heading}</h2>
+          </div>
+
+          <div class="space-y-4 text-on-surface-variant leading-relaxed">
+            {block.paragraphs.map((para) => (
+              <p>{para}</p>
+            ))}
+          </div>
+
+          {block.list && (
+            <ul class="mt-6 space-y-3 text-on-surface-variant leading-relaxed">
+              {block.list.map((item) => (
+                <li class="flex gap-3">
+                  <span class="material-symbols-outlined text-secondary text-xl shrink-0 mt-0.5" aria-hidden="true">arrow_forward</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {block.amounts && (
+            <dl class="mt-6 divide-y divide-outline-variant border border-outline-variant rounded-xl overflow-hidden bg-surface-container-low">
+              {block.amounts.map((row) => (
+                <div class="flex items-center justify-between gap-4 px-5 py-4">
+                  <dt class="font-body text-on-surface-variant">{row.label}</dt>
+                  <dd class="font-headline italic text-xl text-primary shrink-0">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+
+          {block.images && (
+            <div class:list={[
+              "mt-8 grid gap-4 md:gap-6",
+              block.images === "scale"
+                ? "grid-cols-2 md:grid-cols-3"
+                : "grid-cols-1 sm:grid-cols-2",
+            ]}>
+              {imageGroups[block.images].map((img) => (
+                <button
+                  type="button"
+                  class="group relative block w-full overflow-hidden rounded-2xl shadow-xl cursor-zoom-in"
+                  data-lightbox-btn
+                  aria-label={pl.zoomLabel}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    class="w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                  />
+                  <span class="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors" aria-hidden="true"></span>
+                  <span class="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/55 text-white grid place-items-center opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
+                    <span class="material-symbols-outlined text-lg">zoom_in</span>
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+    ))}
+
+    <!-- Closing note -->
+    <section class="px-4 sm:px-8 mt-16">
+      <div class="max-w-3xl mx-auto">
+        <div class="space-y-4 text-on-surface-variant leading-relaxed">
+          {pl.closing.map((para) => (
+            <p>{para}</p>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="px-4 sm:px-8 mt-16 pb-24 text-center">
+      <div class="max-w-3xl mx-auto">
+        <p class="font-headline italic text-2xl text-primary mb-2 leading-snug">{pl.cta.heading}</p>
+        <p class="font-body text-sm text-on-surface-variant mb-6 leading-relaxed max-w-md mx-auto">
+          {pl.cta.body}
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href={`${basePath}/${lang}/support`}
+            class="inline-flex items-center gap-3 min-h-[44px] px-8 py-2.5 bg-primary text-on-primary rounded-sm font-label text-sm hover:bg-primary/90 shadow-lg transition-colors tracking-wide"
+          >
+            {pl.cta.button}
+            <span class="material-symbols-outlined text-base" aria-hidden="true">favorite</span>
+          </a>
+          <a
+            href={`${basePath}/${lang}`}
+            class="inline-flex items-center gap-2 min-h-[44px] px-8 py-2.5 border border-primary/30 text-primary rounded-sm font-label text-sm hover:bg-primary/5 transition-colors tracking-wide"
+          >
+            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_back</span>
+            {pl.cta.backText}
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox: click a sketch to view it larger -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/85 p-4 sm:p-8"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-label={pl.zoomLabel}
+  >
+    <button
+      type="button"
+      id="lightbox-close"
+      class="absolute top-4 right-4 z-10 w-12 h-12 rounded-full bg-black/60 text-white grid place-items-center hover:bg-black/80 transition-colors"
+      aria-label={pl.zoomClose}
+    >
+      <span class="material-symbols-outlined text-2xl">close</span>
+    </button>
+    <img id="lightbox-img" class="max-h-[88vh] max-w-full object-contain rounded-lg shadow-2xl" alt="" />
+    <span id="lightbox-caption" class="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/85 text-sm font-body max-w-[90%] text-center"></span>
+  </div>
+
+  <script is:inline>
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lightbox-img");
+    const lbCap = document.getElementById("lightbox-caption");
+    const lbClose = document.getElementById("lightbox-close");
+    if (lb && lbImg && lbClose) {
+      const openLb = (img) => {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt || "";
+        if (lbCap) lbCap.textContent = img.alt || "";
+        lb.classList.remove("hidden");
+        lb.classList.add("flex");
+        lb.setAttribute("aria-hidden", "false");
+      };
+      const closeLb = () => {
+        lb.classList.add("hidden");
+        lb.classList.remove("flex");
+        lb.setAttribute("aria-hidden", "true");
+      };
+      document.querySelectorAll("[data-lightbox-btn]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const img = btn.querySelector("img");
+          if (img) openLb(img);
+        });
+      });
+      lbClose.addEventListener("click", closeLb);
+      lb.addEventListener("click", (e) => {
+        if (e.target === lb) closeLb();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLb();
+      });
+    }
+  </script>
+</Layout>

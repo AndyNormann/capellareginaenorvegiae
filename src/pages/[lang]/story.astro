@@ -34,18 +34,32 @@ const sections = st.sections;
         <p class="font-body text-lg text-on-surface-variant leading-relaxed max-w-xl">
           {st.intro}
         </p>
+
+        {/* The before/after proof, right under the intro */}
+        <div class="mt-10 max-w-4xl">
+          <div class="overflow-hidden rounded-2xl shadow-2xl">
+            <BeforeAfterSlider
+              before={before}
+              after={after}
+              beforeLabel={st.slider.beforeLabel}
+              afterLabel={st.slider.afterLabel}
+              alt={st.slider.alt}
+            />
+          </div>
+          <p id="slider-hint" class="font-sketch text-base text-tertiary mt-3 px-1">{st.slider.hint}</p>
+        </div>
       </div>
     </section>
 
     <!-- Story bands: text stays in the reading column, construction
-         imagery breaks wide — the two photo moments carry the arc. -->
+         imagery breaks wide — the construction photos carry the arc. -->
     {sections.map((section, i) => (
       <section class="px-4 sm:px-8">
         <div class:list={[
           "mx-auto mt-16",
-          i === 2 ? "max-w-5xl" : i === 3 ? "max-w-4xl" : "max-w-xl",
+          i === 2 ? "max-w-5xl" : "max-w-xl",
         ]}>
-          <div class:list={[(i === 2 || i === 3) ? "max-w-xl" : ""]}>
+          <div class:list={[i === 2 ? "max-w-xl" : ""]}>
             <div class="flex items-center gap-3 mb-6">
               <span class="material-symbols-outlined text-secondary text-2xl" aria-hidden="true">{section.icon}</span>
               <h2 class="font-headline text-3xl italic text-primary leading-snug">{section.heading}</h2>
@@ -69,22 +83,6 @@ const sections = st.sections;
               <figure class="md:col-span-5 md:mt-16 overflow-hidden rounded-2xl shadow-2xl">
                 <Image src={klem} alt={st.klemAlt} class="w-full aspect-[3/4] object-cover" />
               </figure>
-            </div>
-          )}
-
-          {/* What we've done — the before/after proof, the widest band */}
-          {i === 3 && (
-            <div class="mt-10">
-              <div class="overflow-hidden rounded-2xl shadow-2xl">
-                <BeforeAfterSlider
-                  before={before}
-                  after={after}
-                  beforeLabel={st.slider.beforeLabel}
-                  afterLabel={st.slider.afterLabel}
-                  alt={st.slider.alt}
-                />
-              </div>
-              <p id="slider-hint" class="font-sketch text-base text-tertiary mt-3 px-1">{st.slider.hint}</p>
             </div>
           )}
         </div>
