@@ -1,0 +1,165 @@
+{
+  "runId": "44ff2a99",
+  "agent": "reviewer",
+  "task": "[prompt redacted]",
+  "exitCode": 0,
+  "usage": {
+    "input": 45707,
+    "output": 31605,
+    "cacheRead": 247808,
+    "cacheWrite": 0,
+    "cost": 0.0159422424,
+    "turns": 11
+  },
+  "model": "oc-sdk-go/deepseek-v4-flash:high",
+  "attemptedModels": [
+    "oc-sdk-go/deepseek-v4-flash:high"
+  ],
+  "modelAttempts": [
+    {
+      "model": "oc-sdk-go/deepseek-v4-flash:high",
+      "success": true,
+      "exitCode": 0,
+      "usage": {
+        "input": 45707,
+        "output": 31605,
+        "cacheRead": 247808,
+        "cacheWrite": 0,
+        "cost": 0.0159422424,
+        "turns": 11
+      }
+    }
+  ],
+  "durationMs": 296431,
+  "toolCount": 23,
+  "launchContractDigest": "4022908cabbb54b9111bdb80f3124bab38cd7b2e570d27de0cb48f2079294e0c",
+  "launchResolvedExtensions": {
+    "version": 1,
+    "source": "launch-resolved",
+    "disableAmbientExtensions": false,
+    "runtime": [
+      "sha256:e2dc7e2fb01ca8d6"
+    ],
+    "configured": [],
+    "effective": [
+      "sha256:e2dc7e2fb01ca8d6"
+    ],
+    "omitted": {
+      "runtime": 0,
+      "configured": 0,
+      "effective": 0
+    }
+  },
+  "acceptance": {
+    "status": "attested",
+    "evidenceStatus": "attested",
+    "explicit": false,
+    "effectiveAcceptance": {
+      "level": "attested",
+      "explicit": false,
+      "inferredReason": [
+        "read-only/reviewer-style agent"
+      ],
+      "criteria": [
+        {
+          "id": "criterion-1",
+          "must": "Return concrete findings with file paths and severity when applicable",
+          "evidence": [
+            "review-findings",
+            "residual-risks"
+          ],
+          "severity": "required"
+        }
+      ],
+      "evidence": [
+        "review-findings",
+        "residual-risks"
+      ],
+      "verify": [],
+      "stopRules": []
+    },
+    "inferredReason": [
+      "read-only/reviewer-style agent"
+    ],
+    "criteria": [
+      {
+        "id": "criterion-1",
+        "must": "Return concrete findings with file paths and severity when applicable",
+        "evidence": [
+          "review-findings",
+          "residual-risks"
+        ],
+        "severity": "required"
+      }
+    ],
+    "runtimeChecks": [],
+    "verifyRuns": [],
+    "childReport": {
+      "criteriaSatisfied": [
+        {
+          "id": "criterion-1",
+          "status": "satisfied",
+          "evidence": "22 concrete findings, each with file path + line/selector, WCAG reference, severity, and a concrete fix. Blocker examples: Layout.astro:57 skip link target missing on plans/story/ourlady/support; Layout.astro:193 inline outline:none destroys :focus-visible; plans.astro:160-179 modal without focus trap/inert/return-focus; solnedgang on-primary white on #ff7040 ≈2.75:1 (global.css:218); hidden sm:inline-flex nav (Layout.astro:77,86,95) makes Plans unreachable <640px; BeforeAfterSlider.astro:81-86 unnamed slider with unused slider.ariaLabel in content.ts; story.astro:31-34 overflow-hidden wrapper clips slider focus outline."
+        }
+      ],
+      "changedFiles": [],
+      "testsAddedOrUpdated": [],
+      "commandsRun": [
+        {
+          "command": "static source audit (read/grep only)",
+          "result": "not-run",
+          "summary": "Review-only: no shell/test commands executed; all evidence from direct source reads and targeted greps (main-content hits, aria-label wiring, lightbox/focus handling, theme button outline)."
+        }
+      ],
+      "validationOutput": [
+        "grep confirmed id=\"main-content\" only on src/pages/[lang]/index.astro:29; Layout.astro:57 skip link targets it.",
+        "grep confirmed slider.ariaLabel defined in i18n/content.ts but never passed to BeforeAfterSlider.astro; runtime aria-label lookup via closest('[aria-label]') finds nothing on story page.",
+        "grep confirmed btn-pulse and .progress-bar-fill are dead code (defined, never used by any page).",
+        "Hand-computed ratios: white/#ff7040 2.75:1, white/#d45828 4.0:1, #d45828/#201c18 4.2:1, on-surface-variant/60 on background 3.0:1, primary/80 on background 4.4:1."
+      ],
+      "residualRisks": [
+        "Contrast ratios hand-computed from tokens; re-verify solnedgang/kull CTAs and footer copyright with axe/Lighthouse on rendered themes before release.",
+        "BeforeAfterSlider exposes role/tabindex/aria only via JS; SSR-side attributes would survive bundle failure.",
+        "No automated a11y tooling exists in the repo, so these regressions have no test net.",
+        "Hero white text over photo depends on the actual image content; verify scrim strength against brightest region.",
+        "Lightbox caption is 85% white over arbitrary image content; verify contrast or add backing."
+      ],
+      "noStagedFiles": true,
+      "diffSummary": "No diff — adversarial review-only audit of existing source.",
+      "reviewFindings": [
+        "blocker: Layout.astro:57 - skip link dead on 4/5 pages (no id=main-content on plans/story/ourlady/support); add id to each <main>",
+        "blocker: Layout.astro:193-194 - inline outline:none on .theme-btn overrides :focus-visible, no keyboard focus ring in theme panel; stop using outline for selection state",
+        "blocker: plans.astro:160-179 - aria-modal dialog without focus move, focus trap, inert background, or focus return on close; fix per APG modal pattern",
+        "blocker: Layout.astro:205-237 - aria-expanded not reset to false by outside-click and theme-select close paths; centralize closePanel()",
+        "blocker: global.css:218-219 solnedgang on-primary #fff on #ff7040 = 2.75:1 on all primary CTA buttons",
+        "blocker: global.css:180-181 kull on-primary #fff on #d45828 = 4.0:1 on CTA labels; Layout.astro:142 theme-button label 4.2:1",
+        "blocker: Layout.astro:77/86/95 - nav hidden below sm with no replacement menu; Plans page has no link anywhere on mobile",
+        "blocker: BeforeAfterSlider.astro:81-86 - slider has no accessible name (ariaLabel in content.ts unused; closest('[aria-label]') finds none); duplicate img alts inside slider",
+        "blocker: story.astro:31-34 - overflow-hidden wrapper fully clips slider :focus-visible outline",
+        "high: Layout.astro footer copyright text-on-surface-variant/60 = 3.0:1 at 12px",
+        "high: index.astro:118/125 - text-primary/80 links = 4.4:1 at 18px normal weight",
+        "high: HotspotImage.astro - tooltip text dropped from a11y tree (aria-label overrides button content), role=tooltip on child of trigger invalid, aria-expanded wrong semantic and disagrees with hover state",
+        "high: i18n/content.ts en.ourlady.hotspots - Norwegian-only hotspot strings on English page (WCAG 3.1.2)",
+        "high: plans.astro:113 - all 9 lightbox triggers named identically 'View image larger'; informative img alt overridden",
+        "medium: plans.astro:118-121 - zoom affordance hover-only, no focus-visible/touch equivalent",
+        "medium: global.css .reveal opacity:0 hides story/plans headers when JS fails; gate on .js class or add noscript fallback",
+        "medium: Layout.astro:104/318-320 - aria-label 'Language' hardcoded English; footer lang links lack lang attrs; no aria-current or hreflang on language switcher; switcher loses current page",
+        "medium: Layout.astro:134 - check-icon span announces '✓' in button names; no aria-pressed on theme buttons",
+        "low: global.css .hotspot 36px target < 44px (WCAG 2.5.5 AAA); -webkit-tap-highlight-color transparent suppresses tap cue",
+        "low: index.astro:37-46 - hero white text over only ~25% scrim in upper text zone is a contrast gamble",
+        "low: Layout.astro:118 - theme switcher fixed but placed mid-DOM, after full page in tab order",
+        "low: plans.astro:177-178 - lightbox alt duplicated in caption; caption contrast risk over bright drawings"
+      ],
+      "manualNotes": "Review-only per instructions; no files modified, no tests run. Good foundations worth keeping: global :focus-visible rule, skip-link placement, landmark/heading structure, button-vs-link choices, reduced-motion coverage, localized alt text. Worst systemic risks: theme system ships 8 themes with unvalidated token contrast (solnedgang/kull fail hard), and the lightbox/theme-panel/slider widget JS has no focus management. Recommend adding axe-core CI before these regressions become permanent."
+    }
+  },
+  "effects": {
+    "fileMutation": {
+      "status": "not-applicable",
+      "expected": false,
+      "attempted": false
+    }
+  },
+  "transcriptPath": "/Users/andreasfladstad/Code/privat/capellareginaenorvegiae/.pi/subagents/artifacts/44ff2a99_reviewer_0_transcript.jsonl",
+  "timestamp": 1786732251080
+}

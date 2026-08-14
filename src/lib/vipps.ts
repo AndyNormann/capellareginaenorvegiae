@@ -31,9 +31,9 @@ let cached: DonationData | null = null;
 /**
  * Format a sats/øre amount to a display string like "145 320 kr".
  */
-export function formatKr(sats: number): string {
+export function formatKr(sats: number, locale = "nb-NO"): string {
   const nok = sats / 100;
-  return nok.toLocaleString("nb-NO") + " kr";
+  return nok.toLocaleString(locale) + " kr";
 }
 
 function loadJson<T>(filePath: string): T | null {

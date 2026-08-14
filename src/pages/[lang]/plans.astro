@@ -1,15 +1,23 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import work1 from "@assets/build/work1.png";
-import work2 from "@assets/build/work2.png";
-import apsis1 from "@assets/build/apsis1.png";
-import apsis2 from "@assets/build/apsis2.png";
-import scale1 from "@assets/build/scale1.png";
-import scale2 from "@assets/build/scale2.png";
-import scale3 from "@assets/build/scale3.png";
-import scale4 from "@assets/build/scale4.png";
-import scale5 from "@assets/build/scale5.png";
+import work1 from "@assets/plan-drawings/clean/side1.jpg";
+import work2 from "@assets/plan-drawings/clean/side2.jpg";
+import apsis1 from "@assets/plan-drawings/clean/apseMain.jpg";
+import apsis2 from "@assets/plan-drawings/clean/apseView1.jpg";
+import apsis3 from "@assets/plan-drawings/clean/apseView2.jpg";
+import apsis4 from "@assets/plan-drawings/clean/apseView3.jpg";
+import glass1 from "@assets/plan-drawings/clean/glass1.jpg";
+import glass2 from "@assets/plan-drawings/clean/glass2.jpg";
+import glass3 from "@assets/plan-drawings/clean/glass3.jpg";
+import scale1 from "@assets/plan-drawings/clean/scale1.jpg";
+import scale2 from "@assets/plan-drawings/clean/scale2.jpg";
+import scale3 from "@assets/plan-drawings/clean/scale3.jpg";
+import scale4 from "@assets/plan-drawings/clean/scale4.jpg";
+import scale5 from "@assets/plan-drawings/clean/scale5.jpg";
+import glassmaleriImg from "@assets/glassmaleri.jpg";
+import clockImg from "@assets/clock.jpg";
+import HotspotImage from "../../components/HotspotImage.astro";
 import { content, defaultLang } from "../../i18n/content";
 
 export function getStaticPaths() {
@@ -26,12 +34,17 @@ const basePath = "/capellareginaenorvegiae";
 
 const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
   work: [
-    { src: work1, alt: pl.imgAlts.work1 },
-    { src: work2, alt: pl.imgAlts.work2 },
+    { src: work1, alt: pl.imgAlts.side1 },
+    { src: work2, alt: pl.imgAlts.side2 },
   ],
   apsis: [
-    { src: apsis1, alt: pl.imgAlts.apsis1 },
-    { src: apsis2, alt: pl.imgAlts.apsis2 },
+    { src: apsis1, alt: pl.imgAlts.apseMain },
+    { src: apsis2, alt: pl.imgAlts.apseView1 },
+    { src: apsis3, alt: pl.imgAlts.apseView2 },
+    { src: apsis4, alt: pl.imgAlts.apseView3 },
+    { src: glass1, alt: pl.imgAlts.glass1 },
+    { src: glass2, alt: pl.imgAlts.glass2 },
+    { src: glass3, alt: pl.imgAlts.glass3 },
   ],
   scale: [
     { src: scale1, alt: pl.imgAlts.scale1 },
@@ -44,12 +57,12 @@ const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
 ---
 
 <Layout description={pl.metaDescription}>
-  <main class="pb-24">
+  <main id="main-content" class="pb-24">
 
     <!-- Header -->
     <section class="pt-16 md:pt-24 px-4 sm:px-8 reveal">
       <div class="max-w-3xl mx-auto">
-        <h1 class="font-headline text-5xl md:text-7xl italic text-primary leading-tight mb-6">
+        <h1 class="font-headline text-4xl md:text-5xl italic text-primary leading-tight mb-6">
           {pl.heading}
         </h1>
         <div class="w-16 h-px bg-secondary/40 mb-6"></div>
@@ -60,7 +73,8 @@ const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
     </section>
 
     <!-- Body blocks -->
-    {pl.blocks.map((block) => (
+    {pl.blocks.map((block, i) => (
+      <Fragment>
       <section class="px-4 sm:px-8">
         <div class="max-w-3xl mx-auto mt-16">
           <div class="flex items-center gap-3 mb-6">
@@ -110,15 +124,18 @@ const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
                   type="button"
                   class="group relative block w-full overflow-hidden rounded-2xl shadow-xl cursor-zoom-in"
                   data-lightbox-btn
-                  aria-label={pl.zoomLabel}
+                  aria-label={`${pl.zoomLabel}: ${img.alt}`}
                 >
                   <Image
                     src={img.src}
                     alt={img.alt}
-                    class="w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                    class:list={[
+                      "w-full transition-transform duration-300 group-hover:scale-[1.03]",
+                      block.images === "scale" ? "aspect-[3/4] object-contain bg-surface-container-low" : "object-cover",
+                    ]}
                   />
-                  <span class="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors" aria-hidden="true"></span>
-                  <span class="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/55 text-white grid place-items-center opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
+                  <span class="absolute inset-0 bg-black/0 group-hover:bg-black/25 group-focus-visible:bg-black/25 transition-colors" aria-hidden="true"></span>
+                  <span class="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/55 text-white grid place-items-center opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity" aria-hidden="true">
                     <span class="material-symbols-outlined text-lg">zoom_in</span>
                   </span>
                 </button>
@@ -127,18 +144,41 @@ const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
           )}
         </div>
       </section>
-    ))}
 
-    <!-- Closing note -->
-    <section class="px-4 sm:px-8 mt-16">
-      <div class="max-w-3xl mx-auto">
-        <div class="space-y-4 text-on-surface-variant leading-relaxed">
-          {pl.closing.map((para) => (
-            <p>{para}</p>
-          ))}
-        </div>
-      </div>
-    </section>
+      {/* Stained-glass section, right after the roof-structure block */}
+      {i === 4 && pl.glass && (
+        <section class="px-4 sm:px-8">
+          <div class="max-w-3xl mx-auto mt-16">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="material-symbols-outlined text-secondary text-2xl" aria-hidden="true">church</span>
+              <h2 class="font-headline text-3xl italic text-primary leading-snug">{pl.glass.heading}</h2>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed">{pl.glass.paragraph}</p>
+            <HotspotImage
+              src={glassmaleriImg}
+              alt={pl.glass.alt}
+              class="rounded-2xl shadow-xl mt-8"
+              hotspots={pl.glass.hotspots}
+            />
+          </div>
+        </section>
+      )}
+
+      {/* Clock section, right after the stained-glass block */}
+      {i === 4 && pl.clock && (
+        <section class="px-4 sm:px-8">
+          <div class="max-w-3xl mx-auto mt-16">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="material-symbols-outlined text-secondary text-2xl" aria-hidden="true">schedule</span>
+              <h2 class="font-headline text-3xl italic text-primary leading-snug">{pl.clock.heading}</h2>
+            </div>
+            {pl.clock.paragraph && <p class="text-on-surface-variant leading-relaxed">{pl.clock.paragraph}</p>}
+            <Image src={clockImg} alt={pl.clock.alt} class="w-full h-auto rounded-2xl shadow-xl mt-8 object-cover" />
+          </div>
+        </section>
+      )}
+      </Fragment>
+    ))}
 
     <!-- CTA -->
     <section class="px-4 sm:px-8 mt-16 pb-24 text-center">
@@ -186,7 +226,7 @@ const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
       <span class="material-symbols-outlined text-2xl">close</span>
     </button>
     <img id="lightbox-img" class="max-h-[88vh] max-w-full object-contain rounded-lg shadow-2xl" alt="" />
-    <span id="lightbox-caption" class="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/85 text-sm font-body max-w-[90%] text-center"></span>
+    <span id="lightbox-caption" class="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/90 text-sm font-body max-w-[90%] text-center bg-black/45 px-4 py-1.5 rounded-full"></span>
   </div>
 
   <script is:inline>
@@ -195,18 +235,34 @@ const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
     const lbCap = document.getElementById("lightbox-caption");
     const lbClose = document.getElementById("lightbox-close");
     if (lb && lbImg && lbClose) {
+      let lastFocused = null;
+
+      const focusable = () =>
+        Array.from(lb.querySelectorAll<HTMLElement>('button, [href], img[alt]')).filter(
+          (el) => el.getBoundingClientRect().width > 0 && el.getBoundingClientRect().height > 0
+        );
+
       const openLb = (img) => {
+        lastFocused = document.activeElement;
         lbImg.src = img.src;
-        lbImg.alt = img.alt || "";
+        lbImg.alt = ""; // caption announces the description
         if (lbCap) lbCap.textContent = img.alt || "";
         lb.classList.remove("hidden");
         lb.classList.add("flex");
         lb.setAttribute("aria-hidden", "false");
+        document.getElementById("main-content")?.setAttribute("inert", "");
+        document.querySelector("header")?.setAttribute("inert", "");
+        document.querySelector("footer")?.setAttribute("inert", "");
+        lbClose.focus();
       };
       const closeLb = () => {
         lb.classList.add("hidden");
         lb.classList.remove("flex");
         lb.setAttribute("aria-hidden", "true");
+        document.getElementById("main-content")?.removeAttribute("inert");
+        document.querySelector("header")?.removeAttribute("inert");
+        document.querySelector("footer")?.removeAttribute("inert");
+        if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
       };
       document.querySelectorAll("[data-lightbox-btn]").forEach((btn) => {
         btn.addEventListener("click", () => {
@@ -220,6 +276,20 @@ const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
       });
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeLb();
+        if (e.key === "Tab" && lb.getAttribute("aria-hidden") === "false") {
+          const els = focusable();
+          if (!els.length) return;
+          const first = els[0];
+          const last = els[els.length - 1];
+          const active = document.activeElement;
+          if (e.shiftKey && (active === first || active === lb)) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && active === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
       });
     }
   </script>

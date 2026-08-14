@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { useTranslations } from "../i18n/utils";
+const lang = "no";
+const t = useTranslations(lang);
+const basePath = "/capellareginaenorvegiae";
+const homeHref = `${basePath}/${lang}`;
+---
+
+<Layout description="Side ble ikke funnet — Page not found">
+  <main id="main-content" class="max-w-6xl mx-auto px-4 sm:px-8 py-24 md:py-32 text-center">
+    <div class="font-headline text-6xl md:text-8xl italic text-primary mb-6">404</div>
+    <h1 class="font-headline text-2xl md:text-3xl italic text-on-surface mb-4">
+      Siden ble ikke funnet.
+    </h1>
+    <p class="font-body text-on-surface-variant max-w-md mx-auto mb-10">
+      Denne siden finnes ikke lenger, eller så har adressen en skrivefeil.
+    </p>
+    <a
+      href={homeHref}
+      class="inline-flex items-center gap-2 min-h-[44px] px-8 py-2.5 bg-primary text-on-primary rounded-sm font-label text-sm hover:bg-primary/90 transition-colors shadow-md tracking-wide"
+    >
+      <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_back</span>
+      Tilbake til forsiden
+    </a>
+  </main>
+</Layout>

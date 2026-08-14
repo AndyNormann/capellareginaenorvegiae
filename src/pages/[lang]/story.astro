@@ -22,12 +22,12 @@ const sections = st.sections;
 ---
 
 <Layout description={st.metaDescription}>
-  <main class="pb-24">
+  <main id="main-content" class="pb-24">
 
     <!-- Page header -->
     <section class="pt-16 md:pt-24 px-4 sm:px-8 reveal">
       <div class="max-w-3xl mx-auto">
-        <h1 class="font-headline text-5xl md:text-7xl italic text-primary leading-tight mb-6">
+        <h1 class="font-headline text-4xl md:text-5xl italic text-primary leading-tight mb-6">
           {st.heading}
         </h1>
         <div class="w-16 h-px bg-secondary/40 mb-6"></div>
@@ -37,13 +37,14 @@ const sections = st.sections;
 
         {/* The before/after proof, right under the intro */}
         <div class="mt-10 max-w-4xl">
-          <div class="overflow-hidden rounded-2xl shadow-2xl">
+          <div class="rounded-2xl shadow-2xl">
             <BeforeAfterSlider
               before={before}
               after={after}
+              ariaLabel={st.slider.ariaLabel}
               beforeLabel={st.slider.beforeLabel}
               afterLabel={st.slider.afterLabel}
-              alt={st.slider.alt}
+              alt=""
             />
           </div>
           <p id="slider-hint" class="font-sketch text-base text-tertiary mt-3 px-1">{st.slider.hint}</p>
@@ -83,6 +84,19 @@ const sections = st.sections;
               <figure class="md:col-span-5 md:mt-16 overflow-hidden rounded-2xl shadow-2xl">
                 <Image src={klem} alt={st.klemAlt} class="w-full aspect-[3/4] object-cover" />
               </figure>
+            </div>
+          )}
+
+          {/* Support CTA right after "What the money goes to" */}
+          {i === 3 && (
+            <div class="mt-10 text-center">
+              <a
+                href={`/capellareginaenorvegiae/${lang}/support`}
+                class="inline-flex items-center gap-2 min-h-[44px] px-8 py-2.5 bg-primary text-on-primary rounded-sm font-label text-sm hover:bg-primary/90 transition-colors shadow-md tracking-wide"
+              >
+                {st.cta.button}
+                <span class="material-symbols-outlined text-base" aria-hidden="true">favorite</span>
+              </a>
             </div>
           )}
         </div>

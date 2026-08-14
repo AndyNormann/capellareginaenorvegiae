@@ -1,8 +1,8 @@
 ---
 import "../styles/global.css";
 import { Image } from "astro:assets";
-import topIcon from "@assets/glassmaleri.png";
-import favicon from "@assets/glassmaleri.png";
+import topIcon from "@assets/top-icon.png";
+import favicon from "@assets/top-icon.png";
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
@@ -10,18 +10,32 @@ const t = useTranslations(lang);
 const { description } = Astro.props as { description?: string };
 const defaultDescription =
   lang === 'no'
-    ? "Mariaslæen – et lite kapell i en gammel smie på Ledum gård i Gudbrandsdalen. Alltid åpent."
-    : "Mariaslæen – a small chapel in an old forge at Ledum farm, Gudbrandsdalen, Norway. Always open.";
+    ? "Mariaslæen – et lite kapell i en gammel smie på Ledum gård i Gudbrandsdalen. Bli kjent med kapellet og send oss en melding om du vil besøke oss."
+    : "Mariaslæen – a small chapel in an old forge at Ledum farm, Gudbrandsdalen, Norway. Learn about the chapel and message us if you would like to visit.";
 const pageDescription = description ?? defaultDescription;
 const pathname = Astro.url.pathname.replace(/\/+$/, "");
 const isActive = (slug: string) => pathname.endsWith(`/${lang}/${slug}`);
+
+const segments = pathname.split("/").filter(Boolean);
+const base = segments[0] ?? "capellareginaenorvegiae";
+const otherLang = lang === "no" ? "en" : "no";
+const restPath = segments.slice(2).join("/");
+const langHome = `/${base}/${lang}`;
+const noHref = `/${base}/no${restPath ? "/" + restPath : ""}`;
+const enHref = `/${base}/en${restPath ? "/" + restPath : ""}`;
+
+const navPages = [
+  { slug: "story", label: t("nav.story") },
+  { slug: "ourlady", label: t("nav.ourlady") },
+  { slug: "plans", label: t("nav.plans") },
+];
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} class="no-js">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>Capella Reginae Norvegiae</title>
     <meta name="description" content={pageDescription} />
@@ -39,21 +53,14 @@ const isActive = (slug: string) => pathname.endsWith(`/${lang}/${slug}`);
     rel="stylesheet"
     />
   </head>
-  <script is:inline>
-    const saved = localStorage.getItem("theme");
-    if (saved) document.documentElement.setAttribute("data-theme", saved);
-  </script>
   <body
   class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen"
   >
-    <!--
-      THESIS: The home page invites the visit — photographs of the chapel in its best light carry the argument, text recedes to a simple welcome, one what-is line, and a Google Maps path to the door; the category-default hero-metric and kicker scaffolds are refused.
-      OWN-WORLD: The incumbent Fjord system stays untouched — Material-style tokens, Newsreader display italic, Plus Jakarta body, Epilogue labels, Caveat sketches, the eight-theme switcher, rounded-2xl photo frames.
-      STORY: A visitor from Instagram, search, or Google Maps knows within one viewport what the chapel is, that it is always open, and how to get there; story and support recede to quiet links.
-      FIRST VIEWPORT: Full-bleed interior photograph in daylight; a simple welcome line, one what-is sentence, the primary action "How to get here" → Google Maps, and the always-open fact over the image.
-      FORM: The Open Door sequence, surface structure 7/7 from the concept seed 58d594d8; home/story/ourlady/support rebalance with finished-state imagery on home and construction imagery on story; ourlady is the chapel's dedication page.
-      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
-    -->
+    <script is:inline>
+      // Flag JS availability so scroll-reveal only hides content when JS is on.
+      document.documentElement.classList.replace("no-js", "js");
+    </script>
+
     <a href="#main-content" class="skip-link">
       {lang === 'no' ? 'Hopp til innhold' : 'Skip to content'}
     </a>
@@ -61,171 +68,93 @@ const isActive = (slug: string) => pathname.endsWith(`/${lang}/${slug}`);
       <nav
       class="flex justify-between items-center w-full pl-2 pr-4 py-3 max-w-6xl mx-auto"
       >
-        <a class="flex items-center gap-3" href="/capellareginaenorvegiae" aria-current={pathname.endsWith(`/${lang}`) ? "page" : undefined}>
+        <a class="flex items-center gap-3" href={langHome} aria-current={pathname === `/${base}/${lang}` || pathname === `/${base}/${lang}/` ? "page" : undefined}>
           <Image src={topIcon} alt="Glassmaling" class="w-11 h-11 md:w-14 md:h-14" />
-          <div class="leading-tight">
-            <div class="text-sm md:text-base font-semibold font-['Newsreader'] italic tracking-tight text-on-surface">
+          <div class="leading-tight hidden sm:block">
+            <div class="text-sm md:text-base font-semibold font-headline italic tracking-tight text-on-surface">
               Capella Reginae Norvegiae
             </div>
-            <div class="text-xs font-['Plus_Jakarta_Sans'] tracking-wide text-on-surface-variant hidden sm:block">Gudbrandsdalen</div>
+            <div class="text-xs font-body tracking-wide text-on-surface-variant hidden sm:block">Gudbrandsdalen</div>
           </div>
         </a>
         <div class="flex gap-3 md:gap-6 items-center">
-          <a
-          href={`/capellareginaenorvegiae/${lang}/story`}
-          class:list={[
-            "font-['Newsreader'] italic text-base tracking-tight hover:text-on-surface transition-colors hidden sm:inline-flex items-center min-h-[44px] px-2",
-            isActive("story") ? "text-on-surface underline decoration-secondary decoration-2 underline-offset-4" : "text-on-surface-variant",
-          ]}
-          aria-current={isActive("story") ? "page" : undefined}
-          >{t("nav.story")}</a
+          {navPages.map((p) => (
+            <a
+            href={`/${base}/${lang}/${p.slug}`}
+            class:list={[
+              "font-headline italic text-base tracking-tight hover:text-on-surface transition-colors hidden sm:inline-flex items-center min-h-[44px] px-2",
+              isActive(p.slug) ? "text-on-surface underline decoration-secondary decoration-2 underline-offset-4" : "text-on-surface-variant",
+            ]}
+            aria-current={isActive(p.slug) ? "page" : undefined}
+            >{p.label}</a
+            >
+          ))}
+          <!-- Mobile menu toggle -->
+          <button
+          type="button"
+          id="nav-toggle"
+          class="sm:hidden min-h-[44px] min-w-[44px] flex items-center justify-center text-on-surface hover:text-primary transition-colors"
+          aria-label={t("nav.menu")}
+          aria-expanded="false"
+          aria-controls="mobile-menu"
           >
-          <a
-          href={`/capellareginaenorvegiae/${lang}/ourlady`}
-          class:list={[
-            "font-['Newsreader'] italic text-base tracking-tight hover:text-on-surface transition-colors hidden sm:inline-flex items-center min-h-[44px] px-2",
-            isActive("ourlady") ? "text-on-surface underline decoration-secondary decoration-2 underline-offset-4" : "text-on-surface-variant",
-          ]}
-          aria-current={isActive("ourlady") ? "page" : undefined}
-          >{t("nav.ourlady")}</a
-          >
-          <a
-          href={`/capellareginaenorvegiae/${lang}/plans`}
-          class:list={[
-            "font-['Newsreader'] italic text-base tracking-tight hover:text-on-surface transition-colors hidden sm:inline-flex items-center min-h-[44px] px-2",
-            isActive("plans") ? "text-on-surface underline decoration-secondary decoration-2 underline-offset-4" : "text-on-surface-variant",
-          ]}
-          aria-current={isActive("plans") ? "page" : undefined}
-          >{t("nav.plans")}</a
-          >
+            <span class="material-symbols-outlined text-2xl" aria-hidden="true">menu</span>
+          </button>
           <!-- Language switcher -->
-          <div class="flex items-center gap-0 font-['Epilogue'] text-on-surface-variant" role="group" aria-label="Language">
-            <a href="/capellareginaenorvegiae/no"
+          <div class="flex items-center gap-0 font-label text-on-surface-variant" role="group" aria-label={t("lang.label")}>
+            <a href={noHref}
                class="min-h-[44px] min-w-[44px] flex items-center justify-center text-sm hover:text-on-surface transition-colors"
                class:list={[lang === 'no' ? 'text-on-surface font-semibold' : '']}
-               aria-label="Norsk" lang="no">NO</a>
+               aria-label="Norsk" lang="no" hreflang="no"
+               aria-current={lang === 'no' ? 'page' : undefined}>NO</a>
             <span class="opacity-30 select-none" aria-hidden="true">|</span>
-            <a href="/capellareginaenorvegiae/en"
+            <a href={enHref}
                class="min-h-[44px] min-w-[44px] flex items-center justify-center text-sm hover:text-on-surface transition-colors"
                class:list={[lang === 'en' ? 'text-on-surface font-semibold' : '']}
-               aria-label="English" lang="en">EN</a>
+               aria-label="English" lang="en" hreflang="en"
+               aria-current={lang === 'en' ? 'page' : undefined}>EN</a>
           </div>
           <a
-          href={`/capellareginaenorvegiae/${lang}/support`}
+          href={`/${base}/${lang}/support`}
           class:list={[
-            "min-h-[44px] px-4 md:px-5 flex items-center border border-outline rounded-sm transition-all font-['Newsreader'] italic text-sm",
+            "min-h-[44px] px-4 md:px-5 flex items-center border border-outline rounded-sm transition-all font-label text-sm",
             isActive("support") ? "bg-surface-container text-on-surface font-semibold" : "text-on-surface hover:bg-surface-container",
           ]}
           aria-current={isActive("support") ? "page" : undefined}
           >{t("nav.support")}</a>
         </div>
       </nav>
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="sm:hidden hidden border-t border-outline-variant bg-surface-bright">
+        <div class="max-w-6xl mx-auto px-4 py-2 flex flex-col">
+          {navPages.map((p) => (
+            <a
+            href={`/${base}/${lang}/${p.slug}`}
+            class="min-h-[44px] flex items-center font-headline italic text-base text-on-surface-variant hover:text-on-surface"
+            aria-current={isActive(p.slug) ? "page" : undefined}
+            >{p.label}</a
+            >
+          ))}
+        </div>
+      </div>
     </header>
     <slot />
 
-    <!-- Theme Switcher -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2" id="theme-switcher">
-      <div id="theme-panel" class="hidden flex-col gap-1 mb-1 bg-black/40 backdrop-blur-xl rounded-2xl p-2 shadow-2xl border border-white/10">
-        <!-- Fjord — parchment + slate blue + amber gold -->
-        <button data-theme-value="" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#faf7f0; color:#2a4a6e;">
-          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#2a4a6e,#8a6010);"></span>
-          <span class="flex-1 text-left">Fjord</span>
-          <span class="check-icon opacity-0 text-base leading-none">✓</span>
-        </button>
-        <!-- Natt — electric midnight -->
-        <button data-theme-value="natt" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#0d1520; color:#2ec8f0;">
-          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#050a12,#2ec8f0);"></span>
-          <span class="flex-1 text-left">Natt</span>
-          <span class="check-icon opacity-0 text-base leading-none">✓</span>
-        </button>
-        <!-- Kull — forge coal -->
-        <button data-theme-value="kull" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#201c18; color:#d45828;">
-          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#161210,#d45828);"></span>
-          <span class="flex-1 text-left">Kull</span>
-          <span class="check-icon opacity-0 text-base leading-none">✓</span>
-        </button>
-        <!-- Skog — forest -->
-        <button data-theme-value="skog" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#e4f0d8; color:#1e5018;">
-          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#1e5018,#8a6018);"></span>
-          <span class="flex-1 text-left">Skog</span>
-          <span class="check-icon opacity-0 text-base leading-none">✓</span>
-        </button>
-        <!-- Solnedgang — nordic dusk -->
-        <button data-theme-value="solnedgang" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#241028; color:#e05c28;">
-          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#180a1e,#e05c28);"></span>
-          <span class="flex-1 text-left">Solnedgang</span>
-          <span class="check-icon opacity-0 text-base leading-none">✓</span>
-        </button>
-        <!-- Is — arctic white -->
-        <button data-theme-value="is" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#eaf4ff; color:#001040;">
-          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#001040,#0848c8);"></span>
-          <span class="flex-1 text-left">Is</span>
-          <span class="check-icon opacity-0 text-base leading-none">✓</span>
-        </button>
-        <!-- Mose — moss & earth -->
-        <button data-theme-value="mose" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#e6dece; color:#3a4e20;">
-          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#3a4e20,#904020);"></span>
-          <span class="flex-1 text-left">Mose</span>
-          <span class="check-icon opacity-0 text-base leading-none">✓</span>
-        </button>
-        <!-- Aurora — northern lights -->
-        <button data-theme-value="aurora" class="theme-btn flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-label transition-all" style="background:#0c1820; color:#18d898;">
-          <span class="w-4 h-4 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#080f18,#18d898);"></span>
-          <span class="flex-1 text-left">Aurora</span>
-          <span class="check-icon opacity-0 text-base leading-none">✓</span>
-        </button>
-      </div>
-      <button id="theme-toggle" class="w-11 h-11 rounded-full shadow-lg flex items-center justify-center border border-outline-variant bg-surface-bright text-primary hover:scale-110 transition-transform" aria-label="Change theme" aria-expanded="false" aria-controls="theme-panel">
-        <span class="material-symbols-outlined text-xl">palette</span>
-      </button>
-    </div>
-
     <script>
-      const toggle = document.getElementById("theme-toggle");
-      const panel = document.getElementById("theme-panel");
-      const buttons = document.querySelectorAll<HTMLElement>(".theme-btn");
-
-      function updateActive() {
-        const current = document.documentElement.getAttribute("data-theme") ?? "";
-        buttons.forEach((btn) => {
-          const isActive = btn.dataset.themeValue === current;
-          btn.querySelector(".check-icon")?.classList.toggle("opacity-0", !isActive);
-          btn.style.outline = isActive ? "2px solid currentColor" : "none";
-          btn.style.outlineOffset = "1px";
+      const navToggle = document.getElementById("nav-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (navToggle && mobileMenu) {
+        navToggle.addEventListener("click", () => {
+          const open = mobileMenu.classList.toggle("hidden") === false;
+          navToggle.setAttribute("aria-expanded", String(open));
+        });
+        mobileMenu.querySelectorAll("a").forEach((a) => {
+          a.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+            navToggle.setAttribute("aria-expanded", "false");
+          });
         });
       }
-
-      toggle?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const isOpen = panel?.classList.toggle("hidden") === false;
-        panel?.classList.toggle("flex", isOpen);
-        toggle?.setAttribute("aria-expanded", String(isOpen));
-      });
-
-      buttons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const value = btn.dataset.themeValue ?? "";
-          if (value) {
-            document.documentElement.setAttribute("data-theme", value);
-            localStorage.setItem("theme", value);
-          } else {
-            document.documentElement.removeAttribute("data-theme");
-            localStorage.removeItem("theme");
-          }
-          updateActive();
-          panel?.classList.add("hidden");
-          panel?.classList.remove("flex");
-        });
-      });
-
-      document.addEventListener("click", (e) => {
-        if (!document.getElementById("theme-switcher")?.contains(e.target as Node)) {
-          panel?.classList.add("hidden");
-          panel?.classList.remove("flex");
-        }
-      });
-
-      updateActive();
     </script>
 
     <script>
@@ -286,31 +215,48 @@ const isActive = (slug: string) => pathname.endsWith(`/${lang}/${slug}`);
           <div class="flex-1 h-px bg-outline-variant"></div>
         </div>
 
-        <div class="text-xl font-medium font-['Newsreader'] italic text-on-surface">
+        <div class="text-xl font-medium font-headline italic text-on-surface">
           Capella Reginae Norvegiae
         </div>
-        <p class="font-['Newsreader'] text-sm italic text-on-surface-variant max-w-xs">
+        <p class="font-headline text-sm italic text-on-surface-variant max-w-xs">
           Built with love in Gudbrandsdalen.
         </p>
+
+        <!-- Footer navigation -->
+        <nav aria-label={t("nav.footer")} class="flex flex-wrap justify-center gap-x-6 gap-y-1">
+          {navPages.map((p) => (
+            <a
+            href={`/${base}/${lang}/${p.slug}`}
+            class="min-h-[44px] inline-flex items-center font-body text-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            aria-current={isActive(p.slug) ? "page" : undefined}
+            >{p.label}</a
+            >
+          ))}
+          <a
+          href={`/${base}/${lang}/support`}
+          class="min-h-[44px] inline-flex items-center font-body text-sm text-on-surface-variant hover:text-on-surface transition-colors"
+          aria-current={isActive("support") ? "page" : undefined}
+          >{t("nav.support")}</a>
+        </nav>
 
         <a
           href="https://www.instagram.com/capellareginaenorvegiae/"
           target="_blank"
           rel="noopener noreferrer"
-          class="min-h-[44px] px-4 inline-flex items-center gap-2 text-on-surface-variant hover:text-on-surface transition-colors font-['Plus_Jakarta_Sans'] text-sm"
+          class="min-h-[44px] px-4 inline-flex items-center gap-2 text-on-surface-variant hover:text-on-surface transition-colors font-body text-sm"
           aria-label="Instagram"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
           Instagram
         </a>
 
-        <div class="flex items-center gap-1 text-sm font-['Plus_Jakarta_Sans']">
-          <a class="min-h-[44px] px-4 inline-flex items-center text-on-surface-variant hover:text-on-surface transition-colors" href="/capellareginaenorvegiae/no">Norsk</a>
+        <div class="flex items-center gap-1 text-sm font-body">
+          <a class="min-h-[44px] px-4 inline-flex items-center text-on-surface-variant hover:text-on-surface transition-colors" href={noHref} lang="no" hreflang="no" aria-current={lang === 'no' ? 'page' : undefined}>Norsk</a>
           <span class="text-on-surface-variant/30" aria-hidden="true">·</span>
-          <a class="min-h-[44px] px-4 inline-flex items-center text-on-surface-variant hover:text-on-surface transition-colors" href="/capellareginaenorvegiae/en">English</a>
+          <a class="min-h-[44px] px-4 inline-flex items-center text-on-surface-variant hover:text-on-surface transition-colors" href={enHref} lang="en" hreflang="en" aria-current={lang === 'en' ? 'page' : undefined}>English</a>
         </div>
 
-        <div class="text-xs font-label text-on-surface-variant/60 mt-1">
+        <div class="text-xs font-label text-on-surface-variant mt-1">
           © 2026 Mathias and his companions.
         </div>
       </div>

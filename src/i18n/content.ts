@@ -5,7 +5,7 @@ export const content = {
     index: {
       welcome: "Welcome to Mariaslæen.",
       intro:
-        "An old forge in Gudbrandsdalen, opened as a quiet chapel for everyone.",
+        "An old forge in Gudbrandsdalen, being turned into a chapel for everyone.",
       mapCta: "How to get here",
       heroAlt: "Inside the chapel, light falling through the stone walls",
       whatHeading: "A quiet room, for everyone.",
@@ -22,14 +22,14 @@ export const content = {
       visitBody:
         "Ledum farm lies in Gudbrandsdalen. Open the map for directions.",
       visitCta: "Open in Google Maps",
-      alwaysOpen: "The chapel is always open.",
+      alwaysOpen: "The chapel is still taking shape — but you're always welcome to message us.",
       questions: "Questions? Message us on Instagram.",
       closeImgAlt: "Gudbrandsdalen valley at sunset",
       closeInstagram: "@capellareginaenorvegiae",
       closeInstagramLabel: "Follow us on Instagram",
       support: "Support us",
       metaDescription:
-        "Mariaslæen – a small chapel in an old forge at Ledum farm, Gudbrandsdalen, Norway. Always open. Welcome in.",
+        "Mariaslæen – a small chapel in an old forge at Ledum farm, Gudbrandsdalen, Norway. Learn about the chapel and how to visit.",
     },
     story: {
       badge: "Gudbrandsdalen, Norway",
@@ -70,14 +70,6 @@ export const content = {
           ],
         },
         {
-          icon: "church",
-          heading: "The stained glass",
-          body: [
-            "The crown of the work is our own stained glass window. The motif is traditionally Catholic and at the same time typical of Gudbrandsdalen.",
-            "Here the Sacred Heart of Jesus and the Immaculate Heart of Mary are woven together, placed in the middle of Gudbrandsdalen with the Lågen river running through, surrounded by flower embroideries from the Gudbrandsdal festdrakt and acanthus leaves typical of the valley's churches.",
-          ],
-        },
-        {
           icon: "auto_stories",
           heading: "The background",
           body: [
@@ -110,7 +102,7 @@ export const content = {
       },
       cta: {
         heading: "The chapel isn't finished yet.",
-        body: "Every contribution goes straight to the building: no overhead, no admin. Every hand helps.",
+        body: "Your support helps us build out the chapel. Every hand helps.",
         button: "Support the chapel",
         backText: "Back to home",
       },
@@ -124,15 +116,74 @@ export const content = {
       zoomLabel: "View image larger",
       zoomClose: "Close",
       imgAlts: {
-        work1: "Architect's drawing of the chapel",
-        work2: "Architect's drawing of the chapel",
-        apsis1: "The apse with the stained glass window",
-        apsis2: "The apse with the stained glass window",
+        side1: "Side view of the chapel",
+        side2: "Side view of the chapel",
+        apseMain: "The apse, main view",
+        apseView1: "The apse, view",
+        apseView2: "The apse, view",
+        apseView3: "The apse, view",
+        glass1: "The stained glass window",
+        glass2: "The stained glass window",
+        glass3: "The stained glass window",
         scale1: "Scale drawing of the chapel",
         scale2: "Scale drawing of the chapel",
         scale3: "Scale drawing of the chapel",
         scale4: "Scale drawing of the chapel",
         scale5: "Scale drawing of the chapel",
+      },
+      glass: {
+        alt: "The stained glass window",
+        heading: "The stained glass window",
+        paragraph: "First drawn by Ayla Olava Heimly, then worked and crafted by Sigrid Blekastad, a glassmaker from Gausdal living in Lalm. Sigrid has been a supporter from day one and, in dialogue with us, has managed to create what will become the chapel's most beautiful pearl, set to crown the altar up under the roof.",
+        hotspots: [
+          {
+            x: 50,
+            y: 28,
+            label: "The Crown",
+            title: "The Crown",
+            body: "Symbolises Christ the King and the Queen Mother Mary.",
+          },
+          {
+            x: 51,
+            y: 16,
+            label: "The Star",
+            title: "The Star",
+            body: "Symbolises the Virgin Mary as Stella Maris, Star of the Sea — in this version, the Star of the Lågen.",
+          },
+          {
+            x: 50,
+            y: 46,
+            label: "The Hearts",
+            title: "The Hearts",
+            body: "The Sacred Heart of Jesus and the Immaculate Heart of Mary, twined together.",
+          },
+          {
+            x: 49,
+            y: 69,
+            label: "The Landscape",
+            title: "The Landscape",
+            body: "Gudbrandsdalen, with the Lågen river running through it.",
+          },
+          {
+            x: 16,
+            y: 53,
+            label: "The Flowers",
+            title: "The Flowers",
+            body: "From the embroidery of the Gudbrandsdal festdrakt (bunad).",
+          },
+          {
+            x: 83,
+            y: 65,
+            label: "The Acanthus",
+            title: "The Acanthus",
+            body: "Acanthus leaves typical of the woodcarving style found in Gudbrandsdalen, especially in altarpieces and pulpits, but also other decoration.",
+          },
+        ],
+      },
+      clock: {
+        alt: "The clock",
+        heading: "The clock",
+        paragraph: "",
       },
       blocks: [
         {
@@ -180,18 +231,6 @@ export const content = {
           ],
         },
         {
-          icon: "landscape",
-          heading: "Slate for the roof",
-          paragraphs: [
-            "These are the measurements for the slate we want to use on the roof of the chapel itself, on the apse in the north end, and on the entrance. The platform that the apse and entrance will stand on, we will cast ourselves:",
-          ],
-          amounts: [
-            { label: "Slate for the chapel roof", value: "approx. 40 m²" },
-            { label: "Slate for the apse", value: "approx. 12 m²" },
-            { label: "Slate for the entrance", value: "approx. 13 m²" },
-          ],
-        },
-        {
           icon: "straighten",
           heading: "Scale drawings",
           paragraphs: [
@@ -200,12 +239,9 @@ export const content = {
           images: "scale",
         },
       ],
-      closing: [
-        "All measurements must of course be checked on site before the work begins, but this is at least what we have imagined as a starting point. We look forward to discussing with you any changes we should make.",
-      ],
       cta: {
         heading: "The chapel isn't finished yet.",
-        body: "Every contribution goes straight to the building: no overhead, no admin. Every hand helps.",
+        body: "Your support helps us build out the chapel. Every hand helps.",
         button: "Support the chapel",
         backText: "Back to home",
       },
@@ -214,13 +250,15 @@ export const content = {
     },
     support: {
       heading: "Support the chapel",
-      body: "Every krone goes straight to the building. No admin, no overhead. Just four people and a stone room.",
+      body: "Your support helps us build out the chapel. Just four people and a stone room.",
       raisedLabel: "Raised so far",
+      updatedLabel: "Last updated",
       vippsPrompt: "Scan to give via Vipps",
       vippsQrAlt: "Vipps QR code for donations",
       topDonorsLabel: "Top donations",
       recentActivityLabel: "Recent activity",
       anonymousLabel: "Anonymous",
+      whatItBuilds: "See what your money builds",
       backText: "Back to home",
       metaDescription:
         "Support the chapel at Mariaslæen – every krone goes straight to the building. Donate via Vipps.",
@@ -232,13 +270,85 @@ export const content = {
       imageAlt: "Close-up of Our Lady of Gudbrandsdalen",
       mainImageAlt: "Our Lady of Gudbrandsdalen",
       artistCredit: "Artwork by Ayla Gloria Olava Heimly",
+      supportButton: "Support the chapel",
+      storyLink: "Read the story",
       hotspots: [
         {
-          x: 49,
-          y: 18,
-          label: "Kronen",
-          title: "Marias krone",
-          body: "i stilen av en bunadskrone",
+            x: 50,
+            y: 17,
+            label: "The Crown",
+          title: "The Crown",
+          body: "Symbolises that she is the symbol of the Church, the Bride of Christ, and a tiara for the Queen above all queens.",
+        },
+        {
+            x: 73,
+            y: 58,
+            label: "The Throne",
+          title: "The Throne",
+          body: "Carved in the acanthus style typical of Gudbrandsdalen. The throne symbolises the role Mary holds as the Queen Mother, under the title Gebirah in the Old Testament. It was a role the king's mother had, where she sat to the right of the king on her own throne and received people's requests and wishes and brought them before the king, as their spokesperson.",
+        },
+        {
+            x: 52,
+            y: 68,
+            label: "The Bunad",
+          title: "The Bunad",
+          body: "The Gudbrandsdalen festdrakt, in blue, because blue is Mary's own colour.",
+        },
+        {
+            x: 49,
+            y: 37,
+            label: "The Brooch",
+          title: "The Brooch",
+          body: "\u00abMary's pure heart\u00bb — a remnant of Catholic tradition symbolising her immaculate heart, worn on bunads across Norway, especially in Gudbrandsdalen.",
+        },
+        {
+            x: 62,
+            y: 43,
+            label: "Jesus's Brooch",
+          title: "Jesus's Brooch",
+          body: "Though there is no similar brooch tradition for the heart of Jesus, He too has a brooch symbolising His most sacred heart.",
+        },
+        {
+            x: 80,
+            y: 40,
+            label: "The Orb",
+          title: "The Orb",
+          body: "Symbolises both the kingship of Christ, and a reference to the Santo Niño devotion from the Philippines and the Carthusian Order founded by St. Bruno, who is the patron saint of Fr. Mathias.",
+        },
+        {
+            x: 29,
+            y: 30,
+            label: "The Lily",
+          title: "The Lily",
+          body: "Symbolises the purity of both the Virgin Mary and St. Joseph.",
+        },
+        {
+            x: 65,
+            y: 16,
+            label: "The Great Sun",
+          title: "The Great Sun",
+          body: "Symbolises the holy Olav's meeting with Dale-Gudbrand at Hundorp in 1021, where they meet to measure which God is the strongest, much like the prophet Elijah and the prophets of Baal, cf. 1 Kings 18,16-40. St. Olav preaches about the White Christ in the grey dawn and ends the sermon dramatically as he points to the sun rising in the East and says «there comes our God with great light!», and has Kolbein the Strong smash the statue of the idol Thor. Dale-Gudbrand and his men end up being baptised, and this is marked as the Christianisation of Gudbrandsdalen.",
+        },
+        {
+            x: 17,
+            y: 30,
+            label: "The Church",
+          title: "The Church",
+          body: "S\u00f8r-Fron church, often called the Gudbrandsdalsdomen, built close to where St. Olav met Dale-Gudbrand.",
+        },
+        {
+            x: 19,
+            y: 47,
+            label: "The Landscape",
+          title: "The Landscape",
+          body: "Losna, where the L\u00e5gen river is at its widest, between Nord-Tretten and S\u00f8r-F\u00e5vang.",
+        },
+        {
+            x: 82,
+            y: 66,
+            label: "The Farm",
+          title: "The Farm",
+          body: "Ledum farm, where the chapel of Our Lady of Gudbrandsdalen lies.",
         },
       ],
       blocks: [
@@ -258,16 +368,9 @@ export const content = {
           ],
         },
         {
-          heading: "The image",
+          heading: "Visiting",
           paragraphs: [
-            "Here we see Our Lady of Gudbrandsdalen in Gudbrandsdalen festdrakt, sitting on a wood-carved throne in acanthus style. The bridal crown symbolises that she is the symbol of the Church, the bride of Christ — and at the same time it is a tiara for the Queen above all queens. On her arm she holds the Christ Child, whose orb symbolises His kingly dignity, and also echoes the Santo Niño devotion of the Philippines and the Carthusian Order, founded by my patron saint St. Bruno.",
-            "Other patron saints are represented through the lily (St. Joseph) and the great sun in the background (St. Olav's meeting with Dale-Gudbrand at Hundorp in 1021). The surroundings may resemble Losna, where the Lågen is at its widest. The farm in the foreground could be Ledum farm. And the church building in the background is the very Gudbrandsdalsdomen at Sør-Fron.",
-          ],
-        },
-        {
-          heading: "Always open",
-          paragraphs: [
-            "The chapel is open to everyone — pilgrims, hikers and anyone who needs a quiet place. No entry fee, no membership: the door is always open.",
+            "Would you like to visit the chapel? Send us a message on Instagram, and we will be happy to welcome you in.",
           ],
         },
       ],
@@ -296,14 +399,14 @@ export const content = {
       visitBody:
         "Ledum gård ligger i Gudbrandsdalen. Åpne kartet for veibeskrivelse.",
       visitCta: "Åpne i Google Maps",
-      alwaysOpen: "Kapellet er alltid åpent.",
+      alwaysOpen: "Kapellet er fortsatt under bygging — men du er alltid velkommen til å skrive til oss.",
       questions: "Spørsmål? Send oss en melding på Instagram.",
       closeImgAlt: "Gudbrandsdalen i solnedgang",
       closeInstagram: "@capellareginaenorvegiae",
       closeInstagramLabel: "Følg oss på Instagram",
       support: "Støtt oss",
       metaDescription:
-        "Mariaslæen – et lite kapell i en gammel smie på Ledum gård i Gudbrandsdalen. Alltid åpent. Velkommen inn.",
+        "Mariaslæen – et lite kapell i en gammel smie på Ledum gård i Gudbrandsdalen. Bli kjent med kapellet og hvordan du besøker oss.",
     },
     story: {
       badge: "Gudbrandsdalen, Norge",
@@ -344,14 +447,6 @@ export const content = {
           ],
         },
         {
-          icon: "church",
-          heading: "Glassmaleriet",
-          body: [
-            "Selveste kronen på verket er vårt eget glassmaleri. Motivet er tradisjonelt katolsk og samtidig typisk for Gudbrandsdalen.",
-            "Her har vi Jesu hellige hjerte og Jomfru Marias uplettede hjerte, tvinna sammen, plassert midt i Gudbrandsdalen med Lågen som renner igjennom, omkransa av blomsterbroderier henta fra Gudbrandsdal festdrakt og akantusblader som er typiske for kirker i dalen.",
-          ],
-        },
-        {
           icon: "auto_stories",
           heading: "Bakgrunnen",
           body: [
@@ -384,7 +479,7 @@ export const content = {
       },
       cta: {
         heading: "Kapellet er ikke ferdig ennå.",
-        body: "Hver krone går rett til byggingen: uten administrasjon, uten omveier. Hver hånd hjelper.",
+        body: "Støtten din hjelper oss å bygge ut kapellet. Hver hånd hjelper.",
         button: "Støtt kapellet",
         backText: "Tilbake til forsiden",
       },
@@ -398,15 +493,74 @@ export const content = {
       zoomLabel: "Se bildet større",
       zoomClose: "Lukk",
       imgAlts: {
-        work1: "Arkitekttegning av kapellet",
-        work2: "Arkitekttegning av kapellet",
-        apsis1: "Apsis med glassmaleriet",
-        apsis2: "Apsis med glassmaleriet",
+        side1: "Sidesyn av kapellet",
+        side2: "Sidesyn av kapellet",
+        apseMain: "Apsis, hovedbilde",
+        apseView1: "Apsis, bilde",
+        apseView2: "Apsis, bilde",
+        apseView3: "Apsis, bilde",
+        glass1: "Glassmaleriet",
+        glass2: "Glassmaleriet",
+        glass3: "Glassmaleriet",
         scale1: "Måltegning av kapellet",
         scale2: "Måltegning av kapellet",
         scale3: "Måltegning av kapellet",
         scale4: "Måltegning av kapellet",
         scale5: "Måltegning av kapellet",
+      },
+      glass: {
+        alt: "Glassmaleriet",
+        heading: "Glassmaleriet",
+        paragraph: "Tegnet først av Ayla Olava Heimly og deretter bearbeidet og laget av Sigrid Blekastad, en glassmaler fra Gausdal og bosatt i Lalm. Sigrid har vært en støttespiller fra dag én og har i dialog med oss klart å skape det som blir kapellets skjønneste perle, som skal trone over alteret oppunder taket.",
+        hotspots: [
+          {
+            x: 50,
+            y: 28,
+            label: "Kronen",
+            title: "Kronen",
+            body: "Symboliserer Kristus konge og Dronningmoderen Maria.",
+          },
+          {
+            x: 51,
+            y: 16,
+            label: "Stjerna",
+            title: "Stjerna",
+            body: "Symboliserer Jomfru Maria som Stella Maris, Havets stjerne, men i denne utgaven som Lågens stjerne.",
+          },
+          {
+            x: 50,
+            y: 46,
+            label: "Hjertene",
+            title: "Hjertene",
+            body: "Jesu høghellige hjerte og Marias uplettede hjerte, tvinnet sammen.",
+          },
+          {
+            x: 49,
+            y: 69,
+            label: "Omgivelsene",
+            title: "Omgivelsene",
+            body: "Gudbrandsdalen med Lågen som renner gjennom.",
+          },
+          {
+            x: 16,
+            y: 53,
+            label: "Blomster",
+            title: "Blomster",
+            body: "Fra broderiene på Gudbrandsdal festdrakt (bunad).",
+          },
+          {
+            x: 83,
+            y: 65,
+            label: "Akantus",
+            title: "Akantus",
+            body: "Akantusblader som er typiske for treskjæringsstilen som man finner i Gudbrandsdalen, spesielt i altertavler og prekestoler, men også annen dekor.",
+          },
+        ],
+      },
+      clock: {
+        alt: "Klokka",
+        heading: "Klokka",
+        paragraph: "",
       },
       blocks: [
         {
@@ -454,18 +608,6 @@ export const content = {
           ],
         },
         {
-          icon: "landscape",
-          heading: "Skifer til taket",
-          paragraphs: [
-            "Dette er målene for skiferstein som vi ønsker å bruke til taket på selve kapellet, på apsis i nordenden og til inngangspartiet. Platået som apsis og inngangsparti skal stå på støper vi på egenhånd:",
-          ],
-          amounts: [
-            { label: "Takskifer til taket på selve kapellet", value: "ca. 40 m²" },
-            { label: "Takskifer til apsis", value: "ca. 12 m²" },
-            { label: "Takskifer til inngangsparti", value: "ca. 13 m²" },
-          ],
-        },
-        {
           icon: "straighten",
           heading: "Måltegningene",
           paragraphs: [
@@ -474,12 +616,9 @@ export const content = {
           images: "scale",
         },
       ],
-      closing: [
-        "Alle mål må selvfølgelig kontrolleres på byggstedet før man går i gang med arbeidet, men dette er i hvert fall det vi har sett for oss som utgangspunkt. Vi er spente på å diskutere med dere eventuelle endringer vi burde gjøre.",
-      ],
       cta: {
         heading: "Kapellet er ikke ferdig ennå.",
-        body: "Hver krone går rett til byggingen: uten administrasjon, uten omveier. Hver hånd hjelper.",
+        body: "Støtten din hjelper oss å bygge ut kapellet. Hver hånd hjelper.",
         button: "Støtt kapellet",
         backText: "Tilbake til forsiden",
       },
@@ -488,13 +627,15 @@ export const content = {
     },
     support: {
       heading: "Støtt kapellet",
-      body: "Hver krone går rett til bygget. Ingen administrasjon, ingen mellomledd. Bare fire mennesker og et steinrom.",
+      body: "Støtten din hjelper oss å bygge ut kapellet. Bare fire mennesker og et steinrom.",
       raisedLabel: "Innsamlet så langt",
+      updatedLabel: "Sist oppdatert",
       vippsPrompt: "Skann for å gi via Vipps",
       vippsQrAlt: "Vipps QR-kode for donasjoner",
       topDonorsLabel: "Største gaver",
       recentActivityLabel: "Siste aktivitet",
       anonymousLabel: "Anonym",
+      whatItBuilds: "Se hva pengene dine går til",
       backText: "Tilbake til forsiden",
       metaDescription:
         "Støtt kapellet på Mariaslæen – hver krone går rett til bygget. Gi via Vipps.",
@@ -506,13 +647,85 @@ export const content = {
       imageAlt: "Nærbilde av Vår Frue av Gudbrandsdalen",
       mainImageAlt: "Vår Frue av Gudbrandsdalen",
       artistCredit: "Kunstverk av Ayla Gloria Olava Heimly",
+      supportButton: "Støtt kapellet",
+      storyLink: "Les historien",
       hotspots: [
         {
-          x: 49,
-          y: 18,
-          label: "Kronen",
-          title: "Marias krone",
-          body: "i stilen av en bunadskrone",
+            x: 50,
+            y: 17,
+            label: "Kronen",
+          title: "Kronen",
+          body: "Symboliserer at ho er symbolet p\u00e5 Kirken, Kristi brud, samtidig som den er en tiara for Dronninga over alle dronninger.",
+        },
+        {
+            x: 73,
+            y: 58,
+            label: "Tronen",
+          title: "Tronen",
+          body: "Skåret i akantus-stil typisk for Gudbrandsdalen. Tronen symboliserer den rollen som Maria har som Dronningmoderen, under tittelen Gebirah i det gamle testamentet. Det var en rolle som kongens mor hadde, hvor hun fikk sitte til høyre for kongen i sin egen trone og tok imot menneskers forespørsler og ønsker og brakte dem framfor kongen, som deres talsperson.",
+        },
+        {
+            x: 52,
+            y: 68,
+            label: "Bunaden",
+          title: "Bunaden",
+          body: "Gudbrandsdals festdrakt, i bl\u00e5 farge, siden det er Marias egen farge.",
+        },
+        {
+            x: 49,
+            y: 37,
+            label: "Bunadss\u00f8lje",
+          title: "Bunadss\u00f8lje",
+          body: "\u00abMarias rene hjerte\u00bb \u2014 en rest fra katolsk tradisjon som symboliserer hennes uplettede hjerte, og som brukes til bunader i ulike deler av landet, spesielt i Gudbrandsdalen.",
+        },
+        {
+            x: 62,
+            y: 43,
+            label: "Jesus sin bunadss\u00f8lje",
+          title: "Jesus sin bunadss\u00f8lje",
+          body: "Sj\u00f8l om man ikke har noen lignende s\u00f8ljetradisjon for Jesu hjerte, s\u00e5 har Han ogs\u00e5 f\u00e5tt en s\u00f8lje som symboliserer Hans h\u00f8ghellige hjerte.",
+        },
+        {
+            x: 80,
+            y: 40,
+            label: "Rikseplet",
+          title: "Rikseplet",
+          body: "Symboliserer både Kristi kongeverdighet, men også en referanse til Sto. Niño-devosjonen fra Filippinene og Karteuserordenen som St. Bruno har stifta, som er skytshelgen til p. Mathias.",
+        },
+        {
+            x: 29,
+            y: 30,
+            label: "Lilja",
+          title: "Lilja",
+          body: "Symboliserer b\u00e5de Jomfru Marias s\u00e5vel som St. Josefs renhet.",
+        },
+        {
+            x: 65,
+            y: 16,
+            label: "Den store sola",
+          title: "Den store sola",
+          body: "Symboliserer den hellige Olavs møte med Dale-Gudbrand på Hundorp i 1021, hvor de møtes for å måle hvilken Gud som er sterkest, litt på samme måte som profeten Elia og Baal-profetene jf. 1 Kong 18,16-40. St. Olav preker om Kvitekrist i grålysningen og avslutter prekenen på dramatisk vis da han peker mot sola som står opp i Øst og sier «der kommer vår Gud med stort lys!» og får Kolbein sterke til å slå i stykker statuen av avguden Tor. Dale-Gudbrand og hans menn ender opp med å la seg døpe, og man markerer dette som kristninga av Gudbrandsdalen.",
+        },
+        {
+            x: 17,
+            y: 30,
+            label: "Kirka",
+          title: "Kirka",
+          body: "S\u00f8r-Fron kirke, ofte kalt Gudbrandsdalsdomen, bygd like ved der St. Olav m\u00f8tte Dale-Gudbrand.",
+        },
+        {
+            x: 19,
+            y: 47,
+            label: "Omgivelsene",
+          title: "Omgivelsene",
+          body: "Losna, stedet der L\u00e5gen er p\u00e5 sitt breieste, mellom Nord-Tretten og S\u00f8r-F\u00e5vang.",
+        },
+        {
+            x: 82,
+            y: 66,
+            label: "G\u00e5rden",
+          title: "G\u00e5rden",
+          body: "Ledum g\u00e5rd, hvor kapellet for V\u00e5r Frue av Gudbrandsdalen ligger.",
         },
       ],
       blocks: [
@@ -532,16 +745,9 @@ export const content = {
           ],
         },
         {
-          heading: "Bildet",
+          heading: "Besøk oss",
           paragraphs: [
-            "Her ser vi Vår Frue av Gudbrandsdalen i gudbrandsdals festdrakt, sittende på en treskåret trone i akantus-stil. Brudekrona symboliserer at ho er symbolet på Kirken, Kristi brud, samtidig som den er en tiara for Dronninga over alle dronninger. På armen holder ho Jesusbarnet, med rikseplet som symboliserer både Hans kongeverdighet, men også en referanse til Sto. Niño-devosjonen fra Filippinene og Karteuserordenen som min skytshelgen St. Bruno har stifta.",
-            "Andre skytshelgener er representert gjennom liljen (St. Josef) og den store sola i bakgrunnen (St. Olavs møte med Dale-Gudbrand på Hundorp i 1021). Omgivelsene kan ligne på Losna, stedet der hvor Lågen er på sitt breieste. Gården i forgrunnen kunne ha vært Ledum gård. Og kirkebygget i bakgrunnen er sjølveste Gudbrandsdalsdomen på Sør-Fron.",
-          ],
-        },
-        {
-          heading: "Alltid åpent",
-          paragraphs: [
-            "Kapellet er åpent for alle — pilegrimer, turgåere og alle som trenger et stille sted. Ingen inngangspenger, intet medlemskap: døren er alltid åpen.",
+            "Har du lyst til å besøke kapellet? Send oss en melding på Instagram, så tar vi godt imot deg.",
           ],
         },
       ],

@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "id": "28a2cfb0-67d2-47c6-b832-98183e1307fe",
+  "title": "[prompt redacted]",
+  "objective": "[prompt redacted]",
+  "status": "completed",
+  "createdAt": "2026-08-14T18:25:54.538Z",
+  "updatedAt": "2026-08-14T18:30:51.086Z",
+  "runs": [
+    {
+      "runId": "call_00_OENsU2o4aUeTCnVcpMcq4761",
+      "mode": "workflow",
+      "status": "completed",
+      "startedAt": "2026-08-14T18:30:51.085Z",
+      "completedAt": "2026-08-14T18:30:51.085Z",
+      "usage": {
+        "tokens": 199213
+      }
+    }
+  ],
+  "workflowChildren": [
+    {
+      "workflowRunId": "call_00_OENsU2o4aUeTCnVcpMcq4761",
+      "key": "design",
+      "status": "completed",
+      "startedAt": "2026-08-14T18:25:54.566Z",
+      "updatedAt": "2026-08-14T18:30:50.695Z",
+      "artifactPaths": [
+        "/Users/andreasfladstad/.pi/agent/sessions/--Users-andreasfladstad-Code-privat-capellareginaenorvegiae--/2026-08-14T12-49-20-089Z_01a00051-dcd9-7869-9891-8cfec91f1d45/f03e0c51/run-0/session.jsonl"
+      ],
+      "runId": "f03e0c51",
+      "agent": "reviewer",
+      "completedAt": "2026-08-14T18:30:50.695Z",
+      "sessionPath": "/Users/andreasfladstad/.pi/agent/sessions/--Users-andreasfladstad-Code-privat-capellareginaenorvegiae--/2026-08-14T12-49-20-089Z_01a00051-dcd9-7869-9891-8cfec91f1d45/f03e0c51/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-08-14T18:30:50.695Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "call_00_OENsU2o4aUeTCnVcpMcq4761",
+      "key": "journey",
+      "status": "completed",
+      "startedAt": "2026-08-14T18:25:54.620Z",
+      "updatedAt": "2026-08-14T18:29:07.789Z",
+      "artifactPaths": [
+        "/Users/andreasfladstad/.pi/agent/sessions/--Users-andreasfladstad-Code-privat-capellareginaenorvegiae--/2026-08-14T12-49-20-089Z_01a00051-dcd9-7869-9891-8cfec91f1d45/5fdfc66b/run-0/session.jsonl"
+      ],
+      "runId": "5fdfc66b",
+      "agent": "reviewer",
+      "completedAt": "2026-08-14T18:29:07.789Z",
+      "sessionPath": "/Users/andreasfladstad/.pi/agent/sessions/--Users-andreasfladstad-Code-privat-capellareginaenorvegiae--/2026-08-14T12-49-20-089Z_01a00051-dcd9-7869-9891-8cfec91f1d45/5fdfc66b/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-08-14T18:29:07.789Z",
+        "status": "completed"
+      }
+    },
+    {
+      "workflowRunId": "call_00_OENsU2o4aUeTCnVcpMcq4761",
+      "key": "a11y",
+      "status": "completed",
+      "startedAt": "2026-08-14T18:25:54.633Z",
+      "updatedAt": "2026-08-14T18:30:51.083Z",
+      "artifactPaths": [
+        "/Users/andreasfladstad/.pi/agent/sessions/--Users-andreasfladstad-Code-privat-capellareginaenorvegiae--/2026-08-14T12-49-20-089Z_01a00051-dcd9-7869-9891-8cfec91f1d45/44ff2a99/run-0/session.jsonl"
+      ],
+      "runId": "44ff2a99",
+      "agent": "reviewer",
+      "completedAt": "2026-08-14T18:30:51.083Z",
+      "sessionPath": "/Users/andreasfladstad/.pi/agent/sessions/--Users-andreasfladstad-Code-privat-capellareginaenorvegiae--/2026-08-14T12-49-20-089Z_01a00051-dcd9-7869-9891-8cfec91f1d45/44ff2a99/run-0/session.jsonl",
+      "heartbeat": {
+        "updatedAt": "2026-08-14T18:30:51.083Z",
+        "status": "completed"
+      }
+    }
+  ],
+  "decisions": [],
+  "artifacts": [
+    {
+      "kind": "output",
+      "path": "/Users/andreasfladstad/Code/privat/capellareginaenorvegiae/.pi/subagents/artifacts/f03e0c51_reviewer_0_output.md"
+    },
+    {
+      "kind": "other",
+      "path": "/Users/andreasfladstad/Code/privat/capellareginaenorvegiae/.pi/subagents/artifacts/f03e0c51_reviewer_0_transcript.jsonl",
+      "description": "Child transcript"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/andreasfladstad/Code/privat/capellareginaenorvegiae/.pi/subagents/artifacts/5fdfc66b_reviewer_0_output.md"
+    },
+    {
+      "kind": "other",
+      "path": "/Users/andreasfladstad/Code/privat/capellareginaenorvegiae/.pi/subagents/artifacts/5fdfc66b_reviewer_0_transcript.jsonl",
+      "description": "Child transcript"
+    },
+    {
+      "kind": "output",
+      "path": "/Users/andreasfladstad/Code/privat/capellareginaenorvegiae/.pi/subagents/artifacts/44ff2a99_reviewer_0_output.md"
+    },
+    {
+      "kind": "other",
+      "path": "/Users/andreasfladstad/Code/privat/capellareginaenorvegiae/.pi/subagents/artifacts/44ff2a99_reviewer_0_transcript.jsonl",
+      "description": "Child transcript"
+    }
+  ],
+  "receipts": [],
+  "cwd": "/Users/andreasfladstad/Code/privat/capellareginaenorvegiae",
+  "ownerSessionId": "/Users/andreasfladstad/.pi/agent/sessions/--Users-andreasfladstad-Code-privat-capellareginaenorvegiae--/2026-08-14T12-49-20-089Z_01a00051-dcd9-7869-9891-8cfec91f1d45.jsonl",
+  "summary": "Run fan-out: 3/64 used, 61 remaining\nWorkflow completed.\n\nReturn:\n{\n  \"design\": \"# Adversarial Design Review — Capella Reginae Norvegiae\\n\\nRead everything: `Layout.astro`, `global.css`, all five pages, both components, i18n content, product doc, dead files. No images could be viewed (no image support in this session), so photography judgment below is confined to what the containers and crop logic do to images, not the pixels themselves. Everything else is verified from source.\\n\\n---\\n\\n## BLOCKERS (must fix)\\n\\n### 1. Mobile navigation collapses; the Plans page is unreachable on mobile\\n**Layout.astro:77, 86, 95** — all three primary links carry `hidden sm:inline-flex`. There is no hamburger, no mobile menu, no fallback nav. The footer (Layout.astro:299–311) only contains Instagram and the two language links. Below 640px, Story / Our Lady / Plans have **zero** navigation paths. And on desktop, Plans is reachable *only* through this header — no page links to Plans anywhere (home links only Story and Our Lady, index.astro:90–102).\\n\\nThis is not a minor cosmetic gap: it is the primary navigation of the site disappearing on the exact devices pilgrims will use at the roadside. Fix: add a proper mobile menu (off-canvas or a compact row), and/or add the four page links to the footer. Don't ship this.\\n\\n### 2. The hotspot photo frame is broken at the CSS level — the Our Lady image has square corners\\n**global.css:576** — `.hotspot-image { border-radius: inherit; overflow: visible; }` is unlayered author CSS. Tailwind v4 puts utilities in `@layer utilities`; **unlayered rules beat layered rules regardless of order**. So on the figure in ourlady.astro:59 (`rounded-2xl shadow-xl overflow-hidden`), both utilities lose:\\n- `border-radius: inherit` replaces the `rounded-2xl` radius (the figure inherits `0` from `<main>`), and\\n- `overflow: visible` cancels the clipping, so the square-cornered `<Image>` pokes out of the intended frame.\\n\\nThe comment on the same line claims..."
+}

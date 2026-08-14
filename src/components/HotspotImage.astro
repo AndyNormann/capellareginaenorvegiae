@@ -12,7 +12,7 @@ export interface Hotspot {
   x: number;
   /** Vertical position, 0–100 (% of image height). */
   y: number;
-  /** Short label shown next to the dot. */
+  /** Short label shown next to the dot (also the accessible name). */
   label: string;
   /** Tooltip heading. Defaults to label. */
   title?: string;
@@ -28,21 +28,27 @@ interface Props {
 }
 
 const { src, alt, hotspots = [], class: className = "" } = Astro.props;
+const items = hotspots.map((h, i) => ({
+  ...h,
+  id: `hotspot-${i}`,
+}));
 ---
 
 <figure class:list={["hotspot-image", className]}>
-  <Image src={src} alt={alt} class="w-full h-auto block" />
-  {hotspots.map((h) => (
+  <Image src={src} alt={alt} class="w-full h-auto block rounded-2xl overflow-hidden" />
+  {items.map((h) => (
     <button
       type="button"
-      class="hotspot group"
+      class:list={[
+        "hotspot group",
+        h.y < 30 ? "hotspot--below" : "",
+      ]}
       style={`left:${h.x}%; top:${h.y}%;`}
+      aria-describedby={h.id}
       aria-label={h.label}
-      aria-expanded="false"
     >
       <span class="hotspot-dot" aria-hidden="true"></span>
-      <span class="hotspot-label">{h.label}</span>
-      <span class="hotspot-card" role="tooltip">
+      <span class="hotspot-card" role="tooltip" id={h.id}>
         {h.title && <strong>{h.title}</strong>}
         {h.body && <em>{h.body}</em>}
       </span>
@@ -55,15 +61,29 @@ const { src, alt, hotspots = [], class: className = "" } = Astro.props;
   document.querySelectorAll<HTMLButtonElement>(".hotspot").forEach((btn) => {
     const closeOthers = () =>
       document
-        .querySelectorAll<HTMLButtonElement>('.hotspot[aria-expanded="true"]')
+        .querySelectorAll<HTMLButtonElement>(".hotspot.open")
         .forEach((b) => {
-          if (b !== btn) b.setAttribute("aria-expanded", "false");
+          if (b !== btn) b.classList.remove("open");
         });
 
     btn.addEventListener("click", () => {
-      const open = btn.getAttribute("aria-expanded") === "true";
+      const open = btn.classList.contains("open");
       closeOthers();
-      btn.setAttribute("aria-expanded", String(!open));
+      btn.classList.toggle("open", !open);
+
+      // Keep the tooltip card within the viewport (esp. for dots near the edges).
+      if (!open) {
+        const card = btn.querySelector<HTMLElement>(".hotspot-card");
+        if (card) {
+          const vw = document.documentElement.clientWidth;
+          const pad = 12;
+          const rect = card.getBoundingClientRect();
+          let hx = 0;
+          if (rect.right > vw - pad) hx = vw - pad - rect.right;
+          if (rect.left < pad) hx = pad - rect.left;
+          card.style.setProperty("--hx", hx + "px");
+        }
+      }
     });
   });
 </script>
