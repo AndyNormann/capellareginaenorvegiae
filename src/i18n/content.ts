@@ -75,6 +75,7 @@ export const content = {
         },
       ],
       alleFireAlt: "Construction work at the chapel",
+      alleFireCaption: "The support association gathered",
       klemAlt: "A moment along the way",
       matheaAlt: "Mathea Baadstø",
       matheaCaption: "Mass being celebrated in Mathea Baadstø's house, today a rest area in Tretten.",
@@ -96,6 +97,23 @@ export const content = {
         body: "Your support helps us build out the chapel. Every hand helps.",
         button: "Support the chapel",
         backText: "Back to home",
+      },
+      readMore: {
+        heading: "Read more",
+        links: [
+          {
+            label: "NRK Innlandet: Mathias Ledum (30) har laget seg sitt eget kapell langs pilegrimsleden",
+            href: "https://www.nrk.no/innlandet/mathias-ledum-_30_-har-laget-seg-sitt-eget-kapell-langs-pilegrimsleden-1.17572840",
+          },
+          {
+            label: "NRK TV — Norge i dag",
+            href: "https://tv.nrk.no/serie/norge-i-dag/sesong/202509/episode/DVFJ20092925",
+          },
+          {
+            label: "katolsk.no: Smie på familiens gård blir et kapell til ære for Jomfru Maria",
+            href: "https://www.katolsk.no/nyheter/2025/09/smie-pa-familiens-gard-blir-et-kapell-til-aere-jomfru-maria",
+          },
+        ],
       },
       metaDescription:
         "The story of Mariaslæen: from an old forge at Ledum Farm to a small chapel, open to everyone in Gudbrandsdalen.",
@@ -125,7 +143,11 @@ export const content = {
       glass: {
         alt: "The stained glass window",
         heading: "The stained glass window",
-        paragraph: "First drawn by Ayla Olava Heimly, then worked and crafted by Sigrid Blekastad, a glassmaker from Gausdal living in Lalm. Sigrid has been a supporter from day one and, in dialogue with us, has managed to create what will become the chapel's most beautiful pearl, set to crown the altar up under the roof.",
+        paragraph: [
+          "First drawn by Ayla Olava Heimly, then worked and crafted by ",
+          { text: "Sigrid Blekastad", href: "https://www.sigridblekastad.no/" },
+          ", a glassmaker from Gausdal living in Lalm. Sigrid has been a supporter from day one and, in dialogue with us, has managed to create what will become the chapel's most beautiful pearl, set to crown the altar up under the roof.",
+        ],
         hotspots: [
           {
             x: 50,
@@ -208,16 +230,9 @@ export const content = {
           heading: "The work",
           paragraphs: [
             "More specifically, the wish is to build out the chapel: replace the roof from corrugated sheet to slate, build a new entrance with a roof, raise a bell tower with a church spire, and build an apse with room for a sacristy in the north end.",
-            "Here are the drawings that give an idea of where we want to go with this project.",
           ],
-          images: "work",
         },
         {
-          icon: "church",
-          heading: "The apse and the stained glass",
-          paragraphs: [
-            "Here is the apse at the north end of the building, with the stained glass window already being made by a local glassmaker in Lalm!",
-          ],
           images: "apsis",
         },
         {
@@ -443,6 +458,7 @@ export const content = {
         },
       ],
       alleFireAlt: "Byggearbeid på kapellet",
+      alleFireCaption: "Støtteforeningen samlet",
       klemAlt: "Et øyeblikk underveis",
       matheaAlt: "Mathea Baadstø",
       matheaCaption: "Messe feiret i Mathea Baadstøs hus, i dag et rasteområde på Tretten.",
@@ -464,6 +480,23 @@ export const content = {
         body: "Støtten din hjelper oss å bygge ut kapellet. Hver hånd hjelper.",
         button: "Støtt kapellet",
         backText: "Tilbake til forsiden",
+      },
+      readMore: {
+        heading: "Les mer",
+        links: [
+          {
+            label: "NRK Innlandet: Mathias Ledum (30) har laget seg sitt eget kapell langs pilegrimsleden",
+            href: "https://www.nrk.no/innlandet/mathias-ledum-_30_-har-laget-seg-sitt-eget-kapell-langs-pilegrimsleden-1.17572840",
+          },
+          {
+            label: "NRK TV — Norge i dag",
+            href: "https://tv.nrk.no/serie/norge-i-dag/sesong/202509/episode/DVFJ20092925",
+          },
+          {
+            label: "katolsk.no: Smie på familiens gård blir et kapell til ære for Jomfru Maria",
+            href: "https://www.katolsk.no/nyheter/2025/09/smie-pa-familiens-gard-blir-et-kapell-til-aere-jomfru-maria",
+          },
+        ],
       },
       metaDescription:
         "Historien om Mariaslæen: fra gammel smie på Ledum gård til et lite kapell, åpent for alle i Gudbrandsdalen.",
@@ -493,7 +526,11 @@ export const content = {
       glass: {
         alt: "Glassmaleriet",
         heading: "Glassmaleriet",
-        paragraph: "Tegnet først av Ayla Olava Heimly og deretter bearbeidet og laget av Sigrid Blekastad, en glassmaler fra Gausdal og bosatt i Lalm. Sigrid har vært en støttespiller fra dag én og har i dialog med oss klart å skape det som blir kapellets skjønneste perle, som skal trone over alteret oppunder taket.",
+        paragraph: [
+          "Tegnet først av Ayla Olava Heimly og deretter bearbeidet og laget av ",
+          { text: "Sigrid Blekastad", href: "https://www.sigridblekastad.no/" },
+          ", en glassmaler fra Gausdal og bosatt i Lalm. Sigrid har vært en støttespiller fra dag én og har i dialog med oss klart å skape det som blir kapellets skjønneste perle, som skal trone over alteret oppunder taket.",
+        ],
         hotspots: [
           {
             x: 50,
@@ -576,16 +613,9 @@ export const content = {
           heading: "Arbeidet",
           paragraphs: [
             "Helt spesifikt er ønsket nå å bygge ut kapellet, som innebærer skifte av tak fra blikkplater til skifer, å bygge et nytt inngangspart med tak, sette opp klokketårn med kirkespir og bygge en apsis med plass til sakristi i nordenden.",
-            "Her er tegningene som skal gi en idé om hvor vi vil med dette prosjektet.",
           ],
-          images: "work",
         },
         {
-          icon: "church",
-          heading: "Apsis og glassmaleriet",
-          paragraphs: [
-            "Her er apsis på nordenden av bygget, med glassmaleriet som allerede er under produksjon av en lokal glassmaler i Lalm!",
-          ],
           images: "apsis",
         },
         {

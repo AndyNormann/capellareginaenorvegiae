@@ -1,15 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import work1 from "@assets/plan-drawings/clean/side1.jpg";
-import work2 from "@assets/plan-drawings/clean/side2.jpg";
 import apsis1 from "@assets/plan-drawings/clean/apseMain.jpg";
-import apsis2 from "@assets/plan-drawings/clean/apseView1.jpg";
-import apsis3 from "@assets/plan-drawings/clean/apseView2.jpg";
-import apsis4 from "@assets/plan-drawings/clean/apseView3.jpg";
-import glass1 from "@assets/plan-drawings/clean/glass1.jpg";
-import glass2 from "@assets/plan-drawings/clean/glass2.jpg";
-import glass3 from "@assets/plan-drawings/clean/glass3.jpg";
 import scale1 from "@assets/plan-drawings/clean/scale1.jpg";
 import scale2 from "@assets/plan-drawings/clean/scale2.jpg";
 import scale3 from "@assets/plan-drawings/clean/scale3.jpg";
@@ -17,6 +9,7 @@ import scale4 from "@assets/plan-drawings/clean/scale4.jpg";
 import scale5 from "@assets/plan-drawings/clean/scale5.jpg";
 import glassmaleriImg from "@assets/glassmaleri.jpg";
 import clockImg from "@assets/clock.jpg";
+import plan3d from "@assets/plan-drawings/clean/plan3d.mp4";
 import HotspotImage from "../../components/HotspotImage.astro";
 import { content, defaultLang } from "../../i18n/content";
 
@@ -32,19 +25,9 @@ const c = lang in content ? content[lang as keyof typeof content] : content[defa
 const pl = c.plans;
 const basePath = "/capellareginaenorvegiae";
 
-const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
-  work: [
-    { src: work1, alt: pl.imgAlts.side1 },
-    { src: work2, alt: pl.imgAlts.side2 },
-  ],
+const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
   apsis: [
     { src: apsis1, alt: pl.imgAlts.apseMain },
-    { src: apsis2, alt: pl.imgAlts.apseView1 },
-    { src: apsis3, alt: pl.imgAlts.apseView2 },
-    { src: apsis4, alt: pl.imgAlts.apseView3 },
-    { src: glass1, alt: pl.imgAlts.glass1 },
-    { src: glass2, alt: pl.imgAlts.glass2 },
-    { src: glass3, alt: pl.imgAlts.glass3 },
   ],
   scale: [
     { src: scale1, alt: pl.imgAlts.scale1 },
@@ -85,7 +68,7 @@ const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
           </div>
 
           <div class="space-y-4 text-on-surface-variant leading-relaxed">
-            {block.paragraphs.map((para, pidx) => (
+            {block.paragraphs && block.paragraphs.map((para, pidx) => (
               <p>
                 {Array.isArray(para)
                   ? para.map((seg, sidx) =>
@@ -125,6 +108,8 @@ const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
               "mt-8 grid gap-4 md:gap-6",
               block.images === "scale"
                 ? "grid-cols-2 md:grid-cols-3"
+                : block.images === "apsis"
+                ? "grid-cols-1"
                 : "grid-cols-1 sm:grid-cols-2",
             ]}>
               {imageGroups[block.images].map((img) => (
@@ -150,6 +135,19 @@ const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
               ))}
             </div>
           )}
+
+          {/* 3D video, alongside the apsis pictures */}
+          {block.images === "apsis" && (
+            <div class="mt-6">
+              <video
+                src={plan3d}
+                controls
+                preload="metadata"
+                playsInline
+                class="w-full h-auto rounded-2xl shadow-xl"
+              />
+            </div>
+          )}
         </div>
       </section>
 
@@ -161,7 +159,15 @@ const imageGroups: Record<string, { src: typeof work1; alt: string }[]> = {
               <span class="material-symbols-outlined text-secondary text-2xl" aria-hidden="true">church</span>
               <h2 class="font-headline text-3xl italic text-primary leading-snug">{pl.glass.heading}</h2>
             </div>
-            <p class="text-on-surface-variant leading-relaxed">{pl.glass.paragraph}</p>
+            <p class="text-on-surface-variant leading-relaxed">
+              {Array.isArray(pl.glass.paragraph)
+                ? pl.glass.paragraph.map((seg, sidx) =>
+                    typeof seg === "string"
+                      ? seg
+                      : <a key={sidx} href={seg.href} target="_blank" rel="noopener" class="text-primary underline underline-offset-2 hover:text-primary/80">{seg.text}</a>
+                  )
+                : pl.glass.paragraph}
+            </p>
             <HotspotImage
               src={glassmaleriImg}
               alt={pl.glass.alt}
