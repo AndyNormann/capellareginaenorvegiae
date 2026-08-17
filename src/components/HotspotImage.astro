@@ -86,4 +86,22 @@ const items = hotspots.map((h, i) => ({
       }
     });
   });
+
+  // Close any open tooltip when clicking outside it.
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    if (target.closest(".hotspot")) return; // the button's own handler toggles
+    document
+      .querySelectorAll<HTMLButtonElement>(".hotspot.open")
+      .forEach((b) => b.classList.remove("open"));
+  });
+
+  // Also close on Escape.
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document
+        .querySelectorAll<HTMLButtonElement>(".hotspot.open")
+        .forEach((b) => b.classList.remove("open"));
+    }
+  });
 </script>
