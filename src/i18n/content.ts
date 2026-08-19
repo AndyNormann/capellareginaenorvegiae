@@ -76,7 +76,7 @@ export const content = {
       ],
       alleFireAlt: "Construction work at the chapel",
       alleFireCaption: "The support association gathered",
-      klemAlt: "A moment along the way",
+
       matheaAlt: "Mathea Baadstø",
       matheaCaption: "Mass being celebrated in Mathea Baadstø's house, today a rest area in Tretten.",
       sigridMesseAlt: "Mass celebrated at Sigrid Undset's house",
@@ -462,7 +462,7 @@ export const content = {
       ],
       alleFireAlt: "Byggearbeid på kapellet",
       alleFireCaption: "Støtteforeningen samlet",
-      klemAlt: "Et øyeblikk underveis",
+
       matheaAlt: "Mathea Baadstø",
       matheaCaption: "Messe feiret i Mathea Baadstøs hus, i dag et rasteområde på Tretten.",
       sigridMesseAlt: "Messe feiret i Sigrid Undsets hus",
