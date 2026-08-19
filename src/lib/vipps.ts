@@ -1,5 +1,11 @@
 import { readFileSync, existsSync } from "node:fs";
 import path from "node:path";
+import {
+  VIPPS_CLIENT_ID,
+  VIPPS_CLIENT_SECRET,
+  VIPPS_SUBSCRIPTION_KEY,
+  VIPPS_MSN,
+} from "astro:env/server";
 
 const FALLBACK_PATH = path.resolve("src/data/donations.json");
 const SPLEIS_DONORS_PATH = path.resolve("src/data/spleis-donors.json");
@@ -88,9 +94,7 @@ function buildDonationData(args: {
 }): DonationData {
   const allDonors = [...args.spleisDonors, ...args.vippsDonors];
 
-  const topDonors = [...allDonors].sort(
-    (a, b) => b.amountSats - a.amountSats,
-  );
+  const topDonors = [...allDonors].sort((a, b) => b.amountSats - a.amountSats);
 
   const recentDonors = [...args.vippsDonors].sort(
     (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime(),
@@ -126,15 +130,14 @@ export async function fetchDonationData(): Promise<DonationData> {
   const spleisDonors: DonorEntry[] = spleis?.donors ?? [];
   const baselineSats = loadFallbackBaseline();
 
-  const clientId = process.env.VIPPS_CLIENT_ID;
-  const clientSecret = process.env.VIPPS_CLIENT_SECRET;
-  const subscriptionKey = process.env.VIPPS_SUBSCRIPTION_KEY;
-  const msn = process.env.VIPPS_MSN;
+  const clientId = VIPPS_CLIENT_ID;
+  const clientSecret = VIPPS_CLIENT_SECRET;
+  const subscriptionKey = VIPPS_SUBSCRIPTION_KEY;
+  const msn = VIPPS_MSN;
+  console.log("vipps client id ", clientId);
 
   if (!clientId || !clientSecret || !subscriptionKey || !msn) {
-    console.warn(
-      "[vipps] Missing Vipps credentials. Using Spleis data only.",
-    );
+    console.warn("[vipps] Missing Vipps credentials. Using Spleis data only.");
     cached = buildDonationData({
       spleisDonors,
       baselineSats,
@@ -150,17 +153,22 @@ export async function fetchDonationData(): Promise<DonationData> {
     const tokenRes = await fetch("https://api.vipps.no/accesstoken/get", {
       method: "POST",
       headers: {
-        "client_id": clientId,
-        "client_secret": clientSecret,
+        client_id: clientId,
+        client_secret: clientSecret,
         "Ocp-Apim-Subscription-Key": subscriptionKey,
       },
     });
 
     if (!tokenRes.ok) {
-      throw new Error(`Vipps token request failed (${tokenRes.status})`);
+      const errorJson = await tokenRes.json();
+      throw new Error(
+        `Vipps token request failed (${tokenRes.status}, ${JSON.stringify(errorJson)})`,
+      );
     }
 
-    const { access_token } = (await tokenRes.json()) as { access_token: string };
+    const { access_token } = (await tokenRes.json()) as {
+      access_token: string;
+    };
 
     // 2. Fetch all payments (paginated)
     interface VippsPayment {

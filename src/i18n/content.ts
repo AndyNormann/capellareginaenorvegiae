@@ -3,6 +3,7 @@ export const defaultLang = "no";
 export const content = {
   en: {
     index: {
+      title: "Mariaslæen",
       welcome: "Welcome to Mariaslæen.",
       intro:
         "An old forge in Gudbrandsdalen, being turned into a chapel for everyone.",
@@ -29,9 +30,10 @@ export const content = {
       closeInstagramLabel: "Follow us on Instagram",
       support: "Support us",
       metaDescription:
-        "Mariaslæen – a small chapel in an old forge at Ledum farm, Gudbrandsdalen, Norway. Learn about the chapel and how to visit.",
+        "Mariaslæen – a small chapel in an old forge at Ledum farm along the pilgrim route in Gudbrandsdalen, Norway. Open to all visitors. Donate via Vipps.",
     },
     story: {
+      title: "From forge to chapel",
       badge: "Gudbrandsdalen, Norway",
       heading: "From forge to chapel",
       intro:
@@ -116,9 +118,10 @@ export const content = {
         ],
       },
       metaDescription:
-        "The story of Mariaslæen: from an old forge at Ledum Farm to a small chapel, open to everyone in Gudbrandsdalen.",
+        "The story of Mariaslæen: how an old forge at Ledum Farm in Gudbrandsdalen became a Catholic chapel dedicated to Our Lady, along the pilgrim route to Nidaros.",
     },
     plans: {
+      title: "Plans for the chapel",
       heading: "Plans for the chapel",
       intro:
         "The forge has been transformed inside, and the chapel is already in use. Now we want it to look like a chapel from the outside too. These are the plans and drawings that show where we're going.",
@@ -251,9 +254,10 @@ export const content = {
         backText: "Back to home",
       },
       metaDescription:
-        "The building plans for the chapel at Mariaslæen: roof in slate, a new entrance, a bell tower with spire, and an apse with a sacristy in the north end.",
+        "Building plans for the chapel at Mariaslæen: slate roof, bell tower with spire, dragestil entrance, apse with sacristy — designed to match Gudbrandsdalen's beautiful churches.",
     },
     support: {
+      title: "Support the chapel",
       heading: "Support the chapel",
       body: "Your support helps us build out the chapel. Just four people and a stone room.",
       raisedLabel: "Raised so far",
@@ -266,9 +270,10 @@ export const content = {
       whatItBuilds: "See what your money builds",
       backText: "Back to home",
       metaDescription:
-        "Support the chapel at Mariaslæen – every krone goes straight to the building. Donate via Vipps.",
+        "Support the chapel at Mariaslæen in Gudbrandsdalen – every krone goes straight to the building. Donate via Vipps. No overhead, no admin.",
     },
     ourlady: {
+      title: "Our Lady of Gudbrandsdalen",
       heading: "Our Lady of Gudbrandsdalen",
       intro:
         "The chapel at Mariaslæen is dedicated to the Blessed Virgin Mary — and in particular to an image we call Our Lady of Gudbrandsdalen.",
@@ -384,11 +389,12 @@ export const content = {
       ],
       backText: "Back to home",
       metaDescription:
-        "The chapel at Mariaslæen is dedicated to the Blessed Virgin Mary — in particular to an image called Our Lady of Gudbrandsdalen.",
+        "Our Lady of Gudbrandsdalen – a Marian image for Norway, inspired by medieval devotion, Lom stave church, and the Catholic faith that survived the Reformation.",
     },
   },
   no: {
     index: {
+      title: "Mariaslæen",
       welcome: "Velkommen til Mariaslæen.",
       intro: "En smie i Gudbrandsdalen som omgjøres til kapell.",
       mapCta: "Slik finner du hit",
@@ -414,9 +420,10 @@ export const content = {
       closeInstagramLabel: "Følg oss på Instagram",
       support: "Støtt oss",
       metaDescription:
-        "Mariaslæen – et lite kapell i en gammel smie på Ledum gård i Gudbrandsdalen. Bli kjent med kapellet og hvordan du besøker oss.",
+        "Mariaslæen – et lite kapell i en gammel smie på Ledum gård langs pilegrimsleden i Gudbrandsdalen. Åpent for alle besøkende. Gi via Vipps.",
     },
     story: {
+      title: "Fra smie til kapell",
       badge: "Gudbrandsdalen, Norge",
       heading: "Fra smie til kapell",
       intro:
@@ -502,9 +509,10 @@ export const content = {
         ],
       },
       metaDescription:
-        "Historien om Mariaslæen: fra gammel smie på Ledum gård til et lite kapell, åpent for alle i Gudbrandsdalen.",
+        "Historien om Mariaslæen: hvordan ei gammel smie på Ledum gård i Gudbrandsdalen ble et katolsk kapell viet til Vår Frue, langs pilegrimsleden til Nidaros.",
     },
     plans: {
+      title: "Planer for kapellet",
       heading: "Planer for kapellet",
       intro:
         "Smia er transformert på innsida, og kapellet er allerede i bruk. Nå vil vi at det også fra utsida skal se ut som et kapell. Dette er planene og tegningene som viser hvor vi vil.",
@@ -637,9 +645,10 @@ export const content = {
         backText: "Tilbake til forsiden",
       },
       metaDescription:
-        "Byggeplanene for kapellet på Mariaslæen: tak i skifer, nytt inngangsparti, klokketårn med kirkespir, og en apsis med sakristi i nordenden.",
+        "Byggeplanene for kapellet på Mariaslæen: skifertak, klokketårn med kirkespir, dragestil-inngangsparti og apsis med sakristi — inspirert av de vakre kirkene i Gudbrandsdalen.",
     },
     support: {
+      title: "Støtt kapellet",
       heading: "Støtt kapellet",
       body: "Støtten din hjelper oss å bygge ut kapellet. Bare fire mennesker og et steinrom.",
       raisedLabel: "Innsamlet så langt",
@@ -652,9 +661,10 @@ export const content = {
       whatItBuilds: "Se hva pengene dine går til",
       backText: "Tilbake til forsiden",
       metaDescription:
-        "Støtt kapellet på Mariaslæen – hver krone går rett til bygget. Gi via Vipps.",
+        "Støtt kapellet på Mariaslæen i Gudbrandsdalen – hver krone går rett til bygget. Gi via Vipps. Ingen overhead, ingen administrasjon.",
     },
     ourlady: {
+      title: "Vår Frue av Gudbrandsdalen",
       heading: "Vår Frue av Gudbrandsdalen",
       intro:
         "Kapellet på Mariaslæen er viet til Jomfru Maria — og særlig til et bilde vi kaller Vår Frue av Gudbrandsdalen.",
@@ -770,7 +780,7 @@ export const content = {
       ],
       backText: "Tilbake til forsiden",
       metaDescription:
-        "Kapellet på Mariaslæen er viet til Jomfru Maria – særlig til et bilde vi kaller Vår Frue av Gudbrandsdalen.",
+        "Vår Frue av Gudbrandsdalen – eit Maria-bilete for Norge, inspirert av mellomalderleg fromheit, Lom stavkyrkje og den katolske trua som overlevde reformasjonen.",
     },
   },
 } as const;

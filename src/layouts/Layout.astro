@@ -7,13 +7,28 @@ import favicon from "@assets/top-icon.png";
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const { description } = Astro.props as { description?: string };
+const { title, description, ogImage } = Astro.props as {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+};
+
+const siteName = "Capella Reginae Norvegiae";
+const defaultTitle =
+  lang === 'no'
+    ? "Mariaslæen – et lite kapell i Gudbrandsdalen"
+    : "Mariaslæen – a small chapel in Gudbrandsdalen";
+const pageTitle = title ? `${title} — ${siteName}` : `${defaultTitle} — ${siteName}`;
+
 const defaultDescription =
   lang === 'no'
     ? "Mariaslæen – et lite kapell i en gammel smie på Ledum gård i Gudbrandsdalen. Bli kjent med kapellet og send oss en melding om du vil besøke oss."
     : "Mariaslæen – a small chapel in an old forge at Ledum farm, Gudbrandsdalen, Norway. Learn about the chapel and message us if you would like to visit.";
 const pageDescription = description ?? defaultDescription;
+
 const pathname = Astro.url.pathname.replace(/\/+$/, "");
+const baseUrl = 'https://andynormann.github.io';
+const canonicalUrl = `${baseUrl}${pathname}`;
 const isActive = (slug: string) => pathname.endsWith(`/${lang}/${slug}`);
 
 const segments = pathname.split("/").filter(Boolean);
@@ -29,6 +44,45 @@ const navPages = [
   { slug: "ourlady", label: t("nav.ourlady") },
   { slug: "plans", label: t("nav.plans") },
 ];
+
+const defaultOgImage = `${baseUrl}/${base.replace(/^\//, '')}/og-default.png`;
+const pageOgImage = ogImage ?? defaultOgImage;
+
+// JSON-LD structured data
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LandmarksOrHistoricalBuildings",
+  "name": "Mariaslæen – Capella Reginae Norvegiae",
+  "alternateName": "Mariaslæen",
+  "description": pageDescription,
+  "url": canonicalUrl,
+  "image": pageOgImage,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Øyer",
+    "addressRegion": "Innlandet",
+    "addressCountry": "NO"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 61.3,
+    "longitude": 10.4
+  },
+  "founder": [
+    {
+      "@type": "Person",
+      "name": "Mathias Bruno Ledum"
+    }
+  ],
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Capella Reginae Norvegiae",
+    "url": `${baseUrl}${base}/no/`
+  },
+  "sameAs": [
+    "https://www.instagram.com/capellareginaenorvegiae/"
+  ]
+};
 ---
 
 <!doctype html>
@@ -37,10 +91,39 @@ const navPages = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <title>Capella Reginae Norvegiae</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow" />
     <link rel="icon" href={favicon.src} type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/capellareginaenorvegiae/apple-touch-icon.png" />
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Hreflang alternates -->
+    <link rel="alternate" hreflang="no" href={`${baseUrl}${noHref}`} />
+    <link rel="alternate" hreflang="en" href={`${baseUrl}${enHref}`} />
+    <link rel="alternate" hreflang="x-default" href={`${baseUrl}${noHref}`} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={pageOgImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={lang === 'no' ? 'nb_NO' : 'en_US'} />
+    <meta property="og:locale:alternate" content={lang === 'no' ? 'en_US' : 'nb_NO'} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={pageOgImage} />
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
@@ -52,6 +135,9 @@ const navPages = [
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet"
     />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body
   class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen"
