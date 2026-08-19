@@ -18,16 +18,26 @@ export default defineConfig({
   },
   env: {
     schema: {
-      VIPPS_CLIENT_ID: envField.string({ context: "server", access: "secret" }),
+      VIPPS_CLIENT_ID: envField.string({
+        context: "server",
+        access: "secret",
+        optional: true,
+      }),
       VIPPS_CLIENT_SECRET: envField.string({
         context: "server",
         access: "secret",
+        optional: true,
       }),
       VIPPS_SUBSCRIPTION_KEY: envField.string({
         context: "server",
         access: "secret",
+        optional: true,
       }),
-      VIPPS_MSN: envField.string({ context: "server", access: "secret" }),
+      VIPPS_MSN: envField.string({
+        context: "server",
+        access: "secret",
+        optional: true,
+      }),
     },
   },
   vite: {
