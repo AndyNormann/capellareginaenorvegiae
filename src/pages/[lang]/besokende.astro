@@ -1,0 +1,122 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import veibeskrivelse1 from "@assets/veibeskrivelse1.jpeg";
+import veibeskrivelse2 from "@assets/veibeskrivelse2.jpeg";
+import { content, defaultLang } from "../../i18n/content";
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: "en" } },
+    { params: { lang: "no" } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: string };
+const c = lang in content ? content[lang as keyof typeof content] : content[defaultLang];
+const bv = c.besokende;
+const basePath = "/capellareginaenorvegiae";
+---
+
+<Layout title={bv.title} description={bv.metaDescription}>
+  <main id="main-content" class="pb-24">
+
+    <section class="pt-16 md:pt-24 px-4 sm:px-8">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="font-headline text-4xl md:text-5xl italic text-primary leading-tight mb-6">
+          {bv.heading}
+        </h1>
+        <div class="w-16 h-px bg-secondary/40 mb-6"></div>
+        <p class="font-body text-lg text-on-surface-variant leading-relaxed max-w-xl">
+          {bv.intro}
+        </p>
+      </div>
+    </section>
+
+    <!-- Rules -->
+    <section class="px-4 sm:px-8 mt-12">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-headline text-2xl italic text-primary mb-4">{bv.rulesHeading}</h2>
+        <ul class="space-y-3 text-on-surface-variant leading-relaxed">
+          {bv.rules.map((rule) => (
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-secondary text-xl shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+              <span>{rule}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Welcome message -->
+    <section class="px-4 sm:px-8 mt-12">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-on-surface-variant leading-relaxed">{bv.welcome}</p>
+      </div>
+    </section>
+
+    <!-- Catholic note -->
+    <section class="px-4 sm:px-8 mt-8">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-on-surface-variant leading-relaxed italic">{bv.catholic}</p>
+      </div>
+    </section>
+
+    <!-- Mass section -->
+    <section class="px-4 sm:px-8 mt-12">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-headline text-2xl italic text-primary mb-4">{bv.massHeading}</h2>
+        <ul class="space-y-3 text-on-surface-variant leading-relaxed">
+          {bv.massRules.map((rule) => (
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-secondary text-xl shrink-0 mt-0.5" aria-hidden="true">church</span>
+              <span>{rule}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Images -->
+    <section class="px-4 sm:px-8 mt-16">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-8">
+          <a
+            href="https://maps.app.goo.gl/g5WxkXWGwMw9pADD6"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 min-h-[44px] px-8 py-2.5 bg-primary text-on-primary rounded-sm font-label text-sm hover:bg-primary/90 transition-colors shadow-md tracking-wide"
+          >
+            <span class="material-symbols-outlined text-base" aria-hidden="true">map</span>
+            {lang === 'no' ? 'Åpne i Google Maps' : 'Open in Google Maps'}
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <figure class="overflow-hidden rounded-2xl shadow-2xl">
+            <Image src={veibeskrivelse1} alt={bv.img1Alt} class="w-full h-auto" />
+            <figcaption class="py-3 px-4 text-center text-sm text-on-surface/70 font-body bg-surface-container-low">
+              {bv.img1Caption}
+            </figcaption>
+          </figure>
+          <figure class="overflow-hidden rounded-2xl shadow-2xl">
+            <Image src={veibeskrivelse2} alt={bv.img2Alt} class="w-full h-auto" />
+            <figcaption class="py-3 px-4 text-center text-sm text-on-surface/70 font-body bg-surface-container-low">
+              {bv.img2Caption}
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <div class="text-center mt-16">
+      <a
+        href={`${basePath}/${lang}`}
+        class="inline-flex items-center gap-2 min-h-[44px] px-8 font-label text-sm text-primary hover:text-primary/70 transition-colors tracking-wide"
+      >
+        <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_back</span>
+        {bv.backText}
+      </a>
+    </div>
+
+  </main>
+</Layout>

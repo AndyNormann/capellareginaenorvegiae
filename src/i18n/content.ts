@@ -23,7 +23,8 @@ export const content = {
       visitBody:
         "Ledum farm lies in Gudbrandsdalen. Open the map for directions.",
       visitCta: "Open in Google Maps",
-      alwaysOpen: "The chapel is still taking shape — but you're always welcome to message us.",
+      alwaysOpen:
+        "The chapel is still taking shape — but you're always welcome to message us.",
       questions: "Questions? Message us on Instagram.",
       closeImgAlt: "Gudbrandsdalen valley at sunset",
       closeInstagram: "@capellareginaenorvegiae",
@@ -80,7 +81,8 @@ export const content = {
       alleFireCaption: "The support association gathered",
 
       matheaAlt: "Mathea Baadstø",
-      matheaCaption: "Mass being celebrated in Mathea Baadstø's house, today a rest area in Tretten.",
+      matheaCaption:
+        "Mass being celebrated in Mathea Baadstø's house, today a rest area in Tretten.",
       sigridMesseAlt: "Mass celebrated at Sigrid Undset's house",
       sigridMesseCaption: "Mass celebrated at Sigrid Undset's house.",
       beforeAlt: "The forge before renovation",
@@ -104,7 +106,8 @@ export const content = {
         heading: "Read more",
         links: [
           {
-            label: "NRK Innlandet: Mathias Ledum (30) har laget seg sitt eget kapell langs pilegrimsleden",
+            label:
+              "NRK Innlandet: Mathias Ledum (30) har laget seg sitt eget kapell langs pilegrimsleden",
             href: "https://www.nrk.no/innlandet/mathias-ledum-_30_-har-laget-seg-sitt-eget-kapell-langs-pilegrimsleden-1.17572840",
           },
           {
@@ -112,7 +115,8 @@ export const content = {
             href: "https://tv.nrk.no/serie/norge-i-dag/sesong/202509/episode/DVFJ20092925",
           },
           {
-            label: "katolsk.no: Smie på familiens gård blir et kapell til ære for Jomfru Maria",
+            label:
+              "katolsk.no: Smie på familiens gård blir et kapell til ære for Jomfru Maria",
             href: "https://www.katolsk.no/nyheter/2025/09/smie-pa-familiens-gard-blir-et-kapell-til-aere-jomfru-maria",
           },
         ],
@@ -206,7 +210,8 @@ export const content = {
       clock: {
         alt: "The clock",
         heading: "The bell tower",
-        paragraph: "It is common on farms in Eastern Norway, and especially in Gudbrandsdalen, to have so-called \"meal bells\" (farm bells, storehouse bells) that were used to ring in meals when the workers were out in the fields. The bells were also used to ring on Christmas Eve, Easter Eve and Pentecost Eve, to \"ring in the feast\" — a possible remnant of an old tradition of beginning the celebration of the high feast already at first vespers the evening before. We have managed to find our own meal bell again, and look forward to being able to ring in, not only dugurd, non and other meals, but the Eucharistic meal in the celebration of the Holy Mass.",
+        paragraph:
+          'It is common on farms in Eastern Norway, and especially in Gudbrandsdalen, to have so-called "meal bells" (farm bells, storehouse bells) that were used to ring in meals when the workers were out in the fields. The bells were also used to ring on Christmas Eve, Easter Eve and Pentecost Eve, to "ring in the feast" — a possible remnant of an old tradition of beginning the celebration of the high feast already at first vespers the evening before. We have managed to find our own meal bell again, and look forward to being able to ring in, not only dugurd, non and other meals, but the Eucharistic meal in the celebration of the Holy Mass.',
       },
       blocks: [
         {
@@ -223,7 +228,10 @@ export const content = {
           paragraphs: [
             [
               "In addition to the many individual benefactors of the chapel, there is one support association that has stood by us since the very start, with advice, guidance, encouragement and financial support: ",
-              { text: "Route de l'Europe Chrétienne", href: "http://route-europe-chretienne.fr/" },
+              {
+                text: "Route de l'Europe Chrétienne",
+                href: "http://route-europe-chretienne.fr/",
+              },
               ". This association, led by Robert and Claudia Mestelan, focuses on re-evangelising Christian Europe through pilgrimage work. They do this by spreading information about pilgrim routes, organising pilgrim tours and, not least, restoring or building churches, chapels, crucifixes, icons and statues along the pilgrim ways. A chapel along the Gudbrandsdalsleden pilgrim route to Nidaros they see as a good contribution to their work!",
             ],
           ],
@@ -259,7 +267,7 @@ export const content = {
     support: {
       title: "Support the chapel",
       heading: "Support the chapel",
-      body: "Your support helps us build out the chapel. Just four people and a stone room.",
+      body: "Your support helps us build out the chapel.",
       raisedLabel: "Raised so far",
       updatedLabel: "Last updated",
       vippsPrompt: "Scan to give via Vipps",
@@ -284,79 +292,79 @@ export const content = {
       storyLink: "Read the story",
       hotspots: [
         {
-            x: 50,
-            y: 17,
-            label: "The Crown",
+          x: 50,
+          y: 17,
+          label: "The Crown",
           title: "The Crown",
           body: "Symbolises that she is the symbol of the Church, the Bride of Christ, and a tiara for the Queen above all queens.",
         },
         {
-            x: 73,
-            y: 58,
-            label: "The Throne",
+          x: 73,
+          y: 58,
+          label: "The Throne",
           title: "The Throne",
           body: "Carved in the acanthus style typical of Gudbrandsdalen. The throne symbolises the role Mary holds as the Queen Mother, under the title Gebirah in the Old Testament. It was a role the king's mother had, where she sat to the right of the king on her own throne and received people's requests and wishes and brought them before the king, as their spokesperson.",
         },
         {
-            x: 52,
-            y: 68,
-            label: "The Bunad",
+          x: 52,
+          y: 68,
+          label: "The Bunad",
           title: "The Bunad",
           body: "The Gudbrandsdalen festdrakt, in blue, because blue is Mary's own colour.",
         },
         {
-            x: 49,
-            y: 37,
-            label: "The Brooch",
+          x: 49,
+          y: 37,
+          label: "The Brooch",
           title: "The Brooch",
           body: "\u00abMary's pure heart\u00bb — a remnant of Catholic tradition symbolising her immaculate heart, worn on bunads across Norway, especially in Gudbrandsdalen.",
         },
         {
-            x: 62,
-            y: 43,
-            label: "Jesus's Brooch",
+          x: 62,
+          y: 43,
+          label: "Jesus's Brooch",
           title: "Jesus's Brooch",
           body: "Though there is no similar brooch tradition for the heart of Jesus, He too has a brooch symbolising His most sacred heart.",
         },
         {
-            x: 80,
-            y: 40,
-            label: "The Orb",
+          x: 80,
+          y: 40,
+          label: "The Orb",
           title: "The Orb",
           body: "Symbolises both the kingship of Christ, and a reference to the Santo Niño devotion from the Philippines and the Carthusian Order founded by St. Bruno, who is the patron saint of Fr. Mathias.",
         },
         {
-            x: 29,
-            y: 30,
-            label: "The Lily",
+          x: 29,
+          y: 30,
+          label: "The Lily",
           title: "The Lily",
           body: "Symbolises the purity of both the Virgin Mary and St. Joseph.",
         },
         {
-            x: 65,
-            y: 16,
-            label: "The Great Sun",
+          x: 65,
+          y: 16,
+          label: "The Great Sun",
           title: "The Great Sun",
           body: "Symbolises the holy Olav's meeting with Dale-Gudbrand at Hundorp in 1021, where they meet to measure which God is the strongest, much like the prophet Elijah and the prophets of Baal, cf. 1 Kings 18,16-40. St. Olav preaches about the White Christ in the grey dawn and ends the sermon dramatically as he points to the sun rising in the East and says «there comes our God with great light!», and has Kolbein the Strong smash the statue of the idol Thor. Dale-Gudbrand and his men end up being baptised, and this is marked as the Christianisation of Gudbrandsdalen.",
         },
         {
-            x: 17,
-            y: 30,
-            label: "The Church",
+          x: 17,
+          y: 30,
+          label: "The Church",
           title: "The Church",
           body: "S\u00f8r-Fron church, often called the Gudbrandsdalsdomen, built close to where St. Olav met Dale-Gudbrand.",
         },
         {
-            x: 19,
-            y: 47,
-            label: "The Landscape",
+          x: 19,
+          y: 47,
+          label: "The Landscape",
           title: "The Landscape",
           body: "Losna, where the L\u00e5gen river is at its widest, between Nord-Tretten and S\u00f8r-F\u00e5vang.",
         },
         {
-            x: 82,
-            y: 66,
-            label: "The Farm",
+          x: 82,
+          y: 66,
+          label: "The Farm",
           title: "The Farm",
           body: "Ledum farm, where the chapel of Our Lady of Gudbrandsdalen lies.",
         },
@@ -384,12 +392,43 @@ export const content = {
           ],
           videoTitle: "Video of the chapel",
           videoHeading: "Hymn",
-          videoIntro: "In honour of Our Lady of Gudbrandsdalen, a hymn was written, inspired by an old poem from the Middle Ages called Liljakvadet, set to a folk tune from Gudbrandsdalen. Listen to the hymn \"Heil deg, lilja\" here",
+          videoIntro:
+            'In honour of Our Lady of Gudbrandsdalen, a hymn was written, inspired by an old poem from the Middle Ages called Liljakvadet, set to a folk tune from Gudbrandsdalen. Listen to the hymn "Heil deg, lilja" here',
         },
       ],
       backText: "Back to home",
       metaDescription:
         "Our Lady of Gudbrandsdalen – a Marian image for Norway, inspired by medieval devotion, Lom stave church, and the Catholic faith that survived the Reformation.",
+    },
+    besokende: {
+      title: "Visiting the chapel",
+      heading: "Want to visit the chapel?",
+      intro:
+        "Send us a message on Instagram if you wish to visit the chapel, and we will make sure the chapel is opened for you.",
+      rulesHeading: "While visiting",
+      rules: [
+        "Treat the chapel with respect and maintain a quiet atmosphere.",
+        "The altar is reserved for the celebration of Mass.",
+        "Please leave liturgical items and furniture where they are.",
+        "Any photos taken should preserve the reverence and respect of the chapel.",
+      ],
+      welcome:
+        "You are still warmly welcome to look around the chapel, take photos, write a message in the guestbook, and take a copy of the Our Lady of Gudbrandsdalen card! In the future, we hope to have a water station, toilet, and a pilgrim stamp for visiting pilgrims.",
+      catholic:
+        "The chapel is Catholic and reserved for Catholic liturgies, but all are welcome regardless of which church community you belong to.",
+      massHeading: "If you wish to celebrate Mass",
+      massRules: [
+        "Bring your own priest, or ask the chaplain (Fr. Mathias) if he is available.",
+        "Let us know in advance so we can prepare the necessary equipment.",
+        "Feel free to use the equipment available, but please put everything back and tidy up for the next visitors.",
+      ],
+      img1Alt: "Directions to the chapel, part 1",
+      img1Caption: "Step 1: Find your way to Ledum farm",
+      img2Alt: "Directions to the chapel, part 2",
+      img2Caption: "Step 2: Follow the path to the chapel",
+      backText: "Back to home",
+      metaDescription:
+        "How to visit the chapel at Mariaslæen in Gudbrandsdalen. Open to all — send us a message and we will make sure it is opened.",
     },
   },
   no: {
@@ -413,7 +452,8 @@ export const content = {
       visitBody:
         "Ledum gård ligger i Gudbrandsdalen. Åpne kartet for veibeskrivelse.",
       visitCta: "Åpne i Google Maps",
-      alwaysOpen: "Kapellet er fortsatt under bygging — men du er alltid velkommen til å skrive til oss.",
+      alwaysOpen:
+        "Kapellet er fortsatt under bygging — men du er alltid velkommen til å skrive til oss.",
       questions: "Spørsmål? Send oss en melding på Instagram.",
       closeImgAlt: "Gudbrandsdalen i solnedgang",
       closeInstagram: "@capellareginaenorvegiae",
@@ -471,7 +511,8 @@ export const content = {
       alleFireCaption: "Støtteforeningen samlet",
 
       matheaAlt: "Mathea Baadstø",
-      matheaCaption: "Messe feiret i Mathea Baadstøs hus, i dag et rasteområde på Tretten.",
+      matheaCaption:
+        "Messe feiret i Mathea Baadstøs hus, i dag et rasteområde på Tretten.",
       sigridMesseAlt: "Messe feiret i Sigrid Undsets hus",
       sigridMesseCaption: "Messe feiret i Sigrid Undsets hus.",
       beforeAlt: "Smia før renovering",
@@ -495,7 +536,8 @@ export const content = {
         heading: "Les mer",
         links: [
           {
-            label: "NRK Innlandet: Mathias Ledum (30) har laget seg sitt eget kapell langs pilegrimsleden",
+            label:
+              "NRK Innlandet: Mathias Ledum (30) har laget seg sitt eget kapell langs pilegrimsleden",
             href: "https://www.nrk.no/innlandet/mathias-ledum-_30_-har-laget-seg-sitt-eget-kapell-langs-pilegrimsleden-1.17572840",
           },
           {
@@ -503,7 +545,8 @@ export const content = {
             href: "https://tv.nrk.no/serie/norge-i-dag/sesong/202509/episode/DVFJ20092925",
           },
           {
-            label: "katolsk.no: Smie på familiens gård blir et kapell til ære for Jomfru Maria",
+            label:
+              "katolsk.no: Smie på familiens gård blir et kapell til ære for Jomfru Maria",
             href: "https://www.katolsk.no/nyheter/2025/09/smie-pa-familiens-gard-blir-et-kapell-til-aere-jomfru-maria",
           },
         ],
@@ -597,7 +640,8 @@ export const content = {
       clock: {
         alt: "Klokka",
         heading: "Klokketårn",
-        paragraph: "Det er vanlig på gårder på Østlandet og spesielt i Gudbrandsdalen på ha såkalte matklokker, (gårdsklokker, stabburklokker) som ble brukt til å ringe inn til måltider da arbeiderne var ute på jordene. Klokkene ble også brukt til å ringe på juleaften, påskeaften og pinseaften, for å \"ringe høytiden inn\", en mulig rest av en gammel tradisjon å starte høytidsfeiringa allerede ved første vesper kvelden før. Vi har klart å finne igjen vår egen matklokke, og gleder oss til å kunne ringe inn, ikke bare til dugurd, non og andre måltider, men til det eukaristiske måltid i feiringa av den hellige Messe.",
+        paragraph:
+          'Det er vanlig på gårder på Østlandet og spesielt i Gudbrandsdalen på ha såkalte matklokker, (gårdsklokker, stabburklokker) som ble brukt til å ringe inn til måltider da arbeiderne var ute på jordene. Klokkene ble også brukt til å ringe på juleaften, påskeaften og pinseaften, for å "ringe høytiden inn", en mulig rest av en gammel tradisjon å starte høytidsfeiringa allerede ved første vesper kvelden før. Vi har klart å finne igjen vår egen matklokke, og gleder oss til å kunne ringe inn, ikke bare til dugurd, non og andre måltider, men til det eukaristiske måltid i feiringa av den hellige Messe.',
       },
       blocks: [
         {
@@ -614,7 +658,10 @@ export const content = {
           paragraphs: [
             [
               "I tillegg til mange individuelle velgjørere for kapellet er det én støtteforening som helt siden starten har støttet oss med både råd, veiledning, oppmuntring og økonomisk støtte: ",
-              { text: "Route de l'Europe Chrétienne", href: "http://route-europe-chretienne.fr/" },
+              {
+                text: "Route de l'Europe Chrétienne",
+                href: "http://route-europe-chretienne.fr/",
+              },
               ". Denne foreninga, ledet av Robert og Claudia Mestelan, fokuserer på å re-evangelisere det kristne Eruopa gjennom pilegrimsarbeid. Dette gjør de i form av å spre informasjon om pilegrimsleder, organisere pilegrimsturer og ikke minst, restaurere eller konstruere kirker, kapeller, krusifikser, ikoner, statuer langs med pilegrimsveier. Et kapell langs Gudbrandsdalsleden til Nidaros ser de på som et godt bidrag til deres arbeid!",
             ],
           ],
@@ -650,7 +697,7 @@ export const content = {
     support: {
       title: "Støtt kapellet",
       heading: "Støtt kapellet",
-      body: "Støtten din hjelper oss å bygge ut kapellet. Bare fire mennesker og et steinrom.",
+      body: "Støtten din hjelper oss å bygge ut kapellet.",
       raisedLabel: "Innsamlet så langt",
       updatedLabel: "Sist oppdatert",
       vippsPrompt: "Skann for å gi via Vipps",
@@ -675,79 +722,79 @@ export const content = {
       storyLink: "Les historien",
       hotspots: [
         {
-            x: 50,
-            y: 17,
-            label: "Kronen",
+          x: 50,
+          y: 17,
+          label: "Kronen",
           title: "Kronen",
           body: "Symboliserer at ho er symbolet p\u00e5 Kirken, Kristi brud, samtidig som den er en tiara for Dronninga over alle dronninger.",
         },
         {
-            x: 73,
-            y: 58,
-            label: "Tronen",
+          x: 73,
+          y: 58,
+          label: "Tronen",
           title: "Tronen",
           body: "Skåret i akantus-stil typisk for Gudbrandsdalen. Tronen symboliserer den rollen som Maria har som Dronningmoderen, under tittelen Gebirah i det gamle testamentet. Det var en rolle som kongens mor hadde, hvor hun fikk sitte til høyre for kongen i sin egen trone og tok imot menneskers forespørsler og ønsker og brakte dem framfor kongen, som deres talsperson.",
         },
         {
-            x: 52,
-            y: 68,
-            label: "Bunaden",
+          x: 52,
+          y: 68,
+          label: "Bunaden",
           title: "Bunaden",
           body: "Gudbrandsdals festdrakt, i bl\u00e5 farge, siden det er Marias egen farge.",
         },
         {
-            x: 49,
-            y: 37,
-            label: "Bunadss\u00f8lje",
+          x: 49,
+          y: 37,
+          label: "Bunadss\u00f8lje",
           title: "Bunadss\u00f8lje",
           body: "\u00abMarias rene hjerte\u00bb \u2014 en rest fra katolsk tradisjon som symboliserer hennes uplettede hjerte, og som brukes til bunader i ulike deler av landet, spesielt i Gudbrandsdalen.",
         },
         {
-            x: 62,
-            y: 43,
-            label: "Jesus sin bunadss\u00f8lje",
+          x: 62,
+          y: 43,
+          label: "Jesus sin bunadss\u00f8lje",
           title: "Jesus sin bunadss\u00f8lje",
           body: "Sj\u00f8l om man ikke har noen lignende s\u00f8ljetradisjon for Jesu hjerte, s\u00e5 har Han ogs\u00e5 f\u00e5tt en s\u00f8lje som symboliserer Hans h\u00f8ghellige hjerte.",
         },
         {
-            x: 80,
-            y: 40,
-            label: "Rikseplet",
+          x: 80,
+          y: 40,
+          label: "Rikseplet",
           title: "Rikseplet",
           body: "Symboliserer både Kristi kongeverdighet, men også en referanse til Sto. Niño-devosjonen fra Filippinene og Karteuserordenen som St. Bruno har stifta, som er skytshelgen til p. Mathias.",
         },
         {
-            x: 29,
-            y: 30,
-            label: "Lilja",
+          x: 29,
+          y: 30,
+          label: "Lilja",
           title: "Lilja",
           body: "Symboliserer b\u00e5de Jomfru Marias s\u00e5vel som St. Josefs renhet.",
         },
         {
-            x: 65,
-            y: 16,
-            label: "Den store sola",
+          x: 65,
+          y: 16,
+          label: "Den store sola",
           title: "Den store sola",
           body: "Symboliserer den hellige Olavs møte med Dale-Gudbrand på Hundorp i 1021, hvor de møtes for å måle hvilken Gud som er sterkest, litt på samme måte som profeten Elia og Baal-profetene jf. 1 Kong 18,16-40. St. Olav preker om Kvitekrist i grålysningen og avslutter prekenen på dramatisk vis da han peker mot sola som står opp i Øst og sier «der kommer vår Gud med stort lys!» og får Kolbein sterke til å slå i stykker statuen av avguden Tor. Dale-Gudbrand og hans menn ender opp med å la seg døpe, og man markerer dette som kristninga av Gudbrandsdalen.",
         },
         {
-            x: 17,
-            y: 30,
-            label: "Kirka",
+          x: 17,
+          y: 30,
+          label: "Kirka",
           title: "Kirka",
           body: "S\u00f8r-Fron kirke, ofte kalt Gudbrandsdalsdomen, bygd like ved der St. Olav m\u00f8tte Dale-Gudbrand.",
         },
         {
-            x: 19,
-            y: 47,
-            label: "Omgivelsene",
+          x: 19,
+          y: 47,
+          label: "Omgivelsene",
           title: "Omgivelsene",
           body: "Losna, stedet der L\u00e5gen er p\u00e5 sitt breieste, mellom Nord-Tretten og S\u00f8r-F\u00e5vang.",
         },
         {
-            x: 82,
-            y: 66,
-            label: "G\u00e5rden",
+          x: 82,
+          y: 66,
+          label: "G\u00e5rden",
           title: "G\u00e5rden",
           body: "Ledum g\u00e5rd, hvor kapellet for V\u00e5r Frue av Gudbrandsdalen ligger.",
         },
@@ -775,12 +822,43 @@ export const content = {
           ],
           videoTitle: "Video av kapellet",
           videoHeading: "Hymne",
-          videoIntro: "Til ære for Vår Frue av Gudbrandsdalen ble det skrevet en hymne, inspirert av et gammelt dikt fra middelalderen kalt Liljakvadet, satt til en folketone fra Gudbrandsdalen. Lytt til hymnen \"Heil deg, lilja\" her",
+          videoIntro:
+            'Til ære for Vår Frue av Gudbrandsdalen ble det skrevet en hymne, inspirert av et gammelt dikt fra middelalderen kalt Liljakvadet, satt til en folketone fra Gudbrandsdalen. Lytt til hymnen "Heil deg, lilja" her',
         },
       ],
       backText: "Tilbake til forsiden",
       metaDescription:
         "Vår Frue av Gudbrandsdalen – eit Maria-bilete for Norge, inspirert av mellomalderleg fromheit, Lom stavkyrkje og den katolske trua som overlevde reformasjonen.",
+    },
+    besokende: {
+      title: "Besøkende",
+      heading: "Vil du besøke kapellet?",
+      intro:
+        "Send oss en melding på Instagram om du ønsker å besøke kapellet, så kan vi tilrettelegge for at kapellet åpnes.",
+      rulesHeading: "Under besøket",
+      rules: [
+        "Opptre med respekt og oppretthold ro i kapellet.",
+        "Alteret er forbeholdt feiring av Messe.",
+        "La liturgisk utstyr og møbler stå i ro.",
+        "Bilder som tas må bevare ærbødighet og respekt for kapellet.",
+      ],
+      welcome:
+        "Dere er likevel hjertelig velkomne til å se rundt i kapellet, ta bilder, skriv veldig gjerne en hilsen i gjesteboka og ta med deg et Vår Frue av Gudbrandsdalen-kort! På et senere tidspunkt håper vi å kunne ha vannstasjon, toalett og eget pilegrimstempel for besøkende pilegrimer.",
+      catholic:
+        "Kapellet er katolsk, så det er forbeholdt katolske liturgier, men alle er likevel velkomne til kapellet uansett hvilket kirkesamfunn man tilhører.",
+      massHeading: "Om dere vil feire Messe",
+      massRules: [
+        "Ha med egen prest eller spør kapellpresten (P. Mathias) om han har mulighet.",
+        "Si ifra i god tid, så kan vi tilrettelegge for at dere får det nødvendige utstyret.",
+        "Bruk gjerne utstyret som er der, men legg på plass igjen alt som er brukt og gjør det ryddig til de neste som kommer på besøk.",
+      ],
+      img1Alt: "Veibeskrivelse til kapellet, del 1",
+      img1Caption: "Steg 1: Finn veien til Ledum gård",
+      img2Alt: "Veibeskrivelse til kapellet, del 2",
+      img2Caption: "Steg 2: Følg stien til kapellet",
+      backText: "Tilbake til forsiden",
+      metaDescription:
+        "Slik besøker du kapellet på Mariaslæen i Gudbrandsdalen. Åpent for alle — send oss en melding, så sørger vi for at det åpnes.",
     },
   },
 } as const;
