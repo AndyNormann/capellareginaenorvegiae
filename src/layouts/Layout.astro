@@ -33,9 +33,10 @@ const isActive = (slug: string) => pathname.endsWith(`/${lang}/${slug}`) || (lan
 
 const segments = pathname.split("/").filter(Boolean);
 const otherLang = lang === "no" ? "en" : "no";
-const restPath = segments.slice(1).join("/");
+// For English pages (/en/plans), skip the lang prefix. For Norwegian root pages (/plans), include the slug.
+const restPath = lang === "no" ? segments.join("/") : segments.slice(1).join("/");
 const langHome = lang === "no" ? "/" : `/${lang}`;
-const noHref = restPath ? `/${restPath}` : "/";
+const noHref = lang === "no" ? "/" + restPath : restPath ? `/${restPath}` : "/";
 const enHref = `/en${restPath ? "/" + restPath : ""}`;
 
 const navPages = [
