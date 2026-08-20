@@ -437,7 +437,7 @@ export const content = {
     index: {
       title: "Mariaslæen",
       welcome: "Velkommen til Mariaslæen.",
-      intro: "Vi ønsker å gjenintrodusere noe av det som tilsynelatende gikk tapt med reformasjonen, men som har levd videre som glør i et ildsted, og som bare trenger å få blåst litt liv i seg. Hvor passende er det ikke å gjøre det nettopp i form av et kapell i ei gammel smie?",
+      intro: "Vi ønsker å gjenintrodusere noe av det som tilsynelatende gikk tapt med reformasjonen, men som har levd videre som glør i et ildsted, og som bare trenger å få blåst litt liv i seg. Hvor passende er det ikke å gjøre det nettopp i form av et kapell i ei gammel smie?\n\nWe wish to reintroduce something that was seemingly lost with the Reformation, but has lived on as embers in a hearth, only needing a breath of life. How fitting to do it in the form of a chapel in an old forge.",
       mapCta: "Slik finner du hit",
       heroAlt: "Inne i kapellet, lys som faller gjennom steinveggene",
       whatHeading: "Et stille rom, for alle.",
@@ -643,7 +643,7 @@ export const content = {
         alt: "Klokka",
         heading: "Klokketårn",
         paragraph:
-          'Det er vanlig på gårder på Østlandet og spesielt i Gudbrandsdalen på ha såkalte matklokker, (gårdsklokker, stabburklokker) som ble brukt til å ringe inn til måltider da arbeiderne var ute på jordene. Klokkene ble også brukt til å ringe på juleaften, påskeaften og pinseaften, for å "ringe høytiden inn", en mulig rest av en gammel tradisjon å starte høytidsfeiringa allerede ved første vesper kvelden før. Vi har klart å finne igjen vår egen matklokke, og gleder oss til å kunne ringe inn, ikke bare til dugurd, non og andre måltider, men til det eukaristiske måltid i feiringa av den hellige Messe.',
+          'Det er vanlig på gårder på Østlandet og spesielt i Gudbrandsdalen å ha såkalte matklokker, (gårdsklokker, stabburklokker) som ble brukt til å ringe inn til måltider da arbeiderne var ute på jordene. Klokkene ble også brukt til å ringe på juleaften, påskeaften og pinseaften, for å "ringe høytiden inn", en mulig rest av en gammel tradisjon hvor man starter høytidsfeiringa allerede ved første vesper kvelden før. Vi har klart å finne igjen vår egen matklokke, og gleder oss til å kunne ringe inn, ikke bare til dugurd, non og andre måltider, men til det eukaristiske måltid i feiringa av den hellige Messe.',
       },
       blocks: [
         {
