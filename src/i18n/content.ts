@@ -427,6 +427,10 @@ export const content = {
     smia: {
       title: "The forge",
       heading: "From swords to ploughshares",
+      bibleVerse: {
+        text: "They shall beat their swords into plowshares,\nand their spears into pruning hooks;\nnation shall not lift up sword against nation,\nneither shall they learn war any more.",
+        reference: "Isaiah 2,4"
+      },
       paragraphs: [
         "The chapel that this old forge has turned into is dedicated to the Blessed Virgin Mary, the Queen of Peace. Our Lady of Gudbrandsdalen, pray for peace in our world and in our hearts.",
         'Instead of using the forge to make weapons, this forge has a different purpose. A furnace turned into an altar to offer the Holy Sacrifice of the Mass. At Mass we are united to the sacrifice of Jesus through which we are reconciled to God. This is the true peace that the world cannot give. In the Rite of Peace during the Mass, the Church "entreats peace and unity for herself and for the whole human family, and the faithful express to each other their ecclesial communion and mutual charity before communicating in the Sacrament". GIRM, 82.',
@@ -868,6 +872,10 @@ export const content = {
     smia: {
       title: "Smia",
       heading: "Fra sverd til plogskjær",
+      bibleVerse: {
+        text: "De skal smi sverdene om til plogskjær\nog spydene til vingårdskniver.\nFolk skal ikke løfte sverd mot folk,\nikke lenger læres opp til krig.",
+        reference: "Jesaja 2,4"
+      },
       paragraphs: [
         "Kapellet som denne gamle smia har blitt til, er viet til Jomfru Maria, Fredens Dronning. Vår Frue av Gudbrandsdalen, be for fred i vår verden og i våre hjerter.",
         "I stedet for å bruke smia til å lage våpen, har denne smia et annet formål. Et ildsted omgjort til et alter for å bære fram det hellige Messe-offeret. I Messen forenes vi med Jesu offer, som forsoner oss med Gud. Dette er den sanne fred som verden ikke kan gi. I fredsritualet under messen «ber kirken om fred og enhet for seg selv og for hele menneskeheten, og de troende uttrykker sitt kirkelige fellesskap og gjensidige kjærlighet til hverandre før de mottar sakramentet». GIRM, 82.",

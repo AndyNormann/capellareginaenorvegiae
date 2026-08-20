@@ -27,6 +27,18 @@ const sm = c.smia;
     </section>
 
     <section class="mt-8">
+      <blockquote class="relative px-6 py-8 bg-surface-container rounded-2xl border-l-4 border-secondary w-fit mx-auto">
+        <span class="absolute top-4 left-4 text-4xl text-secondary/30 font-headline" aria-hidden="true">&ldquo;</span>
+        <p class="font-headline italic text-on-surface leading-relaxed whitespace-pre-line text-center">
+          {sm.bibleVerse.text}
+        </p>
+        <cite class="block mt-4 text-sm text-on-surface-variant not-italic text-center">
+          &mdash; {sm.bibleVerse.reference}
+        </cite>
+      </blockquote>
+    </section>
+
+    <section class="mt-8">
       <div class="space-y-4 text-on-surface-variant leading-relaxed text-center">
         {sm.paragraphs.map((para) => (
           <p>{para}</p>
