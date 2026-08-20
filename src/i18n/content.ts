@@ -6,7 +6,7 @@ export const content = {
       title: "Mariaslæen",
       welcome: "Welcome to Mariaslæen.",
       intro:
-        "We wish to reintroduce something that was seemingly lost with the Reformation, but has lived on as embers in a hearth, only needing a breath of life. How fitting to do it in the form of a chapel in an old forge.",
+        "We wish to reintroduce something that was seemingly lost with the Reformation, but has lived on as embers in a hearth, that only need life breathed into them. How fitting to do that in the form of a chapel in an old forge!",
       mapCta: "How to get here",
       heroAlt: "Inside the chapel, light falling through the stone walls",
       whatHeading: "A quiet room, for everyone.",
@@ -380,20 +380,10 @@ export const content = {
         {
           heading: "A Norwegian Our Lady",
           paragraphs: [
-            "Since Mary is Mother to all people and Queen over every place, I began, some years ago, to wish for our own Norwegian Our Lady. We already have beautiful Marian statues, such as Our Lady of Hedalen stave church and the Enebakk Madonna, which long graced St. Olav Cathedral in Oslo.",
+            "Since Mary is Mother to all people and Queen over every place, I (p. Mathias) began, some years ago, to wish for our own Norwegian Our Lady. We already have beautiful Marian statues, such as Our Lady of Hedalen stave church and the Enebakk Madonna, which long graced St. Olav Cathedral in Oslo.",
             "I was then told of a painting in Lom stave church showing the Coronation of the Virgin — a deeply Catholic motif — painted in 1712, almost two hundred years after the Reformation. It suggested that Marian devotion had lived on in the hearts and memory of the country people. The painting in Lom is only one example of Marian devotion in Gudbrandsdalen; there are also fine old statues from Dovre and Gausdal.",
-            "My great wish became to have an image of 'Our Lady of Gudbrandsdalen'. It was fulfilled in a surprising way: an artistic talent picked up every detail and, in secret, drew such an image. The prototype was later developed further and ended up as the motif on the card for my diaconal ordination. I could not have imagined a more beautiful image for such an occasion.",
+            "My great wish became to have an image of 'Our Lady of Gudbrandsdalen'. It was fulfilled in a surprising way: an artistic talent picked up every detail and, in secret, drew such an image. The prototype was later developed further and ended up as the motif on the card for my diaconal ordination and subsequently my priestly ordination. I could not have imagined a more beautiful image for such occasions!",
           ],
-        },
-        {
-          heading: "Always open",
-          paragraphs: [
-            "The chapel is open to all — pilgrims, on foot and by car, hikers, and anyone seeking a quiet place. No entrance fee, no membership: just send us a message that you would like to visit, and we will make sure it is opened.",
-          ],
-          videoTitle: "Video of the chapel",
-          videoHeading: "Hymn",
-          videoIntro:
-            'In honour of Our Lady of Gudbrandsdalen, a hymn was written, inspired by an old poem from the Middle Ages called Liljakvadet, set to a folk tune from Gudbrandsdalen. Listen to the hymn "Heil deg, lilja" here',
         },
       ],
       backText: "Back to home",
@@ -404,7 +394,7 @@ export const content = {
       title: "Visiting the chapel",
       heading: "Want to visit the chapel?",
       intro:
-        "Send us a message on Instagram if you wish to visit the chapel, and we will make sure the chapel is opened for you.",
+        "The chapel is open to all — pilgrims, on foot and by car, hikers, and anyone seeking a quiet place. Just send us a message on Instagram if you wish to visit the chapel, and we will make sure the chapel is opened for you.",
       rulesHeading: "While visiting",
       rules: [
         "Treat the chapel with respect and maintain a quiet atmosphere.",
@@ -812,20 +802,10 @@ export const content = {
         {
           heading: "Ei norsk Vår Frue",
           paragraphs: [
-            "Siden Jomfru Maria er Mor for alle mennesker og Dronning over alle steder, fikk jeg for noen år siden et voksende ønske om å få vår egen Jomfru Maria i «norsk utgave». Vi har jo allerede fine Mariastatuer, som Vår Frue av Hedalen stavkirke og Enebakkmadonnaen, som lenge prydet St. Olav domkirke i Oslo.",
+            "Siden Jomfru Maria er Mor for alle mennesker og Dronning over alle steder, fikk jeg (p. Mathias) for noen år siden et voksende ønske om å få vår egen Jomfru Maria i «norsk utgave». Vi har jo allerede fine Mariastatuer, som Vår Frue av Hedalen stavkirke og Enebakkmadonnaen, som lenge prydet St. Olav domkirke i Oslo.",
             "Jeg ble etterhvert gjort oppmerksom på et maleri i Lom stavkyrkje som viser Jomfru Marias kroning i himmelen, et erkekatolsk motiv, malt i 1712 — nesten to hundre år etter reformasjonen. Det kunne tyde på at Mariafromheten fortsatte å leve videre i bygdefolkets hjerter og minne. Maleriet i Lom er bare ett eksempel på Mariafromheten i Gudbrandsdalen; man har også flotte gamle Mariastatuer både fra Dovre og Gausdal.",
-            "Mitt store ønske ble dermed å få til et bilde av «Vår Frue av Gudbrandsdalen». Dette ønsket ble på overraskende vis innfridd av det kunstneriske talentet som plukket opp alle detaljene og i hemmelighet tegna et slikt bilde. Prototypen ble etterhvert videreutvikla og endte opp med å bli motivet på ordinasjonskortet til min diakonvielse. Et flottere bilde for en slik anledning kunne jeg ikke ha sett for meg!",
+            "Mitt store ønske ble dermed å få til et bilde av «Vår Frue av Gudbrandsdalen». Dette ønsket ble på overraskende vis innfridd av det kunstneriske talentet som plukket opp alle detaljene og i hemmelighet tegna et slikt bilde. Prototypen ble etterhvert videreutvikla og endte opp med å bli motivet på ordinasjonskortet til min diakonvielse og deretter min prestevielse. Et flottere bilde for slike anledninger kunne jeg ikke tenke meg!",
           ],
-        },
-        {
-          heading: "Alltid åpent",
-          paragraphs: [
-            "Kapellet er åpent for alle — pilegrimer, både til fots og med bil, turgåere og alle som søker et stille sted. Ingen inngangspenger, intet medlemskap: bare send oss en melding at du vil på besøk, og vi skal sørge for at det åpnes.",
-          ],
-          videoTitle: "Video av kapellet",
-          videoHeading: "Hymne",
-          videoIntro:
-            'Til ære for Vår Frue av Gudbrandsdalen ble det skrevet en hymne, inspirert av et gammelt dikt fra middelalderen kalt Liljakvadet, satt til en folketone fra Gudbrandsdalen. Lytt til hymnen "Heil deg, lilja" her',
         },
       ],
       backText: "Tilbake til forsiden",
@@ -836,7 +816,7 @@ export const content = {
       title: "Besøkende",
       heading: "Vil du besøke kapellet?",
       intro:
-        "Send oss en melding på Instagram om du ønsker å besøke kapellet, så kan vi tilrettelegge for at kapellet åpnes.",
+        "Kapellet er åpent for alle — pilegrimer, både til fots og med bil, turgåere og alle som søker et stille sted. Bare send oss en melding på Instagram om du ønsker å besøke kapellet, så kan vi tilrettelegge for at kapellet åpnes.",
       rulesHeading: "Under besøket",
       rules: [
         "Opptre med respekt og oppretthold ro i kapellet.",
