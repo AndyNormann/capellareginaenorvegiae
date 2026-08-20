@@ -6,7 +6,7 @@ export const content = {
       title: "Mariaslæen",
       welcome: "Welcome to Mariaslæen.",
       intro:
-        "An old forge in Gudbrandsdalen, being turned into a chapel for everyone.",
+        "We wish to reintroduce something that was seemingly lost with the Reformation, but has lived on as embers in a hearth, only needing a breath of life. How fitting to do it in the form of a chapel in an old forge.",
       mapCta: "How to get here",
       heroAlt: "Inside the chapel, light falling through the stone walls",
       whatHeading: "A quiet room, for everyone.",
@@ -437,7 +437,7 @@ export const content = {
     index: {
       title: "Mariaslæen",
       welcome: "Velkommen til Mariaslæen.",
-      intro: "Vi ønsker å gjenintrodusere noe av det som tilsynelatende gikk tapt med reformasjonen, men som har levd videre som glør i et ildsted, og som bare trenger å få blåst litt liv i seg. Hvor passende er det ikke å gjøre det nettopp i form av et kapell i ei gammel smie?\n\nWe wish to reintroduce something that was seemingly lost with the Reformation, but has lived on as embers in a hearth, only needing a breath of life. How fitting to do it in the form of a chapel in an old forge.",
+      intro: "Vi ønsker å gjenintrodusere noe av det som tilsynelatende gikk tapt med reformasjonen, men som har levd videre som glør i et ildsted, og som bare trenger å få blåst litt liv i seg. Hvor passende er det ikke å gjøre det nettopp i form av et kapell i ei gammel smie?",
       mapCta: "Slik finner du hit",
       heroAlt: "Inne i kapellet, lys som faller gjennom steinveggene",
       whatHeading: "Et stille rom, for alle.",
