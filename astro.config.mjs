@@ -7,7 +7,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://andynormann.github.io",
+  site: "https://capellareginae.no",
   integrations: [sitemap()],
   experimental: {
     rustCompiler: true,

@@ -27,7 +27,7 @@ const defaultDescription =
 const pageDescription = description ?? defaultDescription;
 
 const pathname = Astro.url.pathname.replace(/\/+$/, "");
-const baseUrl = 'https://andynormann.github.io';
+const baseUrl = 'https://capellareginae.no';
 const canonicalUrl = `${baseUrl}${pathname}`;
 const isActive = (slug: string) => pathname.endsWith(`/${lang}/${slug}`);
 
