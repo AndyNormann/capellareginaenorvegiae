@@ -22,7 +22,7 @@ const idx = c.index;
 // Pinned Google Maps listing for Ledum farm
 const mapsUrl = "https://maps.app.goo.gl/g5WxkXWGwMw9pADD6";
 const instagramUrl = "https://www.instagram.com/capellareginaenorvegiae/";
-const basePath = "/capellareginaenorvegiae";
+
 ---
 
 <Layout title={idx.title} description={idx.metaDescription}>
@@ -90,14 +90,14 @@ const basePath = "/capellareginaenorvegiae";
       </div>
       <div class="text-center mt-10 flex flex-col sm:flex-row gap-4 sm:gap-10 items-center justify-center">
         <a
-          href={`${basePath}/${lang}/story`}
+          href={`/${lang}/story`}
           class="inline-flex items-center gap-2 min-h-[44px] font-headline italic text-lg text-primary hover:text-primary transition-colors"
         >
           {idx.storyLink}
           <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
         </a>
         <a
-          href={`${basePath}/${lang}/ourlady`}
+          href={`/${lang}/ourlady`}
           class="inline-flex items-center gap-2 min-h-[44px] font-headline italic text-lg text-primary hover:text-primary transition-colors"
         >
           {idx.ourLadyLink}
@@ -126,7 +126,7 @@ const basePath = "/capellareginaenorvegiae";
             {idx.visitCta}
           </a>
           <a
-            href={`${basePath}/${lang}/support`}
+            href={`/${lang}/support`}
             class="inline-flex items-center gap-2 min-h-[44px] px-8 py-2.5 border border-primary/40 text-primary rounded-sm font-label text-sm hover:bg-primary/5 transition-colors tracking-wide"
           >
             <span class="material-symbols-outlined text-base" aria-hidden="true">favorite</span>
