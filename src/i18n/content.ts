@@ -437,7 +437,7 @@ export const content = {
     index: {
       title: "Mariaslæen",
       welcome: "Velkommen til Mariaslæen.",
-      intro: "En smie i Gudbrandsdalen som omgjøres til kapell.",
+      intro: "Vi ønsker å gjenintrodusere noe av det som tilsynelatende gikk tapt med reformasjonen, men som har levd videre som glør i et ildsted, og som bare trenger å få blåst litt liv i seg. Hvor passende er det ikke å gjøre det nettopp i form av et kapell i ei gammel smie?",
       mapCta: "Slik finner du hit",
       heroAlt: "Inne i kapellet, lys som faller gjennom steinveggene",
       whatHeading: "Et stille rom, for alle.",
