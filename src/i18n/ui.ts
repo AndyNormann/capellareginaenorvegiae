@@ -8,6 +8,7 @@ export const defaultLang = "no";
 export const ui = {
   en: {
     "nav.story": "Story",
+    "nav.smia": "The forge",
     "nav.ourlady": "Our Lady",
     "nav.plans": "Plans",
     "nav.besokende": "Visit",
@@ -19,6 +20,7 @@ export const ui = {
   },
   no: {
     "nav.story": "Historie",
+    "nav.smia": "Smia",
     "nav.ourlady": "Vår Frue",
     "nav.plans": "Planer",
     "nav.besokende": "Besøkende",

@@ -413,21 +413,40 @@ export const content = {
         "Feel free to use the equipment available, but please put everything back and tidy up for the next visitors.",
       ],
       img1Alt: "Directions to the chapel, part 1",
-      img1Caption: "Park by the entrance to the barn, but make sure not to block the road.",
+      img1Caption:
+        "Park by the entrance to the barn, but make sure not to block the road.",
       img2Alt: "Directions to the chapel, part 2",
-      img2Caption: "If you come from the pilgrimage trail, as you exit the forest and descend onto Mågålivegen, walk 100 m southbound.",
+      img2Caption:
+        "If you come from the pilgrimage trail, as you exit the forest and descend onto Mågålivegen, walk 100 m southbound.",
       zoomLabel: "View image larger",
       zoomClose: "Close",
       backText: "Back to home",
       metaDescription:
         "How to visit the chapel at Mariaslæen in Gudbrandsdalen. Open to all — send us a message and we will make sure it is opened.",
     },
+    smia: {
+      title: "The forge",
+      heading: "From swords to ploughshares",
+      paragraphs: [
+        "The chapel that this old forge has turned into is dedicated to the Blessed Virgin Mary, the Queen of Peace. Our Lady of Gudbrandsdalen, pray for peace in our world and in our hearts.",
+        'Instead of using the forge to make weapons, this forge has a different purpose. A furnace turned into an altar to offer the Holy Sacrifice of the Mass. At Mass we are united to the sacrifice of Jesus through which we are reconciled to God. This is the true peace that the world cannot give. In the Rite of Peace during the Mass, the Church "entreats peace and unity for herself and for the whole human family, and the faithful express to each other their ecclesial communion and mutual charity before communicating in the Sacrament". GIRM, 82.',
+        '"Peace is not something merely exterior. It is mainly found in the heart of those who are open to God\'s forgiveness. Peace is reconciliation with God, in the blood of Christ. In this way, the habitual participation of the Eucharist makes Christians become men of peace, because during the Mass they receive time and again the peace of Christ, of that reason they are more able to communicate to their brethren the peace that they have received from God."\n\n— "Explanation of the Mass", Home of the Mother',
+      ],
+      closing:
+        "Our Lady of Gudbrandsdalen, pray for peace in our world and in our hearts.",
+      firstMass: {
+        text: "The very first Mass celebrated at Ledum farm, in the forge that has now become a chapel, was a requiem Mass for my grandfather Mathias Ledum, who in my father's childhood stood here in the forge and with the help of the fire, straightened tools that had been bent and worn, and at the same time created new tools out of simple materials.That is why it becomes very special to celebrate Mass in the same place, especially Masses for the deceased. By the fire of the Holy Spirit the simple bread and wine become something new, and at the same time the sacrifice of Mass comes the soul of the deceased to aid, in the hope that what has been bent by sin will be straightened in purgatory, returned to its original holiness and thus can become ready to meet Him whose most Sacred Heart is the burning furnace of love.",
+      },
+      metaDescription:
+        "The forge at Mariaslæen — from swords to ploughshares, a chapel dedicated to the Virgin Mary, Queen of Peace.",
+    },
   },
   no: {
     index: {
       title: "Mariaslæen",
       welcome: "Velkommen til Mariaslæen.",
-      intro: "Vi ønsker å gjenintrodusere noe av det som tilsynelatende gikk tapt med reformasjonen, men som har levd videre som glør i et ildsted, og som bare trenger å få blåst litt liv i seg. Hvor passende er det ikke å gjøre det nettopp i form av et kapell i ei gammel smie?",
+      intro:
+        "Vi ønsker å gjenintrodusere noe av det som tilsynelatende gikk tapt med reformasjonen, men som har levd videre som glør i et ildsted, og som bare trenger å få blåst litt liv i seg. Hvor passende er det ikke å gjøre det nettopp i form av et kapell i ei gammel smie?",
       mapCta: "Slik finner du hit",
       heroAlt: "Inne i kapellet, lys som faller gjennom steinveggene",
       whatHeading: "Et stille rom, for alle.",
@@ -835,14 +854,32 @@ export const content = {
         "Bruk gjerne utstyret som er der, men legg på plass igjen alt som er brukt og gjør det ryddig til de neste som kommer på besøk.",
       ],
       img1Alt: "Veibeskrivelse til kapellet, del 1",
-      img1Caption: "Parker ved innkjørsel til fjøset, men pass på å ikke stenge for veien.",
+      img1Caption:
+        "Parker ved innkjørsel til fjøset, men pass på å ikke stenge for veien.",
       img2Alt: "Veibeskrivelse til kapellet, del 2",
-      img2Caption: "Om du kommer fra pilegrimsleden, idet du kommer ut av skogen og ned på Mågålivegen, gå 100 m i sørgående retning.",
+      img2Caption:
+        "Om du kommer fra pilegrimsleden, idet du kommer ut av skogen og ned på Mågålivegen, gå 100 m i sørgående retning.",
       zoomLabel: "Se bildet større",
       zoomClose: "Lukk",
       backText: "Tilbake til forsiden",
       metaDescription:
         "Slik besøker du kapellet på Mariaslæen i Gudbrandsdalen. Åpent for alle — send oss en melding, så sørger vi for at det åpnes.",
+    },
+    smia: {
+      title: "Smia",
+      heading: "Fra sverd til plogskjær",
+      paragraphs: [
+        "Kapellet som denne gamle smia har blitt til, er viet til Jomfru Maria, Fredens Dronning. Vår Frue av Gudbrandsdalen, be for fred i vår verden og i våre hjerter.",
+        "I stedet for å bruke smia til å lage våpen, har denne smia et annet formål. Et ildsted omgjort til et alter for å bære fram det hellige Messe-offeret. I Messen forenes vi med Jesu offer, som forsoner oss med Gud. Dette er den sanne fred som verden ikke kan gi. I fredsritualet under messen «ber kirken om fred og enhet for seg selv og for hele menneskeheten, og de troende uttrykker sitt kirkelige fellesskap og gjensidige kjærlighet til hverandre før de mottar sakramentet». GIRM, 82.",
+        '«Fred er ikke bare noe i det ytre. Den finnes hovedsakelig i hjertet til de som er åpne for Guds tilgivelse. Fred er forsoning med Gud, i Kristi blod. På denne måten gjør den regelmessige deltakelsen i nattverden kristne til fredens folk, fordi de under messen gang på gang mottar Kristi fred, og derfor er de bedre i stand til å formidle den freden de har mottatt fra Gud til sine brødre og søstre.»\n\n— "Explanation of the Mass", Home of the Mother',
+      ],
+      closing:
+        "Vår Frue av Gudbrandsdalen, be for fred i vår verden og i våre hjerter.",
+      firstMass: {
+        text: "Den aller første Messen feiret på Ledum gård, i smia som nå er blitt til kapell, var en rekviemmesse for min bestefar Mathias Ledum, som i pappas barndom stod her i smia og med hjelp av flammens ild retta på redskaper som hadde blitt bøyd og slitt, og samtidig skapte nye verktøy ut av enkle materialer. Defor blir det helt spesielt å feire Messe på samme sted, særlig Messer for de avdøde. Ved Helligåndens ild blir det enkle brødet og vinen til noe nytt, og samtidig blir Messeofferet den avdødes sjel til gagn, i håp om at det som av synden er blitt bøyd, i skjærsilden skal bli rettet opp, vende tilbake til sin opprinnelige hellighet og gå i møte Ham hvis høghellige hjerte er kjærlighetens glødende arnested.",
+      },
+      metaDescription:
+        "Smia på Mariaslæen — fra sverd til plogskjær, et kapell viet til Jomfru Maria, Fredens Dronning.",
     },
   },
 } as const;

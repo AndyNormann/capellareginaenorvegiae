@@ -1,0 +1,73 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import kneelingImg from "@assets/kneeling_after_elevation.jpg";
+import gospelImg from "@assets/gospel_requiem_mass.jpg";
+import { content } from "../../i18n/content";
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: "en" } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: string };
+const c = lang in content ? content[lang as keyof typeof content] : content["no"];
+const sm = c.smia;
+---
+
+<Layout title={sm.title} description={sm.metaDescription}>
+  <main id="main-content" class="max-w-3xl mx-auto px-4 sm:px-8 pb-24">
+
+    <section class="pt-16 md:pt-24 text-center">
+      <h1 class="font-headline text-4xl md:text-5xl italic text-primary leading-tight mb-6">
+        {sm.heading}
+      </h1>
+      <div class="w-16 h-px bg-secondary/40 mx-auto mb-6"></div>
+    </section>
+
+    <section class="mt-8">
+      <div class="space-y-4 text-on-surface-variant leading-relaxed text-center">
+        {sm.paragraphs.map((para) => (
+          <p>{para}</p>
+        ))}
+      </div>
+      <p class="mt-8 text-center font-headline italic text-primary text-lg">
+        {sm.closing}
+      </p>
+    </section>
+
+    <section class="mt-12">
+      <Image
+        src={kneelingImg}
+        alt="Kneeling after the Elevation"
+        class="w-full aspect-[3/4] object-cover rounded-2xl shadow-xl"
+      />
+    </section>
+
+    <section class="mt-12">
+      <div class="space-y-4 text-on-surface-variant leading-relaxed text-center">
+        <p>{sm.firstMass.text}</p>
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <Image
+        src={gospelImg}
+        alt="Gospel during the Requiem Mass"
+        class="w-full aspect-[16/9] object-cover rounded-2xl shadow-xl"
+      />
+    </section>
+
+    <div class="text-center mt-16">
+      <a
+        href="/en"
+        class="inline-flex items-center gap-2 min-h-[44px] px-8 font-label text-sm text-primary hover:text-primary/70 transition-colors tracking-wide"
+      >
+        <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_back</span>
+        Back to home
+      </a>
+    </div>
+
+  </main>
+</Layout>
