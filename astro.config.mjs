@@ -9,6 +9,10 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://capellareginae.no",
   integrations: [sitemap()],
+  redirects: {
+    "/no": "/",
+    "/no/": "/",
+  },
   experimental: {
     rustCompiler: true,
     queuedRendering: {

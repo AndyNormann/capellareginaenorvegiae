@@ -29,13 +29,13 @@ const pageDescription = description ?? defaultDescription;
 const pathname = Astro.url.pathname.replace(/\/+$/, "");
 const baseUrl = 'https://capellareginae.no';
 const canonicalUrl = `${baseUrl}${pathname}`;
-const isActive = (slug: string) => pathname.endsWith(`/${lang}/${slug}`);
+const isActive = (slug: string) => pathname.endsWith(`/${lang}/${slug}`) || (lang === 'no' && pathname === `/${slug}`);
 
 const segments = pathname.split("/").filter(Boolean);
 const otherLang = lang === "no" ? "en" : "no";
 const restPath = segments.slice(2).join("/");
-const langHome = `/${lang}`;
-const noHref = `/no${restPath ? "/" + restPath : ""}`;
+const langHome = lang === "no" ? "/" : `/${lang}`;
+const noHref = restPath ? `/${restPath}` : "/";
 const enHref = `/en${restPath ? "/" + restPath : ""}`;
 
 const navPages = [
@@ -77,7 +77,7 @@ const jsonLd = {
   "parentOrganization": {
     "@type": "Organization",
     "name": "Capella Reginae Norvegiae",
-    "url": `${baseUrl}/no/`
+    "url": baseUrl
   },
   "sameAs": [
     "https://www.instagram.com/capellareginaenorvegiae/"
@@ -94,7 +94,7 @@ const jsonLd = {
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <meta name="robots" content="index, follow" />
-    <link rel="icon" href={favicon.src} type="image/x-icon" />
+    <link rel="icon" href={favicon.src} type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- Canonical URL -->
@@ -152,10 +152,11 @@ const jsonLd = {
     </a>
     <header id="site-header" class="sticky top-0 z-40">
       <nav
+      aria-label={t("nav.main")}
       class="flex justify-between items-center w-full pl-2 pr-4 py-3 max-w-6xl mx-auto"
       >
         <a class="flex items-center gap-3" href={langHome} aria-current={pathname === `/${lang}` || pathname === `/${lang}/` ? "page" : undefined}>
-          <Image src={topIcon} alt="Glassmaling" class="w-11 h-11 md:w-14 md:h-14" />
+          <Image src={topIcon} alt="Glassmaling" class="w-11 h-11 md:w-14 md:h-14" loading="eager" />
           <div class="leading-tight hidden sm:block">
             <div class="text-sm md:text-base font-semibold font-headline italic tracking-tight text-on-surface">
               Capella Reginae Norvegiae
@@ -166,7 +167,7 @@ const jsonLd = {
         <div class="flex gap-3 md:gap-6 items-center">
           {navPages.map((p) => (
             <a
-            href={`/${lang}/${p.slug}`}
+            href={lang === 'no' ? `/${p.slug}` : `/${lang}/${p.slug}`}
             class:list={[
               "font-headline italic text-base tracking-tight hover:text-on-surface transition-colors hidden sm:inline-flex items-center min-h-[44px] px-2",
               isActive(p.slug) ? "text-on-surface underline decoration-secondary decoration-2 underline-offset-4" : "text-on-surface-variant",
@@ -201,7 +202,7 @@ const jsonLd = {
                aria-current={lang === 'en' ? 'page' : undefined}>EN</a>
           </div>
           <a
-          href={`/${lang}/support`}
+          href={lang === 'no' ? '/support' : `/${lang}/support`}
           class:list={[
             "min-h-[44px] px-4 md:px-5 flex items-center border border-outline rounded-sm transition-all font-label text-sm",
             isActive("support") ? "bg-surface-container text-on-surface font-semibold" : "text-on-surface hover:bg-surface-container",
@@ -215,7 +216,7 @@ const jsonLd = {
         <div class="max-w-6xl mx-auto px-4 py-2 flex flex-col">
           {navPages.map((p) => (
             <a
-            href={`/${lang}/${p.slug}`}
+            href={lang === 'no' ? `/${p.slug}` : `/${lang}/${p.slug}`}
             class="min-h-[44px] flex items-center font-headline italic text-base text-on-surface-variant hover:text-on-surface"
             aria-current={isActive(p.slug) ? "page" : undefined}
             >{p.label}</a
@@ -239,6 +240,13 @@ const jsonLd = {
             mobileMenu.classList.add("hidden");
             navToggle.setAttribute("aria-expanded", "false");
           });
+        });
+        mobileMenu.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            mobileMenu.classList.add("hidden");
+            navToggle.setAttribute("aria-expanded", "false");
+            navToggle.focus();
+          }
         });
       }
     </script>
@@ -272,23 +280,6 @@ const jsonLd = {
         );
         revealEls.forEach((el) => observer.observe(el));
       }
-
-      // Animate progress bar when visible
-      const progressBar = document.querySelector(".progress-bar-fill");
-      if (progressBar) {
-        const pbObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                progressBar.classList.add("animated");
-                pbObserver.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.5 }
-        );
-        pbObserver.observe(progressBar);
-      }
     </script>
 
   <footer class="w-full mt-20 pb-12 pt-12 border-t border-outline-variant">
@@ -312,14 +303,14 @@ const jsonLd = {
         <nav aria-label={t("nav.footer")} class="flex flex-wrap justify-center gap-x-6 gap-y-1">
           {navPages.map((p) => (
             <a
-            href={`/${lang}/${p.slug}`}
+            href={lang === 'no' ? `/${p.slug}` : `/${lang}/${p.slug}`}
             class="min-h-[44px] inline-flex items-center font-body text-sm text-on-surface-variant hover:text-on-surface transition-colors"
             aria-current={isActive(p.slug) ? "page" : undefined}
             >{p.label}</a
             >
           ))}
           <a
-          href={`/${lang}/support`}
+          href={lang === 'no' ? '/support' : `/${lang}/support`}
           class="min-h-[44px] inline-flex items-center font-body text-sm text-on-surface-variant hover:text-on-surface transition-colors"
           aria-current={isActive("support") ? "page" : undefined}
           >{t("nav.support")}</a>

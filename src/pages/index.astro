@@ -1,1 +1,164 @@
-<meta http-equiv="refresh" content="0;url=/no/" />
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import heroImg from "@assets/mainhero.jpg";
+import sidealterImg from "@assets/sidealter.jpg";
+import closeupImg from "@assets/closeupourlady.jpg";
+import chapelSideImg from "@assets/chapelside.jpg";
+import bottomImg from "@assets/bottompicture.jpg";
+import { content, defaultLang } from "../i18n/content";
+
+const lang = "no";
+const c = content[lang];
+const idx = c.index;
+
+const mapsUrl = "https://maps.app.goo.gl/g5WxkXWGwMw9pADD6";
+const instagramUrl = "https://www.instagram.com/capellareginaenorvegiae/";
+---
+
+<Layout title={idx.title} description={idx.metaDescription}>
+  <main id="main-content">
+
+    <section class="relative min-h-[88vh] md:min-h-[92vh] flex items-end overflow-hidden" aria-label={idx.galleryLabel}>
+      <Image
+        src={heroImg}
+        alt={idx.heroAlt}
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/15" aria-hidden="true"></div>
+      <div class="relative w-full max-w-6xl mx-auto px-4 sm:px-8 pb-16 md:pb-24">
+        <h1 class="font-headline italic text-4xl sm:text-5xl md:text-6xl text-white leading-[1.05] mb-5 drop-shadow-lg max-w-3xl">
+          {idx.welcome}
+        </h1>
+        <p class="font-body text-base md:text-lg text-white/90 max-w-xl leading-relaxed mb-3 drop-shadow-md">
+          {idx.intro}
+        </p>
+        <div class="flex flex-wrap gap-4 items-center">
+          <a
+            href={mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 min-h-[44px] px-8 py-2.5 bg-white text-primary rounded-sm font-label text-sm hover:bg-white/90 transition-colors shadow-lg tracking-wide"
+          >
+            {idx.mapCta}
+            <span class="material-symbols-outlined text-base" aria-hidden="true">map</span>
+          </a>
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 min-h-[44px] px-4 font-headline italic text-base text-white/85 hover:text-white border-b border-white/30 pb-0.5 hover:border-white/70 transition-all"
+          >
+            {idx.questions}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 sm:px-8 py-20 md:py-28">
+      <div class="space-y-4 md:space-y-6">
+        <Image
+          src={sidealterImg}
+          alt={idx.featureAlt}
+          class="w-full h-[44vh] md:h-[68vh] object-cover rounded-2xl shadow-xl"
+        />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <Image
+            src={closeupImg}
+            alt={idx.img1Alt}
+            class="w-full aspect-[2/3] object-cover rounded-2xl shadow-xl"
+          />
+          <Image
+            src={chapelSideImg}
+            alt={idx.img2Alt}
+            class="w-full aspect-[2/3] object-cover rounded-2xl shadow-xl"
+          />
+        </div>
+      </div>
+      <div class="text-center mt-10 flex flex-col sm:flex-row gap-4 sm:gap-10 items-center justify-center">
+        <a
+          href="/story"
+          class="inline-flex items-center gap-2 min-h-[44px] font-headline italic text-lg text-primary hover:text-primary transition-colors"
+        >
+          {idx.storyLink}
+          <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+        </a>
+        <a
+          href="/ourlady"
+          class="inline-flex items-center gap-2 min-h-[44px] font-headline italic text-lg text-primary hover:text-primary transition-colors"
+        >
+          {idx.ourLadyLink}
+          <span class="material-symbols-outlined text-base" aria-hidden="true">church</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 sm:px-8 pb-24 md:pb-32">
+      <div class="bg-surface-container-low rounded-2xl border border-outline-variant p-8 md:p-14 text-center">
+        <h2 class="font-headline italic text-3xl md:text-4xl text-primary mb-4 leading-tight">
+          {idx.visitHeading}
+        </h2>
+        <p class="font-body text-base md:text-lg text-on-surface-variant leading-relaxed mb-8 max-w-lg mx-auto">
+          {idx.visitBody}
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href={mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 min-h-[44px] px-8 py-2.5 bg-primary text-on-primary rounded-sm font-label text-sm hover:bg-primary/90 transition-colors shadow-md tracking-wide"
+          >
+            <span class="material-symbols-outlined text-base" aria-hidden="true">map</span>
+            {idx.visitCta}
+          </a>
+          <a
+            href="/support"
+            class="inline-flex items-center gap-2 min-h-[44px] px-8 py-2.5 border border-primary/40 text-primary rounded-sm font-label text-sm hover:bg-primary/5 transition-colors tracking-wide"
+          >
+            <span class="material-symbols-outlined text-base" aria-hidden="true">favorite</span>
+            {idx.support}
+          </a>
+        </div>
+        <div class="flex flex-col items-center gap-1 mt-9">
+          <p class="font-body text-sm text-on-surface-variant">{idx.alwaysOpen}</p>
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-body text-sm text-primary hover:text-primary/70 transition-colors min-h-[44px] inline-flex items-center"
+          >
+            {idx.questions}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 sm:px-8 pb-20 md:pb-28">
+      <h2 class="font-headline italic text-3xl md:text-4xl text-primary text-center mb-10 md:mb-12 leading-tight">
+        {idx.reelHeading}
+      </h2>
+      <div class="max-w-3xl mx-auto">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/Xs8NanNIx8E"
+          title={idx.ytTitle}
+          class="w-full aspect-video rounded-2xl shadow-xl"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+
+    <section aria-label={idx.bottomAlt}>
+      <Image
+        src={bottomImg}
+        alt={idx.bottomAlt}
+        class="w-full h-[60vh] md:h-[72vh] object-cover"
+      />
+    </section>
+
+  </main>
+</Layout>

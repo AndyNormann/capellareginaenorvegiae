@@ -134,7 +134,6 @@ export async function fetchDonationData(): Promise<DonationData> {
   const clientSecret = VIPPS_CLIENT_SECRET;
   const subscriptionKey = VIPPS_SUBSCRIPTION_KEY;
   const msn = VIPPS_MSN;
-  console.log("vipps client id ", clientId);
 
   if (!clientId || !clientSecret || !subscriptionKey || !msn) {
     console.warn("[vipps] Missing Vipps credentials. Using Spleis data only.");

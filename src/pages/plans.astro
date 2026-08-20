@@ -1,5 +1,5 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import apsis1 from "@assets/plan-drawings/clean/apseMain.jpg";
 import scale1 from "@assets/plan-drawings/clean/scale1.jpg";
@@ -10,19 +10,12 @@ import scale5 from "@assets/plan-drawings/clean/scale5.jpg";
 import glassmaleriImg from "@assets/glassmaleri.jpg";
 import clockImg from "@assets/clock.jpg";
 import plan3d from "@assets/plan-drawings/clean/plan3d.mp4";
-import HotspotImage from "../../components/HotspotImage.astro";
-import { content, defaultLang } from "../../i18n/content";
+import HotspotImage from "../components/HotspotImage.astro";
+import { content } from "../i18n/content";
 
-export function getStaticPaths() {
-  return [
-    { params: { lang: "en" } },
-  ];
-}
-
-const { lang } = Astro.params as { lang: string };
-const c = lang in content ? content[lang as keyof typeof content] : content[defaultLang];
+const lang = "no";
+const c = content[lang];
 const pl = c.plans;
-
 
 const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
   apsis: [
@@ -41,7 +34,6 @@ const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
 <Layout title={pl.title} description={pl.metaDescription}>
   <main id="main-content" class="pb-24">
 
-    <!-- Header -->
     <section class="pt-16 md:pt-24 px-4 sm:px-8 reveal">
       <div class="max-w-3xl mx-auto">
         <h1 class="font-headline text-4xl md:text-5xl italic text-primary leading-tight mb-6">
@@ -54,7 +46,6 @@ const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
       </div>
     </section>
 
-    <!-- Video -->
     <section class="px-4 sm:px-8">
       <div class="max-w-3xl mx-auto mt-16">
         <div class="max-w-2xl mx-auto">
@@ -71,7 +62,6 @@ const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
       </div>
     </section>
 
-    <!-- Body blocks -->
     {pl.blocks.map((block, i) => (
       <Fragment>
       <section class="px-4 sm:px-8">
@@ -152,7 +142,6 @@ const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
             </div>
           )}
 
-          {/* 3D video, alongside the apsis pictures */}
           {block.images === "apsis" && (
             <div class="mt-6">
               <video
@@ -160,7 +149,7 @@ const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
                 controls
                 preload="metadata"
                 playsInline
-                aria-label={lang === 'no' ? '3D-plan over kapellet' : '3D floor plan of the chapel'}
+                aria-label="3D-plan over kapellet"
                 class="w-full h-auto rounded-2xl shadow-xl"
               />
             </div>
@@ -168,7 +157,6 @@ const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
         </div>
       </section>
 
-      {/* Stained-glass section, right after the roof-structure block */}
       {i === 3 && pl.glass && (
         <section class="px-4 sm:px-8">
           <div class="max-w-3xl mx-auto mt-16">
@@ -195,7 +183,6 @@ const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
         </section>
       )}
 
-      {/* Clock section, right after the stained-glass block */}
       {i === 3 && pl.clock && (
         <section class="px-4 sm:px-8">
           <div class="max-w-3xl mx-auto mt-16">
@@ -211,7 +198,6 @@ const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
       </Fragment>
     ))}
 
-    <!-- CTA -->
     <section class="px-4 sm:px-8 mt-16 pb-24 text-center">
       <div class="max-w-3xl mx-auto">
         <p class="font-headline italic text-2xl text-primary mb-2 leading-snug">{pl.cta.heading}</p>
@@ -220,14 +206,14 @@ const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
         </p>
         <div class="flex flex-wrap justify-center gap-4">
           <a
-            href={`/${lang}/support`}
+            href="/support"
             class="inline-flex items-center gap-3 min-h-[44px] px-8 py-2.5 bg-primary text-on-primary rounded-sm font-label text-sm hover:bg-primary/90 shadow-lg transition-colors tracking-wide"
           >
             {pl.cta.button}
             <span class="material-symbols-outlined text-base" aria-hidden="true">favorite</span>
           </a>
           <a
-            href={`/${lang}`}
+            href="/"
             class="inline-flex items-center gap-2 min-h-[44px] px-8 py-2.5 border border-primary/30 text-primary rounded-sm font-label text-sm hover:bg-primary/5 transition-colors tracking-wide"
           >
             <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_back</span>
@@ -239,7 +225,6 @@ const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
 
   </main>
 
-  <!-- Lightbox: click a sketch to view it larger -->
   <div
     id="lightbox"
     class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/85 p-4 sm:p-8"
@@ -267,12 +252,10 @@ const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
     const lbClose = document.getElementById("lightbox-close");
     if (lb && lbImg && lbClose) {
       let lastFocused = null;
-
       const focusable = () =>
-        Array.from(lb.querySelectorAll<HTMLElement>('button, [href], img[alt]')).filter(
+        Array.from(lb.querySelectorAll('button, [href], img[alt]')).filter(
           (el) => el.getBoundingClientRect().width > 0 && el.getBoundingClientRect().height > 0
         );
-
       const openLb = (img) => {
         lastFocused = document.activeElement;
         lbImg.src = img.src;

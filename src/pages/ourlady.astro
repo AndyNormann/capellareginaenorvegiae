@@ -1,27 +1,19 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import HotspotImage from "../../components/HotspotImage.astro";
+import HotspotImage from "../components/HotspotImage.astro";
 import ourLadyImg from "@assets/closeupourlady.jpg";
 import varfrueImg from "@assets/varfrue.jpg";
-import { content, defaultLang } from "../../i18n/content";
+import { content } from "../i18n/content";
 
-export function getStaticPaths() {
-  return [
-    { params: { lang: "en" } },
-  ];
-}
-
-const { lang } = Astro.params as { lang: string };
-const c = lang in content ? content[lang as keyof typeof content] : content[defaultLang];
+const lang = "no";
+const c = content[lang];
 const ol = c.ourlady;
-
 ---
 
 <Layout title={ol.title} description={ol.metaDescription}>
   <main id="main-content" class="max-w-6xl mx-auto px-4 sm:px-8 pb-24">
 
-    <!-- Header: the dedication -->
     <section class="pt-16 md:pt-24 text-center">
       <h1 class="font-headline text-4xl md:text-5xl italic text-primary leading-tight mb-6">
         {ol.heading}
@@ -32,11 +24,9 @@ const ol = c.ourlady;
       </p>
     </section>
 
-    <!-- The story, and the image -->
     <section class="max-w-5xl mx-auto">
       {ol.blocks.map((block, i) => (
         <div class="mt-16">
-          {/* Video before the closing / Alltid åpent section */}
           {i === 2 && (
             <div class="max-w-2xl mx-auto mb-10">
               <h2 class="font-headline text-2xl italic text-primary text-center mb-3">{block.videoHeading}</h2>
@@ -66,7 +56,6 @@ const ol = c.ourlady;
             ))}
           </div>
 
-          {/* Images sit between the first and second block */}
           {i === 0 && (
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start mt-12">
               <figure class="md:col-span-7">
@@ -96,14 +85,14 @@ const ol = c.ourlady;
     <div class="text-center mt-16">
       <div class="flex flex-wrap justify-center gap-4 mb-8">
         <a
-          href={`/${lang}/support`}
+          href="/support"
           class="inline-flex items-center gap-2 min-h-[44px] px-8 py-2.5 bg-primary text-on-primary rounded-sm font-label text-sm hover:bg-primary/90 transition-colors shadow-md tracking-wide"
         >
           <span class="material-symbols-outlined text-base" aria-hidden="true">favorite</span>
           {ol.supportButton}
         </a>
         <a
-          href={`/${lang}/story`}
+          href="/story"
           class="inline-flex items-center gap-2 min-h-[44px] px-8 py-2.5 border border-primary/40 text-primary rounded-sm font-label text-sm hover:bg-primary/5 transition-colors tracking-wide"
         >
           {ol.storyLink}
@@ -111,7 +100,7 @@ const ol = c.ourlady;
         </a>
       </div>
       <a
-        href={`/${lang}`}
+        href="/"
         class="inline-flex items-center gap-2 min-h-[44px] px-8 font-label text-sm text-primary hover:text-primary/70 transition-colors tracking-wide"
       >
         <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_back</span>
