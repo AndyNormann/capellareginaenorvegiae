@@ -93,13 +93,35 @@ const basePath = "/capellareginaenorvegiae";
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <figure class="overflow-hidden rounded-2xl shadow-2xl">
-            <Image src={veibeskrivelse1} alt={bv.img1Alt} class="w-full h-auto" />
+            <button
+              type="button"
+              class="group relative block w-full overflow-hidden cursor-zoom-in"
+              data-lightbox-btn
+              aria-label={`${bv.zoomLabel}: ${bv.img1Alt}`}
+            >
+              <Image src={veibeskrivelse1} alt={bv.img1Alt} class="w-full h-auto transition-transform duration-300 group-hover:scale-[1.03]" />
+              <span class="absolute inset-0 bg-black/0 group-hover:bg-black/25 group-focus-visible:bg-black/25 transition-colors" aria-hidden="true"></span>
+              <span class="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/55 text-white grid place-items-center opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity" aria-hidden="true">
+                <span class="material-symbols-outlined text-lg">zoom_in</span>
+              </span>
+            </button>
             <figcaption class="py-3 px-4 text-center text-sm text-on-surface/70 font-body bg-surface-container-low">
               {bv.img1Caption}
             </figcaption>
           </figure>
           <figure class="overflow-hidden rounded-2xl shadow-2xl">
-            <Image src={veibeskrivelse2} alt={bv.img2Alt} class="w-full h-auto" />
+            <button
+              type="button"
+              class="group relative block w-full overflow-hidden cursor-zoom-in"
+              data-lightbox-btn
+              aria-label={`${bv.zoomLabel}: ${bv.img2Alt}`}
+            >
+              <Image src={veibeskrivelse2} alt={bv.img2Alt} class="w-full h-auto transition-transform duration-300 group-hover:scale-[1.03]" />
+              <span class="absolute inset-0 bg-black/0 group-hover:bg-black/25 group-focus-visible:bg-black/25 transition-colors" aria-hidden="true"></span>
+              <span class="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/55 text-white grid place-items-center opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity" aria-hidden="true">
+                <span class="material-symbols-outlined text-lg">zoom_in</span>
+              </span>
+            </button>
             <figcaption class="py-3 px-4 text-center text-sm text-on-surface/70 font-body bg-surface-container-low">
               {bv.img2Caption}
             </figcaption>
@@ -119,4 +141,88 @@ const basePath = "/capellareginaenorvegiae";
     </div>
 
   </main>
+
+  <!-- Lightbox -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/85 p-4 sm:p-8"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-label={bv.zoomLabel}
+  >
+    <button
+      type="button"
+      id="lightbox-close"
+      class="absolute top-4 right-4 z-10 w-12 h-12 rounded-full bg-black/60 text-white grid place-items-center hover:bg-black/80 transition-colors"
+      aria-label={bv.zoomClose}
+    >
+      <span class="material-symbols-outlined text-2xl">close</span>
+    </button>
+    <img id="lightbox-img" class="max-h-[88vh] max-w-full object-contain rounded-lg shadow-2xl" alt="" />
+    <span id="lightbox-caption" class="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/90 text-sm font-body max-w-[90%] text-center bg-black/45 px-4 py-1.5 rounded-full"></span>
+  </div>
+
+  <script is:inline>
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lightbox-img");
+    const lbCap = document.getElementById("lightbox-caption");
+    const lbClose = document.getElementById("lightbox-close");
+    if (lb && lbImg && lbClose) {
+      let lastFocused = null;
+      const focusable = () =>
+        Array.from(lb.querySelectorAll('button, [href], img[alt]')).filter(
+          (el) => el.getBoundingClientRect().width > 0 && el.getBoundingClientRect().height > 0
+        );
+      const openLb = (img) => {
+        lastFocused = document.activeElement;
+        lbImg.src = img.src;
+        lbImg.alt = "";
+        if (lbCap) lbCap.textContent = img.alt || "";
+        lb.classList.remove("hidden");
+        lb.classList.add("flex");
+        lb.setAttribute("aria-hidden", "false");
+        document.getElementById("main-content")?.setAttribute("inert", "");
+        document.querySelector("header")?.setAttribute("inert", "");
+        document.querySelector("footer")?.setAttribute("inert", "");
+        lbClose.focus();
+      };
+      const closeLb = () => {
+        lb.classList.add("hidden");
+        lb.classList.remove("flex");
+        lb.setAttribute("aria-hidden", "true");
+        document.getElementById("main-content")?.removeAttribute("inert");
+        document.querySelector("header")?.removeAttribute("inert");
+        document.querySelector("footer")?.removeAttribute("inert");
+        if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
+      };
+      document.querySelectorAll("[data-lightbox-btn]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const img = btn.querySelector("img");
+          if (img) openLb(img);
+        });
+      });
+      lbClose.addEventListener("click", closeLb);
+      lb.addEventListener("click", (e) => {
+        if (e.target === lb) closeLb();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLb();
+        if (e.key === "Tab" && lb.getAttribute("aria-hidden") === "false") {
+          const els = focusable();
+          if (!els.length) return;
+          const first = els[0];
+          const last = els[els.length - 1];
+          const active = document.activeElement;
+          if (e.shiftKey && (active === first || active === lb)) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && active === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      });
+    }
+  </script>
 </Layout>
