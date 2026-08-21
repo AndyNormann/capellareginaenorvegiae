@@ -13,7 +13,9 @@ const gl = c.galleri;
 const manifestPath = path.resolve('src/assets/gallery/manifest.json');
 let images: { src: string; alt: string; modifiedTime: string }[] = [];
 if (fs.existsSync(manifestPath)) {
-  images = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+  try {
+    images = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+  } catch { images = []; }
 }
 
 // Dynamic import for gallery images — Astro needs static imports for optimisation,

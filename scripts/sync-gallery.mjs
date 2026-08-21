@@ -34,6 +34,11 @@ const MAX_WIDTH = 1920;
 const QUALITY = 82;
 
 // ── Auth ──────────────────────────────────────────────────────────────
+if (!process.env.GOOGLE_CREDENTIAL_BASE64) {
+  console.log("⚠  GOOGLE_CREDENTIAL_BASE64 is not set. Skipping gallery sync.");
+  process.exit(0);
+}
+
 const credsJson = Buffer.from(
   process.env.GOOGLE_CREDENTIAL_BASE64,
   "base64"

@@ -30,6 +30,7 @@ jobs:
           VIPPS_CLIENT_SECRET: ${{ secrets.VIPPS_CLIENT_SECRET }}
           VIPPS_SUBSCRIPTION_KEY: ${{ secrets.VIPPS_SUBSCRIPTION_KEY }}
           VIPPS_MSN: ${{ secrets.VIPPS_MSN }}
+          GOOGLE_CREDENTIAL_BASE64: ${{ secrets.GOOGLE_CREDENTIAL_BASE64 }}
         with:
           path: .
           node-version: 24
