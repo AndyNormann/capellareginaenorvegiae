@@ -37,6 +37,7 @@ export const content = {
       title: "From forge to chapel",
       badge: "Gudbrandsdalen, Norway",
       heading: "From forge to chapel",
+      videoTitle: "Video from Mariaslæen",
       intro:
         "An old forge at Ledum Farm, unused for decades, has been turned into a chapel dedicated to Our Lady of Gudbrandsdalen. This is the story of how it happened — and where it goes from here.",
       sections: [
@@ -129,6 +130,7 @@ export const content = {
       heading: "Plans for the chapel",
       intro:
         "The forge has been transformed inside, and the chapel is already in use. Now we want it to look like a chapel from the outside too. These are the plans and drawings that show where we're going.",
+      videoTitle: "Video from Mariaslæen",
       zoomLabel: "View image larger",
       zoomClose: "Close",
       imgAlts: {
@@ -278,7 +280,7 @@ export const content = {
       whatItBuilds: "See what your money builds",
       backText: "Back to home",
       metaDescription:
-        "Support the chapel at Mariaslæen in Gudbrandsdalen – every krone goes straight to the building. Donate via Vipps. No overhead, no admin.",
+        "Support the chapel at Mariaslæen in Gudbrandsdalen – every krone goes to the building. Donate via Vipps. No overhead, no admin.",
     },
     ourlady: {
       title: "Our Lady of Gudbrandsdalen",
@@ -395,6 +397,7 @@ export const content = {
       heading: "Want to visit the chapel?",
       intro:
         "The chapel is open to all — pilgrims, on foot and by car, hikers, and anyone seeking a quiet place. Just send us a message on Instagram if you wish to visit the chapel, and we will make sure the chapel is opened for you.",
+      mapLink: "Open in Google Maps",
       rulesHeading: "While visiting",
       rules: [
         "Treat the chapel with respect and maintain a quiet atmosphere.",
@@ -422,11 +425,14 @@ export const content = {
       zoomClose: "Close",
       backText: "Back to home",
       metaDescription:
-        "How to visit the chapel at Mariaslæen in Gudbrandsdalen. Open to all — send us a message and we will make sure it is opened.",
+        "Visit the chapel at Mariaslæen in Gudbrandsdalen — open to all pilgrims and visitors. Send us a message on Instagram to arrange your visit.",
     },
     smia: {
       title: "The forge",
       heading: "From swords to plowshares",
+      imgAlt1: "Kneeling after the elevation",
+      imgAlt2: "The Gospel during the requiem Mass",
+      backText: "Back to home",
       bibleVerse: {
         text: "They shall beat their swords into plowshares,\nand their spears into pruning hooks;\nnation shall not lift up sword against nation,\nneither shall they learn war any more.",
         reference: "Isaiah 2,4",
@@ -442,7 +448,7 @@ export const content = {
         text: "The very first Mass celebrated at Ledum farm, in the forge that has now become a chapel, was a requiem Mass for my grandfather Mathias Ledum, who in my father's childhood stood here in the forge and with the help of the fire, straightened tools that had been bent and worn, and at the same time created new tools out of simple materials.That is why it becomes very special to celebrate Mass in the same place, especially Masses for the deceased. By the fire of the Holy Spirit the simple bread and wine become something new, and at the same time the sacrifice of Mass comes the soul of the deceased to aid, in the hope that what has been bent by sin will be straightened in purgatory, returned to its original holiness and thus can become ready to meet Him whose most Sacred Heart is the burning furnace of love.",
       },
       metaDescription:
-        "The forge at Mariaslæen — from swords to plowshares, a chapel dedicated to the Virgin Mary, Queen of Peace.",
+        "The forge at Mariaslæen — from swords to plowshares: a Catholic chapel dedicated to Mary, Queen of Peace, in Gudbrandsdalen, Norway.",
     },
   },
   no: {
@@ -481,6 +487,7 @@ export const content = {
       title: "Fra smie til kapell",
       badge: "Gudbrandsdalen, Norge",
       heading: "Fra smie til kapell",
+      videoTitle: "Video fra Mariaslæen",
       intro:
         "Ei gammel smie på Ledum gård, ubrukt i flere tiår, har blitt gjort om til et kapell viet til Vår Frue av Gudbrandsdalen. Dette er historien om hvordan det skjedde — og hvor det bærer videre.",
       sections: [
@@ -574,6 +581,7 @@ export const content = {
       heading: "Planer for kapellet",
       intro:
         "Smia er transformert på innsida, og kapellet er allerede i bruk. Nå vil vi at det også fra utsida skal se ut som et kapell. Dette er planene og tegningene som viser hvor vi vil.",
+      videoTitle: "Video fra Mariaslæen",
       zoomLabel: "Se bildet større",
       zoomClose: "Lukk",
       imgAlts: {
@@ -840,6 +848,7 @@ export const content = {
       heading: "Vil du besøke kapellet?",
       intro:
         "Kapellet er åpent for alle — pilegrimer, både til fots og med bil, turgåere og alle som søker et stille sted. Bare send oss en melding på Instagram om du ønsker å besøke kapellet, så kan vi tilrettelegge for at kapellet åpnes.",
+      mapLink: "Åpne i Google Maps",
       rulesHeading: "Under besøket",
       rules: [
         "Opptre med respekt og oppretthold ro i kapellet.",
@@ -872,6 +881,9 @@ export const content = {
     smia: {
       title: "Smia",
       heading: "Fra sverd til plogskjær",
+      imgAlt1: "Kneling etter opphøyelsen",
+      imgAlt2: "Evangeliet under rekviemmesssen",
+      backText: "Tilbake til forsiden",
       bibleVerse: {
         text: "De skal smi sverdene om til plogskjær\nog spydene til vingårdskniver.\nFolk skal ikke løfte sverd mot folk,\nikke lenger læres opp til krig.",
         reference: "Jesaja 2,4",

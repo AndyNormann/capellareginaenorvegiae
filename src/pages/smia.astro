@@ -46,7 +46,7 @@ const sm = c.smia;
     <section class="mt-12">
       <Image
         src={kneelingImg}
-        alt="Kneling etter opphøyelsen"
+        alt={sm.imgAlt1}
         class="w-full aspect-[3/4] object-cover rounded-2xl shadow-xl"
       />
     </section>
@@ -60,7 +60,7 @@ const sm = c.smia;
     <section class="mt-12">
       <Image
         src={gospelImg}
-        alt="Evangeliet under rekviemmesssen"
+        alt={sm.imgAlt2}
         class="w-full aspect-[16/9] object-cover rounded-2xl shadow-xl"
       />
     </section>
@@ -71,7 +71,7 @@ const sm = c.smia;
         class="inline-flex items-center gap-2 min-h-[44px] px-8 font-label text-sm text-primary hover:text-primary/70 transition-colors tracking-wide"
       >
         <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_back</span>
-        Tilbake til forsiden
+        {sm.backText}
       </a>
     </div>
 
