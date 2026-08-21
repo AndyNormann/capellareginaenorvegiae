@@ -64,7 +64,7 @@ export const content = {
           heading: "The name",
           body: [
             "The support association behind the chapel has been given the name Capella Reginae Norvegiae — Latin for «the chapel of the Queen of Norway» — and it has become the official name used in social media and the one that works best internationally. In everyday speech, however, we use the name Mariaslæen.",
-            "«Slæen» is the local way of saying slette (meadow), eng (field), slått (haymaking), etc., in the definite form, and is used as a name for various mountain pastures in Øyerfjellet, among them the Ledum family's own pasture «Ledumslæen», mentioned in Sigrid Undset's books «Den brennende busk» and «Lykkelige dager».",
+            "«Slæen» is the local way of saying slette (meadow), eng (field), slått (haymaking), etc., in the definite form, and is used as a name for various mountain pastures in Øyerfjellet, among them the Ledum family's own pasture «Ledumslæen», mentioned in Sigrid Undset's books «The burning bush» and «Happy Times in Norway».",
           ],
         },
         {
@@ -85,7 +85,8 @@ export const content = {
       matheaCaption:
         "Mass being celebrated in Mathea Baadstø's house, today a rest area in Tretten.",
       sigridMesseAlt: "Mass was celebrated at Bjerkebæk, Sigrid Undset's house",
-      sigridMesseCaption: "Mass was celebrated at Bjerkebæk, Sigrid Undset's house.",
+      sigridMesseCaption:
+        "Mass was celebrated at Bjerkebæk, Sigrid Undset's house.",
       beforeAlt: "The forge before renovation",
       afterAlt: "The chapel taking shape",
       beforeLabel: "Before",
@@ -536,7 +537,8 @@ export const content = {
       matheaCaption:
         "Messe feiret i Mathea Baadstøs hus, i dag et rasteområde på Tretten.",
       sigridMesseAlt: "Her ble Messer feiret på Bjerkebæk, Sigrid Undsets hus",
-      sigridMesseCaption: "Her ble Messer feiret på Bjerkebæk, Sigrid Undsets hus.",
+      sigridMesseCaption:
+        "Her ble Messer feiret på Bjerkebæk, Sigrid Undsets hus.",
       beforeAlt: "Smia før renovering",
       afterAlt: "Kapellet tar form",
       beforeLabel: "Før",
