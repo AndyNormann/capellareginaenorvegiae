@@ -31,7 +31,7 @@ export const content = {
       closeInstagramLabel: "Follow us on Instagram",
       support: "Support us",
       metaDescription:
-        "Mariaslæen – a small chapel in an old forge at Ledum farm along the pilgrim route in Gudbrandsdalen, Norway. Open to all visitors. Donate via Vipps.",
+        "Mariaslæen – a small, catholic, marian chapel converted from an old forge at Ledum farm along the pilgrim route in Gudbrandsdalen, Norway. Open to all visitors. Donate via Vipps.",
     },
     story: {
       title: "From forge to chapel",
@@ -264,7 +264,7 @@ export const content = {
         backText: "Back to home",
       },
       metaDescription:
-        "Building plans for the chapel at Mariaslæen: slate roof, bell tower with spire, dragestil entrance, apse with sacristy — designed to match Gudbrandsdalen's beautiful churches.",
+        "Building plans for the catholic chapel at Mariaslæen: slate roof, bell tower with spire, dragestil entrance, apse with sacristy — designed to match Gudbrandsdalen's beautiful churches.",
     },
     support: {
       title: "Support the chapel",
@@ -280,13 +280,13 @@ export const content = {
       whatItBuilds: "See what your money builds",
       backText: "Back to home",
       metaDescription:
-        "Support the chapel at Mariaslæen in Gudbrandsdalen – every krone goes to the building. Donate via Vipps. No overhead, no admin.",
+        "Support the catholic chapel at Mariaslæen in Gudbrandsdalen – every krone goes to the building. Donate via Vipps. No overhead, no admin.",
     },
     ourlady: {
       title: "Our Lady of Gudbrandsdalen",
       heading: "Our Lady of Gudbrandsdalen",
       intro:
-        "The chapel at Mariaslæen is dedicated to the Blessed Virgin Mary — and in particular to an image we call Our Lady of Gudbrandsdalen.",
+        "The catholic chapel at Mariaslæen is dedicated to the Blessed Virgin Mary — and in particular to an image we call Our Lady of Gudbrandsdalen.",
       imageAlt: "Close-up of Our Lady of Gudbrandsdalen",
       mainImageAlt: "Our Lady of Gudbrandsdalen",
       artistCredit: "Artwork by Ayla Gloria Olava Heimly",
@@ -425,7 +425,7 @@ export const content = {
       zoomClose: "Close",
       backText: "Back to home",
       metaDescription:
-        "Visit the chapel at Mariaslæen in Gudbrandsdalen — open to all pilgrims and visitors. Send us a message on Instagram to arrange your visit.",
+        "Visit the catholic chapel at Mariaslæen in Gudbrandsdalen — open to all pilgrims and visitors. Send us a message on Instagram to arrange your visit.",
     },
     smia: {
       title: "The forge",
@@ -481,7 +481,7 @@ export const content = {
       closeInstagramLabel: "Følg oss på Instagram",
       support: "Støtt oss",
       metaDescription:
-        "Mariaslæen – et lite kapell i en gammel smie på Ledum gård langs pilegrimsleden i Gudbrandsdalen. Åpent for alle besøkende. Gi via Vipps.",
+        "Mariaslæen – et lite, katolsk, mariansk kapell omgjort fra en gammel smie på Ledum gård langs pilegrimsleden i Gudbrandsdalen. Åpent for alle besøkende. Gi via Vipps.",
     },
     story: {
       title: "Fra smie til kapell",
