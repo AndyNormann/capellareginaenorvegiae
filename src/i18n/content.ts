@@ -84,8 +84,8 @@ export const content = {
       matheaAlt: "Mathea Baadstø",
       matheaCaption:
         "Mass being celebrated in Mathea Baadstø's house, today a rest area in Tretten.",
-      sigridMesseAlt: "Mass celebrated at Sigrid Undset's house",
-      sigridMesseCaption: "Mass celebrated at Sigrid Undset's house.",
+      sigridMesseAlt: "Mass was celebrated at Bjerkebæk, Sigrid Undset's house",
+      sigridMesseCaption: "Mass was celebrated at Bjerkebæk, Sigrid Undset's house.",
       beforeAlt: "The forge before renovation",
       afterAlt: "The chapel taking shape",
       beforeLabel: "Before",
@@ -535,8 +535,8 @@ export const content = {
       matheaAlt: "Mathea Baadstø",
       matheaCaption:
         "Messe feiret i Mathea Baadstøs hus, i dag et rasteområde på Tretten.",
-      sigridMesseAlt: "Messe feiret i Sigrid Undsets hus",
-      sigridMesseCaption: "Messe feiret i Sigrid Undsets hus.",
+      sigridMesseAlt: "Her ble Messer feiret på Bjerkebæk, Sigrid Undsets hus",
+      sigridMesseCaption: "Her ble Messer feiret på Bjerkebæk, Sigrid Undsets hus.",
       beforeAlt: "Smia før renovering",
       afterAlt: "Kapellet tar form",
       beforeLabel: "Før",
