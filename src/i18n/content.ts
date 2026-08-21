@@ -368,7 +368,7 @@ export const content = {
           y: 66,
           label: "The Farm",
           title: "The Farm",
-          body: "Ledum farm, where the chapel of Our Lady of Gudbrandsdalen lies.",
+          body: "Ledum farm, where the chapel of Our Lady of Gudbrandsdalen is.",
         },
       ],
       blocks: [

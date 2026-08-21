@@ -17,6 +17,21 @@ const lang = "no";
 const c = content[lang];
 const pl = c.plans;
 
+const projectSchema = {
+  "@type": "Project",
+  "name": pl.heading,
+  "description": pl.metaDescription,
+  "sponsor": {
+    "@type": "Organization",
+    "name": "Capella Reginae Norvegiae",
+    "url": "https://capellareginae.no"
+  },
+  "location": {
+    "@type": "Place",
+    "name": "Ledum farm, Gudbrandsdalen, Norway"
+  }
+};
+
 const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
   apsis: [
     { src: apsis1, alt: pl.imgAlts.apseMain },
@@ -31,7 +46,7 @@ const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
 };
 ---
 
-<Layout title={pl.title} description={pl.metaDescription}>
+<Layout title={pl.title} description={pl.metaDescription} pageSchema={projectSchema}>
   <main id="main-content" class="pb-24">
 
     <section class="pt-16 md:pt-24 px-4 sm:px-8 reveal">

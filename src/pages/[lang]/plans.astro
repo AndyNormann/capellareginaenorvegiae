@@ -23,6 +23,21 @@ const { lang } = Astro.params as { lang: string };
 const c = lang in content ? content[lang as keyof typeof content] : content[defaultLang];
 const pl = c.plans;
 
+const projectSchema = {
+  "@type": "Project",
+  "name": pl.heading,
+  "description": pl.metaDescription,
+  "sponsor": {
+    "@type": "Organization",
+    "name": "Capella Reginae Norvegiae",
+    "url": "https://capellareginae.no"
+  },
+  "location": {
+    "@type": "Place",
+    "name": "Ledum farm, Gudbrandsdalen, Norway"
+  }
+};
+
 
 const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
   apsis: [
@@ -38,7 +53,7 @@ const imageGroups: Record<string, { src: typeof apsis1; alt: string }[]> = {
 };
 ---
 
-<Layout title={pl.title} description={pl.metaDescription}>
+<Layout title={pl.title} description={pl.metaDescription} pageSchema={projectSchema}>
   <main id="main-content" class="pb-24">
 
     <!-- Header -->

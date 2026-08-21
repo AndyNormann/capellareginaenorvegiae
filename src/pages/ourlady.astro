@@ -9,9 +9,24 @@ import { content } from "../i18n/content";
 const lang = "no";
 const c = content[lang];
 const ol = c.ourlady;
+
+const artworkSchema = {
+  "@type": "VisualArtwork",
+  "name": ol.mainImageAlt,
+  "description": ol.intro,
+  "creator": {
+    "@type": "Person",
+    "name": "Ayla Gloria Olava Heimly"
+  },
+  "artworkType": "Painting",
+  "locationCreated": {
+    "@type": "Place",
+    "name": "Gudbrandsdalen, Norway"
+  }
+};
 ---
 
-<Layout title={ol.title} description={ol.metaDescription}>
+<Layout title={ol.title} description={ol.metaDescription} pageSchema={artworkSchema}>
   <main id="main-content" class="max-w-6xl mx-auto px-4 sm:px-8 pb-24">
 
     <section class="pt-16 md:pt-24 text-center">

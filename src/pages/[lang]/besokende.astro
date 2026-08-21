@@ -15,9 +15,28 @@ const { lang } = Astro.params as { lang: string };
 const c = lang in content ? content[lang as keyof typeof content] : content[defaultLang];
 const bv = c.besokende;
 
+const placeSchema = {
+  "@type": "Place",
+  "name": "Mariaslæen – Capella Reginae Norvegiae",
+  "description": bv.metaDescription,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Øyer",
+    "addressRegion": "Innlandet",
+    "addressCountry": "NO"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 61.3,
+    "longitude": 10.4
+  },
+  "hasMap": "https://maps.app.goo.gl/g5WxkXWGwMw9pADD6",
+  "publicAccess": true
+};
+
 ---
 
-<Layout title={bv.title} description={bv.metaDescription}>
+<Layout title={bv.title} description={bv.metaDescription} pageSchema={placeSchema}>
   <main id="main-content" class="pb-24">
 
     <section class="pt-16 md:pt-24 px-4 sm:px-8">

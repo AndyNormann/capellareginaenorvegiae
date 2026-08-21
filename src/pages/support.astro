@@ -12,6 +12,22 @@ const sp = c.support;
 const donationData = await fetchDonationData();
 const totalRaised = formatKr(donationData.totalRaisedSats, lang);
 
+const donateSchema = {
+  "@type": "DonateAction",
+  "name": sp.heading,
+  "description": sp.metaDescription,
+  "agent": {
+    "@type": "Organization",
+    "name": "Capella Reginae Norvegiae",
+    "url": "https://capellareginae.no"
+  },
+  "recipient": {
+    "@type": "Organization",
+    "name": "Capella Reginae Norvegiae"
+  },
+  "currency": "NOK"
+};
+
 function formatDate(iso: string, lang: string): string {
   const d = new Date(iso);
   return d.toLocaleDateString(lang === "no" ? "nb-NO" : "en-GB", {
@@ -22,7 +38,7 @@ function formatDate(iso: string, lang: string): string {
 }
 ---
 
-<Layout title={sp.title} description={sp.metaDescription}>
+<Layout title={sp.title} description={sp.metaDescription} pageSchema={donateSchema}>
   <main id="main-content" class="max-w-6xl mx-auto px-4 sm:px-8 pb-24">
 
     <section class="pt-16 pb-12 md:pt-24 md:pb-16 text-center">

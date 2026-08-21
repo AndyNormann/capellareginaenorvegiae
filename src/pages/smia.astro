@@ -8,9 +8,22 @@ import { content } from "../i18n/content";
 const lang = "no";
 const c = content[lang];
 const sm = c.smia;
+
+const smiaSchema = {
+  "@type": "Article",
+  "headline": sm.heading,
+  "description": sm.metaDescription,
+  "author": { "@type": "Person", "name": "Mathias Bruno Ledum" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Capella Reginae Norvegiae",
+    "url": "https://capellareginae.no"
+  },
+  "inLanguage": lang
+};
 ---
 
-<Layout title={sm.title} description={sm.metaDescription}>
+<Layout title={sm.title} description={sm.metaDescription} pageSchema={smiaSchema}>
   <main id="main-content" class="max-w-3xl mx-auto px-4 sm:px-8 pb-24">
 
     <section class="pt-16 md:pt-24 text-center">

@@ -13,9 +13,23 @@ const lang = "no";
 const c = content[lang];
 const st = c.story;
 const sections = st.sections;
+
+const storySchema = {
+  "@type": "Article",
+  "headline": st.heading,
+  "description": st.metaDescription,
+  "author": { "@type": "Person", "name": "Mathias Bruno Ledum" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Capella Reginae Norvegiae",
+    "url": "https://capellareginae.no"
+  },
+  "datePublished": "2025-09-01",
+  "inLanguage": lang
+};
 ---
 
-<Layout title={st.title} description={st.metaDescription}>
+<Layout title={st.title} description={st.metaDescription} pageSchema={storySchema}>
   <main id="main-content" class="pb-24">
 
     <section class="pt-16 md:pt-24 px-4 sm:px-8 reveal">
