@@ -428,6 +428,13 @@ export const content = {
       metaDescription:
         "Visit the catholic chapel at Mariaslæen in Gudbrandsdalen — open to all pilgrims and visitors. Send us a message on Instagram to arrange your visit.",
     },
+    galleri: {
+      title: "Gallery",
+      heading: "Gallery",
+      description: "Photos of the chapel at Mariaslæen in Gudbrandsdalen.",
+      metaDescription:
+        "Photo gallery of the catholic chapel at Mariaslæen in Gudbrandsdalen — images of the chapel, the surroundings, and the work in progress.",
+    },
     smia: {
       title: "The forge",
       heading: "From swords to plowshares",
@@ -879,6 +886,13 @@ export const content = {
       backText: "Tilbake til forsiden",
       metaDescription:
         "Slik besøker du kapellet på Mariaslæen i Gudbrandsdalen. Åpent for alle — send oss en melding, så sørger vi for at det åpnes.",
+    },
+    galleri: {
+      title: "Galleri",
+      heading: "Galleri",
+      description: "Bilder av kapellet på Mariaslæen i Gudbrandsdalen.",
+      metaDescription:
+        "Billedgalleri av kapellet på Mariaslæen i Gudbrandsdalen — bilder av kapellet, omgivelsene og arbeidet som pågår.",
     },
     smia: {
       title: "Smia",

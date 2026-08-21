@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/sync-gallery.mjs && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -16,6 +16,7 @@
     "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.0.8",
+    "googleapis": "^176.0.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.2.2"
   },

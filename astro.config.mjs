@@ -41,6 +41,11 @@ export default defineConfig({
         access: "secret",
         optional: true,
       }),
+      GOOGLE_CREDENTIAL_BASE64: envField.string({
+        context: "server",
+        access: "secret",
+        optional: true,
+      }),
     },
   },
   vite: {
