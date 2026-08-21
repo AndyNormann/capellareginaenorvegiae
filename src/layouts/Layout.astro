@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import "../styles/fonts.css";
 import { Image } from "astro:assets";
 import topIcon from "@assets/top-icon.png";
 import favicon from "../../public/favicon.png";
@@ -103,6 +104,7 @@ const jsonLd = {
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#6750A4" />
 		<link rel="icon" href={favicon.src} sizes="48x48" type="image/png" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -136,18 +138,7 @@ const jsonLd = {
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={pageOgImage} />
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link
-    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Caveat:wght@400..700&display=swap"
-    rel="stylesheet"
-    />
-    <!-- Material Symbols -->
-    <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-    rel="stylesheet"
-    />
+    <!-- Fonts (self-hosted) -->
 
     <!-- Preconnect for YouTube embeds -->
     <link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin />
