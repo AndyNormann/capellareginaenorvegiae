@@ -55,6 +55,21 @@ const artworkSchema = {
             ))}
           </div>
 
+          {block.videoEmbed && (
+            <div class="max-w-2xl mx-auto mt-8">
+              <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${block.videoEmbed}`}
+                  title={block.videoTitle}
+                  loading="lazy"
+                  class="absolute inset-0 w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          )}
+
           {i === 0 && (
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start mt-12">
               <figure class="md:col-span-7">

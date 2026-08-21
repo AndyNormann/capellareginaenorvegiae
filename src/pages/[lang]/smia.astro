@@ -53,8 +53,8 @@ const smiaSchema = {
 
     <section class="mt-8">
       <div class="space-y-4 text-on-surface-variant leading-relaxed text-center">
-        {sm.paragraphs.map((para) => (
-          <p>{para}</p>
+        {sm.paragraphs.map((para, i) => (
+          <p class:list={[i === 0 && "whitespace-pre-line"]}>{para}</p>
         ))}
       </div>
       <p class="mt-8 text-center font-headline italic text-primary text-lg">
