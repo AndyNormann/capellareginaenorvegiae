@@ -438,7 +438,7 @@ export const content = {
         reference: "Isaiah 2,4",
       },
       paragraphs: [
-        "The chapel that this old forge has turned into is dedicated to the Blessed Virgin Mary, the Queen of Peace. Our Lady of Gudbrandsdalen, pray for peace in our world and in our hearts.",
+        "The chapel that this old forge has turned into is dedicated to the Blessed Virgin Mary, the Queen of Peace.",
         'Instead of using the forge to make weapons, this forge has a different purpose. A furnace turned into an altar to offer the Holy Sacrifice of the Mass. At Mass we are united to the sacrifice of Jesus through which we are reconciled to God. This is the true peace that the world cannot give. In the Rite of Peace during the Mass, the Church "entreats peace and unity for herself and for the whole human family, and the faithful express to each other their ecclesial communion and mutual charity before communicating in the Sacrament". GIRM, 82.',
         '"Peace is not something merely exterior. It is mainly found in the heart of those who are open to God\'s forgiveness. Peace is reconciliation with God, in the blood of Christ. In this way, the habitual participation of the Eucharist makes Christians become men of peace, because during the Mass they receive time and again the peace of Christ, of that reason they are more able to communicate to their brethren the peace that they have received from God."\n\n— "Explanation of the Mass", Home of the Mother',
       ],
@@ -889,7 +889,7 @@ export const content = {
         reference: "Jesaja 2,4",
       },
       paragraphs: [
-        "Kapellet som denne gamle smia har blitt til, er viet til Jomfru Maria, Fredens Dronning. Vår Frue av Gudbrandsdalen, be for fred i vår verden og i våre hjerter.",
+        "Kapellet som denne gamle smia har blitt til, er viet til Jomfru Maria, Fredens Dronning.",
         "I stedet for å bruke smia til å lage våpen, har denne smia et annet formål. Et ildsted omgjort til et alter for å bære fram det hellige Messe-offeret. I Messen forenes vi med Jesu offer, som forsoner oss med Gud. Dette er den sanne fred som verden ikke kan gi. I fredsritualet under messen «ber kirken om fred og enhet for seg selv og for hele menneskeheten, og de troende uttrykker sitt kirkelige fellesskap og gjensidige kjærlighet til hverandre før de mottar sakramentet». GIRM, 82.",
         '«Fred er ikke bare noe i det ytre. Den finnes hovedsakelig i hjertet til de som er åpne for Guds tilgivelse. Fred er forsoning med Gud, i Kristi blod. På denne måten gjør den regelmessige deltakelsen i nattverden kristne til fredens folk, fordi de under messen gang på gang mottar Kristi fred, og derfor er de bedre i stand til å formidle den freden de har mottatt fra Gud til sine brødre og søstre.»\n\n— "Explanation of the Mass", Home of the Mother',
       ],
