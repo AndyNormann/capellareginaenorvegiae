@@ -4,6 +4,9 @@ import { Image } from "astro:assets";
 import HotspotImage from "../../components/HotspotImage.astro";
 import ourLadyImg from "@assets/closeupourlady.jpg";
 import varfrueImg from "@assets/varfrue.jpg";
+import paintingImg from "@assets/our-lady-painting.jpeg";
+import statueImg from "@assets/our-lady-statue.jpeg";
+import statueRedImg from "@assets/our-lady-statue-red.jpeg";
 import { content, defaultLang } from "../../i18n/content";
 
 export function getStaticPaths() {
@@ -100,6 +103,46 @@ const artworkSchema = {
                   class="w-full aspect-[2/3] object-cover rounded-2xl shadow-xl"
                 />
               </div>
+            </div>
+          )}
+
+          {i === 1 && (
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+              <figure class="overflow-hidden rounded-2xl shadow-xl">
+                <Image
+                  src={paintingImg}
+                  alt="Our Lady of Gudbrandsdalen painting"
+                  class="w-full aspect-[3/4] object-cover max-h-[500px]"
+                  loading="lazy"
+                />
+                <figcaption class="py-3 px-4 text-center text-sm text-on-surface/70 font-body bg-surface-container-low">
+                  Himmelkroning – Maleri fra 1712 i Lom Stavkyrkje
+                </figcaption>
+              </figure>
+              <figure class="overflow-hidden rounded-2xl shadow-xl">
+                <Image
+                  src={statueImg}
+                  alt="Our Lady of Gudbrandsdalen statue"
+                  class="w-full aspect-[3/4] object-cover max-h-[500px]"
+                  loading="lazy"
+                />
+                <figcaption class="py-3 px-4 text-center text-sm text-on-surface/70 font-body bg-surface-container-low">
+                  Statue av Jomfru Maria fra 1250-1300-tallet, tidligere i Svendsgardskirka, Dovre.
+                </figcaption>
+              </figure>
+            </div>
+            <div class="mt-6">
+              <figure class="overflow-hidden rounded-2xl shadow-xl max-w-md mx-auto">
+                <Image
+                  src={statueRedImg}
+                  alt="Our Lady of Gudbrandsdalen statue in red"
+                  class="w-full aspect-[3/4] object-cover max-h-[500px]"
+                  loading="lazy"
+                />
+                <figcaption class="py-3 px-4 text-center text-sm text-on-surface/70 font-body bg-surface-container-low">
+                  Follebumadonnaen - Statue av Jomfru Maria fra 1400-tallet, tidligere i Follebu kirke, Gausdal.
+                </figcaption>
+              </figure>
             </div>
           )}
         </div>
