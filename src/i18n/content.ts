@@ -426,10 +426,10 @@ export const content = {
     },
     smia: {
       title: "The forge",
-      heading: "From swords to ploughshares",
+      heading: "From swords to plowshares",
       bibleVerse: {
         text: "They shall beat their swords into plowshares,\nand their spears into pruning hooks;\nnation shall not lift up sword against nation,\nneither shall they learn war any more.",
-        reference: "Isaiah 2,4"
+        reference: "Isaiah 2,4",
       },
       paragraphs: [
         "The chapel that this old forge has turned into is dedicated to the Blessed Virgin Mary, the Queen of Peace. Our Lady of Gudbrandsdalen, pray for peace in our world and in our hearts.",
@@ -442,7 +442,7 @@ export const content = {
         text: "The very first Mass celebrated at Ledum farm, in the forge that has now become a chapel, was a requiem Mass for my grandfather Mathias Ledum, who in my father's childhood stood here in the forge and with the help of the fire, straightened tools that had been bent and worn, and at the same time created new tools out of simple materials.That is why it becomes very special to celebrate Mass in the same place, especially Masses for the deceased. By the fire of the Holy Spirit the simple bread and wine become something new, and at the same time the sacrifice of Mass comes the soul of the deceased to aid, in the hope that what has been bent by sin will be straightened in purgatory, returned to its original holiness and thus can become ready to meet Him whose most Sacred Heart is the burning furnace of love.",
       },
       metaDescription:
-        "The forge at Mariaslæen — from swords to ploughshares, a chapel dedicated to the Virgin Mary, Queen of Peace.",
+        "The forge at Mariaslæen — from swords to plowshares, a chapel dedicated to the Virgin Mary, Queen of Peace.",
     },
   },
   no: {
@@ -874,7 +874,7 @@ export const content = {
       heading: "Fra sverd til plogskjær",
       bibleVerse: {
         text: "De skal smi sverdene om til plogskjær\nog spydene til vingårdskniver.\nFolk skal ikke løfte sverd mot folk,\nikke lenger læres opp til krig.",
-        reference: "Jesaja 2,4"
+        reference: "Jesaja 2,4",
       },
       paragraphs: [
         "Kapellet som denne gamle smia har blitt til, er viet til Jomfru Maria, Fredens Dronning. Vår Frue av Gudbrandsdalen, be for fred i vår verden og i våre hjerter.",
