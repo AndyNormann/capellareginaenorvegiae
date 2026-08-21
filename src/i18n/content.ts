@@ -21,7 +21,7 @@ export const content = {
       ourLadyLink: "Meet Our Lady",
       visitHeading: "How to get here",
       visitBody:
-        "Ledum farm lies in Gudbrandsdalen. Open the map for directions.",
+        "Ledum farm is in Gudbrandsdalen. Open the map for directions.",
       visitCta: "Open in Google Maps",
       alwaysOpen:
         "The chapel is still taking shape — but you're always welcome to message us.",
