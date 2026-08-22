@@ -18,7 +18,7 @@ pnpm-debug.log*
 .env.production
 
 # gallery images (synced from Google Drive at build time)
-src/assets/gallery/
+public/assets/gallery/
 
 # macOS-specific files
 .DS_Store

@@ -2,7 +2,7 @@
 /**
  * sync-gallery.mjs
  * Downloads images from a Google Drive folder at build time,
- * optimises them with Sharp, and saves to src/assets/gallery/.
+ * optimises them with Sharp, and saves to public/assets/gallery/.
  */
 
 import fs from "node:fs";
@@ -29,9 +29,9 @@ if (fs.existsSync(envPath)) {
 }
 
 const FOLDER_ID = "1rSvUU1kYcqLe49FQYupoMf0mlwHtKzyu";
-const DEST_DIR = path.resolve("src/assets/gallery");
+const DEST_DIR = path.resolve("public/assets/gallery");
 const MAX_WIDTH = 1920;
-const QUALITY = 82;
+const QUALITY = 72;
 
 // ── Auth ──────────────────────────────────────────────────────────────
 if (!process.env.GOOGLE_CREDENTIAL_BASE64) {

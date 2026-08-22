@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
 import { content } from '../i18n/content';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -18,17 +17,10 @@ if (fs.existsSync(manifestPath)) {
   } catch { images = []; }
 }
 
-// Dynamic import for gallery images — Astro needs static imports for optimisation,
-// so we glob them and map by filename
-const allGalleryImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/gallery/*.webp', { eager: true });
-
-// Map images from manifest to their optimised Astro sources
 const resolvedImages = images.map((img) => {
   const filename = path.basename(img.src);
-  const key = `/src/assets/gallery/${filename}`;
-  const astroImg = allGalleryImages[key]?.default;
   return {
-    src: astroImg,
+    src: `/assets/gallery/${filename}`,
     alt: img.alt,
   };
 }).filter(img => img.src);
@@ -62,19 +54,22 @@ const gallerySchema = {
     <section class="px-4 sm:px-8 mt-10 reveal">
       <div class="max-w-6xl mx-auto">
         {resolvedImages.length > 0 ? (
-          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4" id="gallery-grid">
             {resolvedImages.map((img, i) => (
               <button
                 type="button"
-                class="group relative block w-full overflow-hidden rounded-xl cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                class={`group relative block w-full overflow-hidden rounded-xl cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${i >= 20 ? 'hidden' : ''}`}
                 data-gallery-btn={i}
+                data-gallery-item={i}
                 aria-label={`Forstør bilde: ${img.alt}`}
               >
-                <Image
+                <img
                   src={img.src}
                   alt={img.alt}
                   class="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-[1.04]"
                   loading="lazy"
+                  width="400"
+                  height="300"
                 />
                 <span class="absolute inset-0 bg-black/0 group-hover:bg-black/20 group-focus-visible:bg-black/20 transition-colors" aria-hidden="true"></span>
               </button>
@@ -83,6 +78,7 @@ const gallerySchema = {
         ) : (
           <p class="text-on-surface-variant text-center py-16">Ingen bilder tilgjengelig.</p>
         )}
+        <div id="gallery-sentinel" class="h-1"></div>
       </div>
     </section>
 
@@ -153,6 +149,24 @@ const gallerySchema = {
 
   <script is:inline>
     (() => {
+      // Infinite scroll
+      const BATCH = 20;
+      let shown = BATCH;
+      const sentinel = document.getElementById("gallery-sentinel");
+      const grid = document.getElementById("gallery-grid");
+      if (sentinel && grid) {
+        const observer = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting) {
+            const items = grid.querySelectorAll("[data-gallery-item]");
+            const end = Math.min(shown + BATCH, items.length);
+            for (let i = shown; i < end; i++) items[i].classList.remove("hidden");
+            shown = end;
+            if (shown >= items.length) observer.disconnect();
+          }
+        }, { rootMargin: "400px" });
+        observer.observe(sentinel);
+      }
+
       const lb = document.getElementById("gallery-lightbox");
       const lbImg = document.getElementById("lb-img");
       const lbCounter = document.getElementById("lb-counter");
