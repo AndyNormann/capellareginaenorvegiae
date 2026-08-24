@@ -32,6 +32,7 @@ const FOLDER_ID = "1rSvUU1kYcqLe49FQYupoMf0mlwHtKzyu";
 const DEST_DIR = path.resolve("public/assets/gallery");
 const MAX_WIDTH = 1920;
 const QUALITY = 72;
+const FORCE = process.argv.includes("--force");
 
 // ── Auth ──────────────────────────────────────────────────────────────
 if (!process.env.GOOGLE_CREDENTIAL_BASE64) {
@@ -76,8 +77,8 @@ async function downloadAndOptimise(file) {
   const outName = `${safeName}.webp`;
   const outPath = path.join(DEST_DIR, outName);
 
-  // Skip if already exists (and not empty)
-  if (fs.existsSync(outPath) && fs.statSync(outPath).size > 0) {
+  // Skip if already exists (and not empty), unless --force
+  if (!FORCE && fs.existsSync(outPath) && fs.statSync(outPath).size > 0) {
     console.log(`  ⏭  ${file.name} (cached)`);
     return outName;
   }
@@ -96,8 +97,15 @@ async function downloadAndOptimise(file) {
   const buffer = Buffer.concat(chunks);
 
   // Optimise with Sharp
+  // .rotate() without args auto-rotates based on EXIF orientation
   try {
+    const metadata = await sharp(buffer).metadata();
+    const orient = metadata.orientation;
+    if (orient && orient !== 1) {
+      console.log(`  🔄  ${file.name}: EXIF orientation=${orient}, rotating`);
+    }
     await sharp(buffer)
+      .rotate() // Auto-rotate based on EXIF orientation, then strip the tag
       .resize({ width: MAX_WIDTH, withoutEnlargement: true })
       .webp({ quality: QUALITY })
       .toFile(outPath);
@@ -111,7 +119,7 @@ async function downloadAndOptimise(file) {
 
 // ── Main ──────────────────────────────────────────────────────────────
 async function main() {
-  console.log("🖼  Syncing gallery from Google Drive…");
+  console.log(`\n🖼  Syncing gallery from Google Drive…${FORCE ? " (forced re-download)" : ""}`);
 
   if (!process.env.GOOGLE_CREDENTIAL_BASE64) {
     console.error("❌  GOOGLE_CREDENTIAL_BASE64 is not set. Skipping gallery sync.");
